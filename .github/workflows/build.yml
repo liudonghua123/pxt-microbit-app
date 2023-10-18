@@ -7,9 +7,9 @@ on:
         required: true
         default: 'main'
       tag_version:
-        description: 'The version of pxt-microbit upstream, eg: use 3.0.27 instead of v3.0.27'
+        description: 'The version of pxt-microbit upstream, eg: use 6.0.19 instead of v6.0.19'
         required: true
-        default: '1.13.43'
+        default: '6.0.19'
 
 # https://docs.github.com/zh/actions/using-jobs/assigning-permissions-to-jobs
 permissions: write-all
@@ -68,11 +68,10 @@ jobs:
         working-directory: pxt-microbit
       - name: 'Patching...'
         run: |
-          # to fix https://github.com/microsoft/pxt-microbit/issues/5751
-          # see allFiles in pxt-microbit/node_modules/pxt-core/built/nodeutil.js 
-          # fs.readdirSync(top) try to readdir of `public` in the root of pxt-microbit
-          # The fix could just make an empty `public` dir or config allowMissing: true
-          mkdir public 
+          # try to fix staticpkg failure when process homepage-content.md
+          # TypeError: Cannot read properties of undefined (reading 'replace')
+          # The fix is change the fallback returns of resolveMd to targetMd
+          sed -i -z -E 's#(function resolveMd.*?)return undefined;#\1return targetMd;#g' node_modules/pxt-core/built/nodeutil.js
         working-directory: pxt-microbit
       - name: 'Building pxt-microbit'
         run: |
