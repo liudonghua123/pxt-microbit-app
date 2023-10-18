@@ -1,0 +1,3 @@
+[submodule "pxt-microbit"]
+	path = pxt-microbit
+	url = https://github.com/microsoft/pxt-microbit.git
