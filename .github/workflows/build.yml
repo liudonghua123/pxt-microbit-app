@@ -246,13 +246,13 @@ jobs:
           export CXX_aarch64_unknown_linux_gnu=aarch64-linux-gnu-g++
           export PKG_CONFIG_PATH=/usr/lib/aarch64-linux-gnu/pkgconfig
           export PKG_CONFIG_ALLOW_CROSS=1
-          yarn tauri build -t aarch64-unknown-linux-gnu -v -c "{\"package\":{\"version\":\"${{ github.event.inputs.tag_version }}\"}}" || echo something not works! 
+          yarn tauri build -t aarch64-unknown-linux-gnu -v -c "{\"package\":{\"version\":\"${{ github.event.inputs.tag_version }}\"}}" -b deb || echo something not works! 
           export CARGO_TARGET_ARMV7_UNKNOWN_LINUX_GNUEABIHF_LINKER=arm-linux-gnueabihf-gcc
           export CC_armv7_unknown_linux_gnueabihf=arm-linux-gnueabihf-gcc
           export CXX_armv7_unknown_linux_gnueabihf=arm-linux-gnueabihf-g++
           export PKG_CONFIG_PATH=/usr/lib/arm-linux-gnueabihf/pkgconfig
           export PKG_CONFIG_ALLOW_CROSS=1
-          yarn tauri build -t armv7-unknown-linux-gnueabihf -v -c "{\"package\":{\"version\":\"${{ github.event.inputs.tag_version }}\"}}" || echo something not works! 
+          yarn tauri build -t armv7-unknown-linux-gnueabihf -v -c "{\"package\":{\"version\":\"${{ github.event.inputs.tag_version }}\"}}" -b deb || echo something not works! 
           echo "build native binarys finished"
       - name: Build Native binarys on macos
         if: matrix.os == 'macos-latest'
@@ -298,11 +298,11 @@ jobs:
           
           # for arm64 binary
           mv src-tauri/target/aarch64-unknown-linux-gnu/release/${{env.APP_NAME}}${{matrix.executable_extension}} ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_arm64${{matrix.executable_extension}} || true
-          mv src-tauri/target/aarch64-unknown-linux-gnu/release/bundle/appimage/${{env.APP_NAME}}_${{ github.event.inputs.tag_version }}_arm64.AppImage ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_arm64.AppImage || true
+          # mv src-tauri/target/aarch64-unknown-linux-gnu/release/bundle/appimage/${{env.APP_NAME}}_${{ github.event.inputs.tag_version }}_arm64.AppImage ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_arm64.AppImage || true
           mv src-tauri/target/aarch64-unknown-linux-gnu/release/bundle/deb/${{env.APP_NAME}}_${{ github.event.inputs.tag_version }}_arm64.deb ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_arm64.deb || true
           # for armhf binary
           mv src-tauri/target/armv7-unknown-linux-gnueabihf/release/${{env.APP_NAME}}${{matrix.executable_extension}} ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_armhf${{matrix.executable_extension}} || true
-          mv src-tauri/target/armv7-unknown-linux-gnueabihf/release/bundle/appimage/${{env.APP_NAME}}_${{ github.event.inputs.tag_version }}_armhf.AppImage ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_armhf.AppImage || true
+          # mv src-tauri/target/armv7-unknown-linux-gnueabihf/release/bundle/appimage/${{env.APP_NAME}}_${{ github.event.inputs.tag_version }}_armhf.AppImage ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_armhf.AppImage || true
           mv src-tauri/target/armv7-unknown-linux-gnueabihf/release/bundle/deb/${{env.APP_NAME}}_${{ github.event.inputs.tag_version }}_armhf.deb ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_armhf.deb || true
       - name: Prepare release files on ${{matrix.label}}
         continue-on-error: true
