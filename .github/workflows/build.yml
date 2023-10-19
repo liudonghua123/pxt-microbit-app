@@ -275,6 +275,7 @@ jobs:
           yarn tauri info
           yarn tauri build -t x86_64-apple-darwin -c "{\"package\":{\"version\":\"${{ github.event.inputs.tag_version }}\"}}"
           yarn tauri build -t aarch64-apple-darwin -c "{\"package\":{\"version\":\"${{ github.event.inputs.tag_version }}\"}}"
+          yarn tauri build -t universal-apple-darwin -c "{\"package\":{\"version\":\"${{ github.event.inputs.tag_version }}\"}}" || echo something not works! 
           echo "build native binarys finished"
       - name: Build Native binarys on windows
         if: matrix.os == 'windows-latest'
@@ -322,9 +323,14 @@ jobs:
           mv src-tauri/target/x86_64-apple-darwin/release/${{env.APP_NAME}}${{matrix.executable_extension}} ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_x64${{matrix.executable_extension}}
           mv src-tauri/target/x86_64-apple-darwin/release/bundle/dmg/${{env.APP_NAME}}_${{ github.event.inputs.tag_version }}_x64.dmg ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_x64.dmg
           7z a -tzip ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_x64.app.zip ./src-tauri/target/x86_64-apple-darwin/release/bundle/macos/${{env.APP_NAME}}.app
+          
           mv src-tauri/target/aarch64-apple-darwin/release/${{env.APP_NAME}}${{matrix.executable_extension}} ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_aarch64${{matrix.executable_extension}}
           mv src-tauri/target/aarch64-apple-darwin/release/bundle/dmg/${{env.APP_NAME}}_${{ github.event.inputs.tag_version }}_aarch64.dmg ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_aarch64.dmg
           7z a -tzip ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_aarch64.app.zip ./src-tauri/target/aarch64-apple-darwin/release/bundle/macos/${{env.APP_NAME}}.app
+          
+          mv src-tauri/target/universal-apple-darwin/release/${{env.APP_NAME}}${{matrix.executable_extension}} ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_universal${{matrix.executable_extension}}
+          mv src-tauri/target/universal-apple-darwin/release/bundle/dmg/${{env.APP_NAME}}_${{ github.event.inputs.tag_version }}_universal.dmg ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_universal.dmg
+          7z a -tzip ${{env.APP_NAME}}-${{matrix.label}}-${{ github.event.inputs.tag_version }}_universal.app.zip ./src-tauri/target/universal-apple-darwin/release/bundle/macos/${{env.APP_NAME}}.app
       - name: Prepare release files on ${{matrix.label}}
         continue-on-error: true
         if: matrix.os == 'windows-latest'
