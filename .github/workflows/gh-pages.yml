@@ -1,0 +1,72 @@
+name: gh-pages
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'The branch to build'
+        required: true
+        default: 'main'
+      tag_version:
+        description: 'The version of pxt-microbit upstream, eg: use 6.0.19 instead of v6.0.19'
+        required: true
+        default: '6.0.19'
+
+# https://docs.github.com/zh/actions/using-jobs/assigning-permissions-to-jobs
+permissions: write-all
+
+env:
+  APP_NAME: pxt-microbit-app
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build_and_deploy:
+    name: Build depoly files for ${{ github.event.inputs.tag_version }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: 'Checkout and push specified tag version'
+        run: |
+          git status
+          git remote -v
+          git fetch --all --tags
+          git checkout tags/v${{ github.event.inputs.tag_version }}
+          git status
+        working-directory: pxt-microbit
+      - name: Use Node.js 18.x
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+          cache: 'npm'
+      - name: 'Initialization'
+        run: |
+          sudo apt-get install xvfb
+          sudo npm install -g pxt
+          npm install
+        working-directory: pxt-microbit
+      - name: 'Patching...'
+        run: |
+          # try to fix staticpkg failure when process homepage-content.md
+          # TypeError: Cannot read properties of undefined (reading 'replace')
+          # The fix is change the fallback returns of resolveMd to targetMd
+          sed -i -z -E 's#(function resolveMd.*?)return undefined;#\1return targetMd;#g' node_modules/pxt-core/built/nodeutil.js
+        working-directory: pxt-microbit
+      - name: 'Building pxt-microbit'
+        run: |
+          node node_modules/pxt-core/built/pxt.js staticpkg --route ${{env.APP_NAME}}
+        working-directory: pxt-microbit
+      # need to manually commit .nojekyll file
+      # - name: Deploy 🚀
+      #   uses: JamesIves/github-pages-deploy-action@v4
+      #   with:
+      #       folder: pxt-microbit/built/packaged/${{env.APP_NAME}}
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./pxt-microbit/built/packaged/${{env.APP_NAME}}
