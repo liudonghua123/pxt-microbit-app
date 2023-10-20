@@ -1,0 +1,573 @@
+
+<!-- include domains-template.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+    <meta charset="UTF-8" />
+    <meta
+        name="Description"
+        content="This page is used to test the reachable web sites (domains) required for MakeCode functionality"
+    />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="translucent-black"
+    />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+        name="application-name"
+        content="Reachable MakeCode domains"
+    />
+
+    <meta name="msapplication-config" content="none" />
+    <meta name="theme-color" content="#3DC1AA" />
+
+    <title>Reachable MakeCode domains</title>
+
+    <link rel="stylesheet" href="/doccdn/semantic.css" type="text/css">
+    <style>
+        /* styles are inlined here as we don't want depednency on another file for checking the domains */
+        /* Global --------------------------------------------------------------------------- */
+        html {
+            font-size: 10px !important;
+        }
+
+        body,
+        a,
+        button,
+        p,
+        li {
+            font-size: 1.8rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .lg-p {
+            font-size: 2.2rem;
+        }
+
+        li {
+            padding: 1rem 0;
+        }
+
+        li li {
+            padding: 0;
+            margin: 0.5rem 0;
+        }
+
+        /* Dynamic scaling */
+        @media (min-width: 4000px) {
+            html {
+                font-size: 16px !important;
+            }
+        }
+
+        @media (min-width: 3000px) {
+            html {
+                font-size: 14px !important;
+            }
+        }
+
+        @media (min-width: 2000px) {
+            html {
+                font-size: 12px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            html {
+                font-size: 8px !important;
+            }
+        }
+
+        ol {
+            font-weight: bold;
+        }
+
+        li span {
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: 7.2rem;
+            text-transform: uppercase;
+        }
+        h2 {
+            font-size: 5.4rem;
+            text-transform: uppercase;
+        }
+        h3 {
+            font-size: 3.6rem;
+            text-transform: uppercase;
+        }
+        h4 {
+            font-size: 2.4rem;
+        }
+        h5 {
+            font-size: 2rem;
+        }
+
+        .background-white {
+            color: black;
+            background-color: white;
+        }
+        .background-black {
+            color: white;
+            background-color: black;
+        }
+        .background-marina {
+            color: black;
+            background-color: #3dc1aa;
+        }
+        .background-sunflower {
+            color: black;
+            background-color: #eeca49;
+        }
+        .background-papaya {
+            color: white;
+            background-color: #de594b;
+        }
+        .background-eggplant {
+            color: white;
+            background-color: #453052;
+        }
+
+        .background-eggplant a {
+            color: #3dc1aa;
+        }
+
+        .background-eggplant a:hover {
+            color: #2ead98;
+        }
+
+        .background-marina a,
+        .background-sunflower a {
+            color: #453052;
+        }
+
+        .background-marina a:hover,
+        .background-sunflower a:hover {
+            color: #33203f;
+        }
+
+        .background-papaya a {
+            color: #fadd73;
+        }
+
+        .background-papaya a:hover {
+            color: #eeca49;
+        }
+
+        .marina {
+            color: #3dc1aa;
+        }
+        .sunflower {
+            color: #eeca49;
+        }
+        .papaya {
+            color: #de594b;
+        }
+        .eggplant {
+            color: #453052;
+        }
+
+
+        #header-bar,
+        #header-bar > div {
+            display: flex;
+            align-items: center;
+            flex: 1;
+        }
+
+        .header-bar-left {
+            justify-content: flex-start;
+        }
+        .header-bar-right {
+            justify-content: flex-end;
+        }
+
+        .header-org-logo {
+            display: flex;
+        }
+        .header-org-logo-sm {
+            display: none;
+        }
+
+        .header-org-logo img,
+        .header-org-logo-sm img {
+            margin: 0 15px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .header-title {
+            white-space: nowrap;
+        }
+
+        .header-title:before {
+            content: '';
+            position: relative;
+            height: 18px;
+            border-left: 2px solid white;
+        }
+
+        .header-title span {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            margin-left: 15px;
+            margin-bottom: 1px;
+        }
+
+        a.header-icon {
+            height: 100%;
+            padding: 15px;
+            color: white;
+            text-decoration: none;
+        }
+
+        a.header-icon:hover,
+        a.header-icon:focus {
+            color: white;
+            opacity: 0.8;
+        }
+
+        a.header-icon i.icon {
+            height: unset;
+        }
+
+        nav a {
+            cursor: pointer;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana;
+            font-style: unset;
+            text-transform: none !important;
+        }
+
+        nav .icon {
+            font-size: 26px;
+            line-height: 26px;
+        }
+
+        nav .header-bar-left a,
+        nav .header-bar-left a:hover {
+            display: flex;
+            color: white;
+            text-decoration: none;
+        }
+
+        nav .header-bar-right .btn:active svg path {
+            fill: white;
+        }
+
+        nav .header-bar-right .btn {
+            min-width: unset;
+            padding: 10px;
+            width: 160px;
+            margin: 0 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        nav .header-bar-right .btn span {
+            margin-right: 10px;
+            line-height: 18px;
+        }
+
+        nav .header-bar-right .btn svg path {
+            fill: black;
+        }
+
+        table{
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-top: 40px;
+            margin-left: 20%;
+            margin-right: 20%;
+
+        }
+        th, td{
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+    </style>
+
+</head>
+
+<body id='root' class='root'>
+    <nav
+    id="header-bar"
+    class="background-eggplant"
+    style="height: 60px"
+    >
+        <div class="header-bar-left">
+            <a
+                class="header-icon"
+                role="menuitem"
+                aria-label="Return home"
+                tabindex="0"
+                href="/pxt-microbit-app/docs/faq.html">
+                <i
+                    class="icon arrow left"
+                    aria-hidden="true"
+                    role="presentation"
+                ></i>
+            </a>
+        </div>
+        <div class="header-bar-right">
+            <a
+                class="header-icon"
+                role="menuitem"
+                aria-label="Return home"
+                tabindex="0"
+                href="https://makecode.microbit.org/">
+                <i
+                    class="icon home"
+                    aria-hidden="true"
+                    role="presentation"
+                ></i>
+            </a>
+        </div>
+    </nav>
+    
+    <script>
+        let table = document.createElement('table');
+        let thead = document.createElement('thead');
+        let tbody = document.createElement('tbody');
+
+        async function checkURL(url) {
+            fetch(url, {mode: 'no-cors'}).then( r=>{
+                console.log(`${url} reachable`)
+                return true;
+            })
+            .catch(e=>{
+                console.log(`Error: ${url} not reachable ${e}`)
+                return false;
+            });
+        }
+
+        function addRow(url) {
+            // Creating and adding data to second row of the table
+            let row = document.createElement('tr');
+            let row_data_1 = document.createElement('td');
+            row_data_1.innerHTML = url;
+            let row_data_2 = document.createElement('td');
+
+            row_data_2.innerHTML = "Loading..."
+            fetch(url, {mode: 'no-cors'}).then( r=>{
+                console.log(`${url} reachable`)
+                row_data_2.innerHTML = "Success"
+            })
+            .catch(e=>{
+                row_data_2.innerHTML = "Failure"
+            });
+
+            row.appendChild(row_data_1);
+            row.appendChild(row_data_2);
+            tbody.appendChild(row);
+        }
+
+        function createTable() {
+
+            table.appendChild(thead);
+            table.appendChild(tbody);
+
+            // Adding the entire table to the body tag
+            document.getElementById('root').appendChild(table);
+
+            // Creating and adding data to first row of the table
+            let row_1 = document.createElement('tr');
+            let heading_1 = document.createElement('th');
+            heading_1.innerHTML = "Domain";
+            let heading_2 = document.createElement('th');
+            heading_2.innerHTML = "Reachable?";
+
+            row_1.appendChild(heading_1);
+            row_1.appendChild(heading_2);
+            thead.appendChild(row_1);
+        }
+
+        createTable();
+
+        addRow("https://makecode.microbit.org/")
+        addRow("https://makecode.com");
+        addRow("https://trg-microbit.userpxt.io");
+        addRow("https://pxt.azureedge.net");
+        addRow("https://api.github.com");
+        addRow("https://immersivereaderprod.cognitiveservices.azure.com");
+        addRow("https://github.com");
+        addRow("https://raw.githubusercontent.com/")
+        addRow("https://microsoft.github.io/");
+
+    </script>
+
+    
+<!-- include footer.html -->
+<footer class="ui vertical footer segment hideprint docs inverted" aria-hidden="false">
+    <div class="ui center aligned container">
+        <div class="ui horizontal link list">
+            <a
+                class="item"
+                href="https://twitter.com/intent/follow?screen_name=MsMakeCode"
+                title="Follow us on Twitter"
+                target="_blank"
+                rel="noopener">
+                <i class="huge icon twitter"></i>
+            </a>
+            <a class="item" href="https://www.youtube.com/channel/UCye7YlvFUUQ1dSy0WZZ1T_Q" title="Subscribe to our YouTube channel"
+                target="_blank" rel="noopened">
+                <i class="huge icon youtube"></i>
+            </a>
+            <a class="item" href="mailto:makecode@microsoft.com" title="Send us an Email"
+                target="_blank" rel="noopened">
+                <i class="huge icon mail"></i>
+            </a>
+        </div>
+        <div class="ui section divider"></div>
+        <div class="ui container horizontal small divided link list">
+            <a id="langpicker" tabindex="0" class="ui item" rel="noopener">
+                <i class="icon xicon globe" aria-hidden="true" role="presentation"></i>Language
+            </a>
+            <a class="item" href="https://makecode.com/privacy" target="_blank" rel="noopener">Privacy &amp; Cookies</a>
+            <a class="item" href="https://makecode.com/termsofuse" target="_blank" rel="noopener">Terms Of Use</a>
+            <a class="item" href="https://makecode.com/trademarks" target="_blank" rel="noopener">Trademarks</a>
+            <span class="item">© 2022 Microsoft</span>
+        </div>
+        <div class="ui container horizontal small link list poweredBy">
+            <span class="item">Powered by</span>
+            <a class="middle aligned" href="https://makecode.com/" title="Microsoft MakeCode"
+                target="_blank" rel="noopener">
+                <img width="100" src="/static/logo/Microsoft-logo_rgb_c-gray.png" alt="Microsoft">
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- end include footer.html -->
+
+    
+<!-- include tracking.html -->
+<script type="text/javascript" src="/doccdn/pxtweb.js"></script>
+<script type="text/javascript">
+    window.loadAppInsights = function (includeCookie) {
+        //Backend will patch / + doccdn + / with CDN url and the check that URL ends with the sha would pass
+        var isProduction = includeCookie && (/[0-9a-f]{40}\/ai\.2\.min\.js$/.test("/doccdn/ai.2.min.js"));
+        !function(T,l,y){var S=T.location,k="script",D="connectionString",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+            src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+            onInit: function (sdk) {
+                sdk.addTelemetryInitializer(function (envelope) {
+                    // App Insights automatically sends a page view event on setup, but we send our own later with additional properties.
+                    // This stops the automatic event from firing, so we don't end up with duplicate page view events.
+                    if (envelope.baseType == "PageviewData" && !envelope.baseData.properties) {
+                        return false;
+                    }
+
+                    if (envelope.baseType == "PageviewPerformanceData") {
+                        var pageName = envelope.baseData.name;
+                        envelope.baseData.name = window.location.origin;
+                        if (!envelope.baseData.properties) {
+                            envelope.baseData.properties = {};
+                        }
+                        envelope.baseData.properties.pageName = pageName;
+                        var scrubbedUrl = scrubUrl(envelope.baseData.uri);
+                        envelope.baseData.uri = scrubbedUrl;
+                        var toUrl = new URL(scrubbedUrl);
+                        envelope.baseData.properties.pathName = toUrl ? toUrl.pathname : "";
+                        if (envelope.ext && envelope.ext.trace) {
+                            envelope.ext.trace.name = toUrl ? toUrl.pathname : "";
+                        }
+                    }
+
+                    var telemetryItem = envelope.baseData;
+                    telemetryItem.properties = telemetryItem.properties || {};
+                    telemetryItem.properties["cookie"] = isProduction;
+                    if (typeof pxtConfig === "undefined" || !pxtConfig || !pxtConfig.targetId) {
+                        telemetryItem.properties["target"] = "microbit";
+                        return true;
+                    }
+                    telemetryItem.properties["target"] = pxtConfig.targetId;
+                    telemetryItem.properties["stage"] = (pxtConfig.relprefix || "/--").replace(/[^a-z]/ig, '')
+                    if (typeof Windows !== "undefined")
+                        telemetryItem.properties["WindowsApp"] = 1;
+                    var userAgent = navigator.userAgent.toLowerCase();
+                    var userAgentRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
+                    if (userAgentRegexResult) {
+                        telemetryItem.properties["Electron"] = 1;
+                        telemetryItem.properties["ElectronVersion"] = userAgentRegexResult[1];
+                    }
+                    if (typeof pxtElectron !== "undefined") {
+                        telemetryItem.properties["PxtElectron"] = 1;
+                        telemetryItem.properties["ElectronVersion"] = pxtElectron.versions.electronVersion;
+                        telemetryItem.properties["ChromiumVersion"] = pxtElectron.versions.chromiumVersion;
+                        telemetryItem.properties["NodeVersion"] = pxtElectron.versions.nodeVersion;
+                        telemetryItem.properties["PxtElectronVersion"] = pxtElectron.versions.pxtElectronVersion;
+                        telemetryItem.properties["PxtCoreVersion"] = pxtElectron.versions.pxtCoreVersion;
+                        telemetryItem.properties["PxtTargetVersion"] = pxtElectron.versions.pxtTargetVersion;
+                        telemetryItem.properties["PxtElectronIsProd"] = pxtElectron.versions.isProd;
+                    }
+                    return true;
+                });
+            },
+            cfg: {
+                instrumentationKey:"9801ed01-c40f-46ec-aa40-2a1742a9e71c",
+                disableAjaxTracking: true,
+                overridePageViewDuration: false,
+                disableExceptionTracking: true,
+                disableCookiesUsage: !isProduction,
+                isStorageUseDisabled: !isProduction,
+                url: "/doccdn/ai.2.min.js"
+            }
+        });
+        window.appInsights=appInsights;
+        var location = window.location.toString();
+        appInsights.trackPageView({
+            name: window.location.hostname,
+            uri: window.location.origin,
+            properties: {
+                url: scrubUrl(location),
+                urlReferrer: scrubUrl(document.referrer.toString())
+            }
+        });
+
+        // Scrub potential PII from the URL.
+        function scrubUrl(url) {
+            if (!url) return url;
+
+            var scriptIdRegex = /(?:S?\d{5}-\d{5}-\d{5}-\d{5})|(?:_[0-9a-zA-Z]{12})/g;
+            var scrubbedUrl = new URL(url.toLocaleLowerCase().replace(scriptIdRegex, "xxxxx-xxxxx-xxxxx-xxxxx"));
+
+            // Just as a precaution, strip any suspicious query parameters.
+            var blockedParamKeywords = ["username", "password", "token", "pwd"];
+            var searchParams = Array.from(scrubbedUrl.searchParams.keys());
+            for (var param of searchParams) {
+                if (blockedParamKeywords.some(k => param.indexOf(k) != -1)) {
+                    scrubbedUrl.searchParams.delete(param);
+                }
+            }
+
+            return scrubbedUrl.toString();
+        }
+
+        return isProduction;
+    }
+    pxt.initAnalyticsAsync();
+</script>
+
+<!-- end include tracking.html -->
+
+</body>
+
+</html>
+
+
+<!-- end include domains-template.html -->

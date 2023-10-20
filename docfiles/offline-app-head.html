@@ -1,0 +1,471 @@
+    <meta charset="UTF-8">
+    <title>@targetname@ Offline App</title>
+    <meta name="Description" content="A @targetname@ offline app" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" data-rtl="/blb/rtlsemantic.css" href="/doccdn/semantic.css" />
+    <link rel="stylesheet" href="/docfiles/target.css" />
+
+    <script src="/doccdn/jquery.js" type="text/javascript"></script>
+    <style>
+        .ui.inverted.content {
+            background: none;
+        }
+
+        #loading-icon {
+            height: 65vh;
+        }
+
+        body#docs > .container {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #offline-app-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #docs .segments.terms-container {
+            margin: auto;
+        }
+
+        .terms-container .segment {
+            background-color: rgb(250, 250, 250);
+        }
+
+        #docs .terms-container a {
+            color: blue;
+        }
+
+        #legal-segment {
+            background:white;
+            min-height: 18em;
+            max-height: 40em;
+            height: 50vh;
+            overflow-y: scroll;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            padding: 1em 1em;
+            margin: -1em 0 1em 0;
+        }
+
+        #docs .topbar .welcomeheader {
+            font-weight: 300;
+            font-size: 1.5em;
+            margin: 0;
+            color: white;
+        }
+
+        .flex-wrapper {
+            flex: 1;
+            display: flex;
+        }
+
+        .left.flex-wrapper {
+            justify-content: flex-start;
+        }
+        .right.flex-wrapper {
+            justify-content: flex-end;;
+        }
+
+        .flex-wrapper img {
+            max-height: 2em;
+            min-width: 2em;
+            width: auto;
+        }
+
+        #docs .footer {
+            margin-top: 0;
+        }
+
+        span.touppercase {
+            text-transform: uppercase;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .flex-wrapper img {
+                display: none;
+            }
+
+            .segments {
+                max-width: 95%;
+            }
+        }
+    </style>
+
+    <!-- Auto-generated styles for the license terms -->
+    <style type="text/css">
+        .terms ol {
+            margin: 0;
+            padding: 0;
+        }
+
+        .terms table td,
+        .terms table th {
+            padding: 0;
+        }
+
+        .terms .c0 {
+            padding-top: 6pt;
+            border-bottom-color: #000000;
+            border-bottom-width: 0.5pt;
+            padding-bottom: 1pt;
+            line-height: 1.0;
+            border-bottom-style: solid;
+            text-align: left;
+        }
+
+        .terms .c16 {
+            padding-top: 1pt;
+            border-top-width: 0.5pt;
+            border-top-color: #000000;
+            padding-bottom: 6pt;
+            line-height: 1.0;
+            border-top-style: solid;
+            text-align: left;
+        }
+
+        .terms .c8 {
+            margin-left: 36pt;
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+            line-height: 1.0;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c26 {
+            padding-top: 0pt;
+            padding-bottom: 8pt;
+            line-height: 1.0791666666666666;
+            orphans: 2;
+            widows: 2;
+            text-align: center;
+        }
+
+        .terms .c24 {
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+            line-height: 1.0;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c15 {
+            padding-top: 0pt;
+            padding-bottom: 12pt;
+            line-height: 1.0;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c23 {
+            padding-top: 0pt;
+            padding-bottom: 8pt;
+            line-height: 1.0791666666666666;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c1 {
+            padding-top: 6pt;
+            padding-bottom: 6pt;
+            line-height: 1.0;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c21 {
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+            line-height: 1.15;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c3 {
+            color: #000000;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-family: "Arial";
+            font-style: normal;
+        }
+
+        .terms .c25 {
+            color: #000000;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-family: "Arial";
+            font-style: italic;
+        }
+
+        .terms .c12 {
+            padding-top: 6pt;
+            padding-bottom: 6pt;
+            line-height: 1.0;
+            text-align: left;
+        }
+
+        .terms .c13 {
+            text-decoration-skip-ink: none;
+            -webkit-text-decoration-skip: none;
+            color: #0000ff;
+            text-decoration: underline;
+        }
+
+        .terms .c17 {
+            background-color: #ffffff;
+            max-width: 468pt;
+            padding: 2em;
+        }
+
+        .terms .c18 {
+            margin-left: 36pt;
+            text-indent: -18pt;
+        }
+
+        .terms .c9 {
+            margin-left: 22.4pt;
+            text-indent: -17.9pt;
+        }
+
+        .terms .c14 {
+            font-weight: 400;
+            font-size: 11pt;
+        }
+
+        .terms .c2 {
+            font-size: 10pt;
+            font-weight: 700;
+        }
+
+        .terms .c10 {
+            margin-left: 18pt;
+            text-indent: -18pt;
+        }
+
+        .terms .c20 {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        .terms .c4 {
+            margin-left: 40.5pt;
+            text-indent: -18.1pt;
+        }
+
+        .terms .c5 {
+            font-weight: 400;
+            font-size: 10pt;
+        }
+
+        .terms .c7 {
+            margin-left: 35.9pt;
+        }
+
+        .terms .c22 {
+            margin-left: 22.5pt;
+        }
+
+        .terms .c11 {
+            height: 11pt;
+        }
+
+        .terms .c6 {
+            font-size: 10pt;
+        }
+
+        .terms .title {
+            padding-top: 0pt;
+            color: #000000;
+            font-size: 26pt;
+            padding-bottom: 3pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .subtitle {
+            padding-top: 0pt;
+            color: #666666;
+            font-size: 15pt;
+            padding-bottom: 16pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms li {
+            color: #000000;
+            font-size: 11pt;
+            font-family: "Arial";
+        }
+
+        .terms p {
+            margin: 0;
+            color: #000000;
+            font-size: 11pt;
+            font-family: "Arial";
+        }
+
+        .terms h1 {
+            padding-top: 20pt;
+            color: #000000;
+            font-size: 20pt;
+            padding-bottom: 6pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms h2 {
+            padding-top: 18pt;
+            color: #000000;
+            font-size: 16pt;
+            padding-bottom: 6pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms h3 {
+            padding-top: 16pt;
+            color: #434343;
+            font-size: 14pt;
+            padding-bottom: 4pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms h4 {
+            padding-top: 14pt;
+            color: #666666;
+            font-size: 12pt;
+            padding-bottom: 4pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms h5 {
+            padding-top: 12pt;
+            color: #666666;
+            font-size: 11pt;
+            padding-bottom: 4pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms h6 {
+            padding-top: 12pt;
+            color: #666666;
+            font-size: 11pt;
+            padding-bottom: 4pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            font-style: italic;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+    </style>
+
+    <style>
+        @targetstyle@
+    </style>
+
+    <!-- @include tickevent.html -->
+
+    <script>
+
+        function agreeCheckboxChanged() {
+            $("#agree-checkbox").attr("disabled", "true");
+            showDownloads();
+        }
+
+        function hideLoader() {
+            $("#loading-icon").remove();
+        }
+
+        function showAgree() {
+            $("#agree-segment").removeClass("hidden");
+            $("#read-segment").removeClass("hidden");
+            $("#legal-segment").removeClass("hidden");
+        }
+
+        function showNoDownloads() {
+            $("#no-download-segment").removeClass("hidden");
+            $("#read-segment").addClass("hidden");
+            $("#legal-segment").addClass("hidden");
+        }
+
+        function showDownloads() {
+            $("#download-segment").removeClass("hidden");
+        }
+
+        function updateDownloadLinks(electronVersion) {
+            $("#download-win64").attr("href", "https://makecode.com/api/release/@targetid@/" + electronVersion + "/win64");
+            $("#download-mac64").attr("href", "https://makecode.com/api/release/@targetid@/" + electronVersion + "/mac64");
+        }
+        function downloadWin64() {
+            window.pxtTickEvent("offlineapp.download", { "target": "@targetid@", "platform": "win64" });
+        }
+        function downloadMac64() {
+            window.pxtTickEvent("offlineapp.download", { "target": "@targetid@", "platform": "mac64" });
+        }
+        $(function () {
+            $.getJSON("https://makecode.com/api/config/@targetid@/targetconfig")
+                .then(function (data) {
+                    hideLoader();
+                    if (data && data.electronManifest && data.electronManifest.latest) {
+                        updateDownloadLinks(data.electronManifest.latest);
+                        showAgree();
+                    } else {
+                        showNoDownloads();
+                    }
+                })
+                .catch(function () {
+                    hideLoader();
+                    showNoDownloads();
+                })
+        });
+
+        window.addEventListener('load', function () {
+            $("#langpicker").remove();
+        });
+    </script>

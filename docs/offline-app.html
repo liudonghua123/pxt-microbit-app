@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head>
+    
+<!-- include tickevent.html -->
+<script type="text/javascript">
+    if (!window.pxtTickEvent) {
+        let queuedTicks;
+        window.pxtTickEvent = function(id, data) {
+            if (window.appInsights && window.appInsights.trackEvent) {
+                sendTick(id, data);
+            } else {
+                if (!queuedTicks) {
+                    queuedTicks = [];
+                    var interval = window.setInterval(function() {
+                        if (window.appInsights && window.appInsights.trackEvent) {
+                            window.clearInterval(interval);
+                            for (var i = 0; i < queuedTicks.length; i++) {
+                                queuedTicks[i]();
+                            }
+                            queuedTicks = undefined;
+                        }
+                    }, 1000);
+                }
+
+                if (queuedTicks.length >= 100) {
+                    queuedTicks.shift();
+                }
+
+                queuedTicks.push(function () {
+                    sendTick(id, data);
+                });
+            }
+
+            function sendTick(id, data) {
+                const props = {};
+                const measures = {};
+                if (data) {
+                    Object.keys(data).forEach(k => {
+                        if (typeof data[k] == "string") props[k] = data[k];
+                        else if (typeof data[k] == "number") measures[k] = data[k];
+                        else props[k] = JSON.stringify(data[k] || '');
+                    });
+                } else {
+                    data = {};
+                }
+                window.appInsights.trackEvent({name: id, properties: data, measurements: measures});
+            }
+        }
+    }
+</script>
+<!-- end include tickevent.html -->
+
+    
+<!-- include offline-app-head.html -->
+    <meta charset="UTF-8">
+    <title>makecode.microbit.org Offline App</title>
+    <meta name="Description" content="A makecode.microbit.org offline app" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" data-rtl="/blb/rtlsemantic.css" href="/doccdn/semantic.css" />
+    <link rel="stylesheet" href="/docfiles/target.css" />
+
+    <script src="/doccdn/jquery.js" type="text/javascript"></script>
+    <style>
+        .ui.inverted.content {
+            background: none;
+        }
+
+        #loading-icon {
+            height: 65vh;
+        }
+
+        body#docs > .container {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        #offline-app-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #docs .segments.terms-container {
+            margin: auto;
+        }
+
+        .terms-container .segment {
+            background-color: rgb(250, 250, 250);
+        }
+
+        #docs .terms-container a {
+            color: blue;
+        }
+
+        #legal-segment {
+            background:white;
+            min-height: 18em;
+            max-height: 40em;
+            height: 50vh;
+            overflow-y: scroll;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            padding: 1em 1em;
+            margin: -1em 0 1em 0;
+        }
+
+        #docs .topbar .welcomeheader {
+            font-weight: 300;
+            font-size: 1.5em;
+            margin: 0;
+            color: white;
+        }
+
+        .flex-wrapper {
+            flex: 1;
+            display: flex;
+        }
+
+        .left.flex-wrapper {
+            justify-content: flex-start;
+        }
+        .right.flex-wrapper {
+            justify-content: flex-end;;
+        }
+
+        .flex-wrapper img {
+            max-height: 2em;
+            min-width: 2em;
+            width: auto;
+        }
+
+        #docs .footer {
+            margin-top: 0;
+        }
+
+        span.touppercase {
+            text-transform: uppercase;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .flex-wrapper img {
+                display: none;
+            }
+
+            .segments {
+                max-width: 95%;
+            }
+        }
+    </style>
+
+    <!-- Auto-generated styles for the license terms -->
+    <style type="text/css">
+        .terms ol {
+            margin: 0;
+            padding: 0;
+        }
+
+        .terms table td,
+        .terms table th {
+            padding: 0;
+        }
+
+        .terms .c0 {
+            padding-top: 6pt;
+            border-bottom-color: #000000;
+            border-bottom-width: 0.5pt;
+            padding-bottom: 1pt;
+            line-height: 1.0;
+            border-bottom-style: solid;
+            text-align: left;
+        }
+
+        .terms .c16 {
+            padding-top: 1pt;
+            border-top-width: 0.5pt;
+            border-top-color: #000000;
+            padding-bottom: 6pt;
+            line-height: 1.0;
+            border-top-style: solid;
+            text-align: left;
+        }
+
+        .terms .c8 {
+            margin-left: 36pt;
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+            line-height: 1.0;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c26 {
+            padding-top: 0pt;
+            padding-bottom: 8pt;
+            line-height: 1.0791666666666666;
+            orphans: 2;
+            widows: 2;
+            text-align: center;
+        }
+
+        .terms .c24 {
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+            line-height: 1.0;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c15 {
+            padding-top: 0pt;
+            padding-bottom: 12pt;
+            line-height: 1.0;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c23 {
+            padding-top: 0pt;
+            padding-bottom: 8pt;
+            line-height: 1.0791666666666666;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c1 {
+            padding-top: 6pt;
+            padding-bottom: 6pt;
+            line-height: 1.0;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c21 {
+            padding-top: 0pt;
+            padding-bottom: 0pt;
+            line-height: 1.15;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .c3 {
+            color: #000000;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-family: "Arial";
+            font-style: normal;
+        }
+
+        .terms .c25 {
+            color: #000000;
+            text-decoration: none;
+            vertical-align: baseline;
+            font-family: "Arial";
+            font-style: italic;
+        }
+
+        .terms .c12 {
+            padding-top: 6pt;
+            padding-bottom: 6pt;
+            line-height: 1.0;
+            text-align: left;
+        }
+
+        .terms .c13 {
+            text-decoration-skip-ink: none;
+            -webkit-text-decoration-skip: none;
+            color: #0000ff;
+            text-decoration: underline;
+        }
+
+        .terms .c17 {
+            background-color: #ffffff;
+            max-width: 468pt;
+            padding: 2em;
+        }
+
+        .terms .c18 {
+            margin-left: 36pt;
+            text-indent: -18pt;
+        }
+
+        .terms .c9 {
+            margin-left: 22.4pt;
+            text-indent: -17.9pt;
+        }
+
+        .terms .c14 {
+            font-weight: 400;
+            font-size: 11pt;
+        }
+
+        .terms .c2 {
+            font-size: 10pt;
+            font-weight: 700;
+        }
+
+        .terms .c10 {
+            margin-left: 18pt;
+            text-indent: -18pt;
+        }
+
+        .terms .c20 {
+            color: inherit;
+            text-decoration: inherit;
+        }
+
+        .terms .c4 {
+            margin-left: 40.5pt;
+            text-indent: -18.1pt;
+        }
+
+        .terms .c5 {
+            font-weight: 400;
+            font-size: 10pt;
+        }
+
+        .terms .c7 {
+            margin-left: 35.9pt;
+        }
+
+        .terms .c22 {
+            margin-left: 22.5pt;
+        }
+
+        .terms .c11 {
+            height: 11pt;
+        }
+
+        .terms .c6 {
+            font-size: 10pt;
+        }
+
+        .terms .title {
+            padding-top: 0pt;
+            color: #000000;
+            font-size: 26pt;
+            padding-bottom: 3pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms .subtitle {
+            padding-top: 0pt;
+            color: #666666;
+            font-size: 15pt;
+            padding-bottom: 16pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms li {
+            color: #000000;
+            font-size: 11pt;
+            font-family: "Arial";
+        }
+
+        .terms p {
+            margin: 0;
+            color: #000000;
+            font-size: 11pt;
+            font-family: "Arial";
+        }
+
+        .terms h1 {
+            padding-top: 20pt;
+            color: #000000;
+            font-size: 20pt;
+            padding-bottom: 6pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms h2 {
+            padding-top: 18pt;
+            color: #000000;
+            font-size: 16pt;
+            padding-bottom: 6pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms h3 {
+            padding-top: 16pt;
+            color: #434343;
+            font-size: 14pt;
+            padding-bottom: 4pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms h4 {
+            padding-top: 14pt;
+            color: #666666;
+            font-size: 12pt;
+            padding-bottom: 4pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms h5 {
+            padding-top: 12pt;
+            color: #666666;
+            font-size: 11pt;
+            padding-bottom: 4pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+
+        .terms h6 {
+            padding-top: 12pt;
+            color: #666666;
+            font-size: 11pt;
+            padding-bottom: 4pt;
+            font-family: "Arial";
+            line-height: 1.15;
+            page-break-after: avoid;
+            font-style: italic;
+            orphans: 2;
+            widows: 2;
+            text-align: left;
+        }
+    </style>
+
+    <style>
+        
+.ui.accent { color: #5C005C; }
+.ui.inverted.accent { background: #5C005C; }
+
+    </style>
+
+    
+<!-- include tickevent.html -->
+<script type="text/javascript">
+    if (!window.pxtTickEvent) {
+        let queuedTicks;
+        window.pxtTickEvent = function(id, data) {
+            if (window.appInsights && window.appInsights.trackEvent) {
+                sendTick(id, data);
+            } else {
+                if (!queuedTicks) {
+                    queuedTicks = [];
+                    var interval = window.setInterval(function() {
+                        if (window.appInsights && window.appInsights.trackEvent) {
+                            window.clearInterval(interval);
+                            for (var i = 0; i < queuedTicks.length; i++) {
+                                queuedTicks[i]();
+                            }
+                            queuedTicks = undefined;
+                        }
+                    }, 1000);
+                }
+
+                if (queuedTicks.length >= 100) {
+                    queuedTicks.shift();
+                }
+
+                queuedTicks.push(function () {
+                    sendTick(id, data);
+                });
+            }
+
+            function sendTick(id, data) {
+                const props = {};
+                const measures = {};
+                if (data) {
+                    Object.keys(data).forEach(k => {
+                        if (typeof data[k] == "string") props[k] = data[k];
+                        else if (typeof data[k] == "number") measures[k] = data[k];
+                        else props[k] = JSON.stringify(data[k] || '');
+                    });
+                } else {
+                    data = {};
+                }
+                window.appInsights.trackEvent({name: id, properties: data, measurements: measures});
+            }
+        }
+    }
+</script>
+<!-- end include tickevent.html -->
+
+
+    <script>
+
+        function agreeCheckboxChanged() {
+            $("#agree-checkbox").attr("disabled", "true");
+            showDownloads();
+        }
+
+        function hideLoader() {
+            $("#loading-icon").remove();
+        }
+
+        function showAgree() {
+            $("#agree-segment").removeClass("hidden");
+            $("#read-segment").removeClass("hidden");
+            $("#legal-segment").removeClass("hidden");
+        }
+
+        function showNoDownloads() {
+            $("#no-download-segment").removeClass("hidden");
+            $("#read-segment").addClass("hidden");
+            $("#legal-segment").addClass("hidden");
+        }
+
+        function showDownloads() {
+            $("#download-segment").removeClass("hidden");
+        }
+
+        function updateDownloadLinks(electronVersion) {
+            $("#download-win64").attr("href", "https://makecode.com/api/release/microbit/" + electronVersion + "/win64");
+            $("#download-mac64").attr("href", "https://makecode.com/api/release/microbit/" + electronVersion + "/mac64");
+        }
+        function downloadWin64() {
+            window.pxtTickEvent("offlineapp.download", { "target": "microbit", "platform": "win64" });
+        }
+        function downloadMac64() {
+            window.pxtTickEvent("offlineapp.download", { "target": "microbit", "platform": "mac64" });
+        }
+        $(function () {
+            $.getJSON("https://makecode.com/api/config/microbit/targetconfig")
+                .then(function (data) {
+                    hideLoader();
+                    if (data && data.electronManifest && data.electronManifest.latest) {
+                        updateDownloadLinks(data.electronManifest.latest);
+                        showAgree();
+                    } else {
+                        showNoDownloads();
+                    }
+                })
+                .catch(function () {
+                    hideLoader();
+                    showNoDownloads();
+                })
+        });
+
+        window.addEventListener('load', function () {
+            $("#langpicker").remove();
+        });
+    </script>
+
+<!-- end include offline-app-head.html -->
+
+</head>
+
+<body id="docs">
+    <div class="container">
+        
+<!-- include offline-app-body.html -->
+
+    <div id="offline-app-body" class="ui inverted vertical center aligned segment content">
+        <div class="topbar inverted">
+            <div class="left flex-wrapper">
+                <a href="/pxt-microbit-app/docs/.html" tabindex="0" title="Go to editor">
+                    <img class="headerlogo" src="docs/static/icons/apple-touch-icon.png" alt="Editor logo" />
+                </a>
+            </div>
+            <h1 class="welcomeheader">MakeCode Offline App</h1>
+            <div class="right flex-wrapper">
+                <a href="https://makecode.com/" tabindex="0" title="Go to organization">
+                    <img class="headerlogo" src="/static/Microsoft-logo_rgb_c-white.png" alt="Microsoft logo" />
+                </a>
+            </div>
+        </div>
+
+        <div id="loading-icon">
+            <div id="loader" class="ui active loader"></div>
+        </div>
+        <div id="segments" class="ui compact segments terms-container">
+            <div id="read-segment" class="ui secondary center aligned segment hidden">
+                Please read and accept the following terms to download the app.
+            </div>
+            <div id="legal-segment" class="ui left aligned segment terms hidden">
+                <div class="c17">
+                    <p class="c12"><span class="c3 c2">MICROSOFT SOFTWARE LICENSE TERMS</span></p>
+                    <p class="c0"><span class="c3 c2">MICROSOFT MAKECODE SOFTWARE FOR <span class="touppercase">micro:bit</span></span></p>
+                    <p class="c12"><span class="c6">These license terms are an agreement between Microsoft Corporation (or based on
+                            where you live, one of its affiliates) and you. They apply to the software named above. The terms also apply
+                            to any Microsoft services or updates for the software, except to the extent those have additional
+                            terms.</span></p>
+                    <p class="c16"><span class="c3 c2">IF YOU COMPLY WITH THESE LICENSE TERMS, YOU HAVE THE RIGHTS BELOW.</span></p>
+                    <p class="c1 c9"><span class="c2">1.</span><span class="c6">&nbsp;&nbsp;&nbsp; </span><span class="c2">INSTALLATION
+                            AND USE RIGHTS. </span><span class="c6">You may install and use any number of copies of the software to
+                            develop and test your software applications for use with micro:bit hardware. </span></p>
+                    <p class="c1 c9"><span class="c2">2.</span><span class="c6">&nbsp;&nbsp;&nbsp; </span><span class="c2">ASSOCIATED
+                            ONLINE SERVICES.</span><span class="c3 c5">&nbsp;&nbsp;Some features of the software provide access to, or
+                            rely on, online services to provide you information about updates to the software or extensions, or to
+                            enable you to retrieve content, collaborate with others, or otherwise supplement your development
+                            experience.&nbsp; As used throughout these license terms, the term &ldquo;software&rdquo; includes these
+                            online services and features. By using these online services and features you consent to the to the
+                            transmission of information as described in Section 4, DATA.</span></p>
+                    <p class="c1 c9"><span class="c2">3.</span><span class="c6">&nbsp;&nbsp;&nbsp; </span><span class="c2">LICENSES FOR
+                            OTHER COMPONENTS.</span><span class="c6">&nbsp;T</span><span class="c6">he software may include third party
+                            components with separate legal notices or governed by other agreements, as described in the
+                            ThirdPartyNotices file accompanying the software. </span></p>
+                    <p class="c1 c9"><span class="c2">4.</span><span class="c6">&nbsp;&nbsp;&nbsp; </span><span class="c3 c2">DATA.
+                        </span></p>
+                    <p class="c1 c4"><span class="c2">a.</span><span class="c6">&nbsp;&nbsp;&nbsp;</span><span class="c2">Data
+                            Collection. </span><span class="c6">The software may collect information about you and your use of the
+                            software, and send that to Microsoft. Microsoft may use this information to provide services and improve our
+                            products and services. You may opt out of many of these scenarios, but not all, as described in the product
+                            documentation. In using the software, you must comply with applicable law. You can learn more about data
+                            collection and use in the help documentation and the privacy statement at </span><span class="c13 c6"><a
+                                class="c20"
+                                href="http://go.microsoft.com/fwlink/?LinkId=398505">http://go.microsoft.com/fwlink/?LinkId=398505</a></span><span
+                            class="c6">. Your use of the software operates as your consent to these practices.</span></p>
+                    <p class="c1 c4"><span class="c2">b.</span><span class="c6">&nbsp;&nbsp;&nbsp;</span><span class="c2">Processing of
+                            Personal Data. </span><span class="c6">To the extent Microsoft is a processor or subprocessor of personal
+                            data in connection with the software, Microsoft makes the commitments in the European Union General Data
+                            Protection Regulation Terms of the Online Services Terms to all customers effective May 25, 2018, at
+                        </span><span class="c6 c13"><a class="c20"
+                                href="https://docs.microsoft.com/en-us/legal/gdpr">https://docs.microsoft.com/en-us/legal/gdpr</a></span><span
+                            class="c6">.</span></p>
+                    <p class="c1 c9"><span class="c2">5.</span><span class="c6">&nbsp;&nbsp;&nbsp; </span><span class="c2">SCOPE OF
+                            LICENSE.</span><span class="c6">&nbsp;The software is licensed, not sold. This agreement only gives you some
+                            rights to use the software. Microsoft reserves all other rights. Unless applicable law gives you more rights
+                            despite this limitation, you may use the software only as expressly permitted in this agreement. &nbsp;In
+                            doing so, you must comply with any technical limitations in the software that only allow you to use it in
+                            certain ways. You may not:</span></p>
+                    <p class="c1 c18"><span class="c3 c5">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;work around any
+                            technical limitations in the software;</span></p>
+                    <p class="c1 c18"><span class="c3 c5">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reverse engineer,
+                            decompile or disassemble the software, or otherwise attempt to derive the source code for the software,
+                            except and only to the extent required by third party licensing terms governing use of certain open source
+                            components that may be included with the software;</span></p>
+                    <p class="c1 c18"><span class="c3 c5">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;remove, minimize,
+                            block or modify any notices of Microsoft or its suppliers in the software;</span></p>
+                    <p class="c1 c18"><span class="c3 c5">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;use the software in
+                            any way that is against the law; or</span></p>
+                    <p class="c1 c18"><span class="c3 c5">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;share, publish, rent
+                            or lease the software, or provide the software as a stand-alone offering for others to use.</span></p>
+                    <p class="c1 c9"><span class="c2">6.&nbsp;&nbsp;&nbsp;UPDATES. </span><span class="c6">The software may periodically
+                            check for updates and download and install them for you. You may obtain updates only from Microsoft or
+                            authorized sources. Microsoft may need to update your system to provide you with updates. You agree to
+                            receive these automatic updates without any additional notice. Updates may not include or support all
+                            existing software features, services, or peripheral devices.</span></p>
+                    <p class="c1 c9"><span class="c2">7.</span><span class="c6">&nbsp;&nbsp; </span><span class="c2">EXPORT
+                            RESTRICTIONS.</span><span class="c6">&nbsp;You must comply with all domestic and international export laws
+                            and regulations that apply to the software, which include restrictions on destinations, end users and end
+                            use. For further information on export restrictions, visit (aka.ms/exporting).</span></p>
+                    <p class="c1 c9"><span class="c2">8.</span><span class="c6">&nbsp;&nbsp;&nbsp;</span><span class="c2">SUPPORT SERVICES.
+                        </span><span class="c6">Because the software is &ldquo;as is,&rdquo; we may not provide support services for
+                            it.</span></p>
+                    <p class="c1 c9"><span class="c2">9.</span><span class="c6">&nbsp;&nbsp;&nbsp;</span><span class="c2">ENTIRE
+                            AGREEMENT.</span><span class="c6">&nbsp;This agreement, and the terms for supplements, updates,
+                            Internet-based services and support services that you use, are the entire agreement for the software and
+                            support services.</span></p>
+                    <p class="c1 c9"><span class="c2">10.</span><span class="c6">&nbsp;</span><span class="c2">APPLICABLE LAW.
+                        </span><span class="c6">If you acquired the software in the United States, Washington State law applies to
+                            interpretation of and claims for breach of this agreement, and the laws of the state where you live apply to
+                            all other claims. If you acquired the software in any other country, its laws apply.</span></p>
+                    <p class="c1 c9"><span class="c2">11.</span><span class="c6">&nbsp;</span><span class="c2">CONSUMER RIGHTS; REGIONAL
+                            VARIATIONS. </span><span class="c6">This agreement describes certain legal rights. You may have other
+                            rights, including consumer rights, under the laws of your state or country. Separate and apart from your
+                            relationship with Microsoft, you may also have rights with respect to the party from which you acquired the
+                            software. This agreement does not change those other rights if the laws of your state or country do not
+                            permit it to do so. For example, if you acquired the software in one of the below regions, or mandatory
+                            country law applies, then the following provisions apply to you:</span></p>
+                    <p class="c1 c4"><span class="c2">a.</span><span class="c6">&nbsp; &nbsp;</span><span class="c2">Australia.
+                        </span><span class="c6">You have statutory guarantees under the Australian Consumer Law and nothing in this
+                            agreement is intended to affect those rights.</span></p>
+                    <p class="c1 c4"><span class="c2">b.</span><span class="c6">&nbsp; &nbsp;</span><span class="c2">Canada.
+                        </span><span class="c6">If you acquired the software in Canada, you may stop receiving updates by turning off
+                            the automatic update feature, disconnecting your device from the Internet (if and when you re-connect to the
+                            Internet, however, the software will resume checking for and installing updates), or uninstalling the
+                            software. The product documentation, if any, may also specify how to turn off updates for your specific
+                            device or software.</span></p>
+                    <p class="c1 c4"><span class="c2">c.</span><span class="c6">&nbsp;&nbsp; </span><span class="c2">Germany and
+                            Austria</span><span class="c6">.</span></p>
+                    <p class="c8"><span class="c2">(i)</span><span class="c6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+                            class="c2">Warranty</span><span class="c3 c5">. The properly licensed software will perform substantially as
+                            described in any Microsoft materials that accompany the software. However, Microsoft gives no contractual
+                            guarantee in relation to the licensed software.</span></p>
+                    <p class="c8 c11"><span class="c3 c2"></span></p>
+                    <p class="c8"><span class="c2">(ii)</span><span class="c6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+                            class="c2">Limitation of Liability</span><span class="c3 c5">. In case of intentional conduct, gross
+                            negligence, claims based on the Product Liability Act, as well as, in case of death or personal or physical
+                            injury, Microsoft is liable according to the statutory law.</span></p>
+                    <p class="c1 c7"><span class="c6">Subject to the foregoing clause (ii), Microsoft will only be liable for slight
+                            negligence if Microsoft is in breach of such material contractual obligations, the fulfillment of which
+                            facilitate the due performance of this agreement, the breach of which would endanger the purpose of this
+                            agreement and the compliance with which a party may constantly trust in (so-called &quot;cardinal
+                            obligations&quot;). In other cases of slight negligence, Microsoft will not be liable for slight
+                            negligence.</span></p>
+                    <p class="c1 c9 c11"><span class="c3 c2"></span></p>
+                    <p class="c1 c9"><span class="c2">12.</span><span class="c6">&nbsp;</span><span class="c3 c2">DISCLAIMER OF
+                            WARRANTY. THE SOFTWARE IS LICENSED &ldquo;AS-IS.&rdquo; &nbsp;YOU BEAR THE RISK OF USING IT. MICROSOFT GIVES
+                            NO EXPRESS WARRANTIES, GUARANTEES OR CONDITIONS. TO THE EXTENT PERMITTED UNDER YOUR LOCAL LAWS, MICROSOFT
+                            EXCLUDES THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+                            NON-INFRINGEMENT.</span></p>
+                    <p class="c1 c9"><span class="c2">13.</span><span class="c6">&nbsp;</span><span class="c3 c2">LIMITATION ON AND
+                            EXCLUSION OF DAMAGES. YOU CAN RECOVER FROM MICROSOFT AND ITS SUPPLIERS ONLY DIRECT DAMAGES UP TO U.S. $5.00.
+                            YOU CANNOT RECOVER ANY OTHER DAMAGES, INCLUDING CONSEQUENTIAL, LOST PROFITS, SPECIAL, INDIRECT OR INCIDENTAL
+                            DAMAGES.</span></p>
+                    <p class="c1 c22"><span class="c3 c5">This limitation applies to (a) anything related to the software, services,
+                            content (including code) on third party Internet sites, or third party programs; and (b) claims for breach
+                            of contract, breach of warranty, guarantee or condition, strict liability, negligence, or other tort to the
+                            extent permitted by applicable law.</span></p>
+                    <p class="c1 c22"><span class="c3 c5">It also applies even if Microsoft knew or should have known about the
+                            possibility of the damages. The above limitation or exclusion may not apply to you because your country may
+                            not allow the exclusion or limitation of incidental, consequential or other damages.</span></p>
+                    <p class="c1"><span class="c3 c2">Please note: As the software is distributed in Quebec, Canada, some of the clauses
+                            in this agreement are provided below in French.</span></p>
+                    <p class="c1"><span class="c3 c2">Remarque : Ce logiciel &eacute;tant distribu&eacute; au Qu&eacute;bec, Canada,
+                            certaines des clauses dans ce contrat sont fournies ci-dessous en fran&ccedil;ais.</span></p>
+                    <p class="c24"><span class="c2">EXON&Eacute;RATION DE GARANTIE.</span><span class="c3 c5">&nbsp;Le logiciel
+                            vis&eacute; par une licence est offert &laquo; tel quel &raquo;. Toute utilisation de ce logiciel est
+                            &agrave; votre seule risque et p&eacute;ril. Microsoft n&rsquo;accorde aucune autre garantie expresse. Vous
+                            pouvez b&eacute;n&eacute;ficier de droits additionnels en vertu du droit local sur la protection des
+                            consommateurs, que ce contrat ne peut modifier. La ou elles sont permises par le droit locale, les garanties
+                            implicites de qualit&eacute; marchande, d&rsquo;ad&eacute;quation &agrave; un usage particulier et
+                            d&rsquo;absence de contrefa&ccedil;on sont exclues.</span></p>
+                    <p class="c24"><span class="c2">LIMITATION DES DOMMAGES-INT&Eacute;R&Ecirc;TS ET EXCLUSION DE RESPONSABILIT&Eacute;
+                            POUR LES DOMMAGES.</span><span class="c3 c5">&nbsp;Vous pouvez obtenir de Microsoft et de ses fournisseurs
+                            une indemnisation en cas de dommages directs uniquement &agrave; hauteur de 5,00 $ US. Vous ne pouvez
+                            pr&eacute;tendre &agrave; aucune indemnisation pour les autres dommages, y compris les dommages
+                            sp&eacute;ciaux, indirects ou accessoires et pertes de b&eacute;n&eacute;fices.</span></p>
+                    <p class="c1"><span class="c3 c5">Cette limitation concerne :</span></p>
+                    <p class="c1 c10"><span class="c3 c5">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; tout ce qui est
+                            reli&eacute; au logiciel, aux services ou au contenu (y compris le code) figurant sur des sites Internet
+                            tiers ou dans des programmes tiers ; et</span></p>
+                    <p class="c1 c10"><span class="c3 c5">&middot;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; les
+                            r&eacute;clamations au titre de violation de contrat ou de garantie, ou au titre de responsabilit&eacute;
+                            stricte, de n&eacute;gligence ou d&rsquo;une autre faute dans la limite autoris&eacute;e par la loi en
+                            vigueur.</span></p>
+                    <p class="c1"><span class="c3 c5">Elle s&rsquo;applique &eacute;galement, m&ecirc;me si Microsoft connaissait ou
+                            devrait conna&icirc;tre l&rsquo;&eacute;ventualit&eacute; d&rsquo;un tel dommage. Si votre pays
+                            n&rsquo;autorise pas l&rsquo;exclusion ou la limitation de responsabilit&eacute; pour les dommages
+                            indirects, accessoires ou de quelque nature que ce soit, il se peut que la limitation ou l&rsquo;exclusion
+                            ci-dessus ne s&rsquo;appliquera pas &agrave; votre &eacute;gard.</span></p>
+                    <p class="c15"><span class="c2">EFFET JURIDIQUE.</span><span class="c3 c5">&nbsp;Le pr&eacute;sent contrat
+                            d&eacute;crit certains droits juridiques. Vous pourriez avoir d&rsquo;autres droits pr&eacute;vus par les
+                            lois de votre pays. Le pr&eacute;sent contrat ne modifie pas les droits que vous conf&egrave;rent les lois
+                            de votre pays si celles-ci ne le permettent pas.<br></span></p>
+                    <p class="c23"><span class="c3 c5">
+                        
+<!-- include offline-app-trademarks.html -->
+Micro:bit and micro:bit logo are trademarks and/ or copyrights of the Micro:bit
+Educational Foundation. &copy; Micro:bit Educational Foundation. All rights reserved.
+<!-- end include offline-app-trademarks.html -->
+
+                    </span></p>
+                    <p class="c11 c15"><span class="c3 c5"></span></p>
+                    <p class="c26"><span class="c2 c25">Remainder of this page intentionally left blank.</span></p>
+                    <p class="c11 c21"><span class="c3 c14"></span></p>
+                </div>
+            </div>
+            <div id="agree-segment" class="ui center aligned segment hidden">
+                <input id="agree-checkbox" type="checkbox" autocomplete="off" onchange="agreeCheckboxChanged(this)">
+                <label for="agree-checkbox">I agree to these Microsoft Software License Terms and to the
+                    <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank">Microsoft Privacy Statement.</a>
+                </label>
+            </div>
+            <div id="no-download-segment" class="ui center aligned segment hidden">
+                <p>Sorry, there is no Offline App available for this editor.</p>
+            </div>
+            <div id="download-segment" class="ui center aligned segment hidden">
+                <div class="ui grid">
+                    <div class="eight wide column">
+                        <h3 class="ui">Windows</h3>
+                        <a id="download-win64" class="ui icon button" onclick="downloadWin64()">
+                            <i class="download icon"></i>
+                            makecode-microbit-setup-win64.exe
+                        </a>
+                    </div>
+                    <div class="eight wide column">
+                        <h3 class="ui">Mac OS</h3>
+                        <a id="download-mac64" class="ui icon button" onclick="downloadMac64()">
+                            <i class="download icon"></i>
+                            makecode-microbit-mac64.zip
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- end include offline-app-body.html -->
+
+        
+<!-- include footer.html -->
+<footer class="ui vertical footer segment hideprint docs inverted" aria-hidden="false">
+    <div class="ui center aligned container">
+        <div class="ui horizontal link list">
+            <a
+                class="item"
+                href="https://twitter.com/intent/follow?screen_name=MsMakeCode"
+                title="Follow us on Twitter"
+                target="_blank"
+                rel="noopener">
+                <i class="huge icon twitter"></i>
+            </a>
+            <a class="item" href="https://www.youtube.com/channel/UCye7YlvFUUQ1dSy0WZZ1T_Q" title="Subscribe to our YouTube channel"
+                target="_blank" rel="noopened">
+                <i class="huge icon youtube"></i>
+            </a>
+            <a class="item" href="mailto:makecode@microsoft.com" title="Send us an Email"
+                target="_blank" rel="noopened">
+                <i class="huge icon mail"></i>
+            </a>
+        </div>
+        <div class="ui section divider"></div>
+        <div class="ui container horizontal small divided link list">
+            <a id="langpicker" tabindex="0" class="ui item" rel="noopener">
+                <i class="icon xicon globe" aria-hidden="true" role="presentation"></i>Language
+            </a>
+            <a class="item" href="https://makecode.com/privacy" target="_blank" rel="noopener">Privacy &amp; Cookies</a>
+            <a class="item" href="https://makecode.com/termsofuse" target="_blank" rel="noopener">Terms Of Use</a>
+            <a class="item" href="https://makecode.com/trademarks" target="_blank" rel="noopener">Trademarks</a>
+            <span class="item">© 2022 Microsoft</span>
+        </div>
+        <div class="ui container horizontal small link list poweredBy">
+            <span class="item">Powered by</span>
+            <a class="middle aligned" href="https://makecode.com/" title="Microsoft MakeCode"
+                target="_blank" rel="noopener">
+                <img width="100" src="/static/logo/Microsoft-logo_rgb_c-gray.png" alt="Microsoft">
+            </a>
+        </div>
+    </div>
+</footer>
+
+<!-- end include footer.html -->
+
+    </div>
+    
+<!-- include tracking.html -->
+<script type="text/javascript" src="/doccdn/pxtweb.js"></script>
+<script type="text/javascript">
+    window.loadAppInsights = function (includeCookie) {
+        //Backend will patch / + doccdn + / with CDN url and the check that URL ends with the sha would pass
+        var isProduction = includeCookie && (/[0-9a-f]{40}\/ai\.2\.min\.js$/.test("/doccdn/ai.2.min.js"));
+        !function(T,l,y){var S=T.location,k="script",D="connectionString",C="ingestionendpoint",I="disableExceptionTracking",E="ai.device.",b="toLowerCase",w="crossOrigin",N="POST",e="appInsightsSDK",t=y.name||"appInsights";(y.name||T[e])&&(T[e]=t);var n=T[t]||function(d){var g=!1,f=!1,m={initialize:!0,queue:[],sv:"5",version:2,config:d};function v(e,t){var n={},a="Browser";return n[E+"id"]=a[b](),n[E+"type"]=a,n["ai.operation.name"]=S&&S.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(m.sv||m.version),{time:function(){var e=new Date;function t(e){var t=""+e;return 1===t.length&&(t="0"+t),t}return e.getUTCFullYear()+"-"+t(1+e.getUTCMonth())+"-"+t(e.getUTCDate())+"T"+t(e.getUTCHours())+":"+t(e.getUTCMinutes())+":"+t(e.getUTCSeconds())+"."+((e.getUTCMilliseconds()/1e3).toFixed(3)+"").slice(2,5)+"Z"}(),iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}}}}var h=d.url||y.src;if(h){function a(e){var t,n,a,i,r,o,s,c,u,p,l;g=!0,m.queue=[],f||(f=!0,t=h,s=function(){var e={},t=d.connectionString;if(t)for(var n=t.split(";"),a=0;a<n.length;a++){var i=n[a].split("=");2===i.length&&(e[i[0][b]()]=i[1])}if(!e[C]){var r=e.endpointsuffix,o=r?e.location:null;e[C]="https://"+(o?o+".":"")+"dc."+(r||"services.visualstudio.com")}return e}(),c=s[D]||d[D]||"",u=s[C],p=u?u+"/v2/track":d.endpointUrl,(l=[]).push((n="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",a=t,i=p,(o=(r=v(c,"Exception")).data).baseType="ExceptionData",o.baseData.exceptions=[{typeName:"SDKLoadFailed",message:n.replace(/\./g,"-"),hasFullStack:!1,stack:n+"\nSnippet failed to load ["+a+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(S&&S.pathname||"_unknown_")+"\nEndpoint: "+i,parsedStack:[]}],r)),l.push(function(e,t,n,a){var i=v(c,"Message"),r=i.data;r.baseType="MessageData";var o=r.baseData;return o.message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+n+")").replace(/\"/g,"")+'"',o.properties={endpoint:a},i}(0,0,t,p)),function(e,t){if(JSON){var n=T.fetch;if(n&&!y.useXhr)n(t,{method:N,body:JSON.stringify(e),mode:"cors"});else if(XMLHttpRequest){var a=new XMLHttpRequest;a.open(N,t),a.setRequestHeader("Content-type","application/json"),a.send(JSON.stringify(e))}}}(l,p))}function i(e,t){f||setTimeout(function(){!t&&m.core||a()},500)}var e=function(){var n=l.createElement(k);n.src=h;var e=y[w];return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=i,n.onerror=a,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||i(0,t)},n}();y.ld<0?l.getElementsByTagName("head")[0].appendChild(e):setTimeout(function(){l.getElementsByTagName(k)[0].parentNode.appendChild(e)},y.ld||0)}try{m.cookie=l.cookie}catch(p){}function t(e){for(;e.length;)!function(t){m[t]=function(){var e=arguments;g||m.queue.push(function(){m[t].apply(m,e)})}}(e.pop())}var n="track",r="TrackPage",o="TrackEvent";t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+r,"stop"+r,"start"+o,"stop"+o,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),m.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4};var s=(d.extensionConfig||{}).ApplicationInsightsAnalytics||{};if(!0!==d[I]&&!0!==s[I]){var c="onerror";t(["_"+c]);var u=T[c];T[c]=function(e,t,n,a,i){var r=u&&u(e,t,n,a,i);return!0!==r&&m["_"+c]({message:e,url:t,lineNumber:n,columnNumber:a,error:i}),r},d.autoExceptionInstrumented=!0}return m}(y.cfg);function a(){y.onInit&&y.onInit(n)}(T[t]=n).queue&&0===n.queue.length?(n.queue.push(a),n.trackPageView({})):a()}(window,document,{
+            src: "https://js.monitor.azure.com/scripts/b/ai.2.min.js", // The SDK URL Source
+            onInit: function (sdk) {
+                sdk.addTelemetryInitializer(function (envelope) {
+                    // App Insights automatically sends a page view event on setup, but we send our own later with additional properties.
+                    // This stops the automatic event from firing, so we don't end up with duplicate page view events.
+                    if (envelope.baseType == "PageviewData" && !envelope.baseData.properties) {
+                        return false;
+                    }
+
+                    if (envelope.baseType == "PageviewPerformanceData") {
+                        var pageName = envelope.baseData.name;
+                        envelope.baseData.name = window.location.origin;
+                        if (!envelope.baseData.properties) {
+                            envelope.baseData.properties = {};
+                        }
+                        envelope.baseData.properties.pageName = pageName;
+                        var scrubbedUrl = scrubUrl(envelope.baseData.uri);
+                        envelope.baseData.uri = scrubbedUrl;
+                        var toUrl = new URL(scrubbedUrl);
+                        envelope.baseData.properties.pathName = toUrl ? toUrl.pathname : "";
+                        if (envelope.ext && envelope.ext.trace) {
+                            envelope.ext.trace.name = toUrl ? toUrl.pathname : "";
+                        }
+                    }
+
+                    var telemetryItem = envelope.baseData;
+                    telemetryItem.properties = telemetryItem.properties || {};
+                    telemetryItem.properties["cookie"] = isProduction;
+                    if (typeof pxtConfig === "undefined" || !pxtConfig || !pxtConfig.targetId) {
+                        telemetryItem.properties["target"] = "microbit";
+                        return true;
+                    }
+                    telemetryItem.properties["target"] = pxtConfig.targetId;
+                    telemetryItem.properties["stage"] = (pxtConfig.relprefix || "/--").replace(/[^a-z]/ig, '')
+                    if (typeof Windows !== "undefined")
+                        telemetryItem.properties["WindowsApp"] = 1;
+                    var userAgent = navigator.userAgent.toLowerCase();
+                    var userAgentRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
+                    if (userAgentRegexResult) {
+                        telemetryItem.properties["Electron"] = 1;
+                        telemetryItem.properties["ElectronVersion"] = userAgentRegexResult[1];
+                    }
+                    if (typeof pxtElectron !== "undefined") {
+                        telemetryItem.properties["PxtElectron"] = 1;
+                        telemetryItem.properties["ElectronVersion"] = pxtElectron.versions.electronVersion;
+                        telemetryItem.properties["ChromiumVersion"] = pxtElectron.versions.chromiumVersion;
+                        telemetryItem.properties["NodeVersion"] = pxtElectron.versions.nodeVersion;
+                        telemetryItem.properties["PxtElectronVersion"] = pxtElectron.versions.pxtElectronVersion;
+                        telemetryItem.properties["PxtCoreVersion"] = pxtElectron.versions.pxtCoreVersion;
+                        telemetryItem.properties["PxtTargetVersion"] = pxtElectron.versions.pxtTargetVersion;
+                        telemetryItem.properties["PxtElectronIsProd"] = pxtElectron.versions.isProd;
+                    }
+                    return true;
+                });
+            },
+            cfg: {
+                instrumentationKey:"9801ed01-c40f-46ec-aa40-2a1742a9e71c",
+                disableAjaxTracking: true,
+                overridePageViewDuration: false,
+                disableExceptionTracking: true,
+                disableCookiesUsage: !isProduction,
+                isStorageUseDisabled: !isProduction,
+                url: "/doccdn/ai.2.min.js"
+            }
+        });
+        window.appInsights=appInsights;
+        var location = window.location.toString();
+        appInsights.trackPageView({
+            name: window.location.hostname,
+            uri: window.location.origin,
+            properties: {
+                url: scrubUrl(location),
+                urlReferrer: scrubUrl(document.referrer.toString())
+            }
+        });
+
+        // Scrub potential PII from the URL.
+        function scrubUrl(url) {
+            if (!url) return url;
+
+            var scriptIdRegex = /(?:S?\d{5}-\d{5}-\d{5}-\d{5})|(?:_[0-9a-zA-Z]{12})/g;
+            var scrubbedUrl = new URL(url.toLocaleLowerCase().replace(scriptIdRegex, "xxxxx-xxxxx-xxxxx-xxxxx"));
+
+            // Just as a precaution, strip any suspicious query parameters.
+            var blockedParamKeywords = ["username", "password", "token", "pwd"];
+            var searchParams = Array.from(scrubbedUrl.searchParams.keys());
+            for (var param of searchParams) {
+                if (blockedParamKeywords.some(k => param.indexOf(k) != -1)) {
+                    scrubbedUrl.searchParams.delete(param);
+                }
+            }
+
+            return scrubbedUrl.toString();
+        }
+
+        return isProduction;
+    }
+    pxt.initAnalyticsAsync();
+</script>
+
+<!-- end include tracking.html -->
+
+</body>
+
+</html>

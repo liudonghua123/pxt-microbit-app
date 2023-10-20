@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>@title@ @version@ (@slug@)</title>
+    <meta name="Description" content="@description@" />
+
+    <!-- @include meta.html -->
+    <!-- @include head.html -->
+</head>
+
+<body id='root' class='root'>
+
+
+    <!-- @include pageheader.html -->
+    <!-- @include macros.html -->
+    <aside id=main-container class=box>
+        @BODY@
+    </aside>
+
+    <div class="ui main container mainbody">
+
+        @breadcrumb@
+
+        <!-- @ifndef official -->
+        <!-- @include abuse.html -->
+        <!-- @endif -->
+
+        <!-- @ifdef official -->
+        <div class="ui icon green tiny message" style='margin: 1rem 0'>
+            <i class="check icon"></i>
+            <div class="content">
+                <h3 class="header">
+                    Approved content
+                </h3>
+                <p>
+                    The content below is provided by a partner.
+                </p>
+            </div>
+        </div>
+        <!-- @endif -->
+
+        <h1 id="templateh1" class="ui header">
+            <div class="ui content">
+                @slug@ @version@
+                <a href="https://github.com/@slug@" class="ui button" title="Open @slug@ in GitHub" aria-label="Open in GitHub">
+                    <i class="github icon"></i>
+                    GitHub
+                </a>
+            </div>
+        </h1>
+        @body@
+    </div>
+
+
+    <script>
+        const pkgJson = @JSON@;
+// do something with it
+        // remove h1 from markdown
+        $(function() {
+            $('h1:contains(@title@)').not('#templateh1').remove();
+        })
+    </script>
+
+    <!-- @include langpicker.html -->
+    <!-- @include footer.html -->
+    <!-- @include tracking.html -->
+</body>
+
+</html>

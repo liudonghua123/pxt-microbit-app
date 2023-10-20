@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en" data-framework="typescript">
+
+<head>
+    <meta charset="utf-8">
+    <title>Make Instructions</title>
+    <style type="text/css">
+        @import "/pxt-microbit-app/semantic.css";
+    </style>
+    <style>
+        html {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            position: relative;
+            width: 100%;
+            height: 100%;            
+            padding: 0;
+            margin: 0;
+            font-family: "Lucida Console", Monaco, monospace;
+        }
+
+        div {
+            /*undo semantic UI*/
+            box-sizing: content-box;
+            line-height: normal;
+        }
+
+        img {
+            border: 0;
+        }
+
+        .organization {
+            position: absolute;
+            bottom: 2rem;
+            right: 2rem;
+            height: 4rem;
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: normal;
+            color: rgba(0, 0, 0, 0.87);
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            display: block;
+            text-align: center;
+        }
+
+        #front-panel .board-svg {
+            position: absolute;
+            left: 2rem;
+            width: 300px;
+            top: 16rem;
+        }
+
+        #proj-title {
+            width: 100%;
+            font-size: 55px;
+            margin-top: 20px;
+        }
+
+        #proj-code {
+            width: 300px;
+            height: 400px;
+            position: absolute;
+            right: 2rem;
+            top: 16rem;
+        }
+
+        #proj-code-container {
+            width: 100%;
+            height: 100%;
+            font-size: 4px;
+            overflow: hidden;
+            display: none;
+        }
+
+        #proj-code-spinner {
+            width: 100%;
+        }
+
+        .back-panel svg {
+            position: relative;
+            margin: 0 auto;
+            left: inherit;
+            bottom: -7px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // This line gets patched up by the cloud
+        var pxtConfig = {
+    "relprefix": "/pxt-microbit-app/",
+    "verprefix": "",
+    "workerjs": "/pxt-microbit-app/worker.js",
+    "monacoworkerjs": "/pxt-microbit-app/monacoworker.js",
+    "gifworkerjs": "/pxt-microbit-app/gifjs/gif.worker.js",
+    "serviceworkerjs": "/pxt-microbit-app/serviceworker.js",
+    "typeScriptWorkerJs": "/pxt-microbit-app/tsworker.js",
+    "pxtVersion": "9.0.12",
+    "pxtRelId": "localDirRelId",
+    "pxtCdnUrl": "/pxt-microbit-app/",
+    "commitCdnUrl": "/pxt-microbit-app/",
+    "blobCdnUrl": "/pxt-microbit-app/",
+    "cdnUrl": "/pxt-microbit-app/",
+    "targetVersion": "0.0.0",
+    "targetRelId": "",
+    "targetUrl": "",
+    "targetId": "microbit",
+    "simUrl": "/pxt-microbit-app/simulator.html",
+    "simserviceworkerUrl": "/pxt-microbit-app/simulatorserviceworker.js",
+    "simworkerconfigUrl": "/pxt-microbit-app/workerConfig.js",
+    "partsUrl": "/pxt-microbit-app/siminstructions.html",
+    "runUrl": "/pxt-microbit-app/run.html",
+    "docsUrl": "/pxt-microbit-app/docs.html",
+    "multiUrl": "/pxt-microbit-app/multi.html",
+    "asseteditorUrl": "/pxt-microbit-app/asseteditor.html",
+    "skillmapUrl": "/pxt-microbit-app/skillmap.html",
+    "authcodeUrl": "/pxt-microbit-app/authcode.html",
+    "multiplayerUrl": "/pxt-microbit-app/multiplayer.html",
+    "isStatic": true
+};
+    </script>
+    <script src="/pxt-microbit-app/pxtsim.js"></script>
+    <script src="/pxt-microbit-app/common-sim.js"></script>
+    <script src="/pxt-microbit-app/sim.js"></script>
+
+    <div id="front-panel" class="instr-panel">
+        <h1 id="proj-title"></h1>
+    </div>
+</body>
+
+</html>
