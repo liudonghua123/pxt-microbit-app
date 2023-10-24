@@ -1690,30 +1690,36 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="micro-chat">Micro Chat</h1><h2 id="introduction-">Introduction </h2><p><img class="ui image" src="/static/mb/projects/a9-radio.png" alt="Two micro:bit connected via radio" loading="lazy"></p>
-<p>Use the <strong>radio</strong> to send and receive messages with other micro:bit.</p>
-<h2 id="set-a-radio-group">Set a radio group</h2><p>The first thing you want to do is to put in a <code>||radio:set group||</code>. This will make certain that you and another micro:bit will receive just the messages assigned to that group and not the messages sent from some other micro:bit that’s not part of your conversation. This like tuning to a particular channel to talk on.</p>
+        <h1 id="micro-chat">Micro Chat</h1><h2 id="introduction">Introduction</h2><p><img class="ui image" src="/static/mb/projects/a9-radio.png" alt="Two micro:bit connected via radio" loading="lazy"></p>
+<p>Use the micro:bit 📻 radio to send and receive 💬 messages between micro:bits!</p>
+<h2 id="step-1">Step 1</h2><p>From the <code>||radio:Radio||</code> Toolbox category, drag a <code>||radio:radio set group||</code> block into the <code>||basic:on start||</code> block. This will act as the channel over which we’ll send messages. Only micro:bits who are in the same group will be able to send and receive messages between them.</p>
 <pre><code class="lang-blocks">radio.setGroup(1)</code></pre>
-<h2 id="sending-a-message">Sending a message</h2><p>Use <code>||input:on button pressed||</code> to send a text message over radio with <code>||radio:send string||</code>.
-Every micro:bit nearby will receive this message.</p>
+<h2 id="step-2">Step 2</h2><p>From the <code>||input:Input||</code> Toolbox category, drag an <code>||input:on button A pressed||</code> block onto the Workspace.</p>
+<pre><code class="lang-blocks">input.onButtonPressed(Button.A, function() {})</code></pre>
+<h2 id="step-3">Step 3</h2><p>From the <code>||radio:Radio||</code> category, drag a <code>||radio:radio send string||</code> block into the <code>||input:on button A pressed||</code> block and type a message. When we press button A on our micro:bit, we’ll send this message to every micro:bit nearby in group 1.</p>
 <pre><code class="lang-blocks">input.onButtonPressed(Button.A, function() {
-    radio.sendString(&quot;:)&quot;)
+    radio.sendString(&quot;Micro Chat!&quot;)
 })</code></pre>
-<h2 id="receiving-a-message">Receiving a message</h2><p>Add a <code>||radio:on received string||</code> block to run when a message is received. </p>
+<h2 id="step-4">Step 4</h2><p>From the <code>||radio:Radio||</code> category, drag an <code>||radio:on radio received string||</code> block onto the Workspace. </p>
 <pre><code class="lang-blocks">radio.onReceivedString(function (receivedString) {
 })</code></pre>
-<h2 id="displaying-text">Displaying text</h2><p>Add a <code>||basic:show string||</code> to display the string on the screen. Pull the <code>||variables:receivedString||</code> out of <code>||radio:on received string||</code> and put it into <code>||basic:show string||</code>.</p>
+<h2 id="step-5">Step 5</h2><p>From the <code>||basic:Basic||</code> category, get a <code>||basic:show string||</code> block and drop it in the <code>||radio:on radio received string||</code> block. </p>
+<pre><code class="lang-blocks">radio.onReceivedString(function (receivedString) {
+    basic.showString(&quot;Hello!&quot;);
+})</code></pre>
+<h2 id="step-6">Step 6</h2><p>Pull the <code>||variables:receivedString||</code> variable block out of the <code>||radio:on received string||</code> block and put it into the <code>||basic:show string||</code> block replacing “Hello!”</p>
 <pre><code class="lang-blocks">radio.onReceivedString(function (receivedString) {
     basic.showString(receivedString);
 })</code></pre>
-<h2 id="testing-in-the-simulator">Testing in the simulator</h2><p>Press button <strong>A</strong> on the simulator, you will notice that a second micro:bit appears (if your screen is too small, the simulator might decide not to show it). Try pressing <strong>A</strong> again and notice that the “:)” message gets displayed on the other micro:bit.</p>
+<h2 id="step-7">Step 7</h2><p>Let’s test our code! In the micro:bit on-screen simulator, press button <strong>A</strong>. You should see a second micro:bit appear. Now try pressing <strong>A</strong> again. Do you see your message appear on the second micro:bit?  ⭐ Great job! ⭐ </p>
 <pre><code class="lang-blocks">input.onButtonPressed(Button.A, function() {
-    radio.sendString(&quot;:)&quot;);
+    radio.sendString(&quot;Micro Chat!&quot;);
 })
 radio.onReceivedString(function (receivedString) {
     basic.showString(receivedString);
 })</code></pre>
-<h2 id="try-it-for-real">Try it for real</h2><p>If you have two micro:bits, download the program to each one. Press button <strong>A</strong> on one and see if the other gets a message.</p>
+<h2 id="step-8">Step 8</h2><p>If you have a micro:bit device, connect it to your computer and click the <code>|Download|</code> button. Follow the instructions to transfer your code onto the micro:bit.  If you have two micro:bits, download the program to each one. Press button <strong>A</strong> on one and see if the other gets the message!</p>
+<h2 id="step-9">Step 9</h2><p>Go further - try using different buttons to send a mix of messages 📝, or send secret 🔒 messages to different radio groups!</p>
 <pre><code class="lang-template">//</code></pre>
 <pre><code class="lang-package">radio</code></pre>
 

@@ -22,14 +22,14 @@
 <meta name="twitter:site" content="@msmakecode" />
 <meta name="twitter:title" content="Microsoft MakeCode for micro:bit" />
 <meta name="twitter:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
-<meta name="twitter:image" content="/static/mb/device/usb/download-button-menu.jpg" />
+<meta name="twitter:image" content="https://img.youtube.com/vi/PxfPs1zwKl0/0.jpg" />
 
 <meta property="og:title" content="Microsoft MakeCode for micro:bit" />
 <meta property="og:site_name" content="Microsoft MakeCode" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
 <meta property="fb:app_id" content="" />
-<meta property="og:image" content="/static/mb/device/usb/download-button-menu.jpg" />
+<meta property="og:image" content="https://img.youtube.com/vi/PxfPs1zwKl0/0.jpg" />
 
 <meta name="format-detection" content="telephone=no">
 <link rel="apple-touch-icon" href="docs/static/icons/apple-touch-icon.png">
@@ -1690,53 +1690,66 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="webusb">WebUSB</h1><p><a target="_blank" rel="nofollow noopener" href="https://wicg.github.io/webusb/">WebUSB</a> is a recent and developing web standard that allows you to access micro:bit directly from a web page. It allows for a <strong>one-click download</strong> without installing any additional app or software! It also lets you receive data into the web page from the micro:bit.</p>
-<h2 id="support">Support</h2><ul>
+        <h1 id="webusb">WebUSB</h1><p><a target="_blank" rel="nofollow noopener" href="https://wicg.github.io/webusb/">WebUSB</a> is a recent and developing web feature that allows you to access a micro:bit directly from a web page. With MakeCode it allows for <strong>one-click</strong> downloads to your micro:bit without installing an additional app or other software! It also lets you directly receive data into the MakeCode editor from the micro:bit.</p>
+
+    <div class="ui grid">
+        <div class="ten wide column">
+            <div class="ui embed mdvid" data-source="youtube" data-id="PxfPs1zwKl0"
+                data-placeholder="https://img.youtube.com/vi/PxfPs1zwKl0/0.jpg">
+            </div>
+        </div>
+    </div>
+
+    <div class="ui warning message">
+        <div class="content">
+            <h4 id="webusb-support-for-your-micro-bit">WebUSB support for your micro:bit</h4><p>If you’re not using a current version of the Chrome or Microsoft Edge browsers, make sure they are this version or newer:</p>
+<ul>
 <li>Chrome (version 79 and newer) browser for Android, Chrome OS, Linux, macOS and Windows 10.</li>
 <li>Microsoft Edge (version 79  and newer) browser for Android, Chrome OS, Linux, macOS and Windows 10.</li>
 </ul>
-<h2 id="prepare-your-micro-bit">Prepare your micro:bit</h2><p>Make sure that your micro:bit is running version <strong>0249</strong> or above of the firmware. Upgrading is as easy as dragging a file and it takes a few seconds to get it done.</p>
+<p>Also, if you have a <a target="_blank" rel="nofollow noopener" href="https://support.microbit.org/support/solutions/articles/19000119162-how-to-identify-the-version-number-of-your-micro-bit">micro:bit V1 board</a>, make sure that it is running version <strong>0249</strong> or above of the firmware. Upgrading is as easy as dragging a file to a folder and it takes a few seconds to get it done.</p>
 <ul>
-<li><a  rel="nofollow noopener" href="/pxt-microbit-app/docs/device/usb/webusb/troubleshoot.html">Check out the instructions to check and upgrade your micro:bit.</a></li>
+<li>Check out the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/device/usb/webusb/troubleshoot.html">instructions</a> to check and upgrade your micro:bit.</li>
 </ul>
-<h2 id="pair-your-micro-bit">Pair your micro:bit</h2><p>Here are the steps on the supported browsers:</p>
-<ul>
-<li>Connect your micro:bit to your computer with the Micro USB cable</li>
-<li>Open a project</li>
-<li>Click the triple dot icon on the <strong>Download</strong> button and then click <strong>Connect device</strong>.</li>
-</ul>
-<p><img class="ui image" src="/static/mb/device/usb/download-button-menu.jpg" alt="Download button and menu" loading="lazy"></p>
-<ul>
-<li>In the connection message window, click <strong>Next</strong>.</li>
-</ul>
-<p><img class="ui image" src="/static/mb/device/usb/connect-usb.jpg" alt="Connect device dialog" loading="lazy"></p>
-<ul>
-<li>Another message window will display telling you which device you should pair with. Click <strong>Next</strong> to go to the device list.</li>
-</ul>
-<p><img class="ui image" src="/static/mb/device/usb/pair-dap.jpg" alt="Device name dialog" loading="lazy"></p>
-<ul>
-<li>Select <strong>BBC micro:bit CMSIS-DAP</strong> or <strong>DAPLink CMSIS-DAP</strong> from the list and click <strong>Connect</strong>.</li>
-</ul>
-<p><img class="ui image" src="/static/mb/device/usb/pair-device.jpg" alt="Device list for WebUSB pairing" loading="lazy"></p>
-<p>If you don’t see any devices in the list and micro:bit has the right firmware (<strong>0249</strong> or above), you can create a <a target="_blank" rel="nofollow noopener" href="https://support.microbit.org/support/tickets/new">support ticket</a> to notify the Micro:bit Foundation of the problem. Skip the rest of these steps.</p>
-<p><img class="ui image" src="/static/mb/device/usb/no-pair.jpg" alt="Device list for WebUSB pairing" loading="lazy"></p>
-<ul>
-<li>When your micro:bit is connected, you’ll see the <strong>Connected to micro:bit</strong> message window. Click on <strong>Done</strong> and you’re ready to go!</li>
-</ul>
-<p><img class="ui image" src="/static/mb/device/usb/connected.jpg" alt="Connected message window" loading="lazy"></p>
-<ul>
-<li>If the connection to your micro:bit was unsuccessful, you’ll see the <strong>Connect failed</strong> message. You can press <strong>Try Again</strong> to attempt the connection again or cancel the window and <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/device/usb/webusb/troubleshoot.html">troubleshoot</a> your connection.</li>
-</ul>
-<p><img class="ui image" src="/static/mb/device/usb/connect-fail.jpg" alt="Connect failed message window" loading="lazy"></p>
-<h2 id="unpair">Unpair your micro:bit </h2><p>You will need to unpair your device from the editor to disable WebUSB.</p>
-<ul>
-<li>Click on the <strong>lock</strong> icon in the address bar</li>
-<li>Uncheck each <strong>BBC micro:bit CMSIS-DAP</strong> or <strong>DAPLink CMSIS-DAP</strong> device</li>
-<li>Reload the page</li>
-</ul>
+
+        </div>
+    </div>
+<h2 id="pair-your-micro-bit">Pair your micro:bit</h2><p>The first time you pair your micro:bit with your computer you’ll need to go through a few easy steps to get setup. Here’s how to get paired with WebUSB:</p>
+<h3 id="download-your-project">Download your project</h3><p>Once you’ve created or opened a project, and you’re ready to download it to the micro:bit, click the <strong>Download</strong> button at the bottom of the editor window.</p>
+<p><img class="ui image" src="/static/mb/device/usb/download-button-menu.png" alt="Download button and menu" loading="lazy"></p>
+<h3 id="connect-the-usb-cable">Connect the USB cable</h3><p>If you haven’t connected it already, connect your micro:bit to your computer with a <a target="_blank" rel="nofollow noopener" href="https://support.microbit.org/support/solutions/articles/19000037633-what-type-of-usb-lead-do-i-need-for-the-micro-bit-">micro-USB</a> cable. Then, click <strong>Next</strong> in the message window.</p>
+<p><img class="ui image" src="/static/mb/device/usb/connect-usb.png" alt="Connect device dialog" loading="lazy"></p>
+<h3 id="pair-the-micro-bit-with-your-computer">Pair the micro:bit with your computer</h3><p>Another message window will display telling you to pair with the micro:bit device. Click <strong>Pair</strong> to see to the device list.</p>
+<p><img class="ui image" src="/static/mb/device/usb/pair-device.png" alt="Device name dialog" loading="lazy"></p>
+<p>The micro:bit will appear as either <strong>BBC micro:bit CMSIS-DAP</strong> or <strong>DAPLink CMSIS-DAP</strong> in the list. Select the device and click <strong>Connect</strong>.</p>
+<p><img class="ui image" src="/static/mb/device/usb/select-device-pair.png" alt="Device list for WebUSB pairing" loading="lazy"></p>
+
+    <div class="ui negative message">
+        <div class="content">
+            <h4 id="don-t-see-your-micro-bit-device-">Don’t see your micro:bit device?</h4><p>If you don’t see any devices in the list and the micro:bit is either a <strong>V2</strong> board or has the correct firmware version (<strong>0249</strong> or above), you can create a <a target="_blank" rel="nofollow noopener" href="https://support.microbit.org/support/tickets/new">support ticket</a> to notify the Micro:bit Foundation of the problem. You can skip the remaining steps.</p>
+<p><img class="ui image" src="/static/mb/device/usb/no-pair-device.png" alt="Device list for WebUSB pairing" loading="lazy"></p>
+
+        </div>
+    </div>
+<h3 id="you-re-connected-">You’re connected!</h3><p>When your micro:bit is connected, you’ll see the <strong>Connected to micro:bit</strong> message window. Click on <strong>Download</strong> and you’re project will transfer directly to the micro:bit!</p>
+<p><img class="ui image" src="/static/mb/device/usb/usb-connected.png" alt="Connected message window" loading="lazy"></p>
+
+    <div class="ui negative message">
+        <div class="content">
+            <h4 id="connection-failed-">Connection failed?</h4><p>If the connection to your micro:bit was unsuccessful, you’ll see the <strong>Failed to connect</strong> message. You can press <strong>Try Again</strong> to attempt the connection again, download the project as a file instead, or cancel the window and <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/device/usb/webusb/troubleshoot.html">troubleshoot</a> your connection.</p>
+<p><img class="ui image" src="/static/mb/device/usb/usb-connect-fail.png" alt="Connect failed message window" loading="lazy"></p>
+
+        </div>
+    </div>
+<h2 id="one-click-downloads">One-click downloads</h2><p>Once your micro:bit is paired, MakeCode will use WebUSB to transfer the code directly and you won’t have to drag and drop .hex files from a folder. Just click the <strong>Download</strong> button in the editor and your project code will just transfer to the micro:bit.</p>
+<h2 id="console-output">Console output</h2><p>Another feature of having a WebUSB connection is that MakeCode will be able to detect console output from your micro:bit and display the console output in the editor.</p>
+<h2 id="unpair">Unpair your micro:bit </h2><p>If you don’t want to use WebUSB any longer, you will need to unpair your device from the editor to disable the WebUSB connection.</p>
+<ol>
+<li>Click on the <strong>lock</strong> icon in the address bar of the browser.</li>
+<li>Uncheck each <strong>BBC micro:bit CMSIS-DAP</strong> or <strong>DAPLink CMSIS-DAP</strong> device displayed in the device list.</li>
+<li>Reload the MakeCode editor page.</li>
+</ol>
 <p><img class="ui image" src="/static/download/browser-unpair-image.gif" alt="Unpairing from the browser" loading="lazy"></p>
-<h2 id="one-click-download">One-click Download</h2><p>Once your micro:bit is paired, MakeCode will use WebUSB to transfer the code without having to drag and drop. Happy coding!</p>
-<h2 id="console-output">Console output</h2><p>MakeCode will be able to “listen” to your micro:bit and display the console output.</p>
 
     </div>
 

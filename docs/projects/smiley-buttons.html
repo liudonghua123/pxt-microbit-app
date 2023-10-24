@@ -1690,51 +1690,27 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="smiley-buttons">Smiley Buttons</h1><h2 id="introduction-">Introduction </h2><p>Code the buttons on the micro:bit to show that it’s happy or sad.
-(Want to learn how the buttons works? <a target="_blank" rel="nofollow noopener" href="https://youtu.be/t_Qujjd_38o">Watch this video</a>).</p>
+        <h1 id="smiley-buttons">Smiley Buttons</h1><h2 id="code-a-micro-bit-emoji-">Code a micro:bit emoji! </h2><p>Program the buttons on the micro:bit to show a happy 😀 or sad face 🙁</p>
 <p><img class="ui image" src="/static/mb/projects/smiley-buttons/sim.gif" alt="Pressing the A and B buttons" loading="lazy"></p>
-<h2 id="step-1">Step 1</h2><p>Use the <code>||input:on button pressed||</code> block to run code when button <strong>A</strong> is pressed.</p>
+<h2 id="step-1">Step 1</h2><p>Let’s show a happy face when we press button <strong>A</strong>.<br>Click on the <code>||basic:Basic||</code> category in the Toolbox. Drag a <code>||basic:show icon||</code> block into the <code>||input:on button A pressed||</code> block.<br>In the <code>||basic:show icon||</code> block, click on the Heart icon to open the menu. Select a Happy Face icon.</p>
 <pre><code class="lang-blocks">input.onButtonPressed(Button.A, function() { 
+    basic.showIcon(IconNames.Happy)
 })</code></pre>
-<h2 id="step-2">Step 2</h2><p>Place a <code>||basic:show leds||</code> block inside <code>||input:on button pressed||</code> to display a smiley on the screen. Press the <strong>A</strong> button in the simulator to see the smiley.</p>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.A, function() { 
-    basic.showLeds(`
-        # # . # #
-        # # . # #
-        . . . . .
-        # . . . #
-        . # # # .`
-        )
+<h2 id="step-2">Step 2</h2><p>In the micro:bit simulator on the screen, press the <strong>A</strong> button. Do you see a happy face? ⭐ Great job! ⭐</p>
+<h2 id="step-3">Step 3</h2><p>Now let’s show a sad face when we press button <strong>B</strong>.<br>Click on the <code>||input:Input||</code> category in the Toolbox. 
+Drag another <code>||input:on button A pressed||</code> block onto the coding workspace (you can place this anywhere). 
+Click on the <strong>A</strong> button drop-down menu, and select <strong>B</strong>.</p>
+<pre><code class="lang-blocks">input.onButtonPressed(Button.B, function() {})</code></pre>
+<h2 id="step-4">Step 4</h2><p>From the <code>||basic:Basic||</code> category, drag another <code>||basic:show icon||</code> block into the <code>||input:on button B pressed||</code> block. 
+In this <code>||basic:show icon||</code> block, click on the Heart icon to open the menu. 
+Select a Sad Face icon.</p>
+<pre><code class="lang-blocks">input.onButtonPressed(Button.B, function() {
+    basic.showIcon(IconNames.Sad)
 })</code></pre>
-<h2 id="step-3">Step 3</h2><p>Add <code>||input:on button pressed||</code> and <code>||basic:show leds||</code> blocks to display a frowny when button <strong>B</strong> is pressed.</p>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.B, function() { 
-    basic.showLeds(`
-        # # . # #
-        # # . # #
-        . . . . .
-        . # # # .
-        # . . . #`
-        );
-});</code></pre>
-<h2 id="step-4">Step 4</h2><p>Add a secret mode that happens when <strong>A</strong> and <strong>B</strong> are pressed together. For this case, add multiple <code>||basic:show leds||</code> blocks to create an animation.</p>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.AB, function() {
-    basic.showLeds(`
-        . . . . .
-        # . # . .
-        . . . . .
-        # . . . #
-        . # # # .
-        `)
-    basic.showLeds(`
-        . . . . .
-        . . # . #
-        . . . . .
-        # . . . #
-        . # # # .
-        `)    
-})</code></pre>
-<h2 id="step-5">Step 5</h2><p>If you have a micro:bit, connect it to USB and click <code>|Download|</code> to transfer your code. Press button <strong>A</strong> on your micro:bit. Try button <strong>B</strong> and then <strong>A</strong> and <strong>B</strong> together.</p>
-<h2 id="step-6">Step 6</h2><p>Nice! Now go and show it off to your friends!</p>
+<h2 id="step-5">Step 5</h2><p>In the micro:bit simulator on the screen, press the <strong>B</strong> button. Do you see a sad face? ⭐ Great job! ⭐</p>
+<h2 id="step-6">Step 6</h2><p>If you have a micro:bit device, connect it to your computer and click the <code>|Download|</code> button. Follow the instructions to transfer your code onto the micro:bit. Try pressing the <strong>A</strong> and <strong>B</strong> buttons on the micro:bit to see your happy 😀 and sad 🙁 emojis!</p>
+<h2 id="step-7">Step 7</h2><p>Go further - try adding a secret emoji that appears when <strong>A</strong> and <strong>B</strong> buttons are pressed together! 
+Learn more about how the micro:bit buttons work by watching <a target="_blank" rel="nofollow noopener" href="https://youtu.be/t_Qujjd_38o">this video</a>.</p>
 <pre><code class="lang-template">input.onButtonPressed(Button.A, function() {})</code></pre>
 
     </div>

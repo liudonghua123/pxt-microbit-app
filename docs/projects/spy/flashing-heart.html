@@ -1690,31 +1690,22 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="flashing-heart">Flashing Heart</h1><!-- hints --><h2 id="introduction-">Introduction </h2><p>Learn how to use the LEDs and make a flashing heart! 
-(Want to learn how lights work? <a target="_blank" rel="nofollow noopener" href="https://youtu.be/qqBmvHD5bCw">Watch this video</a>).</p>
+        <h1 id="flashing-heart">Flashing Heart</h1><!-- hints --><h2 id="code-a-flashing-heart-">Code a Flashing Heart </h2><p>Code the lights on the micro:bit into a flashing heart animation! 💖</p>
 <p><img class="ui image" src="/static/mb/projects/flashing-heart/sim.gif" alt="Heart shape in the LEDs" loading="lazy"></p>
-<h2 id="step-1-">Step 1 </h2><p>Make the screen <code>||basic:show an icon||</code>  of a <strong>Heart</strong>.</p>
+<h2 id="step-1">Step 1</h2><p>Use the basic <code>||basic:show icon||</code> function to display the <strong>HEART</strong> icon. Type the code below, or drag a code snippet from the <code>||basic:Basic||</code> Toolbox category.</p>
 <pre><code class="lang-spy">basic.showIcon(IconNames.Heart)</code></pre>
-<h2 id="step-2">Step 2</h2><p>After the icon is displayed, <code>||basic:clear screen||</code> and  <code>||basic:pause||</code> for <code>500</code> milliseconds.</p>
+<h2 id="step-2">Step 2</h2><p>Use the <code>||basic:clear screen||</code> function followed by the <code>||basic:pause||</code> function to turn off the lights for <strong>500</strong> milliseconds (or half a second).</p>
 <pre><code class="lang-spy">basic.showIcon(IconNames.Heart)
 basic.clearScreen()
 basic.pause(500)</code></pre>
-<h2 id="step-3">Step 3</h2><p>Now, copy the code currently have and add it to the end. In the copied code, <code>||basic:show an icon||</code> of a <strong>SmallHeart</strong>. Your heart will flash from big to small.</p>
+<h2 id="step-3">Step 3</h2><p>Copy the code you’ve written and paste it at the end. In the copied code, change the <code>||basic:Icon Names||</code> to a <strong>SMALL HEART</strong>. Run your code in the on-screen micro:bit simulator. Do you see a big and small heart animation?</p>
 <pre><code class="lang-spy">basic.showIcon(IconNames.Heart)
 basic.clearScreen()
 basic.pause(500)
 basic.showIcon(IconNames.SmallHeart)
 basic.clearScreen()
 basic.pause(500)</code></pre>
-<h2 id="step-4">Step 4</h2><p>Add one more <code>||basic:show icon||</code> at the end to display another <strong>Heart</strong>.</p>
-<pre><code class="lang-spy">basic.showIcon(IconNames.Heart)
-basic.clearScreen()
-basic.pause(500)
-basic.showIcon(IconNames.SmallHeart)
-basic.clearScreen()
-basic.pause(500)
-basic.showIcon(IconNames.Heart)</code></pre>
-<h2 id="step-5">Step 5</h2><p>Do you want your heart to flash continuously? Remove the last <code>||basic:show icon||</code> and then put a <code>||basic:forever||</code> loop around your code.</p>
+<h2 id="step-4">Step 4</h2><p>Now let’s make our hearts flash forever! Put a <code>||basic:forever||</code> loop around your code.</p>
 <pre><code class="lang-spy">basic.forever(function() {
     basic.showIcon(IconNames.Heart)
     basic.clearScreen()
@@ -1723,7 +1714,7 @@ basic.showIcon(IconNames.Heart)</code></pre>
     basic.clearScreen()
     basic.pause(500)
 })</code></pre>
-<h2 id="step-6">Step 6</h2><p>If you have a micro:bit connected, click <code>|Download|</code> and transfer your code to the micro:bit!</p>
+<h2 id="step-5">Step 5</h2><p>If you have a micro:bit device, connect it to your computer and click the <code>|Download|</code> button. Follow the instructions to transfer your code onto the micro:bit and watch the hearts flash!  ⭐ Great job! ⭐ </p>
 
     </div>
 

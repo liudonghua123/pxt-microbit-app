@@ -1700,16 +1700,18 @@ A quick solution is take screenshots of the snippets but that approach can quick
 <li>screenshots don’t play well with source control system - you can’t diff changes efficiently.</li>
 </ul>
 <h2 id="rendering-blocks-on-the-spot">Rendering blocks on the spot</h2><p>The MakeCode approach to solving this issue is to render the <strong>JavaScript</strong> code snippets on the client using the same block rendering engine as the editor. Under the hood, an <code>iframe</code> from the MakeCode editor will render the blocks for you.</p>
-<h2 id="githubpages">GitHub pages </h2><p>You can use <a target="_blank" rel="nofollow noopener" href="https://help.github.com/en/github/working-with-github-pages">GitHub pages</a> to render your README.md file as a web site.</p>
+<h2 id="githubpages">GitHub pages </h2><p>You can use <a target="_blank" rel="nofollow noopener" href="https://help.github.com/en/github/working-with-github-pages">GitHub pages</a> to render your README.md file as a web site. Within the README.md you can enable rendering of blocks.</p>
 <ul>
 <li>enable <a target="_blank" rel="nofollow noopener" href="https://help.github.com/en/github/working-with-github-pages/creating-a-github-pages-site#creating-your-site">GitHub pages</a> on your repository</li>
 <li>add the following entry in the <code>_config.yml</code></li>
 </ul>
-<pre><code>  makecode:
-    home_url: https://makecode.microbit.org/</code></pre><ul>
-<li>copy the following text at the bottom of your <code>README.md</code> file<pre><code>&lt;script src=&quot;https://makecode.com/gh-pages-embed.js&quot;&gt;&lt;/script&gt;&lt;script&gt;makeCodeRender(&quot;{{ site.makecode.home_url }}&quot;, &quot;{{ site.github.owner_name }}/{{ site.github.repository_name }}&quot;);&lt;/script&gt;</code></pre></li>
+<pre><code class="lang-yml">  makecode:
+    home_url: https://makecode.microbit.org/</code></pre>
+<ul>
+<li>copy the following text at the bottom of your <code>README.md</code> file</li>
 </ul>
-<h2 id="other-plugins">Other Plugins</h2><p>Here is an integration sample:</p>
+<pre><code class="lang-html">&lt;script src=&quot;https://makecode.com/gh-pages-embed.js&quot;&gt;&lt;/script&gt;&lt;script&gt;makeCodeRender(&quot;{{ site.makecode.home_url }}&quot;, &quot;{{ site.github.owner_name }}/{{ site.github.repository_name }}&quot;);&lt;/script&gt;</code></pre>
+<h2 id="other-plugins">Other Plugins</h2><p>Here are some other integration samples:</p>
 <ul>
 <li><a target="_blank" rel="nofollow noopener" href="https://github.com/microsoft/pxt-react-extension-template/blob/master/src/components/snippet.tsx">React component</a></li>
 <li><a target="_blank" rel="nofollow noopener" href="https://jsfiddle.net/L8msdjpu/2/">HTML only</a></li>
@@ -1719,7 +1721,7 @@ A quick solution is take screenshots of the snippets but that approach can quick
 
     <div class="ui info message">
         <div class="content">
-            <p>Try this <a target="_blank" rel="nofollow noopener" href="https://jsfiddle.net/nq0hyz97/">fiddle</a> to see an embedded blocks rendering example.</p>
+            <h4 id="try-it-out">Try it out</h4><p>Try this <a target="_blank" rel="nofollow noopener" href="https://jsfiddle.net/nq0hyz97/">fiddle</a> to see an embedded blocks rendering example in action.</p>
 
         </div>
     </div>
@@ -1771,9 +1773,10 @@ A quick solution is take screenshots of the snippets but that approach can quick
 <h4 id="responding-to-code-renderready-code-">Responding to <code>renderready</code></h4><p>When the <code>renderready</code> response is received, the document can begin collecting and sending its code snippets to the renderer. A method for gathering snippet code and sending it to the renderer is shown in the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks-embed#makecoderenderpre.html">makeCodeRenderPre</a> function.</p>
 <h4 id="responding-to-code-renderblocks-code-">Responding to <code>renderblocks</code></h4><p>The <code>renderblocks</code> message is received as a response to a previous <code>renderblocks</code> request sent by the document. The message contains an image of the rendered blocks if compilation of the code snippet sent was successful. The image can be inserted into the DOM by matching the <code>id</code> of the original snippet element with the <code>id</code> in the message. The image is provided as both SVG and <code>img</code> data. The implementation can decide which form it wants to use. Depending on how the blocks are to be displayed, the original snippet elements are replaced by the blocks image or the blocks are added to the DOM next to them.</p>
 <h4 id="handler-example">Handler example</h4><p>As an example, let’s say that a document has all of its code snippets contained in <code>pre</code> elements:</p>
-<pre><code>&lt;pre&gt;
+<pre><code class="lang-html">&lt;pre&gt;
 basic.showString(&quot;Hello World&quot;)
-&lt;/pre&gt;</code></pre><p>A message handler is registered for <code>message</code> events. For the <code>renderready</code> message, all the snippets are collected and given a ‘snippet-x’ identifier. Each snippet is passed to <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks-embed#makecoderenderpre.html">makeCodeRenderPre</a> to get a block image for it. When the block image is returned in the <code>renderblocks</code> message, the message identifier is matched to a <code>pre</code> tag and the element is replaced by an <code>img</code> element containing the block image data.</p>
+&lt;/pre&gt;</code></pre>
+<p>A message handler is registered for <code>message</code> events. For the <code>renderready</code> message, all the snippets are collected and given a ‘snippet-x’ identifier. Each snippet is passed to <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks-embed#makecoderenderpre.html">makeCodeRenderPre</a> to get a block image for it. When the block image is returned in the <code>renderblocks</code> message, the message identifier is matched to a <code>pre</code> tag and the element is replaced by an <code>img</code> element containing the block image data.</p>
 <p>This example uses standard DOM methods but feel free to write it using your favorite JS framework.</p>
 <pre><code class="lang-typescript-ignore">window.addEventListener(&quot;message&quot;, function (ev) {
     var msg = ev.data;
@@ -1949,20 +1952,36 @@ $(function () {
 &lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;</code></pre>
+<h2 id="rendering-blocks-from-extensions">Rendering blocks from extensions</h2><p>If you also want to render blocks from an extension, include the path for the extension in the <code>options.package</code> data field. For example, if you want to show a block from the <code>neopixel</code> extension, like the block for <code>setPixelColor</code>:</p>
+<pre><code class="lang-html">&lt;pre&gt;
+strip.setPixelColor(0, NeoPixelColors.White)
+&lt;/pre&gt;</code></pre>
+<p>Add the <code>options.package</code> field and set it to the extension path specifier such as <code>neopixel=github:microsoft/pxt-neopixel</code> for the <code>neopixel</code> extension (<a target="_blank" rel="nofollow noopener" href="https://github.com/microsoft/pxt-neopixel/blob/master/pxt.json"><code>neopixel</code></a> is the name of the extension and <code>github:microsoft/pxt-neopixel</code> is the GitHub path, see <a target="_blank" rel="nofollow noopener" href="https://makecode.com/writing-docs/snippets#package">package specs</a>): </p>
+<pre><code class="lang-typescript-ignore">function makeCodeRenderPre(pre) {
+    var f = document.getElementById(&quot;makecoderenderer&quot;);
+    f.contentWindow.postMessage({
+        type: &quot;renderblocks&quot;,
+        id: pre.id,
+        code: pre.innerText,
+        options: {
+            package: &quot;neopixel=github:microsoft/pxt-neopixel&quot;
+        }
+    }, &quot;https://makecode.microbit.org/&quot;);
+}</code></pre>
 <h2 id="rendering-shared-projects">Rendering shared projects</h2><p>Rendering a shared project is accomplished in almost the same manner as the embedded blocks method. In this case though,
 leave the <code>code</code> attribute empty and pass the shared project id in a <code>options.packageId</code> data field.</p>
 <p>In the HTML, you can store the shared project id in a <code>pre</code> element as a data attribute.</p>
-<pre><code>&lt;pre data-packageid=&quot;_HjWJo9eHjXwP&quot;&gt;&lt;/pre&gt;</code></pre><p>Then, read the <code>data-packageid</code> attribute and pass it along as the <code>packageId</code> field in the <code>options</code> of the <code>renderblocks</code> message.</p>
-<pre><code>f.contentWindow.postMessage({
+<pre><code class="lang-html">&lt;pre data-packageid=&quot;_HjWJo9eHjXwP&quot;&gt;&lt;/pre&gt;</code></pre>
+<p>Then, read the <code>data-packageid</code> attribute and pass it along as the <code>packageId</code> field in the <code>options</code> of the <code>renderblocks</code> message.</p>
+<pre><code class="lang-typescript-ignore">f.contentWindow.postMessage({
     type: &quot;renderblocks&quot;,
     id: pre.id,
     code: &quot;&quot;,
     options: {
         packageId: pre.getAttribute(&quot;data-packageid&quot;)
     }
-}, &quot;https://makecode.microbit.org/&quot;);</code></pre><ul>
-<li><a target="_blank" rel="nofollow noopener" href="https://jsfiddle.net/L8msdjpu/3/">HTML only</a></li>
-</ul>
+}, &quot;https://makecode.microbit.org/&quot;);</code></pre>
+<p>See this <a target="_blank" rel="nofollow noopener" href="https://jsfiddle.net/L8msdjpu/3/">HTML</a> example.</p>
 <h2 id="lazy-loading">Lazy loading</h2><p>You can detect whether you have any snippet on your page before loading the rendering <code>iframe</code>.</p>
 
     </div>

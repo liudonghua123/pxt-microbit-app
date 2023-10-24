@@ -1690,38 +1690,41 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="step-counter">Step Counter</h1><h2 id="introduction-">Introduction </h2><p><img class="ui image" src="/static/mb/projects/step-counter.png" alt="A micro:bit attached on a foot" loading="lazy"></p>
-<p>This project turns the micro:bit into a simple step counter. A step counter is also known as a pedometer. Each <strong>shake</strong> event increments a <strong>counter</strong> variable. The step count is displayed on the LEDs.</p>
-<p>If you built a watch in the <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/projects/watch/make">make</a> portion of the of the <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/projects/watch">Watch</a> project, you can use the code from this project with it too.</p>
-<h2 id="a-counter">A counter</h2><p>To build a counter, we’ll need a variable <code>||variables:step||</code> to store the number of steps.</p>
-<pre><code class="lang-blocks">let step = 0
-step = 0</code></pre>
-<h2 id="detecting-a-step">Detecting a step</h2><p>Assuming you attach the micro:bit to your foot or ankle, it will get shaken  when you take a step. We can use the <code>||input:on shake||</code> event to detect a step (it should notice a step most of the time). Let’s add the code to increment <code>||variables:step||</code> by <code>1</code> when the micro:bit is shaken.</p>
-<pre><code class="lang-blocks">let step = 0
+        <h1 id="step-counter">Step Counter</h1><h2 id="count-your-steps-with-the-micro-bit-">Count your steps with the micro:bit! </h2><p><img class="ui image" src="/static/mb/projects/step-counter.png" alt="A micro:bit attached on a foot" loading="lazy"></p>
+<p>Turn your micro:bit into a step counter (also known as a pedometer). We’ll use the motion sensor (also known as an accelerometer) to measure when we take a step with the micro:bit.</p>
+<h2 id="step-1">Step 1</h2><p>First we need to create a variable to keep track of the number of steps 🦶. A variable is a container for storing values.<br>Click on the <code>||variables:Variables||</code> category in the Toolbox. Click on the <strong>Make a Variable</strong> button. Give your new variable the name “steps” and click Ok.</p>
+<h2 id="step-2">Step 2</h2><p>Click on the <code>||variables:Variables||</code> category in the Toolbox. You’ll notice that there are some new blocks that have appeared. Drag a <code>||variables:set steps||</code> block into the <code>||basic:on start||</code> block. This sets the value of our <code>||variables:steps||</code> variable to <strong>0</strong> when our program starts.</p>
+<pre><code class="lang-blocks">let steps = 0</code></pre>
+<h2 id="step-3">Step 3</h2><p>Let’s record a step every time our micro:bit shakes. Click on the <code>||input:Input||</code> category in the Toolbox. Drag an <code>||input:on shake||</code> block out to the workspace and place it anywhere.</p>
+<pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function () {})</code></pre>
+<h2 id="step-4">Step 4</h2><p>Click on the <code>||variables:Variables||</code> category in the Toolbox. Drag a <code>||variables:change steps||</code> block into the <code>||input:on shake||</code> block. Now every time we shake our micro:bit (or take a step), we will add 1 to the value in our <code>||variables:steps||</code> variable.</p>
+<pre><code class="lang-blocks">let steps = 0
 input.onGesture(Gesture.Shake, function () {
-    step += 1
-})
-step = 0</code></pre>
-<h2 id="how-many-steps-so-far-">How many steps so far?</h2><p>We want to always see how many steps were counted. In a <code>||basic:forever||</code> loop, we add a <code>||basic:show number||</code> block to display the value of <code>step</code>.</p>
-<pre><code class="lang-blocks">let step = 0
+    steps += 1
+})</code></pre>
+<h2 id="step-5">Step 5</h2><p>Let’s show the number of steps taken. Click on the <code>||basic:Basic||</code> category in the Toolbox. Drag a <code>||basic:show number||</code> block into the <code>||input:on shake||</code> block, underneath the <code>||variables:change steps||</code> block.</p>
+<pre><code class="lang-blocks">let steps = 0
 input.onGesture(Gesture.Shake, function () {
-    step += 1
-})
-basic.forever(function() {
-    basic.showNumber(step)
-})
-step = 0</code></pre>
-<h2 id="display-lag">Display lag</h2><p>Did you notice there is a lag, or delay, in the display of steps? This is because the <code>step</code> value can change <strong>while</strong> the micro:bit is displaying a number. To remove the lag, add <code>||led:stop animation||</code> after changing the value of <code>step</code>.</p>
-<pre><code class="lang-blocks">let step = 0
+    steps += 1
+    basic.showNumber(0)
+})</code></pre>
+<h2 id="step-6">Step 6</h2><p>Click on the <code>||variables:Variables||</code> category in the Toolbox. Drag a <code>||variables:steps||</code> block into the <code>||basic:show number||</code> block, replacing the number <strong>0</strong>.</p>
+<pre><code class="lang-blocks">let steps = 0
 input.onGesture(Gesture.Shake, function () {
-    step += 1
+    steps += 1
+    basic.showNumber(steps)
+})</code></pre>
+<h2 id="step-7">Step 7</h2><p>Let’s test your code! Press the white <strong>SHAKE</strong> button on the micro:bit on-screen simulator, or move your cursor quickly back and forth over the simulator. Do you see the number of steps increasing on the micro:bit?  ⭐ Great job! ⭐</p>
+<h2 id="step-8">Step 8</h2><p>If you have a micro:bit device, connect it to your computer and click the <code>|Download|</code> button. Follow the instructions to transfer your code onto the micro:bit. Once your code has been downloaded, attach your micro:bit to a battery pack and put in your sock.  Walk around.  Is the micro:bit counting your steps?</p>
+<h2 id="step-9">Step 9</h2><p>Go further - you may notice the micro:bit can’t count as fast you might run. That’s because there is a delay while the micro:bit is displaying numbers. To correct for this, click on the Hint to see an alternate solution. Learn more about how the micro:bit acccelerometer works by watching <a target="_blank" rel="nofollow noopener" href="https://youtu.be/byngcwjO51U">this video</a>.</p>
+<pre><code class="lang-blocks">let steps = 0
+input.onGesture(Gesture.Shake, function () {
+    steps += 1
     led.stopAnimation()
 })
 basic.forever(function() {
-    basic.showNumber(step)
-})
-step = 0</code></pre>
-<h2 id="run-">Run!</h2><p>Strap the micro:bit on your leg and run around to see if it counts your steps!</p>
+    basic.showNumber(steps)
+})</code></pre>
 
     </div>
 

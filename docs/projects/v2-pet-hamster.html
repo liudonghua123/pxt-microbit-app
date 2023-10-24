@@ -1690,30 +1690,35 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="pet-hamster">Pet Hamster</h1><h2 id="introduction-">Introduction </h2><p><img class="ui image" src="/static/mb/projects/pet-hamster.png" alt="Pet hamster banner message" loading="lazy"></p>
+        <h1 id="pet-hamster">Pet Hamster</h1><h2 id="introduction">Introduction</h2><p><img class="ui image" src="/static/mb/projects/pet-hamster.png" alt="Pet hamster banner message" loading="lazy"></p>
 <h2 id="cyrus-s-asleep-face">Cyrus’s asleep face</h2><p>Cyrus is a very sleepy hamster. In fact, Cyrus is almost always sleeping.</p>
 <p>► From the <code>||basic:Basic||</code> category, find <code>||basic:show icon [ ]||</code> and snap it into your <code>||basic:on start||</code> container. Set it to show the asleep <code>-_-</code> face.<br>💡 In the <code>show icon</code> dropdown menu options, you can hover to see what each design is called!</p>
-<pre><code class="lang-blocks">basic.showIcon(IconNames.Asleep)</code></pre>
+<pre><code class="lang-blocks">//@highlight
+basic.showIcon(IconNames.Asleep)</code></pre>
 <h2 id="giggly-cyrus">Giggly Cyrus</h2><p>Pressing Cyrus’s logo tickles them!</p>
 <p>► From <code>||input:Input||</code>, find the <code>||input:on logo [pressed]||</code> container and drag it into your workspace.<br>► Go to <code>||basic:Basic||</code> and grab <strong>another</strong> <code>||basic:show icon [ ]||</code>. Snap it into your <strong>empty</strong> <code>||input:on logo [pressed]||</code> container. Set the icon (Cyrus’s face) to happy <code>:)</code>.</p>
-<pre><code class="lang-blocks">input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+<pre><code class="lang-blocks">//@highlight
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    //@highlight
     basic.showIcon(IconNames.Happy)
 })</code></pre>
 <h2 id="tickle-sound">Tickle sound</h2><p>► From the <code>||music:Music||</code> category, get a <code>||music:play sound [giggle] until done||</code> and add it to the <strong>bottom</strong> of your <code>||input:on logo [pressed]||</code> container.</p>
 <pre><code class="lang-blocks">input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     basic.showIcon(IconNames.Happy)
-    // @highlight
+    //@highlight
     soundExpression.giggle.playUntilDone()
 })</code></pre>
 <h2 id="dizzy-cyrus">Dizzy Cyrus</h2><p>Whenever Cyrus is shaken, they get sad 🙁</p>
 <p>► From <code>||input:Input||</code>, find <code>||input:on [shake]||</code> and drag it into your workspace.<br>► From the <code>||basic:Basic||</code> category, grab <code>||basic:show icon [ ]||</code> and snap it into your <strong>new</strong> <code>||input:on [shake]||</code> container. Set the icon (Cyrus’s face) to sad <code>:(</code>.</p>
-<pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function () {
+<pre><code class="lang-blocks">//@highlight
+input.onGesture(Gesture.Shake, function () {
+    //@highlight
     basic.showIcon(IconNames.Sad)
 })</code></pre>
 <h2 id="dizzy-sound">Dizzy sound</h2><p>► From the <code>||music:Music||</code> category, find the <code>||music:play sound [giggle] until done||</code> block and add it to the <strong>bottom</strong> of your <code>||input:on [shake]||</code> container.<br>► Click on the <strong>dropdown</strong> and set it so Cyrus plays a <code>||music:sad||</code> sound until done.</p>
 <pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function () {
     basic.showIcon(IconNames.Sad)
-    // @highlight
+    //@highlight
     soundExpression.sad.playUntilDone()
 })</code></pre>
 <h2 id="cyrus-s-default-face-pt-1">Cyrus’s default face pt. 1</h2><p>Let’s ensure that Cyrus will always go back to sleep after being shaken or tickled.</p>
@@ -1721,7 +1726,7 @@
 <pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function () {
     basic.showIcon(IconNames.Sad)
     soundExpression.sad.playUntilDone()
-    // @highlight
+    //@highlight
     basic.showIcon(IconNames.Asleep)
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
@@ -1738,7 +1743,7 @@ basic.showIcon(IconNames.Asleep)</code></pre>
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     basic.showIcon(IconNames.Happy)
     soundExpression.giggle.playUntilDone()
-    // @highlight
+    //@highlight
     basic.showIcon(IconNames.Asleep)
 })
 basic.showIcon(IconNames.Asleep)</code></pre>
@@ -1756,6 +1761,8 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     basic.showIcon(IconNames.Asleep)
 })
 basic.showIcon(IconNames.Asleep)</code></pre>
+<pre><code class="lang-validation.global"># BlocksExistValidator</code></pre>
+<pre><code class="lang-template">//</code></pre>
 
     </div>
 

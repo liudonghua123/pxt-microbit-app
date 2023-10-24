@@ -1690,11 +1690,12 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="clap-lights">Clap Lights</h1><h2 id="introduction-">Introduction </h2><p>The new micro:bits have a microphone to help them detect sound 🎤</p>
+        <h1 id="clap-lights">Clap Lights</h1><h2 id="introduction">Introduction</h2><p>The new micro:bits have a microphone to help them detect sound 🎤</p>
 <p>Let’s learn how to use a clap 👏 to switch your micro:bit’s lights on and off!</p>
 <p><img class="ui image" src="/static/mb/projects/clap-lights.png" alt="Clap lights banner message" loading="lazy"></p>
 <h2 id="setting-up-the-sound-input">Setting up the sound input</h2><p>► From the <code>||input:Input||</code> category, find the <code>||input:on [loud] sound||</code> container and add it to your workspace.</p>
-<pre><code class="lang-blocks">input.onSound(DetectedSound.Loud, function () {
+<pre><code class="lang-blocks">// @highlight
+input.onSound(DetectedSound.Loud, function () {
 
 })</code></pre>
 <h2 id="creating-a-lightson-variable">Creating a lightsOn variable</h2><p>Let’s begin by creating a <a  rel="nofollow noopener" href="#variable" title="a holder for information that may change"><strong><em>variable</em></strong></a> to keep track of whether the micro:bit’s lights are on or off.</p>
@@ -1782,6 +1783,8 @@ input.onSound(DetectedSound.Loud, function () {
     }
 })
 input.setSoundThreshold(SoundThreshold.Loud, 150)</code></pre>
+<pre><code class="lang-validation.global"># BlocksExistValidator</code></pre>
+<pre><code class="lang-template">//</code></pre>
 
     </div>
 

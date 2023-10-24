@@ -1690,28 +1690,28 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="dice">Dice</h1><h2 id="introduction-">Introduction </h2><p>Let’s turn the micro:bit into a dice!
-(Want to learn how the accelerometer works? <a target="_blank" rel="nofollow noopener" href="https://youtu.be/byngcwjO51U">Watch this video</a>).</p>
+        <h1 id="dice">Dice</h1><h2 id="introduction">Introduction</h2><p>Let’s create some digital 🎲 dice 🎲 with our micro:bit!</p>
 <p><img class="ui image" src="/static/mb/projects/dice.png" alt="A microbit dice" loading="lazy"></p>
-<h2 id="step-1">Step 1</h2><p>We need 3 pieces of code: one to detect a throw (shake), another to pick a random number, and then one to show the number.</p>
-<p>Use the <code>||input:on shake||</code> block you see in the editor workspace. It runs code when you shake the micro:bit.</p>
+<h2 id="step-1">Step 1</h2><p>The <code>||input:on shake||</code> block runs code when you shake 👋 the micro:bit. From the <code>||basic:Basic||</code> category, get a <code>||basic:show number||</code> block and place it inside the <code>||input:on shake||</code> block to display a number.</p>
 <pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function() {
-
-})</code></pre>
-<h2 id="step-2">Step 2</h2><p>Get a <code>||basic:show number||</code> block and place it inside the <code>||input:on shake||</code> block to display a number.</p>
-<pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function() {
+    //@highlight
     basic.showNumber(0)
 })</code></pre>
-<h2 id="step-3">Step 3</h2><p>Put a <code>||Math:pick random||</code> block in the <code>||basic:show number||</code> block to pick a random number.</p>
+<h2 id="step-2">Step 2</h2><p>Press the white <strong>SHAKE</strong> button on the micro:bit on-screen simulator, or move your cursor quickly back and forth over the simulator. Do you see the number 0 appear?  ⭐ Great job! ⭐</p>
+<h2 id="step-3">Step 3</h2><p>But we don’t want to show 0 on our dice all the time. From the <code>||math:Math||</code> Toolbox category, drag a <code>||Math:pick random||</code> block and drop it into the <code>||basic:show number||</code> block replacing the <strong>0</strong>.</p>
 <pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function() {
+    //@highlight
     basic.showNumber(randint(0, 10))
 })</code></pre>
-<h2 id="step-4">Step 4</h2><p>A typical dice shows values from <code>1</code> to <code>6</code>. So, in <code>||Math:pick random||</code>, don’t forget to choose the right minimum and maximum values!</p>
+<h2 id="step-4">Step 4</h2><p>A typical dice shows values from 1 to 6 dots. So, in the <code>||Math:pick random||</code> block, change the minimum value to <strong>1</strong> and the maximum value to <strong>6</strong>.</p>
 <pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function() {
+    //@highlight
     basic.showNumber(randint(1, 6))
 })</code></pre>
-<h2 id="step-5">Step 5</h2><p>Use the simulator to try out your code. Does it show the number you expected?</p>
-<h2 id="step-6">Step 6</h2><p>If you have a micro:bit connected, click <code>|Download|</code> and transfer your code to the micro:bit!</p>
+<h2 id="step-5">Step 5</h2><p>Press the white <strong>SHAKE</strong> button again on the micro:bit simulator. Do you see random numbers between 1 and 6 appear? ⭐ Great job! ⭐</p>
+<h2 id="step-6">Step 6</h2><p>If you have a micro:bit device, connect it to your computer and click the <code>|Download|</code> button. Follow the instructions to transfer your code onto the micro:bit. Once your code has been downloaded, attach your micro:bit to a battery pack and use it as digital 🎲 dice for your next boardgame!</p>
+<h2 id="step-7">Step 7</h2><p>Go further - Try adding some Music blocks to make a sound when you shake your dice, or use the micro:bit LED lights to show number values. Want to learn how the micro:bit motion detector or accelerometer works? <a target="_blank" rel="nofollow noopener" href="https://youtu.be/byngcwjO51U">Watch this video</a>.</p>
+<pre><code class="lang-validation.global"># BlocksExistValidator</code></pre>
 <pre><code class="lang-template">input.onGesture(Gesture.Shake, function() {})</code></pre>
 
     </div>

@@ -775,6 +775,7 @@
             "dfrobot/pxt-dfrobot_iot_cloud_kit": { "tags": [ "Networking" ] },
             "plenprojectcompany/pxt-plenbit_full": { "tags": [ "Robotics" ] },
             "bsiever/microbit-pxt-clicks": { "tags": [ "Software" ] },
+            "bsiever/pxt-morse": { "tags": [ "Software" ] },
             "joy-it/pxt-ads1115": { "tags": [ "Science" ] },
             "bsiever/microbit-pxt-rotate": { "tags": [ "Software" ] },
             "sparkfun/pxt-gator-uv": { "tags": [ "Science" ] },
@@ -783,7 +784,11 @@
             "makeandlearn/pxt-didacbot": { "tags": [ "Robotics" ] },
             "cytrontechnologies/pxt-rekabit-rbt-project-kit": { "tags": [ "Science" ] },
             "cytrontechnologies/pxt-motionbit": { "tags": [ "Robotics" ] },
-            "joy-it/pxt-rb-joypi-advanced": { "tags": [ "Science" ] }
+            "joy-it/pxt-rb-joypi-advanced": { "tags": [ "Science" ] },
+            "bsiever/pxt-sen55": { "tags": [ "Science" ] },
+            "climate-action-kits/pxt-fwd-edu": {},
+            "elecfreaks/pxt-cutebot-pro": { "tags": [ "Robotics" ], "preferred": true },
+            "microbit-foundation/makecode-tutorials": {}
         },
         "upgrades": {
             "tinkertanker/pxt-iot-environment-kit": "min:v4.2.1",
@@ -866,6 +871,6 @@
         }
     },
     "electronManifest": {
-        "latest": "v6.0.15"
+        "latest": "v6.0.17"
     }
 }

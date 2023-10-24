@@ -1690,29 +1690,39 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="micro-chat">Micro Chat</h1><!-- hints --><h2 id="introduction-">Introduction </h2><p><img class="ui image" src="/static/mb/projects/a9-radio.png" alt="Two micro:bit connected via radio" loading="lazy"></p>
-<p>Use the <strong>radio</strong> to send and receive messages with another micro:bit.</p>
-<h2 id="handle-buttons">Handle buttons</h2><p>Add an event to run code when <code>||input:button A is pressed||</code>.</p>
-<pre><code class="lang-spy">input.onButtonPressed(Button.A, function() {
+        <h1 id="micro-chat">Micro Chat</h1><!-- hints --><h2 id="introduction">Introduction</h2><p><img class="ui image" src="/static/mb/projects/a9-radio.png" alt="Two micro:bit connected via radio" loading="lazy"></p>
+<p>Use the micro:bit 📻 radio to send and receive 💬 messages between micro:bits!</p>
+<h2 id="step-1">Step 1</h2><p>Let’s write some code to set the channel over which we’ll send messages. Only micro:bits who are in the same group will be able to send and receive messages between them. Use the radio <code>||radio:set group||</code> function. Type the code below, or drag a code snippet from the <code>||radio:Radio||</code> Toolbox category.</p>
+<pre><code class="lang-spy">radio.setGroup(1)</code></pre>
+<h2 id="step-2">Step 2</h2><p>Now let’s send a message when we press a button on our micro:bit. Use the input <code>||input:on button pressed||</code> function.</p>
+<pre><code class="lang-spy">radio.setGroup(1)
+input.onButtonPressed(Button.A, function() {
 })</code></pre>
-<h2 id="sending-a-message">Sending a message</h2><p>Add code to <code>||radio:send a string||</code> over <code>||radio:radio||</code> when <code>||input:button A is pressed||</code>. 
-Every micro:bit nearby will receive this message.</p>
-<pre><code class="lang-spy">input.onButtonPressed(Button.A, function() {
+<h2 id="step-3">Step 3</h2><p>Add code to <code>||radio:send a string||</code> in the <code>||input:on button pressed||</code> function. This message will be sent to every micro:bit nearby in group 1.</p>
+<pre><code class="lang-spy">radio.setGroup(1)
+input.onButtonPressed(Button.A, function() {
     // @highlight
-    radio.sendString(&quot;:)&quot;)
+    radio.sendString(&quot;Micro Chat!&quot;)
 })</code></pre>
-<h2 id="receiving-a-message">Receiving a message</h2><p>Put in another event to run code when a <code>||radio:string is received||</code> over <code>||radio:radio||</code>. </p>
-<pre><code class="lang-spy">radio.onReceivedString(function (receivedString) {
+<h2 id="step-4">Step 4</h2><p>Now let’s add some code to receive messages. Use the radio <code>||radio:on received string||</code> function.</p>
+<pre><code class="lang-spy">radio.setGroup(1)
+input.onButtonPressed(Button.A, function() {
+    radio.sendString(&quot;Micro Chat!&quot;)
+})
+radio.onReceivedString(function (receivedString) {
 })</code></pre>
-<h2 id="displaying-text">Displaying text</h2><p>Inside the event, add code to <code>||basic:show||</code> the <code>||variables:receivedString||</code>.</p>
-<pre><code class="lang-spy">radio.onReceivedString(function (receivedString) {
+<h2 id="step-5">Step 5</h2><p>Inside the <code>||radio:on received string||</code> function, use the basic <code>||basic:show string||</code> function to show the value in the <code>||variables:receivedString||</code> variable.</p>
+<pre><code class="lang-spy">radio.setGroup(1)
+input.onButtonPressed(Button.A, function() {
+    radio.sendString(&quot;Micro Chat!&quot;)
+})
+radio.onReceivedString(function (receivedString) {
     // @highlight
     basic.showString(receivedString)
 })</code></pre>
-<h2 id="testing-in-the-simulator">Testing in the simulator</h2><p>Press button <strong>A</strong> on the simulator, you will notice that a second micro:bit appears (if your screen is too small, the simulator might decide not to show it). Try pressing <strong>A</strong> again and notice that the “:)” message gets displayed on the other micro:bit.</p>
-<h2 id="try-it-for-real">Try it for real</h2><p>If you two micro:bits, download the program to each one. Press button <strong>A</strong> on one and see if the other gets a message.</p>
-<h2 id="groups">Groups</h2><p>Add code to <code>||radio:set the group||</code> number of your program. You will only receive messages from micro:bits within the same group. Use this to avoid receiving messages from every micro:bit that is transmitting.</p>
-<pre><code class="lang-spy">radio.setGroup(123)</code></pre>
+<h2 id="step-6">Step 6</h2><p>Let’s test our code! In the micro:bit on-screen simulator, press button <strong>A</strong>. You should see a second micro:bit appear. Now try pressing <strong>A</strong> again. Do you see your message appear on the second micro:bit?  ⭐ Great job! ⭐ </p>
+<h2 id="step-7">Step 7</h2><p>If you have a micro:bit device, connect it to your computer and click the <code>|Download|</code> button. Follow the instructions to transfer your code onto the micro:bit.  If you have two micro:bits, download the program to each one. Press button <strong>A</strong> on one and see if the other gets the message!</p>
+<h2 id="step-8">Step 8</h2><p>Go further - try using different buttons to send a mix of messages 📝, or send secret 🔒 messages to different radio groups!</p>
 <pre><code class="lang-package">radio</code></pre>
 
     </div>

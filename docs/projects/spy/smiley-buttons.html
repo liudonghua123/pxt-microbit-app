@@ -1690,28 +1690,23 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="smiley-buttons">Smiley Buttons</h1><!-- hints --><h2 id="introduction-">Introduction </h2><p>Code the buttons on the micro:bit to show that it’s happy or sad.
-(Want to learn how the buttons works? <a target="_blank" rel="nofollow noopener" href="https://youtu.be/t_Qujjd_38o">Watch this video</a>).</p>
+        <h1 id="smiley-buttons">Smiley Buttons</h1><!-- hints --><h2 id="code-a-micro-bit-emoji-">Code a micro:bit emoji! </h2><p>Program the buttons on the micro:bit to show a happy 😀 or sad face 🙁</p>
 <p><img class="ui image" src="/static/mb/projects/smiley-buttons/sim.gif" alt="Pressing the A and B buttons" loading="lazy"></p>
-<h2 id="step-1">Step 1</h2><p>Put in an <code>||input:on button pressed||</code> event to run code when button <strong>A</strong> is pressed.</p>
-<pre><code class="lang-spy">input.onButtonPressed(Button.A, function() { 
-})</code></pre>
-<h2 id="step-2">Step 2</h2><p>Use <code>||basic:show icon||</code> to display a <strong>Happy</strong> face on the screen.</p>
-<p>Press the <strong>A</strong> button in the simulator to see the smiley.</p>
+<h2 id="step-1">Step 1</h2><p>Use the <code>||input:on button pressed||</code> function to run code when button <strong>A</strong> is pressed. Type the code below, or drag a code snippet from the <code>||input:Input||</code> Toolbox category.</p>
+<pre><code class="lang-spy">input.onButtonPressed(Button.A, function() {})</code></pre>
+<h2 id="step-2">Step 2</h2><p>Use the basic <code>||basic:show icon||</code> statement inside the <code>||input:on button pressed||</code> function display a <strong>Happy</strong> face when button <strong>A</strong> is pressed.</p>
 <pre><code class="lang-spy">input.onButtonPressed(Button.A, function() { 
     basic.showIcon(IconNames.Happy)
 })</code></pre>
-<h2 id="step-3">Step 3</h2><p>Use another <code>||input:on button pressed||</code> with a <code>||basic:show icon||</code> inside to display a <strong>Sad</strong> face when button <strong>B</strong> is pressed.</p>
+<h2 id="step-3">Step 3</h2><p>Run your code in the micro:bit simulator on the screen, press the <strong>A</strong> button. Do you see a happy face? ⭐ Great job! ⭐</p>
+<h2 id="step-4">Step 4</h2><p>Write another <code>||input:on button pressed||</code> function with a <code>||basic:show icon||</code> inside to display a <strong>Sad</strong> face when button <strong>B</strong> is pressed. Try copying and pasting your existing code, and change <strong>A</strong> to <strong>B</strong> and Happy to Sad.</p>
 <pre><code class="lang-spy">input.onButtonPressed(Button.B, function() { 
     basic.showIcon(IconNames.Sad)
 })</code></pre>
-<h2 id="step-4">Step 4</h2><p>Add a secret mode that happens when <strong>A</strong> and <strong>B</strong> are pressed together. For this case, use <code>||basic:show icon||</code> multiple times to create an animation.</p>
-<pre><code class="lang-spy">input.onButtonPressed(Button.AB, function() {
-    basic.showIcon(IconNames.Silly)
-    basic.showIcon(IconNames.Surprised)
-})</code></pre>
-<h2 id="step-5">Step 5</h2><p>Click <code>|Download|</code> to transfer your code to your micro:bit (if you have one). Try buttons <strong>A</strong>, <strong>B</strong> and then <strong>A</strong> and <strong>B</strong> together.</p>
-<h2 id="step-6">Step 6</h2><p>If you have a micro:bit connected, click <code>|Download|</code> and transfer your code to the micro:bit!</p>
+<h2 id="step-5">Step 5</h2><p>Run your code in the micro:bit simulator on the screen, press the <strong>B</strong> button. Do you see a sad face? ⭐ Great job! ⭐</p>
+<h2 id="step-6">Step 6</h2><p>If you have a micro:bit device, connect it to your computer and click the <code>|Download|</code> button. Follow the instructions to transfer your code onto the micro:bit. Try pressing the <strong>A</strong> and <strong>B</strong> buttons on the micro:bit to see your Happy 😀 and Sad 🙁 emojis!</p>
+<h2 id="step-7">Step 7</h2><p>Go further - try adding a secret emoji that appears when <strong>A</strong> and <strong>B</strong> buttons are pressed together! 
+Learn more about how the micro:bit buttons work by watching <a target="_blank" rel="nofollow noopener" href="https://youtu.be/t_Qujjd_38o">this video</a>.</p>
 
     </div>
 

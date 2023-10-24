@@ -164,7 +164,7 @@
         "githubCorePackage": "lancaster-university/microbit",
         "gittag": "v2.2.0-rc6",
         "serviceId": "microbit",
-        "dockerImage": "pext/yotta:update-yotta3",
+        "dockerImage": "pext/yotta:gcc5",
         "yottaBinary": "pxt-microbit-app-combined.hex"
     },
     "multiVariants": [
@@ -195,7 +195,7 @@
                 "githubCorePackage": "lancaster-university/microbit-v2-samples",
                 "gittag": "v0.2.13",
                 "serviceId": "mbcodal2",
-                "dockerImage": "pext/yotta:update-yotta3",
+                "dockerImage": "pext/yotta:latest",
                 "yottaConfigCompatibility": true
             }
         }
@@ -392,9 +392,9 @@
     "uploadDocs": true,
     "versions": {
         "branch": "main",
-        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/a3a77ed8467b93debfd66a644724c6835ed125d3",
-        "target": "6.0.19",
-        "pxt": "9.0.12"
+        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/21c0b150490d561b866c32dbea2e23149f28363b",
+        "target": "6.1.6",
+        "pxt": "9.1.11"
     },
     "blocksprj": {
         "id": "blocksprj",

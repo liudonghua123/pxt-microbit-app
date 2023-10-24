@@ -1695,12 +1695,12 @@
 <p>While recording, the sample rate determines how many audio “samples”, or moments in time, of sound are recorded each second. If the sample rate is set to <code>1000</code>, then only 1000 moments of sound are recorded during a second. The higher the sample rate, the closer to the actual natural sound the playback will be. However, if a high sample rate is used, the audio buffer will have less duration of time for sound because more samples are used per second.</p>
 <p>When playing back, the sample rate sets the speed at which the sound is taken from the audio buffer and sent to the speaker or sound output pin. If the audio in the buffer was recorded at <code>11000</code> samples per second but the current sample rate is set at <code>22000</code>, the playback of the audio is twice as fast as it was recorded and it will sound different. The sound will play slower that the recorded sound if the playback sample rate is set to <code>550</code> before playing the audio back.</p>
 <h2 id="parameters">Parameters</h2><ul>
-<li><strong>hz</strong>: the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">number</a> of samples per second to record or play back.</li>
+<li><strong>hz</strong>: the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">number</a> of samples per second for recording or playback.</li>
 <li><strong>scope</strong>: an optional operation scope for the sample rate.<blockquote>
 <ul>
-<li><code>everything</code>: (default) both recording and playback are at the same rate.</li>
-<li><code>playback</code>: audio playback is at this sample rate.</li>
-<li><code>recording</code>: audio recording is at this sample rate.</li>
+<li><code>everything</code>: (default) set the same sample rate for both recording and playback.</li>
+<li><code>playback</code>: set the sample rate only for audio playback.</li>
+<li><code>recording</code>: set the sample rate only for audio recording.</li>
 </ul>
 </blockquote>
 </li>

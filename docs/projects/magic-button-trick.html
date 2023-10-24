@@ -1694,7 +1694,7 @@
     <div class='avatar avatar'>
         <div class='avatar-image'></div>
         <div class='ui compact message'>
-            <p>Build a magic trick that uses the micro:bit’s compass to detect a nearby magnet!</p>
+            <p>Build a magic trick that uses the micro:bit’s magnetometer to detect a nearby magnet!</p>
 
         </div>
     </div>
@@ -1709,7 +1709,7 @@
 input.onButtonPressed(Button.B, () =&gt; {
     basic.showString(&quot;B&quot;)
 })</code></pre>
-<h2 id="step-2-measuring-magnetic-force">Step 2: Measuring magnetic force</h2><p>We will use the micro:bit’s compass to detect the magnet. A compass tells us which direction we are pointing to by detecting the Earth’s magnetic field, but it can also detect any other magnet nearby. We will use that to check if our magnet is next to the micro:bit by using the <code>||input:magnetic force||</code> block found in the <strong>Input</strong> menu’s <strong>… More</strong> section. Since we only want to measure the strength we change the drop down to select <code>strength</code>:</p>
+<h2 id="step-2-measuring-magnetic-force">Step 2: Measuring magnetic force</h2><p>We will use the micro:bit’s magnetometer to detect the magnet. We will use it to check if our magnet is next to the micro:bit by using the <code>||input:magnetic force||</code> block found in the <strong>Input</strong> menu’s <strong>… More</strong> section. Since we only want to measure the strength we change the drop down to select <code>strength</code>:</p>
 <pre><code class="lang-block">let force = input.magneticForce(Dimension.Strength)</code></pre>
 <h2 id="step-3-checking-if-the-magnetic-is-nearby">Step 3: Checking if the magnetic is nearby</h2><p>Now we can measure the magnetic force near the micro:bit. We can check if the value we measure is so big that it means there must be a strong magnet nearby. </p>
 <p>If you’ve ever played with magnets you know they have two ends, often called a North and South ‘pole’. Depending on which end of the magnet is pointing at the micro:bit, the magnetic force measurement will either be a negative number (like, -100) or a positive number (like, 100). We just want to know if the strength is at least 100. We don’t care if its negative or positive so we also use the <code>||math:absolute of||</code> block from the <strong>Math</strong> menu to tell our code to ignore the negative sign and just treat <code>-100</code> as if its <code>100</code>.</p>
@@ -1746,7 +1746,6 @@ input.onButtonPressed(Button.B, () =&gt; {
     }
 })</code></pre>
 <h2 id="step-6-practice-your-technique">Step 6: Practice your technique</h2><p>Now you just need to program your own micro:bit and practice the trick a few times before performing for your friends. Try asking your friends to click the buttons after you have switched the labels and the trick won’t work for them because they don’t have a hidden magnet in their hand!</p>
-<p>Remember, that as we are using micro:bit’s compass, it will need to be <a target="_blank" rel="nofollow noopener" href="https://support.microbit.org/support/solutions/articles/19000008874-calibrating-the-micro-bit-compass-what-does-it-mean-when-the-micro-bit-says-draw-a-circle-or-tilt">calibrated</a> each time we flash the program or run it for the first time.</p>
 <h2 id="about-the-authors">About the authors</h2><p>This project was contributed by Brian and Jasmine Norman, aka <a target="_blank" rel="nofollow noopener" href="https://twitter.com/MicroMonstersUK">@MicroMonstersUK</a>. You can checkout their <a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/channel/UCK2DviDexh_Er2QYZerZyZQ">MicroMonsters</a> tutorials channel on YouTube for more projects.</p>
 
     </div>

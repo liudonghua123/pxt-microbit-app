@@ -1690,7 +1690,7 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="blow-away">Blow Away</h1><h2 id="introduction-pt-1-">Introduction pt. 1 </h2><p>👻 Oh, no! Your micro:bit is being haunted by a ghost named Haven 👻</p>
+        <h1 id="blow-away">Blow Away</h1><h2 id="introduction-pt-1">Introduction pt. 1</h2><p>👻 Oh, no! Your micro:bit is being haunted by a ghost named Haven 👻</p>
 <p>For this tutorial, we’ll learn how to blow Haven away 🌬️</p>
 <p><img class="ui image" src="/static/mb/projects/blow-away.png" alt="Blow away banner message" loading="lazy"></p>
 <h2 id="haunted-ghost-setup">Haunted ghost setup</h2><p>A wild Haven has appeared!</p>
@@ -1782,7 +1782,7 @@ basic.forever(function () {
         }
     }
 })</code></pre>
-<h2 id="11-setting-variables">11. Setting variables</h2><p>Notice how you have <strong>three</strong> blocks from the <code>||led:Led||</code> category. All three have <code>||led:x||</code> <code>[0]</code> and <code>||led:y||</code> <code>[0]</code> coordinates. In these <strong>two</strong> steps, we will set it so that every <code>||led:x||</code> is followed by the <code>||variables:col||</code> variable and every <code>||led:y||</code> is followed by the <code>||variables:row||</code> variable.<br>► From <code>||variables:Variables||</code>, get three copies of <code>||variables:col||</code>, and use them to <strong>replace the <code>x</code> values</strong> in the following three blocks:<br><strong>1.</strong> <code>||led:point x [0] y [0]||</code><br><strong>2.</strong> <code>||led:unplot x [0] y [0]||</code><br><strong>3.</strong> <code>||led:plot x [0] y [0]||</code><br>► Go into <code>||variables:Variables||</code>, get three copies of <code>||variables:row||</code>, and use them to <strong>replace the <code>y</code> values</strong> in the same three blocks.</p>
+<h2 id="setting-variables">Setting variables</h2><p>Notice how you have <strong>three</strong> blocks from the <code>||led:Led||</code> category. All three have <code>||led:x||</code> <code>[0]</code> and <code>||led:y||</code> <code>[0]</code> coordinates. In these <strong>two</strong> steps, we will set it so that every <code>||led:x||</code> is followed by the <code>||variables:col||</code> variable and every <code>||led:y||</code> is followed by the <code>||variables:row||</code> variable.<br>► From <code>||variables:Variables||</code>, get three copies of <code>||variables:col||</code>, and use them to <strong>replace the <code>x</code> values</strong> in the following three blocks:<br><strong>1.</strong> <code>||led:point x [0] y [0]||</code><br><strong>2.</strong> <code>||led:unplot x [0] y [0]||</code><br><strong>3.</strong> <code>||led:plot x [0] y [0]||</code><br>► Go into <code>||variables:Variables||</code>, get three copies of <code>||variables:row||</code>, and use them to <strong>replace the <code>y</code> values</strong> in the same three blocks.</p>
 <pre><code class="lang-blocks">let col = 0
 let row = 0
 basic.forever(function () {
@@ -1798,7 +1798,7 @@ basic.forever(function () {
         }
     }
 })</code></pre>
-<h2 id="12-moving-leds">12. Moving LEDs</h2><p>Right now, we are unplotting and replotting in the same spot. What we want to do  is move the lights we’re turning back on just a smidge to the right every time until there’s nothing left on the grid.</p>
+<h2 id="moving-leds">Moving LEDs</h2><p>Right now, we are unplotting and replotting in the same spot. What we want to do  is move the lights we’re turning back on just a smidge to the right every time until there’s nothing left on the grid.</p>
 <p>► From <code>||math:Math||</code>, find the <code>||math:[0] [+] [0]||</code> operation and use it to <strong>replace</strong> <code>||variables:col||</code> in your <code>||led:plot x [col] y [row]||</code> block.<br>💡 If you move your entire <code>||basic:forever||</code> container, you should find a greyed out <code>col</code> variable in your workspace.<br>► Take the greyed out <code>||variables:col||</code> variable (or get a new one) and use it to <strong>replace</strong> the <strong><em>first</em> <code>[0]</code></strong> so the operation reads <code>||math:[col] [+] [0]||</code>.<br>► Replace the <strong><em>second</em> <code>[0]</code></strong> with <strong><code>[1]</code></strong> so the operation reads <code>||math:[col] [+] [1]||</code>.</p>
 <pre><code class="lang-blocks">let col = 0
 let row = 0
@@ -1815,7 +1815,7 @@ basic.forever(function () {
         }
     }
 })</code></pre>
-<h2 id="13-testing-in-the-simulator">13. Testing in the simulator</h2><p>Check out the simulator!</p>
+<h2 id="testing-in-the-simulator">Testing in the simulator</h2><p>Check out the simulator!</p>
 <p>► Click on the pink bar underneath the microphone icon. Drag it above the sound number you chose (we used <code>128</code>!) to blow Haven away.<br>► If you have a new micro:bit (the one with the <strong>shiny gold</strong> logo at the top), download this code and try it out!<br>💡 Blow close to the micro:bit and watch Haven swoosh away 💨<br>💡 Use your micro:bit’s reset button (it’s on the back!) to bring Haven back 👻</p>
 <pre><code class="lang-blocks">let col = 0
 let row = 0
@@ -1832,6 +1832,7 @@ basic.forever(function () {
         }
     }
 })</code></pre>
+<pre><code class="lang-validation.global"># BlocksExistValidator</code></pre>
 
     </div>
 
