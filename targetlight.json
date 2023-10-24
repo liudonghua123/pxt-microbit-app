@@ -392,7 +392,7 @@
     "uploadDocs": true,
     "versions": {
         "branch": "main",
-        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/21c0b150490d561b866c32dbea2e23149f28363b",
+        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/03f1fbb276174426d342f53abd4e92877b0d6e29",
         "target": "6.1.6",
         "pxt": "9.1.11"
     },
