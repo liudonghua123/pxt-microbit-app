@@ -1391,6 +1391,43 @@
     </div>
 
 
+    <a class="item " href="/pxt-microbit-app/docs/block-gallery.html" role="menuitem">Blocks Gallery</a>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="">Miscellaneous</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/pxt-microbit-app/docs/about.html" role="menuitem">About</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/support.html" role="menuitem">Support</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/translate.html" role="menuitem">Translate</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/share.html" role="menuitem">Sharing projects</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/offline.html" role="menuitem">Offline support</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/save.html" role="menuitem">Save</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/identity/sign-in.html" role="menuitem">Sign In</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/identity/cloud-sync.html" role="menuitem">Cloud Sync</a>
+
+        </div>
+    </div>
+
+
     <div class="ui  accordion item visible" role="tree" title="">
         <div class=" title">
             <i class="right chevron icon"></i>
@@ -1473,37 +1510,6 @@
 
 
     <a class="item " href="/pxt-microbit-app/docs/hidflash.html" role="menuitem">Flashing via HID (CMSIS-DAP)</a>
-
-        </div>
-    </div>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/block-gallery.html" role="menuitem">Blocks Gallery</a>
-
-
-    <div class="ui  accordion item visible" role="tree" title="">
-        <div class=" title">
-            <i class="right chevron icon"></i>
-            <a class="header" role="treeitem" aria-expanded="false" href="">Miscellaneous</a>
-        </div>
-        <div class=" content">
-            
-    <a class="item " href="/pxt-microbit-app/docs/about.html" role="menuitem">About</a>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/support.html" role="menuitem">Support</a>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/translate.html" role="menuitem">Translate</a>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/share.html" role="menuitem">Sharing projects</a>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/offline.html" role="menuitem">Offline support</a>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/save.html" role="menuitem">Save</a>
 
         </div>
     </div>
@@ -1762,7 +1768,7 @@ input.onSound(DetectedSound.Loud, function () {
 })</code></pre>
 <h2 id="testing-in-the-simulator">Testing in the simulator</h2><p>► Check out the simulator!<br>► Click on the pink slider bar beneath the microphone icon and drag it up and down.<br>💡 Right now, your micro:bit thinks that anything above 128 is loud. Every time the sound goes &gt; 128, your lights should switch on/off.</p>
 <h2 id="set-loud-sound-threshold">Set loud sound threshold</h2><p>Your micro:bit might detect sounds when you don’t want it to. Setting a <a  rel="nofollow noopener" href="#soundThreshold" title="a number for how loud a sound needs to be to trigger an event. 0 = silence to 255 = maximum noise"><strong><em>sound threshold</em></strong></a> could help 🔉🔊</p>
-<p>► Click on the <code>||input:Input||</code> category. A new category should show up beneath it called <code>||input:...more||</code>.<br>► From <code>||input:...more||</code>, grab <code>||input:set [loud] sound threshold to [128]||</code> and snap it into your <strong>empty</strong> <code>||basic: on start||</code> container.<br>💡 Try to change the value of your sound threshold so that every time you clap, your lights will turn on if they are off and vice versa.</p>
+<p>► Click on the <code>||input:Input||</code> category. A new category should show up beneath it called <code>||input:...more||</code>.<br>► From <code>||input:...more||</code>, grab <code>||input:set [loud] sound threshold to [128]||</code> and snap it into your <strong>empty</strong> <code>||basic:on start||</code> container.<br>💡 Try to change the value of your sound threshold so that every time you clap, your lights will turn on if they are off and vice versa.</p>
 <pre><code class="lang-blocks">// @highlight
 input.setSoundThreshold(SoundThreshold.Loud, 150)</code></pre>
 <h2 id="testing-round-2">Testing, round 2</h2><p>Don’t forget to test your code in the simulator!</p>

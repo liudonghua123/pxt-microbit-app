@@ -1860,6 +1860,57 @@
             ]
         },
         {
+            "name": "Blocks Gallery",
+            "path": "/block-gallery",
+            "subitems": []
+        },
+        {
+            "name": "Miscellaneous",
+            "path": "",
+            "subitems": [
+                {
+                    "name": "About",
+                    "path": "/about",
+                    "subitems": []
+                },
+                {
+                    "name": "Support",
+                    "path": "/support",
+                    "subitems": []
+                },
+                {
+                    "name": "Translate",
+                    "path": "/translate",
+                    "subitems": []
+                },
+                {
+                    "name": "Sharing projects",
+                    "path": "/share",
+                    "subitems": []
+                },
+                {
+                    "name": "Offline support",
+                    "path": "/offline",
+                    "subitems": []
+                },
+                {
+                    "name": "Save",
+                    "path": "/save",
+                    "subitems": []
+                },
+                {
+                    "name": "Sign In",
+                    "path": "/identity/sign-in",
+                    "subitems": []
+                },
+                {
+                    "name": "Cloud Sync",
+                    "path": "/identity/cloud-sync",
+                    "subitems": []
+                }
+            ]
+        },
+        {
             "name": "Hardware",
             "path": "/device",
             "subitems": [
@@ -1968,47 +2019,6 @@
                 {
                     "name": "Flashing via HID (CMSIS-DAP)",
                     "path": "/hidflash",
-                    "subitems": []
-                }
-            ]
-        },
-        {
-            "name": "Blocks Gallery",
-            "path": "/block-gallery",
-            "subitems": []
-        },
-        {
-            "name": "Miscellaneous",
-            "path": "",
-            "subitems": [
-                {
-                    "name": "About",
-                    "path": "/about",
-                    "subitems": []
-                },
-                {
-                    "name": "Support",
-                    "path": "/support",
-                    "subitems": []
-                },
-                {
-                    "name": "Translate",
-                    "path": "/translate",
-                    "subitems": []
-                },
-                {
-                    "name": "Sharing projects",
-                    "path": "/share",
-                    "subitems": []
-                },
-                {
-                    "name": "Offline support",
-                    "path": "/offline",
-                    "subitems": []
-                },
-                {
-                    "name": "Save",
-                    "path": "/save",
                     "subitems": []
                 }
             ]

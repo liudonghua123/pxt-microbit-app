@@ -1391,6 +1391,43 @@
     </div>
 
 
+    <a class="item " href="/pxt-microbit-app/docs/block-gallery.html" role="menuitem">Blocks Gallery</a>
+
+
+    <div class="ui  accordion item visible" role="tree" title="">
+        <div class=" title">
+            <i class="right chevron icon"></i>
+            <a class="header" role="treeitem" aria-expanded="false" href="">Miscellaneous</a>
+        </div>
+        <div class=" content">
+            
+    <a class="item " href="/pxt-microbit-app/docs/about.html" role="menuitem">About</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/support.html" role="menuitem">Support</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/translate.html" role="menuitem">Translate</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/share.html" role="menuitem">Sharing projects</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/offline.html" role="menuitem">Offline support</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/save.html" role="menuitem">Save</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/identity/sign-in.html" role="menuitem">Sign In</a>
+
+
+    <a class="item " href="/pxt-microbit-app/docs/identity/cloud-sync.html" role="menuitem">Cloud Sync</a>
+
+        </div>
+    </div>
+
+
     <div class="ui  accordion item visible" role="tree" title="">
         <div class=" title">
             <i class="right chevron icon"></i>
@@ -1473,37 +1510,6 @@
 
 
     <a class="item " href="/pxt-microbit-app/docs/hidflash.html" role="menuitem">Flashing via HID (CMSIS-DAP)</a>
-
-        </div>
-    </div>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/block-gallery.html" role="menuitem">Blocks Gallery</a>
-
-
-    <div class="ui  accordion item visible" role="tree" title="">
-        <div class=" title">
-            <i class="right chevron icon"></i>
-            <a class="header" role="treeitem" aria-expanded="false" href="">Miscellaneous</a>
-        </div>
-        <div class=" content">
-            
-    <a class="item " href="/pxt-microbit-app/docs/about.html" role="menuitem">About</a>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/support.html" role="menuitem">Support</a>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/translate.html" role="menuitem">Translate</a>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/share.html" role="menuitem">Sharing projects</a>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/offline.html" role="menuitem">Offline support</a>
-
-
-    <a class="item " href="/pxt-microbit-app/docs/save.html" role="menuitem">Save</a>
 
         </div>
     </div>
@@ -1698,7 +1704,7 @@
 input.onPinPressed(TouchPin.P1, () =&gt; {
 
 })</code></pre>
-<p>Now, let’s create some notes to play when the banana is pressed. Click on the <strong>Loops</strong> drawer then insert a <code>||loops:repeat||</code> loop into the <code>||input:on pin pressed||</code> block. Click on the <strong>Variables</strong> drawer and pull out a <code>||variables:change item by||</code> block and put it into the loop. Rename the variable to <code>sound</code>. Change the value from <code>1</code> to <code>25</code>. This will increase the variable <code>sound</code> from the note frequency of block <code>Middle A</code> to <code>Middle A</code> plus 25 and so on. Put a <code>||variables:set to||</code> block for <code>sound</code> right after the loop. Set it to <code>Middle A</code> a in order to reset the sound after a banana press.</p>
+<p>Now, let’s create some notes to play when the banana is pressed. Click on the <strong>Loops</strong> drawer then insert a <code>||loops:repeat||</code> loop into the <code>||input:on pin pressed||</code> block. Click on the <strong>Variables</strong> drawer and pull out a <code>||variables:change item by||</code> block and put it into the loop. Rename the variable to <code>sound</code>. Change the value from <code>1</code> to <code>25</code>. This will increase the variable <code>sound</code> from the note frequency of block <code>Middle A</code> to <code>Middle A</code> plus 25 and so on. Put a <code>||variables:set to||</code> block for <code>sound</code> right after the loop. Set it to <code>Middle A</code> in order to reset the sound after a banana press.</p>
 <pre><code class="lang-blocks">let sound = music.noteFrequency(Note.A);
 
 input.onPinPressed(TouchPin.P1, () =&gt; {
