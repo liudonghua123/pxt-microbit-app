@@ -22,14 +22,14 @@
 <meta name="twitter:site" content="@msmakecode" />
 <meta name="twitter:title" content="Microsoft MakeCode for micro:bit" />
 <meta name="twitter:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
-<meta name="twitter:image" content="/static/share/edit-shared-project.png" />
+<meta name="twitter:image" content="/static/share/share-icon.png" />
 
 <meta property="og:title" content="Microsoft MakeCode for micro:bit" />
 <meta property="og:site_name" content="Microsoft MakeCode" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
 <meta property="fb:app_id" content="" />
-<meta property="og:image" content="/static/share/edit-shared-project.png" />
+<meta property="og:image" content="/static/share/share-icon.png" />
 
 <meta name="format-detection" content="telephone=no">
 <link rel="apple-touch-icon" href="docs/static/icons/apple-touch-icon.png">
@@ -1424,6 +1424,9 @@
 
     <a class="item " href="/pxt-microbit-app/docs/identity/cloud-sync.html" role="menuitem">Cloud Sync</a>
 
+
+    <a class="item " href="/pxt-microbit-app/docs/homepage-content.html" role="menuitem">Home Page Content</a>
+
         </div>
     </div>
 
@@ -1696,43 +1699,30 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="sharing-your-project">Sharing your project</h1><p>Once you’ve made your project, you can save it the cloud, share it, or embed it on another website.</p>
-<ul>
-<li>Click <strong>More…</strong>, then <strong>Embed Project</strong>:</li>
-<li>Click <strong>Publish project</strong>. This will make the project publicly available</li>
-<li>You will then see this information:</li>
-</ul>
-<h2 id="sharing-the-url">Sharing the URL</h2><p>You can share the URL for the project with other people, and they will be able to visit that page to see your project, download it, or edit it. </p>
-
-    <div class="ui info message">
-        <div class="content">
-            <p><strong>Developers:</strong> This page supports <a target="_blank" rel="nofollow noopener" href="https://oembed.com/">OEmbed</a>.</p>
-
-        </div>
-    </div>
-<h2 id="embedding-into-a-blog-or-web-site">Embedding into a blog or web site</h2><p>Rather than just sharing the link, you can also embed the project so that your visitors can use the simulator, edit blocks or code, or download the project without having to leave your site.</p>
-<h3 id="general-instructions">General instructions</h3><p>Select the kind of embedding you would like.</p>
-<ul>
-<li><strong>Screenshot</strong> - a lightweight screenshot of the blocks that links to the snippet</li>
-<li><strong>Editor</strong> - embedded editor with minimal UI</li>
-<li><strong>Simulator</strong> - embedded simulator only</li>
-<li><strong>Command line</strong> - specific instructions to unpack the project using the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/cli.html">command line</a> tools</li>
-</ul>
-<p>Copy the HTML for embedding the page from the publish dialog. It will look like the following:</p>
-<p>Open the HTML editor for your blog or website and paste it with your content</p>
-<h3 id="wordpress">Wordpress</h3><p><a target="_blank" rel="nofollow noopener" href="https://wordpress.com">wordpress.com</a> blogs do not support embedding content from most websites, so you will need to link to your project instead. Alternatively, if you have a Wordpress VIP account you can follow <a target="_blank" rel="nofollow noopener" href="https://vip.wordpress.com/documentation/embedding-rich-media-from-around-the-web-with-protected-embeds/#scripts-iframes-and-objects">these instructions</a> to embed an <code>iframe</code> into your blog. The URL that you need to add is like <code>https://makecode.microbit.org//#pub:PROJECTID</code>, but replace <code>PROJECTID</code> with your project’s unique identifier.</p>
-<p>If you self host a Wordpress blog you can install the <a target="_blank" rel="nofollow noopener" href="https://wordpress.org/plugins/iframe/">iframe-plugin</a> and then write the following in your blog-post (again, replacing the <code>PROJECTID</code> with your project’s identifier):</p>
-<pre><code>[iframe src=&quot;https://makecode.microbit.org//#pub:PROJECTID&quot;]</code></pre><h3 id="blogger">Blogger</h3><ul>
-<li>Create a new post</li>
-<li>Click the ‘HTML’ button next to ‘Compose’ and paste in the HTML</li>
-</ul>
-<h3 id="squarespace">Squarespace</h3><p><a target="_blank" rel="nofollow noopener" href="https://squarespace.com">Squarespace</a> allows you to embed HTML code inside a blog post or page. In the editor, click to add a new block.</p>
-<p>Scroll to <strong>More</strong> and select <strong>Code</strong>. Paste the embed HTML and click <strong>Apply</strong>.</p>
-<h3 id="google-sites">Google Sites</h3><p>Google Sites doesn’t currently <a target="_blank" rel="nofollow noopener" href="https://support.google.com/sites/answer/2500646?hl=en">support iframes in custom HTML</a>, so you’ll have to insert a link to your project’s URL instead.</p>
-<h3 id="office-sway">Office Sway</h3><p><a target="_blank" rel="nofollow noopener" href="https://sway.com/my">Microsoft Office Sway</a> only allows iframes from <a target="_blank" rel="nofollow noopener" href="https://support.office.com/en-us/article/Embed-content-in-your-Sway-1e1ab12a-f961-4a26-8afc-77a15f892b1d">certain websites</a>, so you’ll need to insert a link to your project instead.</p>
-<h3 id="embedding-in-markdown-documents">Embedding in Markdown documents</h3><p><a target="_blank" rel="nofollow noopener" href="https://daringfireball.net/projects/markdown/">Markdown</a> is a popular text format supported by many blog editors. As Markdown supports embedded HTML, you should be able to paste the HTML into the document, although some sites may prevent you from doing this.</p>
-<h2 id="couldn-t-apply-replacement-logic-to-">Couldn’t apply replacement logic to:</h2><h2 id="editing">Editing Shared Projects </h2><p>By default, all shared projects in MakeCode can be copied and edited. There is no way to share a read-only project, or a project where people can’t make a copy or can’t see the code. When a user opens a project from a Share Link (either anonymous or persistent), they can see the simulator, the blocks, or the text code. They can now download the code onto the micro:bit. They may also make a copy of the project and edit it by pressing the Edit or Edit Code buttons in the top right corner. Any edits they make will not change the original project - if they want to share their changes back, they will have to create a new share link.</p>
+        <h1 id="sharing-your-project">Sharing your project</h1><p>There are a few different methods to share your MakeCode projects and for places to share your projects to.</p>
+<h2 id="anonymous-share-link">Anonymous Share Link</h2><p>If you are not signed-in to MakeCode, you can create an anonymous link to your project that you can share with others. On the top right, click the Share icon:</p>
+<p><img class="ui image" src="/static/share/share-icon.png" alt="Share icon" loading="lazy"></p>
+<p>Give your project a Title and optionally, you can create a thumbnail image or animated GIF of your project.</p>
+<p><img class="ui image" src="/static/share/share-project.png" alt="Share project" loading="lazy"></p>
+<p>Clicking “Share Project” will create a link to your project.</p>
+<p><img class="ui image" src="/static/share/anon-share-link.png" alt="Share project anonomously" loading="lazy"></p>
+<p>This link is not published anywhere else and it is not tied to a specific user (it’s an “anonymous link”). If you lose the link, then there’s no way to get it back - you will have to share your project again to create a new link. These links are snapshots in time of a project, so if you make any subsequent changes to your project, you will have to Share your project again to create a new link with the changes. There is also no way to remove or “unpublish” an anonymous share link, except through the “Report Abuse” function (see below for more information).</p>
+<h2 id="persistent-share-link">Persistent Share Link</h2><p>If you sign-in to MakeCode, you can create a persistent share link for your project. This means that you can create one link to a project, share it with others, or include it in curriculum. Then, for any subsequent changes you make to the project, you can keep the same link. For more information on signing in to MakeCode, see <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/identity/sign-in.html">Online Accounts and MakeCode</a>.</p>
+<p>Persistent share links start with an “S” followed by a series of numbers.</p>
+<p><img class="ui image" src="/static/share/persist-share-link.png" alt="Persistent share link" loading="lazy"></p>
+<p>If you want to update or publish changes to a shared project, click to share it again and select the “Update existing share link for this project” checkbox.</p>
+<p><img class="ui image" src="/static/share/update-link.png" alt="Update link" loading="lazy"></p>
+<h2 id="sharing-to-google-classroom-or-microsoft-teams">Sharing to Google Classroom or Microsoft Teams</h2><p>As well as being able to share projects to popular social media sites, users can also share their projects to Learning Management Systems (LMS) like Google Classroom or Microsoft Teams. In the Share Project window, click on the appropriate icon and you will be prompted to sign into the LMS and select where you want to share to.</p>
+<p><img class="ui image" src="/static/share/share-lms.png" alt="Share project using LMS" loading="lazy"></p>
+<p><img class="ui image" src="/static/share/share-teams.png" alt="Share project to MS Teams" loading="lazy"></p>
+<h2 id="sharing-to-mobile-devices">Sharing to Mobile devices</h2><p>For sharing projects to phones or other mobile devices, you can use your device’s camera to capture the QR code in the Share Project window.</p>
+<p><img class="ui image" src="/static/share/share-qr-code.png" alt="Share project with QR code" loading="lazy"></p>
+<h2 id="embedding-into-a-blog-or-web-site">Embedding into a blog or web site</h2><p>MakeCode projects can also be embedded into a blog or web site. In the Share Project window, click on the Embed icon and copy/paste the HTML content. You can choose to embed just the project code, a read-only view of the editor, or just the simulator part of the project.</p>
+<p><img class="ui image" src="/static/share/share-embed.png" alt="Share project with embedded HTML" loading="lazy"></p>
+<h2 id="editing">Editing Shared Projects </h2><p>By default, all shared projects in MakeCode can be copied and edited. There is no way to share a read-only project, or a project where people can’t make a copy or can’t see the code. When a user opens a project from a Share Link (either anonymous or persistent), they can see the simulator, the blocks, or the text code. They can now download the code onto the micro:bit. They may also make a copy of the project and edit it by pressing the Edit or Edit Code buttons in the top right corner. Any edits they make will not change the original project - if they want to share their changes back, they will have to create a new share link.</p>
 <p><img class="ui image" src="/static/share/edit-shared-project.png" alt="Edit shared project button" loading="lazy"></p>
+<h2 id="report-abuse">Report Abuse</h2><p>All MakeCode shared projects pass through Microsoft standard scanning for security and safety compliance. In addition, the “Report Abuse” option is available on any shared project if you deem the contents of the project not appropriate (contains unsafe content or includes personally identifiable information). For these types of projects, the MakeCode Team will remove the project from our databases. </p>
+<p><img class="ui image" src="/static/share/report-abuse.png" alt="Report abuse link" loading="lazy"></p>
 
     </div>
 
@@ -1923,10 +1913,10 @@
                     if (typeof Windows !== "undefined")
                         telemetryItem.properties["WindowsApp"] = 1;
                     var userAgent = navigator.userAgent.toLowerCase();
-                    var userAgentRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
-                    if (userAgentRegexResult) {
+                    var electronRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
+                    if (electronRegexResult) {
                         telemetryItem.properties["Electron"] = 1;
-                        telemetryItem.properties["ElectronVersion"] = userAgentRegexResult[1];
+                        telemetryItem.properties["ElectronVersion"] = electronRegexResult[1];
                     }
                     if (typeof pxtElectron !== "undefined") {
                         telemetryItem.properties["PxtElectron"] = 1;
@@ -1938,6 +1928,13 @@
                         telemetryItem.properties["PxtTargetVersion"] = pxtElectron.versions.pxtTargetVersion;
                         telemetryItem.properties["PxtElectronIsProd"] = pxtElectron.versions.isProd;
                     }
+                    // Kiosk UWP info is appended to the user agent by the makecode-dotnet-apps/arcade-kiosk UWP app
+                    var kioskUwpRegexResult = /\((MakeCode Arcade Kiosk UWP)\/([\S]+)\/([\S]+)\)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.60 (MakeCode Arcade Kiosk UWP/0.1.41.0/Windows.Xbox)"
+                    if (kioskUwpRegexResult) {
+                        telemetryItem.properties["KioskUwp"] = 1;
+                        telemetryItem.properties["KioskUwpVersion"] = kioskUwpRegexResult[2];
+                        telemetryItem.properties["KioskUwpPlatform"] = kioskUwpRegexResult[3];
+                    }
                     return true;
                 });
             },
@@ -1946,6 +1943,7 @@
                 disableAjaxTracking: true,
                 overridePageViewDuration: false,
                 disableExceptionTracking: true,
+                disableCorrelationHeaders: true,
                 disableCookiesUsage: !isProduction,
                 isStorageUseDisabled: !isProduction,
                 url: "/pxt-microbit-app/ai.2.min.js"

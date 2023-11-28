@@ -1907,6 +1907,11 @@
                     "name": "Cloud Sync",
                     "path": "/identity/cloud-sync",
                     "subitems": []
+                },
+                {
+                    "name": "Home Page Content",
+                    "path": "/homepage-content",
+                    "subitems": []
                 }
             ]
         },

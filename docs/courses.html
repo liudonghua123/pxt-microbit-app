@@ -1424,6 +1424,9 @@
 
     <a class="item " href="/pxt-microbit-app/docs/identity/cloud-sync.html" role="menuitem">Cloud Sync</a>
 
+
+    <a class="item " href="/pxt-microbit-app/docs/homepage-content.html" role="menuitem">Home Page Content</a>
+
         </div>
     </div>
 
@@ -1697,6 +1700,13 @@
 					
     <div class="ui text">
         <h1 id="courses">Courses</h1><p>A collection of courses and tutorials built for the micro:bit.</p>
+<h2 id="first-lessons-with-makecode-and-the-micro-bit">First lessons with MakeCode and the micro:bit</h2><p>MakeCode’s course for learning Computer Science with the micro:bit. This is a 14 week computer science course for middle school grades 6-8.</p>
+<pre><code class="lang-codecard">[{
+  &quot;name&quot;: &quot;First Lessons&quot;,
+  &quot;description&quot;: &quot;A sequence of lessons from the Micro:bit Educational Foundation that provide a pathway through six projects, ideal for getting started with the micro:bit&quot;,
+  &quot;url&quot;:&quot;https://microbit.org/teach/lessons/first-lessons-with-makecode-and-the-microbit&quot;,
+  &quot;imageUrl&quot;: &quot;/docs/static/courses/first-lessons.png&quot;
+}]</code></pre>
 <h2 id="intro-to-computer-science">Intro to Computer Science</h2><p>MakeCode’s course for learning Computer Science with the micro:bit. This is a 14 week computer science course for middle school grades 6-8.</p>
 <pre><code class="lang-codecard">[{
   &quot;name&quot;: &quot;Intro to CS Online&quot;,
@@ -1986,10 +1996,10 @@
                     if (typeof Windows !== "undefined")
                         telemetryItem.properties["WindowsApp"] = 1;
                     var userAgent = navigator.userAgent.toLowerCase();
-                    var userAgentRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
-                    if (userAgentRegexResult) {
+                    var electronRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
+                    if (electronRegexResult) {
                         telemetryItem.properties["Electron"] = 1;
-                        telemetryItem.properties["ElectronVersion"] = userAgentRegexResult[1];
+                        telemetryItem.properties["ElectronVersion"] = electronRegexResult[1];
                     }
                     if (typeof pxtElectron !== "undefined") {
                         telemetryItem.properties["PxtElectron"] = 1;
@@ -2001,6 +2011,13 @@
                         telemetryItem.properties["PxtTargetVersion"] = pxtElectron.versions.pxtTargetVersion;
                         telemetryItem.properties["PxtElectronIsProd"] = pxtElectron.versions.isProd;
                     }
+                    // Kiosk UWP info is appended to the user agent by the makecode-dotnet-apps/arcade-kiosk UWP app
+                    var kioskUwpRegexResult = /\((MakeCode Arcade Kiosk UWP)\/([\S]+)\/([\S]+)\)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.60 (MakeCode Arcade Kiosk UWP/0.1.41.0/Windows.Xbox)"
+                    if (kioskUwpRegexResult) {
+                        telemetryItem.properties["KioskUwp"] = 1;
+                        telemetryItem.properties["KioskUwpVersion"] = kioskUwpRegexResult[2];
+                        telemetryItem.properties["KioskUwpPlatform"] = kioskUwpRegexResult[3];
+                    }
                     return true;
                 });
             },
@@ -2009,6 +2026,7 @@
                 disableAjaxTracking: true,
                 overridePageViewDuration: false,
                 disableExceptionTracking: true,
+                disableCorrelationHeaders: true,
                 disableCookiesUsage: !isProduction,
                 isStorageUseDisabled: !isProduction,
                 url: "/pxt-microbit-app/ai.2.min.js"

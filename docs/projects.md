@@ -66,7 +66,7 @@
     {
         "name": "Courses",
         "url": "/courses",
-        "imageUrl": "/docs/static/courses/csintro.jpg"
+        "imageUrl": "/docs/static/courses/first-lessons.png"
     },
     {
         "name": "Jacdac",

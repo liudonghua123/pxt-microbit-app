@@ -1424,6 +1424,9 @@
 
     <a class="item " href="/pxt-microbit-app/docs/identity/cloud-sync.html" role="menuitem">Cloud Sync</a>
 
+
+    <a class="item " href="/pxt-microbit-app/docs/homepage-content.html" role="menuitem">Home Page Content</a>
+
         </div>
     </div>
 
@@ -2151,6 +2154,10 @@
   &quot;cardType&quot;: &quot;package&quot;
 }]</code></pre>
 <h2 id="robotics">Robotics</h2><pre><code class="lang-codecard">[{
+  &quot;name&quot;: &quot;4tronix M.A.R.S. Rover&quot;,
+  &quot;url&quot;:&quot;/pkg/4tronix/mars-rover&quot;,
+  &quot;cardType&quot;: &quot;package&quot;
+}, {
   &quot;name&quot;: &quot;Cytron MOTION:BIT&quot;,
   &quot;url&quot;:&quot;/pkg/CytronTechnologies/pxt-motionbit&quot;,
   &quot;cardType&quot;: &quot;package&quot;
@@ -2551,6 +2558,10 @@
   &quot;cardType&quot;: &quot;package&quot;
 }]</code></pre>
 <h2 id="utilities">Utilities</h2><pre><code class="lang-codecard">[{
+  &quot;name&quot;: &quot;Meter&quot;,
+  &quot;url&quot;: &quot;/pkg/GrandpaBond/pxt-meter&quot;,
+  &quot;cardType&quot;: &quot;package&quot;
+}, {
   &quot;name&quot;: &quot;Morse Code&quot;,
   &quot;url&quot;: &quot;/pkg/bsiever/pxt-morse&quot;,
   &quot;cardType&quot;: &quot;package&quot;
@@ -2663,16 +2674,16 @@
     &quot;url&quot;: &quot;/pkg/elecfreaks/pxt-nezha&quot;,
     &quot;cardType&quot;: &quot;package&quot;
 }]</code></pre>
-<h2 id="using-extensions">Using Extensions</h2><p>In the web editor, click on <code>Settings</code> then <code>Extensions</code> to search and add extensions to the project.
-The Blocks and JavaScript definitions will be automatically loaded in the editor.</p>
-<h2 id="custom-extensions">Custom extensions</h2><p>The <a target="_blank" rel="nofollow noopener" href="https://makecode.com/extensions/getting-started">Build Your Own Extension</a> manual is for advanced users who want to publish their own extension. </p>
+<h2 id="using">Using Extensions </h2><p>In the web editor, click on the <strong>Settings</strong> (the ⚙️ symbol) menu and then choose <strong>Extensions</strong> to search and add extensions to the project.
+The Blocks and any other JavaScript definitions from the extension are automatically loaded in the editor.</p>
 
-    <div class="ui info message">
+    <div class="ui warning message">
         <div class="content">
-            <p><strong>Extensions</strong> were previously called <strong>Packages</strong> in MakeCode.</p>
+            <h4 id="extensions-were-packages-">Extensions were “Packages”</h4><p><strong>Extensions</strong> were previously called <strong>Packages</strong> in MakeCode.</p>
 
         </div>
     </div>
+<h2 id="custom">Custom extensions </h2><p>The <a target="_blank" rel="nofollow noopener" href="https://makecode.com/extensions/getting-started">Build Your Own Extension</a> manual is for advanced users who want to publish their own extension. </p>
 
     </div>
 
@@ -2863,10 +2874,10 @@ The Blocks and JavaScript definitions will be automatically loaded in the editor
                     if (typeof Windows !== "undefined")
                         telemetryItem.properties["WindowsApp"] = 1;
                     var userAgent = navigator.userAgent.toLowerCase();
-                    var userAgentRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
-                    if (userAgentRegexResult) {
+                    var electronRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
+                    if (electronRegexResult) {
                         telemetryItem.properties["Electron"] = 1;
-                        telemetryItem.properties["ElectronVersion"] = userAgentRegexResult[1];
+                        telemetryItem.properties["ElectronVersion"] = electronRegexResult[1];
                     }
                     if (typeof pxtElectron !== "undefined") {
                         telemetryItem.properties["PxtElectron"] = 1;
@@ -2878,6 +2889,13 @@ The Blocks and JavaScript definitions will be automatically loaded in the editor
                         telemetryItem.properties["PxtTargetVersion"] = pxtElectron.versions.pxtTargetVersion;
                         telemetryItem.properties["PxtElectronIsProd"] = pxtElectron.versions.isProd;
                     }
+                    // Kiosk UWP info is appended to the user agent by the makecode-dotnet-apps/arcade-kiosk UWP app
+                    var kioskUwpRegexResult = /\((MakeCode Arcade Kiosk UWP)\/([\S]+)\/([\S]+)\)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.60 (MakeCode Arcade Kiosk UWP/0.1.41.0/Windows.Xbox)"
+                    if (kioskUwpRegexResult) {
+                        telemetryItem.properties["KioskUwp"] = 1;
+                        telemetryItem.properties["KioskUwpVersion"] = kioskUwpRegexResult[2];
+                        telemetryItem.properties["KioskUwpPlatform"] = kioskUwpRegexResult[3];
+                    }
                     return true;
                 });
             },
@@ -2886,6 +2904,7 @@ The Blocks and JavaScript definitions will be automatically loaded in the editor
                 disableAjaxTracking: true,
                 overridePageViewDuration: false,
                 disableExceptionTracking: true,
+                disableCorrelationHeaders: true,
                 disableCookiesUsage: !isProduction,
                 isStorageUseDisabled: !isProduction,
                 url: "/pxt-microbit-app/ai.2.min.js"

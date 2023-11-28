@@ -1424,6 +1424,9 @@
 
     <a class="item " href="/pxt-microbit-app/docs/identity/cloud-sync.html" role="menuitem">Cloud Sync</a>
 
+
+    <a class="item " href="/pxt-microbit-app/docs/homepage-content.html" role="menuitem">Home Page Content</a>
+
         </div>
     </div>
 
@@ -1696,8 +1699,23 @@
 					</button>
 					
     <div class="ui text">
-        <div class='ui negative message'>Unknown command: @extends</div><h2 id="target-homescreen"></h2><p><img class="ui image" src="/static/mb/homepage-content-example.jpg" alt="Home page content example" loading="lazy"></p>
-<h2 id="target-link-example"></h2><p>Here is the content link information mapped to a home page card example:</p>
+        <h1 id="adding-content-to-the-home-page">Adding content to the home page</h1><p>The Editor home page contains galleries of card links to projects, tutorials, lessons, videos, and other content sources. Many content items featured on the home page are hosted at the editor’s website while some other items are from external sources.</p>
+<p>Much of content available on the home page is developed or selected by the MakeCode Team. Content from other contributors is welcomed though and can be featured in the home page galleries.</p>
+<p><img class="ui image" src="/static/mb/homepage-content-example.jpg" alt="Home page content example" loading="lazy"></p>
+<h2 id="content-requirements">Content requirements</h2><ul>
+<li>Your content should be open source and free to use without any restrictions other than author attribution (you may specify an open source license the provides for such usage if you wish).</li>
+<li>The instructions should be well written and easy to follow.</li>
+<li>It should not include any personally identifiable information beyond the author’s name (authors can remain anonymous too).</li>
+<li>Content will be reviewed and approved by the MakeCode Team.</li>
+</ul>
+<h2 id="what-you-need-to-submit">What you need to submit</h2><p>To list a content item on the home page, you need to provide:</p>
+<ol>
+<li>A name or title for the content item.</li>
+<li>A brief one or two sentence description of what your content is or does (preferably in English for localization and is 30 words or less).</li>
+<li>A thumbnail image that represents your content. Size the image to approximately <strong>300 x 200</strong> pixels.</li>
+<li>A full URL for the item. For a tutorial, a complete tutorial URL is needed (see <a target="_blank" rel="nofollow noopener" href="https://makecode.com/writing-docs/user-tutorials">https://makecode.com/writing-docs/user-tutorials</a> for more details).</li>
+</ol>
+<p>Here is the content link information mapped to a home page card example:</p>
 <p><img class="ui image" src="/static/mb/homepage-link-example.jpg" alt="Home page link example" loading="lazy"></p>
 <ol>
 <li>Name or Title</li>
@@ -1705,7 +1723,27 @@
 <li>Thumbnail image (JPG or PNG)</li>
 <li>Content link URL (not shown on the home page card)</li>
 </ol>
-<h2 id="target-approval">Approval </h2><p>For approval to add items to the home page, please follow the <strong><a target="_blank" rel="nofollow noopener" href="https://support.microbit.org/support/solutions/articles/19000054952-makecode-extension-and-tutorial-approval">instructions</a></strong> for submitting content to the Micro:bit Foundation.</p>
+<h2 id="submission-process">Submission process</h2><p>Create and submit a <a target="_blank" rel="nofollow noopener" href="https://github.com/Microsoft/pxt-microbit/issues">GitHub issue</a> requesting your content to be listed. In the issue description, include the name or title of the content item, description, content URL, and copy in the thumbnail image. GitHub will automatically create an image URL for your thumbnail when you paste or drag your image in. Your issue description will look something like this when you write it:</p>
+<pre><code>Request to include a user content source on the editor home page. The content is a simple tutorial on how the create exploding sprites in Arcade.
+
+## Home page link info
+
+### Name
+
+Exploding Sprites
+
+### Description
+
+Learn how to create moving sprites that randomly explode!
+
+### Content Link
+
+https://arcade.makecode.com/#tutorial:https://makecode.com/_rewr9iop
+
+### Thumbnail
+
+![image](https://github.com/microsoft/pxt/assets/27789908/f5c21294-1145-4010-8de0-560b8afbfeec)</code></pre><h2 id="target-approval">Approval </h2><p>For approval to add items to the home page, please follow the <strong><a target="_blank" rel="nofollow noopener" href="https://support.microbit.org/support/solutions/articles/19000054952-makecode-extension-and-tutorial-approval">instructions</a></strong> for submitting content to the Micro:bit Foundation.</p>
+<h2 id="featured-content">Featured content</h2><p>To request featured space in the Home Page banner carousel, the requirements are similar to gallery items except for the image size. We require a link, a short description, and a “Hero” image that is <strong>2100 x 500</strong> pixels. Please note that banner space is very limited and approval for items included there is very selective.</p>
 
     </div>
 
@@ -1896,10 +1934,10 @@
                     if (typeof Windows !== "undefined")
                         telemetryItem.properties["WindowsApp"] = 1;
                     var userAgent = navigator.userAgent.toLowerCase();
-                    var userAgentRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
-                    if (userAgentRegexResult) {
+                    var electronRegexResult = /\belectron\/(\d+\.\d+\.\d+.*?)(?: |$)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 Chrome/61.0.3163.100 Electron/2.0.0 Safari/537.36"
+                    if (electronRegexResult) {
                         telemetryItem.properties["Electron"] = 1;
-                        telemetryItem.properties["ElectronVersion"] = userAgentRegexResult[1];
+                        telemetryItem.properties["ElectronVersion"] = electronRegexResult[1];
                     }
                     if (typeof pxtElectron !== "undefined") {
                         telemetryItem.properties["PxtElectron"] = 1;
@@ -1911,6 +1949,13 @@
                         telemetryItem.properties["PxtTargetVersion"] = pxtElectron.versions.pxtTargetVersion;
                         telemetryItem.properties["PxtElectronIsProd"] = pxtElectron.versions.isProd;
                     }
+                    // Kiosk UWP info is appended to the user agent by the makecode-dotnet-apps/arcade-kiosk UWP app
+                    var kioskUwpRegexResult = /\((MakeCode Arcade Kiosk UWP)\/([\S]+)\/([\S]+)\)/i.exec(userAgent); // Example navigator.userAgent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/117.0.0.0 Safari/537.36 Edg/117.0.2045.60 (MakeCode Arcade Kiosk UWP/0.1.41.0/Windows.Xbox)"
+                    if (kioskUwpRegexResult) {
+                        telemetryItem.properties["KioskUwp"] = 1;
+                        telemetryItem.properties["KioskUwpVersion"] = kioskUwpRegexResult[2];
+                        telemetryItem.properties["KioskUwpPlatform"] = kioskUwpRegexResult[3];
+                    }
                     return true;
                 });
             },
@@ -1919,6 +1964,7 @@
                 disableAjaxTracking: true,
                 overridePageViewDuration: false,
                 disableExceptionTracking: true,
+                disableCorrelationHeaders: true,
                 disableCookiesUsage: !isProduction,
                 isStorageUseDisabled: !isProduction,
                 url: "/pxt-microbit-app/ai.2.min.js"
