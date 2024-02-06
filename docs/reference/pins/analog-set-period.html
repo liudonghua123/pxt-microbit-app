@@ -1699,15 +1699,15 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="analog-set-period">Analog Set Period</h1><p>Configure the period of Pulse Width Modulation (PWM) on the specified 
+        <h1 id="analog-set-period">Analog Set Period</h1><p>Configure the period of pulse-width modulation (PWM) on the specified 
 analog <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/device/pins.html">pin</a>.
 Before you call this function, you should set the specified pin as analog.</p>
 <pre><code class="lang-sig">pins.analogSetPeriod(AnalogPin.P0, 20000)</code></pre>
 <h2 id="parameters">Parameters</h2><ul>
-<li><code>name</code>: a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/string.html">string</a> that specifies the pin to configure (<code>P0</code> through <code>P4</code>, or <code>P10</code>)</li>
-<li><code>micros</code>: a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">number</a> that specifies the analog period in microseconds.</li>
+<li><strong>name</strong>: a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/string.html">string</a> that specifies the pin to configure (<code>P0</code> through <code>P4</code>, or <code>P10</code>)</li>
+<li><strong>micros</strong>: a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">number</a> that specifies the analog period in microseconds.</li>
 </ul>
-<p>The following code first sets <code>P0</code> to analog with <strong>analog write
+<h2 id="example">Example</h2><p>The following code first sets <code>P0</code> to analog with <strong>analog write
 pin</strong>, and then sets the PWM period of <code>P0</code> to 20,000 microseconds.</p>
 <pre><code class="lang-blocks">pins.analogWritePin(AnalogPin.P0, 512)
 pins.analogSetPeriod(AnalogPin.P0, 20000)</code></pre>

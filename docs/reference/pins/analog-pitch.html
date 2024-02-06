@@ -1699,17 +1699,18 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="analog-pitch">Analog Pitch</h1><p>Emits a Pulse With Modulation (PWM) signal to the pin <code>P0</code>.
-Use <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/pins/analog-set-pitch-pin.html">analog set pitch pin</a> to set the current pitch pin.</p>
+        <h1 id="analog-pitch">Analog Pitch</h1><p>Sends a pulse-width modulation (PWM) signal to the pin <code>P0</code>.</p>
 <pre><code class="lang-sig">pins.analogPitch(440, 300)</code></pre>
+<p>The PWM signal is sent to the current pitch pin. Use <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/pins/analog-set-pitch-pin.html">analog set pitch pin</a> to first set the current pitch pin.</p>
 <h2 id="parameters">Parameters</h2><ul>
-<li><code>frequency</code> : <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">Number</a></li>
-<li><code>ms</code>: <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">Number</a></li>
+<li><strong>frequency</strong>: a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">number</a> which is the frequency of the PWM signal at the pitch pin.</li>
+<li><strong>ms</strong>: a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">number</a> in milliseconds that is the duration of the signal at the pitch pin.</li>
 </ul>
-<h2 id="example">Example</h2><pre><code class="lang-blocks">pins.analogSetPitchPin(AnalogPin.P0);
+<h2 id="example">Example</h2><p>Set the pitch pin to <code>P1</code> and send a 440 Hz tone for 1 second.</p>
+<pre><code class="lang-blocks">pins.analogSetPitchPin(AnalogPin.P0)
 let frequency1 = 440
 let duration = 1000
-pins.analogSetPitchPin(AnalogPin.P1);
+pins.analogSetPitchPin(AnalogPin.P1)
 pins.analogPitch(frequency1, duration)</code></pre>
 <h2 id="some-common-notes">Some common notes</h2><ul>
 <li>440 = A4 on piano</li>

@@ -1703,18 +1703,18 @@
 <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/device/pins.html">pin</a> you say.</p>
 <pre><code class="lang-sig">pins.analogReadPin(AnalogPin.P0)</code></pre>
 <h2 id="parameters">Parameters</h2><ul>
-<li><code>name</code> is a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/string.html">string</a> with the name of the pin
-you say (<code>P0</code> through <code>P4</code>, or <code>P10</code>)</li>
+<li><strong>name</strong>: is a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/string.html">string</a> with the name of the pin
+you say (<code>P0</code> through <code>P4</code>, or <code>P10</code>).</li>
 </ul>
 <h2 id="returns">Returns</h2><ul>
 <li>a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">number</a> from <code>0</code> through <code>1023</code></li>
 </ul>
-<p>This program reads pin <code>P1</code> and shows the number
+<h2 id="example">Example</h2><p>This program reads pin <code>P1</code> and shows the number
 on the LED screen.</p>
-<pre><code class="lang-blocks">basic.forever(() =&gt; {
+<pre><code class="lang-blocks">basic.forever(function() {
     let value = pins.analogReadPin(AnalogPin.P1)
     basic.showNumber(value)
-});</code></pre>
+})</code></pre>
 
     <div class="ui info message">
         <div class="content">
