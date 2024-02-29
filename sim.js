@@ -4542,6 +4542,7 @@ var pxsim;
     }
     pxsim.AnalogSensorState = AnalogSensorState;
 })(pxsim || (pxsim = {}));
+/// <reference path="../../core/sim/analogSensor.ts" />
 var pxsim;
 (function (pxsim) {
     class MicrophoneState extends pxsim.AnalogSensorState {

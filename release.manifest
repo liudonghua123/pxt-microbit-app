@@ -11,7 +11,6 @@ CACHE:
 /pxt-microbit-app/pxtlib.js
 /pxt-microbit-app/pxtcompiler.js
 /pxt-microbit-app/pxtpy.js
-/pxt-microbit-app/pxtblockly.js
 /pxt-microbit-app/pxteditor.js
 /pxt-microbit-app/pxtsim.js
 /pxt-microbit-app/pxtembed.js
@@ -60,7 +59,7 @@ CACHE:
 /pxt-microbit-app/worker.js
 /pxt-microbit-app/monacoworker.js
 
-# ver Fri Feb 09 2024 23:26:54 GMT+0000 (Coordinated Universal Time)
+# ver Thu Feb 29 2024 23:15:52 GMT+0000 (Coordinated Universal Time)
 
 # target
 /pxt-microbit-app/docs/static/providers/github-mark.png

@@ -1,0 +1,168 @@
+{
+    "validatorPlans": [
+        {
+            ".desc": "Two different kinds of loops used",
+            "name": "two_different_loops",
+            "threshold": 2,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": {
+                        "controls_repeat_ext": 1
+                    }
+                },
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": {
+                        "device_while": 1
+                    }
+                },
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": {
+                        "pxt_controls_for": 1
+                    }
+                },
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": {
+                        "pxt_controls_for_of": 1
+                    }
+                }
+            ]
+        },
+        {
+            ".desc": "A block comment exists in a project",
+            "name": "block_comment_used",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blockCommentsExist",
+                    "count": 1
+                }
+            ]
+        },
+        {
+            ".desc": "All function definitions have block comments",
+            "name": "functions_have_comments",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "specificBlockCommentsExist",
+                    "blockType": "function_definition"
+                }
+            ]
+        },
+        {
+            ".desc": "A custom function exists and gets called",
+            "name": "custom_function_called",
+            "threshold": 2,
+            "checks": [
+                {
+                    "validator": "blocksInSetExist",
+                    "blocks": ["function_call", "function_call_output"],
+                    "count": 1
+                },
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": {
+                        "function_definition": 1
+                    }
+                }
+            ]
+        },
+        {
+            ".desc": "A variable's value is set",
+            "name": "variable_set",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": {
+                        "variables_set": 1
+                    }
+                }
+            ]
+        },
+        {
+            ".desc": "A variable's value is used",
+            "name": "variable_accessed",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": {
+                        "variables_get": 1
+                    }
+                }
+            ]
+        },
+        {
+            ".desc": "A custom variable's value is set to a random number",
+            "name": "variable_set_random",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": {
+                        "variables_set": 1
+                    },
+                    "childValidatorPlans": ["device_random_used"]
+                }
+            ]
+        },
+        {
+            ".desc": "Random number block used in project",
+            "name": "device_random_used",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": {
+                        "device_random": 1
+                    }
+                }
+            ]
+        },
+        {
+            ".desc": "make sure two numbers are equal",
+            "name": "num_compare_eq",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blockFieldValueExists",
+                    "fieldType": "OP",
+                    "fieldValue": "EQ",
+                    "blockType": "logic_compare",
+                    "childValidatorPlans": ["two_nums_exist"]
+                }
+            ]
+        },
+        {
+            ".desc": "two numbers exist",
+            "name": "two_nums_exist",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": {
+                        "math_number": 2
+                    }
+                }
+            ]
+        },
+        {
+            ".desc": "a number exists",
+            "name": "math_num_exists",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": {
+                        "math_number": 1
+                    }
+                }
+            ]
+        }
+    ]
+}

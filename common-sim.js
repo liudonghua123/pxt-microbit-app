@@ -711,6 +711,349 @@ var pxsim;
         loops.forever = pxsim.thread.forever;
     })(loops = pxsim.loops || (pxsim.loops = {}));
 })(pxsim || (pxsim = {}));
+var pxsim;
+(function (pxsim) {
+    var browserEvents;
+    (function (browserEvents) {
+        function mouseX() {
+            return pxsim.board().mouseState.mouseX();
+        }
+        browserEvents.mouseX = mouseX;
+        function mouseY() {
+            return pxsim.board().mouseState.mouseY();
+        }
+        browserEvents.mouseY = mouseY;
+        function wheelDx() {
+            return pxsim.board().mouseState.wheelDx();
+        }
+        browserEvents.wheelDx = wheelDx;
+        function wheelDy() {
+            return pxsim.board().mouseState.wheelDy();
+        }
+        browserEvents.wheelDy = wheelDy;
+        function wheelDz() {
+            return pxsim.board().mouseState.wheelDz();
+        }
+        browserEvents.wheelDz = wheelDz;
+    })(browserEvents = pxsim.browserEvents || (pxsim.browserEvents = {}));
+})(pxsim || (pxsim = {}));
+var pxsim;
+(function (pxsim) {
+    var browserEvents;
+    (function (browserEvents) {
+        let Key;
+        (function (Key) {
+            Key[Key["Zero"] = 48] = "Zero";
+            Key[Key["One"] = 49] = "One";
+            Key[Key["Two"] = 50] = "Two";
+            Key[Key["Three"] = 51] = "Three";
+            Key[Key["Four"] = 52] = "Four";
+            Key[Key["Five"] = 53] = "Five";
+            Key[Key["Six"] = 54] = "Six";
+            Key[Key["Seven"] = 55] = "Seven";
+            Key[Key["Eight"] = 56] = "Eight";
+            Key[Key["Nine"] = 57] = "Nine";
+            Key[Key["BackTick"] = 192] = "BackTick";
+            Key[Key["Hyphen"] = 189] = "Hyphen";
+            Key[Key["Equals"] = 187] = "Equals";
+            Key[Key["Q"] = 81] = "Q";
+            Key[Key["W"] = 87] = "W";
+            Key[Key["E"] = 69] = "E";
+            Key[Key["R"] = 82] = "R";
+            Key[Key["T"] = 84] = "T";
+            Key[Key["Y"] = 89] = "Y";
+            Key[Key["U"] = 85] = "U";
+            Key[Key["I"] = 73] = "I";
+            Key[Key["O"] = 79] = "O";
+            Key[Key["P"] = 80] = "P";
+            Key[Key["OpenBracket"] = 219] = "OpenBracket";
+            Key[Key["CloseBracket"] = 221] = "CloseBracket";
+            Key[Key["BackSlash"] = 220] = "BackSlash";
+            Key[Key["A"] = 65] = "A";
+            Key[Key["S"] = 83] = "S";
+            Key[Key["D"] = 68] = "D";
+            Key[Key["F"] = 70] = "F";
+            Key[Key["G"] = 71] = "G";
+            Key[Key["H"] = 72] = "H";
+            Key[Key["Space"] = 32] = "Space";
+            Key[Key["PageUp"] = 33] = "PageUp";
+            Key[Key["J"] = 74] = "J";
+            Key[Key["K"] = 75] = "K";
+            Key[Key["L"] = 76] = "L";
+            Key[Key["SemiColon"] = 186] = "SemiColon";
+            Key[Key["Apostrophe"] = 222] = "Apostrophe";
+            Key[Key["Z"] = 90] = "Z";
+            Key[Key["X"] = 88] = "X";
+            Key[Key["C"] = 67] = "C";
+            Key[Key["V"] = 86] = "V";
+            Key[Key["B"] = 66] = "B";
+            Key[Key["N"] = 78] = "N";
+            Key[Key["M"] = 77] = "M";
+            Key[Key["Comma"] = 188] = "Comma";
+            Key[Key["Period"] = 190] = "Period";
+            Key[Key["ForwardSlash"] = 191] = "ForwardSlash";
+            Key[Key["Shift"] = 16] = "Shift";
+            Key[Key["Enter"] = 13] = "Enter";
+            Key[Key["CapsLock"] = 20] = "CapsLock";
+            Key[Key["Tab"] = 9] = "Tab";
+            Key[Key["Control"] = 17] = "Control";
+            Key[Key["Meta"] = 91] = "Meta";
+            Key[Key["Alt"] = 18] = "Alt";
+            Key[Key["ArrowUp"] = 38] = "ArrowUp";
+            Key[Key["ArrowDown"] = 40] = "ArrowDown";
+            Key[Key["ArrowLeft"] = 37] = "ArrowLeft";
+            Key[Key["ArrowRight"] = 39] = "ArrowRight";
+            Key[Key["PageDown"] = 34] = "PageDown";
+            Key[Key["End"] = 35] = "End";
+            Key[Key["Home"] = 36] = "Home";
+        })(Key = browserEvents.Key || (browserEvents.Key = {}));
+        function onKeyboardEvent(event, pressed) {
+            if (pressed) {
+                pxsim.board().bus.queue(6866, getValueForKey(event));
+            }
+            else {
+                pxsim.board().bus.queue(6867, getValueForKey(event));
+            }
+        }
+        browserEvents.onKeyboardEvent = onKeyboardEvent;
+        function getValueForKey(event) {
+            switch (event.key) {
+                case "0":
+                case ")":
+                    return Key.Zero;
+                case "1":
+                case "!":
+                    return Key.One;
+                case "2":
+                case "@":
+                    return Key.Two;
+                case "3":
+                case "#":
+                    return Key.Three;
+                case "4":
+                case "$":
+                    return Key.Four;
+                case "5":
+                case "%":
+                    return Key.Five;
+                case "6":
+                case "^":
+                    return Key.Six;
+                case "7":
+                case "&":
+                    return Key.Seven;
+                case "8":
+                case "*":
+                    return Key.Eight;
+                case "9":
+                case "(":
+                    return Key.Nine;
+                case "`":
+                case "~":
+                    return Key.BackTick;
+                case "-":
+                case "_":
+                    return Key.Hyphen;
+                case "=":
+                case "+":
+                    return Key.Equals;
+                case "Q":
+                case "q":
+                    return Key.Q;
+                case "W":
+                case "w":
+                    return Key.W;
+                case "E":
+                case "e":
+                    return Key.E;
+                case "R":
+                case "r":
+                    return Key.R;
+                case "T":
+                case "t":
+                    return Key.T;
+                case "Y":
+                case "y":
+                    return Key.Y;
+                case "U":
+                case "u":
+                    return Key.U;
+                case "I":
+                case "i":
+                    return Key.I;
+                case "O":
+                case "o":
+                    return Key.O;
+                case "P":
+                case "p":
+                    return Key.P;
+                case "[":
+                case "{":
+                    return Key.OpenBracket;
+                case "]":
+                case "}":
+                    return Key.CloseBracket;
+                case "\\":
+                case "|":
+                    return Key.BackSlash;
+                case "A":
+                case "a":
+                    return Key.A;
+                case "S":
+                case "s":
+                    return Key.S;
+                case "D":
+                case "d":
+                    return Key.D;
+                case "F":
+                case "f":
+                    return Key.F;
+                case "G":
+                case "g":
+                    return Key.G;
+                case "H":
+                case "h":
+                    return Key.H;
+                case " ":
+                    return Key.Space;
+                case "PageUp":
+                    return Key.PageUp;
+                case "J":
+                case "j":
+                    return Key.J;
+                case "K":
+                case "k":
+                    return Key.K;
+                case "L":
+                case "l":
+                    return Key.L;
+                case ";":
+                case ":":
+                    return Key.SemiColon;
+                case "'":
+                case "\"":
+                    return Key.Apostrophe;
+                case "Z":
+                case "z":
+                    return Key.Z;
+                case "X":
+                case "x":
+                    return Key.X;
+                case "C":
+                case "c":
+                    return Key.C;
+                case "V":
+                case "v":
+                    return Key.V;
+                case "B":
+                case "b":
+                    return Key.B;
+                case "N":
+                case "n":
+                    return Key.N;
+                case "M":
+                case "m":
+                    return Key.M;
+                case ",":
+                case "<":
+                    return Key.Comma;
+                case ".":
+                case ">":
+                    return Key.Period;
+                case "/":
+                case "?":
+                    return Key.ForwardSlash;
+                case "Shift":
+                    return Key.Shift;
+                case "Enter":
+                    return Key.Enter;
+                case "CapsLock":
+                    return Key.CapsLock;
+                case "Tab":
+                    return Key.Tab;
+                case "Control":
+                    return Key.Control;
+                case "Meta":
+                    return Key.Meta;
+                case "Alt":
+                    return Key.Alt;
+                case "ArrowUp":
+                    return Key.ArrowUp;
+                case "ArrowDown":
+                    return Key.ArrowDown;
+                case "ArrowLeft":
+                    return Key.ArrowLeft;
+                case "ArrowRight":
+                    return Key.ArrowRight;
+                case "PageDown":
+                    return Key.PageDown;
+                case "End":
+                    return Key.End;
+                case "Home":
+                    return Key.Home;
+                default:
+                    return 0;
+            }
+        }
+        browserEvents.getValueForKey = getValueForKey;
+    })(browserEvents = pxsim.browserEvents || (pxsim.browserEvents = {}));
+})(pxsim || (pxsim = {}));
+var pxsim;
+(function (pxsim) {
+    var browserEvents;
+    (function (browserEvents) {
+        const THROTTLE_INTERVAL = 50;
+        class MouseState {
+            constructor() {
+                this.onMove = pxsim.U.throttle(() => {
+                    pxsim.board().bus.queue(6859, 0);
+                }, THROTTLE_INTERVAL, true);
+                this.onWheel = pxsim.U.throttle(() => {
+                    pxsim.board().bus.queue(6865, 0);
+                }, THROTTLE_INTERVAL, true);
+            }
+            onEvent(event, x, y) {
+                this.x = x;
+                this.y = y;
+                const events = [
+                    "pointerdown",
+                    "pointerup",
+                    "pointermove",
+                    "pointerleave",
+                    "pointerenter",
+                    "pointercancel",
+                    "pointerover",
+                    "pointerout",
+                ];
+                // We add 1 to the button here because the left button is 0 and
+                // that's used as a wildcard in our event bus
+                pxsim.board().bus.queue(6857 + events.indexOf(event.type), (event.button || 0) + 1);
+            }
+            onWheelEvent(dx, dy, dz) {
+                this.dx = dx;
+                this.dy = dy;
+                this.dz = dz;
+                this.onWheel();
+            }
+            mouseX() {
+                return this.x || 0;
+            }
+            mouseY() {
+                return this.y || 0;
+            }
+            wheelDx() {
+                return this.dx || 0;
+            }
+            wheelDy() {
+                return this.dy || 0;
+            }
+            wheelDz() {
+                return this.dz || 0;
+            }
+        }
+        browserEvents.MouseState = MouseState;
+    })(browserEvents = pxsim.browserEvents || (pxsim.browserEvents = {}));
+})(pxsim || (pxsim = {}));
 /// <reference path="../../core/dal.d.ts"/>
 var pxsim;
 (function (pxsim) {
@@ -3179,6 +3522,7 @@ var pxsim;
         input.setLoudSoundThreshold = setLoudSoundThreshold;
     })(input = pxsim.input || (pxsim.input = {}));
 })(pxsim || (pxsim = {}));
+/// <reference path="../../core/sim/analogSensor.ts" />
 var pxsim;
 (function (pxsim) {
     class MicrophoneState extends pxsim.AnalogSensorState {
@@ -3792,7 +4136,9 @@ var pxsim;
     var ImageMethods;
     (function (ImageMethods) {
         function XX(x) { return (x << 16) >> 16; }
+        ImageMethods.XX = XX;
         function YY(x) { return x >> 16; }
+        ImageMethods.YY = YY;
         function width(img) { return img._width; }
         ImageMethods.width = width;
         function height(img) { return img._height; }
@@ -4236,57 +4582,58 @@ var pxsim;
         }
         ImageMethods.drawLine = drawLine;
         function drawIcon(img, icon, x, y, color) {
-            const img2 = icon.data;
+            const src = icon.data;
             if (!pxsim.image.isValidImage(icon))
                 return;
-            if (img2[1] != 1)
+            if (src[1] != 1)
                 return; // only mono
-            let w = pxsim.image.bufW(img2);
-            let h = pxsim.image.bufH(img2);
-            let byteH = pxsim.image.byteHeight(h, 1);
+            let width = pxsim.image.bufW(src);
+            let height = pxsim.image.bufH(src);
+            let byteH = pxsim.image.byteHeight(height, 1);
             x |= 0;
             y |= 0;
-            const sh = img._height;
-            const sw = img._width;
-            if (x + w <= 0)
+            const destHeight = img._height;
+            const destWidth = img._width;
+            if (x + width <= 0)
                 return;
-            if (x >= sw)
+            if (x >= destWidth)
                 return;
-            if (y + h <= 0)
+            if (y + height <= 0)
                 return;
-            if (y >= sh)
+            if (y >= destHeight)
                 return;
             img.makeWritable();
-            let p = 8;
+            let srcPointer = 8;
             color = img.color(color);
             const screen = img.data;
-            for (let i = 0; i < w; ++i) {
-                let xxx = x + i;
-                if (0 <= xxx && xxx < sw) {
-                    let dst = xxx + y * sw;
-                    let src = p;
-                    let yy = y;
-                    let end = Math.min(sh, h + y);
+            for (let i = 0; i < width; ++i) {
+                let destX = x + i;
+                if (0 <= destX && destX < destWidth) {
+                    let destIndex = destX + y * destWidth;
+                    let srcIndex = srcPointer;
+                    let destY = y;
+                    let destEnd = Math.min(destHeight, height + y);
                     if (y < 0) {
-                        src += ((-y) >> 3);
-                        yy += ((-y) >> 3) * 8;
+                        srcIndex += ((-y) >> 3);
+                        destY += ((-y) >> 3) * 8;
+                        destIndex += (destY - y) * destWidth;
                     }
                     let mask = 0x01;
-                    let v = img2[src++];
-                    while (yy < end) {
-                        if (yy >= 0 && (v & mask)) {
-                            screen[dst] = color;
+                    let srcByte = src[srcIndex++];
+                    while (destY < destEnd) {
+                        if (destY >= 0 && (srcByte & mask)) {
+                            screen[destIndex] = color;
                         }
                         mask <<= 1;
                         if (mask == 0x100) {
                             mask = 0x01;
-                            v = img2[src++];
+                            srcByte = src[srcIndex++];
                         }
-                        dst += sw;
-                        yy++;
+                        destIndex += destWidth;
+                        destY++;
                     }
                 }
-                p += byteH;
+                srcPointer += byteH;
             }
         }
         ImageMethods.drawIcon = drawIcon;
@@ -5128,6 +5475,35 @@ var pxsim;
         }
         settings._list = _list;
     })(settings = pxsim.settings || (pxsim.settings = {}));
+})(pxsim || (pxsim = {}));
+/// <reference path="../../screen/sim/image.ts" />
+var pxsim;
+(function (pxsim) {
+    var ShaderMethods;
+    (function (ShaderMethods) {
+        function _mergeImage(dst, src, xy) {
+            mergeImage(dst, src, pxsim.ImageMethods.XX(xy), pxsim.ImageMethods.YY(xy));
+        }
+        ShaderMethods._mergeImage = _mergeImage;
+        function mergeImage(dst, src, x0, y0) {
+            for (let x = 0; x < src._width; x++) {
+                for (let y = 0; y < src._height; y++) {
+                    pxsim.ImageMethods.setPixel(dst, x0 + x, y0 + y, Math.min(pxsim.ImageMethods.getPixel(dst, x0 + x, y0 + y), pxsim.ImageMethods.getPixel(src, x, y)));
+                }
+            }
+        }
+        function _mapImage(dst, src, xy, buf) {
+            mapImage(dst, src, pxsim.ImageMethods.XX(xy), pxsim.ImageMethods.YY(xy), buf);
+        }
+        ShaderMethods._mapImage = _mapImage;
+        function mapImage(dst, src, x0, y0, buf) {
+            for (let x = 0; x < src._width; x++) {
+                for (let y = 0; y < src._height; y++) {
+                    pxsim.ImageMethods.setPixel(dst, x0 + x, y0 + y, buf.data[pxsim.ImageMethods.getPixel(dst, x0 + x, y0 + y) + (pxsim.ImageMethods.getPixel(src, x, y) << 4)]);
+                }
+            }
+        }
+    })(ShaderMethods = pxsim.ShaderMethods || (pxsim.ShaderMethods = {}));
 })(pxsim || (pxsim = {}));
 var pxsim;
 (function (pxsim) {
