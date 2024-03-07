@@ -7,9 +7,12 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "basic_show_icon": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "basic_show_icon",
+                            "count": 1
+                        }
+                    ]
                 }
             ]
         },
@@ -20,39 +23,57 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "device_pin_event": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "device_pin_event",
+                            "count": 1
+                        }
+                    ]
                 },
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "device_pin_is_pressed": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "device_pin_is_pressed",
+                            "count": 1
+                        }
+                    ]
                 },
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "device_pin_released": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "device_pin_released",
+                            "count": 1
+                        }
+                    ]
                 },
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "device_get_digital_pin": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "device_get_digital_pin",
+                            "count": 1
+                        }
+                    ]
                 },
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "device_get_analog_pin": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "device_get_analog_pin",
+                            "count": 1
+                        }
+                    ]
                 },
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "pins_on_pulsed": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "pins_on_pulsed",
+                            "count": 1
+                        }
+                    ]
                 }
             ]
         },
@@ -63,9 +84,12 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "radio_set_group": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "radio_set_group",
+                            "count": 1
+                        }
+                    ]
                 }
             ]
         },
@@ -76,9 +100,12 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "radio_datagram_send_string": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "radio_datagram_send_string",
+                            "count": 1
+                        }
+                    ]
                 }
             ]
         },
@@ -89,16 +116,22 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "device_print_message": 1
-                    },
+                    "blockCounts": [
+                        {
+                            "blockId": "device_print_message",
+                            "count": 1
+                        }
+                    ],
                     "childValidatorPlans": ["parameter_variable_accessed"]
                 },
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "device_show_number": 1
-                    },
+                    "blockCounts": [
+                        {
+                            "blockId": "device_show_number",
+                            "count": 1
+                        }
+                    ],
                     "childValidatorPlans": ["numeric_parameter_variable_accessed"]
                 }
             ]
@@ -110,9 +143,12 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "pxt-on-start": 1
-                    },
+                    "blockCounts": [
+                        {
+                            "blockId": "pxt-on-start",
+                            "count": 1
+                        }
+                    ],
                     "childValidatorPlans": ["set_radio_group"]
                 }
             ]
@@ -124,9 +160,12 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "device_button_event": 1
-                    },
+                    "blockCounts": [
+                        {
+                            "blockId": "device_button_event",
+                            "count": 1
+                        }
+                    ],
                     "childValidatorPlans": ["send_radio_string"]
                 }
             ]
@@ -138,21 +177,30 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "radio_on_number_drag": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "radio_on_number_drag",
+                            "count": 1
+                        }
+                    ]
                 },
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "radio_on_value_drag": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "radio_on_value_drag",
+                            "count": 1
+                        }
+                    ]
                 },
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "radio_on_string_drag": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "radio_on_string_drag",
+                            "count": 1
+                        }
+                    ]
                 }
             ]
         },
@@ -163,23 +211,32 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "radio_on_number_drag": 1
-                    },
+                    "blockCounts": [
+                        {
+                            "blockId": "radio_on_number_drag",
+                            "count": 1
+                        }
+                    ],
                     "childValidatorPlans": ["show_parameter_value_on_screen"]
                 },
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "radio_on_value_drag": 1
-                    },
+                    "blockCounts": [
+                        {
+                            "blockId": "radio_on_value_drag",
+                            "count": 1
+                        }
+                    ],
                     "childValidatorPlans": ["show_parameter_value_on_screen"]
                 },
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "radio_on_string_drag": 1
-                    },
+                    "blockCounts": [
+                        {
+                            "blockId": "radio_on_string_drag",
+                            "count": 1
+                        }
+                    ],
                     "childValidatorPlans": ["show_parameter_value_on_screen"]
                 }
             ]
@@ -217,9 +274,12 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "device_random": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "device_random",
+                            "count": 1
+                        }
+                    ]
                 }
             ]
         },
@@ -230,9 +290,12 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "controls_if": 1
-                    }
+                    "blockCounts": [
+                        {
+                            "blockId": "controls_if",
+                            "count": 1
+                        }
+                    ]
                 }
             ]
         },
@@ -270,9 +333,288 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts": {
-                        "controls_if": 1
-                    },
+                    "blockCounts": [
+                        {
+                            "blockId": "controls_if",
+                            "count": 1
+                        }
+                    ],
+                    "childValidatorPlans": ["show_icon_on_screen"]
+                }
+            ]
+        },
+        {
+            ".desc": "get sound level",
+            "name": "get_sound_level",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "device_get_sound_level",
+                            "count": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            ".desc": "sound level greater than number",
+            "name": "soundlevel_greater_than_check",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blockFieldValueExists",
+                    "fieldType": "OP",
+                    "fieldValue": "GT",
+                    "blockType": "logic_compare",
+                    "childValidatorPlans": ["get_sound_level", "math_num_exists"]
+                }
+            ]
+        },
+        {
+            ".desc": "variable with name col is set to random number",
+            "name": "col_variable_set_random",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blockFieldValueExists",
+                    "fieldType": "VAR",
+                    "fieldValue": "col",
+                    "blockType": "variables_set",
+                    "childValidatorPlans": ["device_random_used"]
+                }
+            ]
+        },
+        {
+            ".desc": "variable with name row is set to random number",
+            "name": "row_variable_set_random",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blockFieldValueExists",
+                    "fieldType": "VAR",
+                    "fieldValue": "row",
+                    "blockType": "variables_set",
+                    "childValidatorPlans": ["device_random_used"]
+                }
+            ]
+        },
+        {
+            ".desc": "variable with name col is accessed",
+            "name": "col_variable_accessed",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blockFieldValueExists",
+                    "fieldType": "VAR",
+                    "fieldValue": "col",
+                    "blockType": "variables_get"
+                }
+            ]
+        },
+        {
+            ".desc": "variable with name col is accessed",
+            "name": "row_variable_accessed",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blockFieldValueExists",
+                    "fieldType": "VAR",
+                    "fieldValue": "row",
+                    "blockType": "variables_get"
+                }
+            ]
+        },
+        {
+            ".desc": "sound level check in if statement wtih two variables set blocks",
+            "name": "soundlevel_gt_condition",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "controls_if",
+                            "count": 1
+                        }
+                    ],
+                    "childValidatorPlans": ["soundlevel_greater_than_check", "row_variable_set_random", "col_variable_set_random"]
+                }
+            ]
+        },
+        {
+            ".desc": "point block used for boolean check",
+            "name": "point_bool_check",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "device_point",
+                            "count": 1
+                        }
+                    ],
+                    "childValidatorPlans": ["row_variable_accessed", "col_variable_accessed"]
+                }
+            ]
+        },
+        {
+            ".desc": "unplot block filled with row, col variables",
+            "name": "unplot_vars_used",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "device_unplot",
+                            "count": 1
+                        }
+                    ],
+                    "childValidatorPlans": ["col_variable_accessed", "row_variable_accessed"]
+                }
+            ]
+        },
+        {
+            ".desc": "variable with name col is accessed",
+            "name": "col_add_num",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blockFieldValueExists",
+                    "fieldType": "OP",
+                    "fieldValue": "ADD",
+                    "blockType": "math_arithmetic",
+                    "childValidatorPlans": ["col_variable_accessed", "math_num_exists"]
+                }
+            ]
+        },
+        {
+            ".desc": "plot block filled with math add between row, num; and col variables",
+            "name": "plot_vars_used",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "device_plot",
+                            "count": 1
+                        }
+                    ],
+                    "childValidatorPlans": ["col_add_num", "row_variable_accessed"]
+                }
+            ]
+        },
+        {
+            ".desc": "point block in if statement with unplot, plot in its body",
+            "name": "point_condition",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts":[
+                        {
+                            "blockId": "controls_if",
+                            "count": 1
+                        }
+                    ],
+                    "childValidatorPlans": ["point_bool_check" , "unplot_vars_used", "plot_vars_used"]
+                }
+            ]
+        },
+        {
+            ".desc": "repeat loop nests two conditions in its body",
+            "name": "repeat_loop_nested_conditions",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "controls_repeat_ext",
+                            "count": 1
+                        }
+                    ],
+                    "childValidatorPlans": ["point_condition" , "soundlevel_gt_condition"]
+                }
+            ]
+        },
+        {
+            ".desc": "forever loop is in the program",
+            "name": "forever_used",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "device_forever",
+                            "count": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            ".desc": "repeat loop is in the program",
+            "name": "repeat_loop_used",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "controls_repeat_ext",
+                            "count": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            ".desc": "show icon on start",
+            "name": "show_icon_on_start",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "pxt-on-start",
+                            "count": 1
+                        }
+                    ],
+                    "childValidatorPlans": ["show_icon_on_screen"]
+                }
+            ]
+        },
+        {
+            ".desc": "checks that the program aligns to the end tutorial program",
+            "name": "blow_away_completeness",
+            "threshold": 2,
+            "checks": [
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "device_forever",
+                            "count": 1
+                        }
+                    ],
+                    "childValidatorPlans": ["repeat_loop_nested_conditions"]
+                },
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "pxt-on-start",
+                            "count": 1
+                        }
+                    ],
                     "childValidatorPlans": ["show_icon_on_screen"]
                 }
             ]
