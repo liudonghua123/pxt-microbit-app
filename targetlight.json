@@ -364,7 +364,7 @@
             "graphBackground": "#d9d9d9",
             "lineColors": [
                 "#6633cc",
-                "#3891A6",
+                "#2C7485",
                 "#3454D1",
                 "#EF767A",
                 "#F46197",
@@ -401,12 +401,12 @@
             }
         }
     },
-    "uploadDocs": true,
+    "uploadDocs": false,
     "versions": {
         "branch": "main",
-        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/54a8801decc8c7bd8350bc2c84e30ce26b7993f4",
-        "target": "7.0.4",
-        "pxt": "10.0.11"
+        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/fba49b8304488ff8f43b27c3b5ecbacd8e6023e1",
+        "target": "7.0.5",
+        "pxt": "10.0.17"
     },
     "blocksprj": {
         "id": "blocksprj",
