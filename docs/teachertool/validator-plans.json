@@ -17,6 +17,29 @@
             ]
         },
         {
+            ".desc": "Shows something on the LED screen.",
+            "name": "output_to_led_display",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksInSetExist",
+                    "blocks": [
+                        "device_show_number",
+                        "device_show_leds",
+                        "basic_show_icon",
+                        "device_print_message",
+                        "device_plot",
+                        "device_led_toggle",
+                        "device_plot_bar_graph",
+                        "device_plot_brightness",
+                        "device_show_image_offset",
+                        "device_scroll_image"
+                    ],
+                    "count": 1
+                }
+            ]
+        },
+        {
             ".desc": "Read input from a GPIO pin.",
             "name": "read_gpio_pin",
             "threshold": 1,
@@ -268,38 +291,6 @@
             ]
         },
         {
-            ".desc": "'pick random' block is present",
-            "name": "pick_random_exists",
-            "threshold": 1,
-            "checks": [
-                {
-                    "validator": "blocksExist",
-                    "blockCounts": [
-                        {
-                            "blockId": "device_random",
-                            "count": 1
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            ".desc": "'if/else' block is present",
-            "name": "conditional_exists",
-            "threshold": 1,
-            "checks": [
-                {
-                    "validator": "blocksExist",
-                    "blockCounts": [
-                        {
-                            "blockId": "controls_if",
-                            "count": 1
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             ".desc": "read value of 'hand' variable",
             "name": "hand_variable_accessed",
             "threshold": 1,
@@ -440,7 +431,11 @@
                             "count": 1
                         }
                     ],
-                    "childValidatorPlans": ["soundlevel_greater_than_check", "row_variable_set_random", "col_variable_set_random"]
+                    "childValidatorPlans": [
+                        "soundlevel_greater_than_check",
+                        "row_variable_set_random",
+                        "col_variable_set_random"
+                    ]
                 }
             ]
         },
@@ -516,13 +511,13 @@
             "checks": [
                 {
                     "validator": "blocksExist",
-                    "blockCounts":[
+                    "blockCounts": [
                         {
                             "blockId": "controls_if",
                             "count": 1
                         }
                     ],
-                    "childValidatorPlans": ["point_bool_check" , "unplot_vars_used", "plot_vars_used"]
+                    "childValidatorPlans": ["point_bool_check", "unplot_vars_used", "plot_vars_used"]
                 }
             ]
         },
@@ -539,39 +534,7 @@
                             "count": 1
                         }
                     ],
-                    "childValidatorPlans": ["point_condition" , "soundlevel_gt_condition"]
-                }
-            ]
-        },
-        {
-            ".desc": "forever loop is in the program",
-            "name": "forever_used",
-            "threshold": 1,
-            "checks": [
-                {
-                    "validator": "blocksExist",
-                    "blockCounts": [
-                        {
-                            "blockId": "device_forever",
-                            "count": 1
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            ".desc": "repeat loop is in the program",
-            "name": "repeat_loop_used",
-            "threshold": 1,
-            "checks": [
-                {
-                    "validator": "blocksExist",
-                    "blockCounts": [
-                        {
-                            "blockId": "controls_repeat_ext",
-                            "count": 1
-                        }
-                    ]
+                    "childValidatorPlans": ["point_condition", "soundlevel_gt_condition"]
                 }
             ]
         },

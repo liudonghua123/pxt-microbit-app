@@ -2,8 +2,9 @@
     "criteria": [
         {
             "id": "D285D79B-85E5-4C8D-82D2-5A9E35AB1163",
-            "use": "show_icon_on_screen",
-            "template": "Show an icon on the display",
+            "use": "output_to_led_display",
+            "template": "Outputs to the LED display",
+            "description": "Uses at least one block that lights up LEDs",
             "docPath": "/teachertool"
         },
         {
@@ -50,6 +51,7 @@
             "use": "on_shake_gesture",
             "template": "Runs code when the micro:bit is shaken",
             "description": "When the user shakes the micro:bit, the code inside this block will run.",
+            "hideInCatalog": true,
             "docPath": "/teachertool"
         },
         {
@@ -58,20 +60,6 @@
             "template": "Declares a variable called 'hand'",
             "description": "The project includes a variable called 'hand'",
             "hideInCatalog": true,
-            "docPath": "/teachertool"
-        },
-        {
-            "id": "67FB5A95-57A8-4496-8865-F682923C36F7",
-            "use": "pick_random_exists",
-            "template": "Utilizes the pick random block",
-            "description": "The project utilizes the pick random block",
-            "docPath": "/teachertool"
-        },
-        {
-            "id": "BBD02C45-8515-4936-B99F-8FF29025C333",
-            "use": "conditional_exists",
-            "template": "Utilizes the if/else block",
-            "description": "The project includes at least one conditional block",
             "docPath": "/teachertool"
         },
         {
@@ -87,6 +75,7 @@
             "use": "conditional_show_icon",
             "template": "Show an icon on display when a condition is met",
             "description": "The project shows an icon on the display when a condition is met",
+            "hideInCatalog": true,
             "docPath": "/teachertool"
         },
         {
@@ -151,20 +140,6 @@
             "id": "6BA59761-9464-4C8D-9D8F-E8985273FB92",
             "use": "plot_vars_used",
             "template": "Turn on an LED at point ('col' + 1, 'row')",
-            "hideInCatalog": true,
-            "docPath": "/teachertool"
-        },
-        {
-            "id": "1B331451-081E-4F26-9CB6-F5A649432BF9",
-            "use": "repeat_loop_used",
-            "template": "Repeat loop is used",
-            "hideInCatalog": true,
-            "docPath": "/teachertool"
-        },
-        {
-            "id": "A4F05FAB-72F2-48F5-8E33-7AE2CBB6CD43",
-            "use": "forever_used",
-            "template": "Forever loop is used",
             "hideInCatalog": true,
             "docPath": "/teachertool"
         },
