@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#"
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#"
 	xmlns:fb="http://www.facebook.com/2008/fbml">
 
 <head>
@@ -77,36 +77,28 @@
 
 	
 <!-- include tocheader.html -->
-<div id="top-bar" class="ui fixed accent borderless inverted main menu hideprint docs" role="menubar">
-    <div>
+<div class="docs-top-bar inverted" role="banner">
+    <div id="top-bar" class="menu-bar" role="menubar">
         
             <a id="togglesidebar" class="launch icon item" tabindex="0" title="Side menu" aria-label="Side menu" role="menuitem" aria-expanded="false">
                 <i class="content icon"></i>
             </a>
         
-        <div class="item" role="menuitem">
-            <div class="header-org-logo">
-                <img src="/static/logo/Microsoft_logo_rgb_W-white_D.png" alt="Microsoft">
-            </div>
-            <div class="header-org-logo-sm">
-                <img src="/static/logo/Microsoft_logo_rgb_W-white_D-square.png" alt="Microsoft">
-            </div>
-            <div class="header-title"><span>MakeCode</span></div>
+        <div class="logo-group" role="menuitem">
+            <img class="desktop-only" src="/static/logo/Microsoft_logo_rgb_W-white_D.png" alt="Microsoft">
+            <img class="desktop-hidden" src="/static/logo/Microsoft_logo_rgb_W-white_D-square.png" alt="Microsoft">
+            <div class="header-title desktop-only"><span>MakeCode</span></div>
         </div>
     </div>
-    <div>
-        <div class="item">
-            <form id="tocsearch1" class="search" role="form" method="get" action="https://www.bing.com/search">
-                <div class="ui fluid icon input">
-                    <input type="hidden" name="q1" value="site:https://makecode.microbit.org/" />
-                    
+    <form id="tocsearch1" class="search" method="get" action="https://www.bing.com/search" role="search">
+        <div class="ui fluid icon input">
+            <input type="hidden" name="q1" value="site:https://makecode.microbit.org/" />
+            
                 <input type="search" name="q" placeholder="Search..." aria-label="Search Documentation">
                 <i onclick="document.getElementById('tocsearch1').submit();" tabindex="0" class="search link icon" aria-label="Search" role="button"></i>
             
-                </div>
-            </form>
         </div>
-    </div>
+    </form>
 </div>
 
 <div id="side-menu" class="ui vertical accent inverted sidebar menu left hideprint docs" role="menubar">
@@ -1692,7 +1684,7 @@
 <!-- end include header.html -->
 
 
-				<div class="main ui container fluid mainbody">
+				<div class="main ui container fluid mainbody" role="main">
 					<button id="printbtn" class="circular ui icon right floated button hideprint hidemobile"
 						title="Print" aria-label="Print">
 						<i class="icon print"></i>

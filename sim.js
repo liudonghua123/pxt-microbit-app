@@ -15,62 +15,62 @@ var pxsim;
             this.controlMessageState = new pxsim.ControlMessageState(this);
             this.builtinParts["ledmatrix"] = this.ledMatrixState = new pxsim.LedMatrixState(pxsim.runtime);
             this.builtinParts["buttonpair"] = this.buttonPairState = new pxsim.ButtonPairState({
-                ID_BUTTON_A: 1 /* MICROBIT_ID_BUTTON_A */,
-                ID_BUTTON_B: 2 /* MICROBIT_ID_BUTTON_B */,
-                ID_BUTTON_AB: 3 /* MICROBIT_ID_BUTTON_AB */,
-                BUTTON_EVT_UP: 2 /* MICROBIT_BUTTON_EVT_UP */,
-                BUTTON_EVT_CLICK: 3 /* MICROBIT_BUTTON_EVT_CLICK */
+                ID_BUTTON_A: 1 /* DAL.MICROBIT_ID_BUTTON_A */,
+                ID_BUTTON_B: 2 /* DAL.MICROBIT_ID_BUTTON_B */,
+                ID_BUTTON_AB: 3 /* DAL.MICROBIT_ID_BUTTON_AB */,
+                BUTTON_EVT_UP: 2 /* DAL.MICROBIT_BUTTON_EVT_UP */,
+                BUTTON_EVT_CLICK: 3 /* DAL.MICROBIT_BUTTON_EVT_CLICK */
             });
             this.builtinParts["edgeconnector"] = this.edgeConnectorState = new pxsim.EdgeConnectorState({
                 pins: [
-                    100 /* MICROBIT_ID_IO_P0 */,
-                    101 /* MICROBIT_ID_IO_P1 */,
-                    102 /* MICROBIT_ID_IO_P2 */,
-                    103 /* MICROBIT_ID_IO_P3 */,
-                    104 /* MICROBIT_ID_IO_P4 */,
-                    105 /* MICROBIT_ID_IO_P5 */,
-                    106 /* MICROBIT_ID_IO_P6 */,
-                    107 /* MICROBIT_ID_IO_P7 */,
-                    108 /* MICROBIT_ID_IO_P8 */,
-                    109 /* MICROBIT_ID_IO_P9 */,
-                    110 /* MICROBIT_ID_IO_P10 */,
-                    111 /* MICROBIT_ID_IO_P11 */,
-                    112 /* MICROBIT_ID_IO_P12 */,
-                    113 /* MICROBIT_ID_IO_P13 */,
-                    114 /* MICROBIT_ID_IO_P14 */,
-                    115 /* MICROBIT_ID_IO_P15 */,
-                    116 /* MICROBIT_ID_IO_P16 */,
+                    100 /* DAL.MICROBIT_ID_IO_P0 */,
+                    101 /* DAL.MICROBIT_ID_IO_P1 */,
+                    102 /* DAL.MICROBIT_ID_IO_P2 */,
+                    103 /* DAL.MICROBIT_ID_IO_P3 */,
+                    104 /* DAL.MICROBIT_ID_IO_P4 */,
+                    105 /* DAL.MICROBIT_ID_IO_P5 */,
+                    106 /* DAL.MICROBIT_ID_IO_P6 */,
+                    107 /* DAL.MICROBIT_ID_IO_P7 */,
+                    108 /* DAL.MICROBIT_ID_IO_P8 */,
+                    109 /* DAL.MICROBIT_ID_IO_P9 */,
+                    110 /* DAL.MICROBIT_ID_IO_P10 */,
+                    111 /* DAL.MICROBIT_ID_IO_P11 */,
+                    112 /* DAL.MICROBIT_ID_IO_P12 */,
+                    113 /* DAL.MICROBIT_ID_IO_P13 */,
+                    114 /* DAL.MICROBIT_ID_IO_P14 */,
+                    115 /* DAL.MICROBIT_ID_IO_P15 */,
+                    116 /* DAL.MICROBIT_ID_IO_P16 */,
                     0,
                     0,
-                    119 /* MICROBIT_ID_IO_P19 */,
-                    120 /* MICROBIT_ID_IO_P20 */
+                    119 /* DAL.MICROBIT_ID_IO_P19 */,
+                    120 /* DAL.MICROBIT_ID_IO_P20 */
                 ],
                 servos: {
-                    "P0": 100 /* MICROBIT_ID_IO_P0 */,
-                    "P1": 101 /* MICROBIT_ID_IO_P1 */,
-                    "P2": 102 /* MICROBIT_ID_IO_P2 */,
-                    "P3": 103 /* MICROBIT_ID_IO_P3 */,
-                    "P4": 104 /* MICROBIT_ID_IO_P4 */,
-                    "P5": 105 /* MICROBIT_ID_IO_P5 */,
-                    "P6": 106 /* MICROBIT_ID_IO_P6 */,
-                    "P7": 107 /* MICROBIT_ID_IO_P7 */,
-                    "P8": 108 /* MICROBIT_ID_IO_P8 */,
-                    "P9": 109 /* MICROBIT_ID_IO_P9 */,
-                    "P10": 110 /* MICROBIT_ID_IO_P10 */,
-                    "P11": 111 /* MICROBIT_ID_IO_P11 */,
-                    "P12": 112 /* MICROBIT_ID_IO_P12 */,
-                    "P13": 113 /* MICROBIT_ID_IO_P13 */,
-                    "P14": 114 /* MICROBIT_ID_IO_P14 */,
-                    "P15": 115 /* MICROBIT_ID_IO_P15 */,
-                    "P16": 116 /* MICROBIT_ID_IO_P16 */,
-                    "P19": 119 /* MICROBIT_ID_IO_P19 */
+                    "P0": 100 /* DAL.MICROBIT_ID_IO_P0 */,
+                    "P1": 101 /* DAL.MICROBIT_ID_IO_P1 */,
+                    "P2": 102 /* DAL.MICROBIT_ID_IO_P2 */,
+                    "P3": 103 /* DAL.MICROBIT_ID_IO_P3 */,
+                    "P4": 104 /* DAL.MICROBIT_ID_IO_P4 */,
+                    "P5": 105 /* DAL.MICROBIT_ID_IO_P5 */,
+                    "P6": 106 /* DAL.MICROBIT_ID_IO_P6 */,
+                    "P7": 107 /* DAL.MICROBIT_ID_IO_P7 */,
+                    "P8": 108 /* DAL.MICROBIT_ID_IO_P8 */,
+                    "P9": 109 /* DAL.MICROBIT_ID_IO_P9 */,
+                    "P10": 110 /* DAL.MICROBIT_ID_IO_P10 */,
+                    "P11": 111 /* DAL.MICROBIT_ID_IO_P11 */,
+                    "P12": 112 /* DAL.MICROBIT_ID_IO_P12 */,
+                    "P13": 113 /* DAL.MICROBIT_ID_IO_P13 */,
+                    "P14": 114 /* DAL.MICROBIT_ID_IO_P14 */,
+                    "P15": 115 /* DAL.MICROBIT_ID_IO_P15 */,
+                    "P16": 116 /* DAL.MICROBIT_ID_IO_P16 */,
+                    "P19": 119 /* DAL.MICROBIT_ID_IO_P19 */
                 }
             });
             this.builtinParts["radio"] = this.radioState = new pxsim.RadioState(pxsim.runtime, this, {
-                ID_RADIO: 9 /* MICROBIT_ID_RADIO */,
-                RADIO_EVT_DATAGRAM: 1 /* MICROBIT_RADIO_EVT_DATAGRAM */
+                ID_RADIO: 9 /* DAL.MICROBIT_ID_RADIO */,
+                RADIO_EVT_DATAGRAM: 1 /* DAL.MICROBIT_RADIO_EVT_DATAGRAM */
             });
-            this.builtinParts["microphone"] = this.microphoneState = new pxsim.MicrophoneState(3001 /* DEVICE_ID_MICROPHONE */, 0, 255, 86, 165);
+            this.builtinParts["microphone"] = this.microphoneState = new pxsim.MicrophoneState(3001 /* DAL.DEVICE_ID_MICROPHONE */, 0, 255, 86, 165);
             this.builtinParts["recording"] = this.recordingState = new pxsim.RecordingState();
             this.builtinParts["accelerometer"] = this.accelerometerState = new pxsim.AccelerometerState(pxsim.runtime);
             this.builtinParts["serial"] = this.serialState = new pxsim.SerialState(pxsim.runtime, this);
@@ -78,7 +78,7 @@ var pxsim;
             this.builtinParts["lightsensor"] = this.lightSensorState = new pxsim.LightSensorState();
             this.builtinParts["compass"] = this.compassState = new pxsim.CompassState();
             this.builtinParts["microservo"] = this.edgeConnectorState;
-            this.builtinParts["logotouch"] = this.logoTouch = new pxsim.Button(121 /* MICROBIT_ID_LOGO */);
+            this.builtinParts["logotouch"] = this.logoTouch = new pxsim.Button(121 /* DAL.MICROBIT_ID_LOGO */);
             this.builtinVisuals["buttonpair"] = () => new pxsim.visuals.ButtonPairView();
             this.builtinVisuals["ledmatrix"] = () => new pxsim.visuals.LedMatrixView();
             this.builtinVisuals["microservo"] = () => new pxsim.visuals.MicroServoView();
@@ -148,7 +148,7 @@ var pxsim;
         }
         neopixelState(pinId) {
             if (pinId === undefined) {
-                pinId = 100 /* MICROBIT_ID_IO_P0 */;
+                pinId = 100 /* DAL.MICROBIT_ID_IO_P0 */;
             }
             let state = this.lightState[pinId];
             if (!state)
@@ -198,7 +198,7 @@ var pxsim;
     pxsim.board = board;
     function parsePinString(gpioPin) {
         if (gpioPin == "*")
-            return board().edgeConnectorState.getPin(100 /* MICROBIT_ID_IO_P0 */);
+            return board().edgeConnectorState.getPin(100 /* DAL.MICROBIT_ID_IO_P0 */);
         const m = /^(Analog|Digital)Pin\.P(\d)+/.exec(gpioPin);
         if (!m)
             return undefined;
@@ -222,7 +222,7 @@ var pxsim;
         }
         function onGesture(gesture, handler) {
             const b = accForGesture(gesture);
-            pxsim.pxtcore.registerWithDal(13 /* MICROBIT_ID_GESTURE */, gesture, handler);
+            pxsim.pxtcore.registerWithDal(13 /* DAL.MICROBIT_ID_GESTURE */, gesture, handler);
         }
         input.onGesture = onGesture;
         function isGesture(gesture) {
@@ -330,7 +330,7 @@ var pxsim;
             this.isActive = false;
             this.sampleRange = 2;
             this.flags = 0;
-            this.id = 5 /* MICROBIT_ID_ACCELEROMETER */;
+            this.id = 5 /* DAL.MICROBIT_ID_ACCELEROMETER */;
         }
         setSampleRange(range) {
             this.activate();
@@ -356,7 +356,7 @@ var pxsim;
             // Update gesture tracking
             this.updateGesture();
             // Indicate that a new sample is available
-            pxsim.board().bus.queue(this.id, 1 /* MICROBIT_ACCELEROMETER_EVT_DATA_UPDATE */);
+            pxsim.board().bus.queue(this.id, 1 /* DAL.MICROBIT_ACCELEROMETER_EVT_DATA_UPDATE */);
         }
         getStrength() {
             return Math.floor(Math.sqrt(this.instantaneousAccelerationSquared()));
@@ -397,21 +397,21 @@ var pxsim;
             //
             // If we see enough zero crossings in succession (MICROBIT_ACCELEROMETER_SHAKE_COUNT_THRESHOLD), then we decide that the device
             // has been shaken.
-            if ((this.getX() < -400 /* MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && this.shake.x) || (this.getX() > 400 /* MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && !this.shake.x)) {
+            if ((this.getX() < -400 /* DAL.MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && this.shake.x) || (this.getX() > 400 /* DAL.MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && !this.shake.x)) {
                 shakeDetected = true;
                 this.shake.x = !this.shake.x;
             }
-            if ((this.getY() < -400 /* MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && this.shake.y) || (this.getY() > 400 /* MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && !this.shake.y)) {
+            if ((this.getY() < -400 /* DAL.MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && this.shake.y) || (this.getY() > 400 /* DAL.MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && !this.shake.y)) {
                 shakeDetected = true;
                 this.shake.y = !this.shake.y;
             }
-            if ((this.getZ() < -400 /* MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && this.shake.z) || (this.getZ() > 400 /* MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && !this.shake.z)) {
+            if ((this.getZ() < -400 /* DAL.MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && this.shake.z) || (this.getZ() > 400 /* DAL.MICROBIT_ACCELEROMETER_SHAKE_TOLERANCE */ && !this.shake.z)) {
                 shakeDetected = true;
                 this.shake.z = !this.shake.z;
             }
-            if (shakeDetected && this.shake.count < 4 /* MICROBIT_ACCELEROMETER_SHAKE_COUNT_THRESHOLD */ && ++this.shake.count == 4 /* MICROBIT_ACCELEROMETER_SHAKE_COUNT_THRESHOLD */)
+            if (shakeDetected && this.shake.count < 4 /* DAL.MICROBIT_ACCELEROMETER_SHAKE_COUNT_THRESHOLD */ && ++this.shake.count == 4 /* DAL.MICROBIT_ACCELEROMETER_SHAKE_COUNT_THRESHOLD */)
                 this.shake.shaken = 1;
-            if (++this.shake.timer >= 10 /* MICROBIT_ACCELEROMETER_SHAKE_DAMPING */) {
+            if (++this.shake.timer >= 10 /* DAL.MICROBIT_ACCELEROMETER_SHAKE_DAMPING */) {
                 this.shake.timer = 0;
                 if (this.shake.count > 0) {
                     if (--this.shake.count == 0)
@@ -419,29 +419,29 @@ var pxsim;
                 }
             }
             if (this.shake.shaken)
-                return 11 /* MICROBIT_ACCELEROMETER_EVT_SHAKE */;
+                return 11 /* DAL.MICROBIT_ACCELEROMETER_EVT_SHAKE */;
             let sq = (n) => n * n;
-            if (force < sq(400 /* MICROBIT_ACCELEROMETER_FREEFALL_TOLERANCE */))
-                return 7 /* MICROBIT_ACCELEROMETER_EVT_FREEFALL */;
-            if (force > sq(3072 /* MICROBIT_ACCELEROMETER_3G_TOLERANCE */))
-                return 8 /* MICROBIT_ACCELEROMETER_EVT_3G */;
-            if (force > sq(6144 /* MICROBIT_ACCELEROMETER_6G_TOLERANCE */))
-                return 9 /* MICROBIT_ACCELEROMETER_EVT_6G */;
-            if (force > sq(8192 /* MICROBIT_ACCELEROMETER_8G_TOLERANCE */))
-                return 10 /* MICROBIT_ACCELEROMETER_EVT_8G */;
+            if (force < sq(400 /* DAL.MICROBIT_ACCELEROMETER_FREEFALL_TOLERANCE */))
+                return 7 /* DAL.MICROBIT_ACCELEROMETER_EVT_FREEFALL */;
+            if (force > sq(3072 /* DAL.MICROBIT_ACCELEROMETER_3G_TOLERANCE */))
+                return 8 /* DAL.MICROBIT_ACCELEROMETER_EVT_3G */;
+            if (force > sq(6144 /* DAL.MICROBIT_ACCELEROMETER_6G_TOLERANCE */))
+                return 9 /* DAL.MICROBIT_ACCELEROMETER_EVT_6G */;
+            if (force > sq(8192 /* DAL.MICROBIT_ACCELEROMETER_8G_TOLERANCE */))
+                return 10 /* DAL.MICROBIT_ACCELEROMETER_EVT_8G */;
             // Determine our posture.
-            if (this.getX() < (-1000 + 200 /* MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
-                return 3 /* MICROBIT_ACCELEROMETER_EVT_TILT_LEFT */;
-            if (this.getX() > (1000 - 200 /* MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
-                return 4 /* MICROBIT_ACCELEROMETER_EVT_TILT_RIGHT */;
-            if (this.getY() < (-1000 + 200 /* MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
-                return 2 /* MICROBIT_ACCELEROMETER_EVT_TILT_DOWN */;
-            if (this.getY() > (1000 - 200 /* MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
-                return 1 /* MICROBIT_ACCELEROMETER_EVT_TILT_UP */;
-            if (this.getZ() < (-1000 + 200 /* MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
-                return 5 /* MICROBIT_ACCELEROMETER_EVT_FACE_UP */;
-            if (this.getZ() > (1000 - 200 /* MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
-                return 6 /* MICROBIT_ACCELEROMETER_EVT_FACE_DOWN */;
+            if (this.getX() < (-1000 + 200 /* DAL.MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
+                return 3 /* DAL.MICROBIT_ACCELEROMETER_EVT_TILT_LEFT */;
+            if (this.getX() > (1000 - 200 /* DAL.MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
+                return 4 /* DAL.MICROBIT_ACCELEROMETER_EVT_TILT_RIGHT */;
+            if (this.getY() < (-1000 + 200 /* DAL.MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
+                return 2 /* DAL.MICROBIT_ACCELEROMETER_EVT_TILT_DOWN */;
+            if (this.getY() > (1000 - 200 /* DAL.MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
+                return 1 /* DAL.MICROBIT_ACCELEROMETER_EVT_TILT_UP */;
+            if (this.getZ() < (-1000 + 200 /* DAL.MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
+                return 5 /* DAL.MICROBIT_ACCELEROMETER_EVT_FACE_UP */;
+            if (this.getZ() > (1000 - 200 /* DAL.MICROBIT_ACCELEROMETER_TILT_TOLERANCE */))
+                return 6 /* DAL.MICROBIT_ACCELEROMETER_EVT_FACE_DOWN */;
             return 0;
         }
         updateGesture() {
@@ -452,10 +452,10 @@ var pxsim;
                 this.currentGesture = g;
                 this.sigma = 0;
             }
-            else if (this.sigma < 5 /* MICROBIT_ACCELEROMETER_GESTURE_DAMPING */) {
+            else if (this.sigma < 5 /* DAL.MICROBIT_ACCELEROMETER_GESTURE_DAMPING */) {
                 ++this.sigma;
             }
-            if (this.currentGesture !== this.lastGesture && this.sigma >= 5 /* MICROBIT_ACCELEROMETER_GESTURE_DAMPING */) {
+            if (this.currentGesture !== this.lastGesture && this.sigma >= 5 /* DAL.MICROBIT_ACCELEROMETER_GESTURE_DAMPING */) {
                 this.enqueueCurrentGesture();
             }
         }
@@ -465,7 +465,7 @@ var pxsim;
         }
         enqueueCurrentGesture() {
             this.lastGesture = this.currentGesture;
-            pxsim.board().bus.queue(13 /* MICROBIT_ID_GESTURE */, this.lastGesture);
+            pxsim.board().bus.queue(13 /* DAL.MICROBIT_ID_GESTURE */, this.lastGesture);
         }
         /**
           * Reads the X axis value of the latest update from the accelerometer.
@@ -587,7 +587,7 @@ var pxsim;
             this.accelerometer = new Accelerometer(runtime);
         }
         shake() {
-            this.accelerometer.forceGesture(11 /* MICROBIT_ACCELEROMETER_EVT_SHAKE */); // SHAKE == 11
+            this.accelerometer.forceGesture(11 /* DAL.MICROBIT_ACCELEROMETER_EVT_SHAKE */); // SHAKE == 11
         }
     }
     pxsim.AccelerometerState = AccelerometerState;
@@ -602,7 +602,7 @@ var pxsim;
                 b.usesButtonAB = true;
                 pxsim.runtime.queueDisplayUpdate();
             }
-            pxsim.pxtcore.registerWithDal(button, 3 /* MICROBIT_BUTTON_EVT_CLICK */, handler);
+            pxsim.pxtcore.registerWithDal(button, 3 /* DAL.MICROBIT_BUTTON_EVT_CLICK */, handler);
         }
         input.onButtonPressed = onButtonPressed;
         function buttonIsPressed(button) {
@@ -832,7 +832,7 @@ var pxsim;
                 return;
             pin.isTouched();
             pxsim.runtime.queueDisplayUpdate();
-            pxsim.pxtcore.registerWithDal(pin.id, 3 /* MICROBIT_BUTTON_EVT_CLICK */, handler);
+            pxsim.pxtcore.registerWithDal(pin.id, 3 /* DAL.MICROBIT_BUTTON_EVT_CLICK */, handler);
         }
         input.onPinPressed = onPinPressed;
         function onPinReleased(pinId, handler) {
@@ -841,7 +841,7 @@ var pxsim;
                 return;
             pin.isTouched();
             pxsim.runtime.queueDisplayUpdate();
-            pxsim.pxtcore.registerWithDal(pin.id, 2 /* MICROBIT_BUTTON_EVT_UP */, handler);
+            pxsim.pxtcore.registerWithDal(pin.id, 2 /* DAL.MICROBIT_BUTTON_EVT_UP */, handler);
         }
         input.onPinReleased = onPinReleased;
         function pinIsPressed(pinId) {
@@ -1108,10 +1108,10 @@ var pxsim;
         setPull(pull) {
             this.pull = pull;
             switch (pull) {
-                case 0 /* PullDown */:
+                case 0 /* PinPullMode.PullDown */:
                     this.value = 0;
                     break;
-                case 1 /* PullUp */:
+                case 1 /* PinPullMode.PullUp */:
                     this.value = 1023;
                     break;
                 default:
@@ -1240,7 +1240,7 @@ var pxsim;
             /** edge 18 does not support text encoder, so fall back to length **/
             logSize += typeof TextEncoder !== "undefined" ? (new TextEncoder().encode(data)).length : data.length;
             if (logSize >= logEnd) {
-                pxsim.board().bus.queue(44 /* MICROBIT_ID_LOG */, 1 /* MICROBIT_LOG_EVT_LOG_FULL */);
+                pxsim.board().bus.queue(44 /* DAL.MICROBIT_ID_LOG */, 1 /* DAL.MICROBIT_LOG_EVT_LOG_FULL */);
                 clear(false);
             }
             if (mirrorToSerial) {
@@ -1253,15 +1253,15 @@ var pxsim;
         function beginRow() {
             init();
             if (currentRow)
-                return -1015 /* DEVICE_INVALID_STATE */;
+                return -1015 /* DAL.DEVICE_INVALID_STATE */;
             currentRow = [];
-            return 0 /* DEVICE_OK */;
+            return 0 /* DAL.DEVICE_OK */;
         }
         flashlog.beginRow = beginRow;
         function logData(key, value, prepend = false) {
             init();
             if (!currentRow)
-                return -1015 /* DEVICE_INVALID_STATE */;
+                return -1015 /* DAL.DEVICE_INVALID_STATE */;
             // find header index
             let index = headers.indexOf(key);
             if (index < 0) {
@@ -1278,15 +1278,15 @@ var pxsim;
             }
             // store
             currentRow[index] = value;
-            return 0 /* DEVICE_OK */;
+            return 0 /* DAL.DEVICE_OK */;
         }
         flashlog.logData = logData;
         function endRow() {
             init();
             if (!currentRow)
-                return -1015 /* DEVICE_INVALID_STATE */;
+                return -1015 /* DAL.DEVICE_INVALID_STATE */;
             if (!currentRow.some(el => el !== "" && el != undefined))
-                return 0 /* DEVICE_OK */;
+                return 0 /* DAL.DEVICE_OK */;
             if (timestampFormat !== FlashLogTimeStampFormat.None) {
                 let unit = "";
                 switch (timestampFormat) {
@@ -1323,7 +1323,7 @@ var pxsim;
             }
             currentRow = undefined;
             commitRow(line, "row");
-            return 0 /* DEVICE_OK */;
+            return 0 /* DAL.DEVICE_OK */;
         }
         flashlog.endRow = endRow;
         function logString(s) {
@@ -1486,7 +1486,7 @@ var pxsim;
     var fonts;
     (function (fonts) {
         function charCodeBuffer(charCode) {
-            if (charCode < 32 /* MICROBIT_FONT_ASCII_START */ || charCode > 126 /* MICROBIT_FONT_ASCII_END */)
+            if (charCode < 32 /* DAL.MICROBIT_FONT_ASCII_START */ || charCode > 126 /* DAL.MICROBIT_FONT_ASCII_END */)
                 return undefined;
             const b = pxsim.board();
             const led = b.ledMatrixState;
@@ -1494,7 +1494,7 @@ var pxsim;
             const h = font.height;
             const w = font.width;
             const buf = pxsim.control.createBuffer(h);
-            const offset = (charCode - 32 /* MICROBIT_FONT_ASCII_START */) * h;
+            const offset = (charCode - 32 /* DAL.MICROBIT_FONT_ASCII_START */) * h;
             for (let row = 0; row < h; ++row)
                 buf.data[row] = pxsim.FONT_DATA[offset + row];
             return buf;
@@ -1795,7 +1795,7 @@ var pxsim;
             // minimum v2
             b.ensureHardwareVersion(2);
             // register handle
-            pxsim.pxtcore.registerWithDal(121 /* MICROBIT_ID_LOGO */, action, handler);
+            pxsim.pxtcore.registerWithDal(121 /* DAL.MICROBIT_ID_LOGO */, action, handler);
         }
         input.onLogoEvent = onLogoEvent;
         function logoIsPressed() {
@@ -1994,7 +1994,7 @@ var pxsim;
     (function (control) {
         control.inBackground = pxsim.thread.runInBackground;
         function onEvent(id, evid, handler) {
-            if (id == 3 /* MICROBIT_ID_BUTTON_AB */) {
+            if (id == 3 /* DAL.MICROBIT_ID_BUTTON_AB */) {
                 const b = pxsim.board().buttonPairState;
                 if (!b.usesButtonAB) {
                     b.usesButtonAB = true;
@@ -2170,7 +2170,7 @@ var pxsim;
         bluetooth.uartReadUntil = uartReadUntil;
         function onUartDataReceived(delimiters, handler) {
             let b = pxsim.board();
-            b.bus.listen(1200 /* MICROBIT_ID_BLE_UART */, 1 /* MICROBIT_UART_S_EVT_DELIM_MATCH */, handler);
+            b.bus.listen(1200 /* DAL.MICROBIT_ID_BLE_UART */, 1 /* DAL.MICROBIT_UART_S_EVT_DELIM_MATCH */, handler);
         }
         bluetooth.onUartDataReceived = onUartDataReceived;
         function onBluetoothConnected(a) {
@@ -2586,7 +2586,7 @@ var pxsim;
         serial.readString = readString;
         function onDataReceived(delimiters, handler) {
             let b = pxsim.board();
-            b.bus.listen(12 /* MICROBIT_ID_SERIAL */, 1 /* MICROBIT_SERIAL_EVT_DELIM_MATCH */, handler);
+            b.bus.listen(12 /* DAL.MICROBIT_ID_SERIAL */, 1 /* DAL.MICROBIT_SERIAL_EVT_DELIM_MATCH */, handler);
         }
         serial.onDataReceived = onDataReceived;
         function redirect(tx, rx, rate) {
@@ -3922,7 +3922,7 @@ path.sim-board {
                             this.flashAntenna();
                             break;
                         case "eventbus":
-                            if (msg.id == 2000 /* MES_BROADCAST_GENERAL_ID */)
+                            if (msg.id == 2000 /* DAL.MES_BROADCAST_GENERAL_ID */)
                                 this.flashAntenna();
                             break;
                     }
@@ -4044,7 +4044,7 @@ path.sim-board {
                         let state = this.board;
                         state.edgeConnectorState.pins[index].touched = true;
                         this.updatePin(state.edgeConnectorState.pins[index], index);
-                        this.board.bus.queue(state.edgeConnectorState.pins[index].id, 1 /* MICROBIT_BUTTON_EVT_DOWN */);
+                        this.board.bus.queue(state.edgeConnectorState.pins[index].id, 1 /* DAL.MICROBIT_BUTTON_EVT_DOWN */);
                         pressedTime = pxsim.runtime.runningTime();
                     }));
                     btn.addEventListener(pxsim.pointerEvents.leave, ev => {
@@ -4056,19 +4056,19 @@ path.sim-board {
                         let state = this.board;
                         state.edgeConnectorState.pins[index].touched = false;
                         this.updatePin(state.edgeConnectorState.pins[index], index);
-                        this.board.bus.queue(state.edgeConnectorState.pins[index].id, 2 /* MICROBIT_BUTTON_EVT_UP */);
+                        this.board.bus.queue(state.edgeConnectorState.pins[index].id, 2 /* DAL.MICROBIT_BUTTON_EVT_UP */);
                         const currentTime = pxsim.runtime.runningTime();
-                        if (currentTime - pressedTime > 1000 /* DEVICE_BUTTON_LONG_CLICK_TIME */)
-                            this.board.bus.queue(state.edgeConnectorState.pins[index].id, 4 /* MICROBIT_BUTTON_EVT_LONG_CLICK */);
+                        if (currentTime - pressedTime > 1000 /* DAL.DEVICE_BUTTON_LONG_CLICK_TIME */)
+                            this.board.bus.queue(state.edgeConnectorState.pins[index].id, 4 /* DAL.MICROBIT_BUTTON_EVT_LONG_CLICK */);
                         else
-                            this.board.bus.queue(state.edgeConnectorState.pins[index].id, 3 /* MICROBIT_BUTTON_EVT_CLICK */);
+                            this.board.bus.queue(state.edgeConnectorState.pins[index].id, 3 /* DAL.MICROBIT_BUTTON_EVT_CLICK */);
                         pressedTime = undefined;
                     });
                     pxsim.accessibility.enableKeyboardInteraction(btn, undefined, () => {
                         let state = this.board;
-                        this.board.bus.queue(state.edgeConnectorState.pins[index].id, 1 /* MICROBIT_BUTTON_EVT_DOWN */);
-                        this.board.bus.queue(state.edgeConnectorState.pins[index].id, 2 /* MICROBIT_BUTTON_EVT_UP */);
-                        this.board.bus.queue(state.edgeConnectorState.pins[index].id, 3 /* MICROBIT_BUTTON_EVT_CLICK */);
+                        this.board.bus.queue(state.edgeConnectorState.pins[index].id, 1 /* DAL.MICROBIT_BUTTON_EVT_DOWN */);
+                        this.board.bus.queue(state.edgeConnectorState.pins[index].id, 2 /* DAL.MICROBIT_BUTTON_EVT_UP */);
+                        this.board.bus.queue(state.edgeConnectorState.pins[index].id, 3 /* DAL.MICROBIT_BUTTON_EVT_CLICK */);
                     });
                 });
             }
@@ -4087,7 +4087,7 @@ path.sim-board {
                     // console.log(`down ${stateButton.id}`)
                     stateButton.pressed = true;
                     pxsim.svg.fill(elButton, this.props.theme.buttonDown);
-                    this.board.bus.queue(stateButton.id, 1 /* MICROBIT_BUTTON_EVT_DOWN */);
+                    this.board.bus.queue(stateButton.id, 1 /* DAL.MICROBIT_BUTTON_EVT_DOWN */);
                     pressedTime = pxsim.runtime.runningTime();
                 }));
                 buttonOuter.addEventListener(pxsim.pointerEvents.leave, ev => {
@@ -4097,18 +4097,18 @@ path.sim-board {
                 buttonOuter.addEventListener(pxsim.pointerEvents.up, ev => {
                     stateButton.pressed = false;
                     pxsim.svg.fill(elButton, this.props.theme.buttonUp);
-                    this.board.bus.queue(stateButton.id, 2 /* MICROBIT_BUTTON_EVT_UP */);
+                    this.board.bus.queue(stateButton.id, 2 /* DAL.MICROBIT_BUTTON_EVT_UP */);
                     const currentTime = pxsim.runtime.runningTime();
-                    if (currentTime - pressedTime > 1000 /* DEVICE_BUTTON_LONG_CLICK_TIME */)
-                        this.board.bus.queue(stateButton.id, 4 /* MICROBIT_BUTTON_EVT_LONG_CLICK */);
+                    if (currentTime - pressedTime > 1000 /* DAL.DEVICE_BUTTON_LONG_CLICK_TIME */)
+                        this.board.bus.queue(stateButton.id, 4 /* DAL.MICROBIT_BUTTON_EVT_LONG_CLICK */);
                     else
-                        this.board.bus.queue(stateButton.id, 3 /* MICROBIT_BUTTON_EVT_CLICK */);
+                        this.board.bus.queue(stateButton.id, 3 /* DAL.MICROBIT_BUTTON_EVT_CLICK */);
                     pressedTime = undefined;
                 });
                 pxsim.accessibility.enableKeyboardInteraction(buttonOuter, undefined, () => {
-                    this.board.bus.queue(stateButton.id, 1 /* MICROBIT_BUTTON_EVT_DOWN */);
-                    this.board.bus.queue(stateButton.id, 2 /* MICROBIT_BUTTON_EVT_UP */);
-                    this.board.bus.queue(stateButton.id, 3 /* MICROBIT_BUTTON_EVT_CLICK */);
+                    this.board.bus.queue(stateButton.id, 1 /* DAL.MICROBIT_BUTTON_EVT_DOWN */);
+                    this.board.bus.queue(stateButton.id, 2 /* DAL.MICROBIT_BUTTON_EVT_UP */);
+                    this.board.bus.queue(stateButton.id, 3 /* DAL.MICROBIT_BUTTON_EVT_CLICK */);
                 });
             }
             attachAPlusBEvents() {
@@ -4122,7 +4122,7 @@ path.sim-board {
                     pxsim.svg.fill(this.buttons[0], this.props.theme.buttonDown);
                     pxsim.svg.fill(this.buttons[1], this.props.theme.buttonDown);
                     pxsim.svg.fill(this.buttons[2], this.props.theme.buttonDown);
-                    this.board.bus.queue(bpState.abBtn.id, 1 /* MICROBIT_BUTTON_EVT_DOWN */);
+                    this.board.bus.queue(bpState.abBtn.id, 1 /* DAL.MICROBIT_BUTTON_EVT_DOWN */);
                     pressedTime = pxsim.runtime.runningTime();
                 }));
                 this.buttonsOuter[2].addEventListener(pxsim.pointerEvents.leave, ev => {
@@ -4140,18 +4140,18 @@ path.sim-board {
                     pxsim.svg.fill(this.buttons[0], this.props.theme.buttonUp);
                     pxsim.svg.fill(this.buttons[1], this.props.theme.buttonUp);
                     pxsim.svg.fill(this.buttons[2], this.props.theme.virtualButtonUp);
-                    this.board.bus.queue(bpState.abBtn.id, 2 /* MICROBIT_BUTTON_EVT_UP */);
+                    this.board.bus.queue(bpState.abBtn.id, 2 /* DAL.MICROBIT_BUTTON_EVT_UP */);
                     const currentTime = pxsim.runtime.runningTime();
-                    if (currentTime - pressedTime > 1000 /* DEVICE_BUTTON_LONG_CLICK_TIME */)
-                        this.board.bus.queue(bpState.abBtn.id, 4 /* MICROBIT_BUTTON_EVT_LONG_CLICK */);
+                    if (currentTime - pressedTime > 1000 /* DAL.DEVICE_BUTTON_LONG_CLICK_TIME */)
+                        this.board.bus.queue(bpState.abBtn.id, 4 /* DAL.MICROBIT_BUTTON_EVT_LONG_CLICK */);
                     else
-                        this.board.bus.queue(bpState.abBtn.id, 3 /* MICROBIT_BUTTON_EVT_CLICK */);
+                        this.board.bus.queue(bpState.abBtn.id, 3 /* DAL.MICROBIT_BUTTON_EVT_CLICK */);
                     pressedTime = undefined;
                 });
                 pxsim.accessibility.enableKeyboardInteraction(this.buttonsOuter[2], undefined, () => {
-                    this.board.bus.queue(bpState.abBtn.id, 1 /* MICROBIT_BUTTON_EVT_DOWN */);
-                    this.board.bus.queue(bpState.abBtn.id, 2 /* MICROBIT_BUTTON_EVT_UP */);
-                    this.board.bus.queue(bpState.abBtn.id, 3 /* MICROBIT_BUTTON_EVT_CLICK */);
+                    this.board.bus.queue(bpState.abBtn.id, 1 /* DAL.MICROBIT_BUTTON_EVT_DOWN */);
+                    this.board.bus.queue(bpState.abBtn.id, 2 /* DAL.MICROBIT_BUTTON_EVT_UP */);
+                    this.board.bus.queue(bpState.abBtn.id, 3 /* DAL.MICROBIT_BUTTON_EVT_CLICK */);
                 });
             }
         }
@@ -4554,10 +4554,10 @@ var pxsim;
             this.state = state;
             switch (state) {
                 case ThresholdState.High:
-                    pxsim.board().bus.queue(this.id, 2 /* SENSOR_THRESHOLD_HIGH */);
+                    pxsim.board().bus.queue(this.id, 2 /* DAL.SENSOR_THRESHOLD_HIGH */);
                     break;
                 case ThresholdState.Low:
-                    pxsim.board().bus.queue(this.id, 1 /* SENSOR_THRESHOLD_LOW */);
+                    pxsim.board().bus.queue(this.id, 1 /* DAL.SENSOR_THRESHOLD_LOW */);
                     break;
                 case ThresholdState.Normal:
                     break;

@@ -3453,7 +3453,7 @@ class DAPWrapper {
         try {
             const state = await this.cortexM.getState();
             log(`cortex state: ${states[state]}`);
-            if (resume && state == 3 /* TARGET_HALTED */)
+            if (resume && state == 3 /* DapJS.CoreState.TARGET_HALTED */)
                 await this.cortexM.resume();
         }
         catch (e) {
@@ -3658,9 +3658,9 @@ class DAPWrapper {
         const runFlash = async (b, dataAddr) => {
             const cmd = this.cortexM.prepareCommand();
             cmd.halt();
-            cmd.writeCoreRegister(15 /* PC */, loadAddr + 4 + 1);
-            cmd.writeCoreRegister(14 /* LR */, loadAddr + 1);
-            cmd.writeCoreRegister(13 /* SP */, stackAddr);
+            cmd.writeCoreRegister(15 /* DapJS.CortexReg.PC */, loadAddr + 4 + 1);
+            cmd.writeCoreRegister(14 /* DapJS.CortexReg.LR */, loadAddr + 1);
+            cmd.writeCoreRegister(13 /* DapJS.CortexReg.SP */, stackAddr);
             cmd.writeCoreRegister(0, b.targetAddr);
             cmd.writeCoreRegister(1, dataAddr);
             cmd.writeCoreRegister(2, this.pageSize >> 2);
