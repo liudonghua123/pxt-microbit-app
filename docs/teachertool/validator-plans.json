@@ -18,7 +18,7 @@
         },
         {
             ".desc": "Shows something on the LED screen.",
-            "name": "output_to_led_display",
+            "name": "has_output",
             "threshold": 1,
             "checks": [
                 {
@@ -33,70 +33,177 @@
                         "device_plot_bar_graph",
                         "device_plot_brightness",
                         "device_show_image_offset",
-                        "device_scroll_image"
+                        "device_scroll_image",
+
+                        "game_create_sprite",
+                        "game_game_over",
+                        "game_add_score",
+                        "game_remove_life",
+                        "game_start_countdown",
+
+                        "music_playable_play",
+                        "device_ring",
+                        "music_playable_play_default_bkg",
+
+                        "device_set_digital_pin",
+                        "device_set_servo_pin"
+                    ],
+                    "count": 1
+                },
+                {
+                    "validator": "blocksExist",
+                    "blockCounts": [
+                        {
+                            "blockId": "game_set_life",
+                            "count": 1
+                        }
+                    ],
+                    "childValidatorPlans": ["number_zero"]
+                }
+            ]
+        },
+        {
+            ".desc": "Processes input in any form (TODO : Non-Empty Check for event blocks)",
+            "name": "uses_input",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksInSetExist",
+                    "blocks": [
+                        "control_on_event",
+                        "device_button_event",
+                        "device_gesture_event",
+                        "device_pin_event",
+                        "device_pin_released",
+                        "input_logo_event",
+                        "input_on_sound",
+                        "pins_on_pulsed",
+                        "radio_on_number_drag",
+                        "radio_on_string_drag",
+                        "radio_on_value_drag",
+                        "serial_on_data_received",
+
+                        "device_acceleration",
+                        "device_get_analog_pin",
+                        "device_get_button2",
+                        "device_get_digital_pin",
+                        "device_get_light_level",
+                        "device_get_magnetic_force",
+                        "device_get_rotation",
+                        "device_get_running_time",
+                        "device_get_running_time_micros",
+                        "device_get_sound_level",
+                        "device_heading",
+                        "device_pin_is_pressed",
+                        "device_temperature",
+                        "deviceisgesture",
+                        "input_logo_is_pressed",
+                        "music_sound_is_playing",
+                        "pins_i2c_readnumber",
+                        "pins_pulse_duration",
+                        "pins_pulse_in",
+                        "serial_read_buffer",
+                        "serial_read_line",
+                        "serial_read_until",
+                        "serial_readbuffer"
                     ],
                     "count": 1
                 }
             ]
         },
         {
-            ".desc": "Read input from a GPIO pin.",
-            "name": "read_gpio_pin",
+            ".desc": "Runs code in response to any event (TODO : Non-Empty Check)",
+            "name": "responds_to_events",
             "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksInSetExist",
+                    "blocks": [
+                        "control_on_event",
+                        "device_button_event",
+                        "device_gesture_event",
+                        "device_pin_event",
+                        "device_pin_released",
+                        "input_logo_event",
+                        "input_on_sound",
+                        "melody_on_event",
+                        "pins_on_pulsed",
+                        "radio_on_number_drag",
+                        "radio_on_string_drag",
+                        "radio_on_value_drag",
+                        "serial_on_data_received"
+                    ],
+                    "count": 0
+                }
+            ]
+        },
+        {
+            ".desc": "Checks for blocks that reference LEDs by their coordinates",
+            "name": "uses_led_coordinates",
+            "threshold": 1,
+            "checks": [
+                {
+                    "validator": "blocksInSetExist",
+                    "blocks": [
+                        "device_plot",
+                        "device_led_toggle",
+                        "device_unplot",
+                        "device_point",
+                        "device_plot_brightness",
+                        "device_point_brightness",
+                        "game_create_sprite"
+                    ],
+                    "count": 0
+                }
+            ]
+        },
+        {
+            ".desc": "Checks that radio group is set and at least one radio send message block is present",
+            "name": "sends_radio_message",
+            "threshold": 2,
             "checks": [
                 {
                     "validator": "blocksExist",
                     "blockCounts": [
                         {
-                            "blockId": "device_pin_event",
+                            "blockId": "radio_set_group",
                             "count": 1
                         }
                     ]
                 },
                 {
+                    "validator": "blocksInSetExist",
+                    "blocks": [
+                        "radio_datagram_send",
+                        "radio_datagram_send_value",
+                        "radio_datagram_send_string"
+                    ],
+                    "count": 1
+                }
+            ]
+        },
+        {
+            ".desc": "Checks that radio group is set and at least block that listens for radio messages is present. (TODO : Non-Empty Check)",
+            "name": "receives_radio_message",
+            "threshold": 2,
+            "checks": [
+                {
                     "validator": "blocksExist",
                     "blockCounts": [
                         {
-                            "blockId": "device_pin_is_pressed",
+                            "blockId": "radio_set_group",
                             "count": 1
                         }
                     ]
                 },
                 {
-                    "validator": "blocksExist",
-                    "blockCounts": [
-                        {
-                            "blockId": "device_pin_released",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "validator": "blocksExist",
-                    "blockCounts": [
-                        {
-                            "blockId": "device_get_digital_pin",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "validator": "blocksExist",
-                    "blockCounts": [
-                        {
-                            "blockId": "device_get_analog_pin",
-                            "count": 1
-                        }
-                    ]
-                },
-                {
-                    "validator": "blocksExist",
-                    "blockCounts": [
-                        {
-                            "blockId": "pins_on_pulsed",
-                            "count": 1
-                        }
-                    ]
+                    "validator": "blocksInSetExist",
+                    "blocks": [
+                        "radio_on_number_drag",
+                        "radio_on_value_drag",
+                        "radio_on_string_drag"
+                    ],
+                    "count": 1
                 }
             ]
         },

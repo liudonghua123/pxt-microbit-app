@@ -1,18 +1,68 @@
 {
     "criteria": [
         {
-            "id": "D285D79B-85E5-4C8D-82D2-5A9E35AB1163",
-            "use": "output_to_led_display",
-            "template": "Outputs to the LED display",
-            "description": "Uses at least one block that lights up LEDs",
-            "docPath": "/teachertool"
+            "id": "35610CA0-38F8-4CCE-BAB9-99593DB3358A",
+            "use": "responds_to_events",
+            "template": "Responds to at least ${count} different events",
+            "description": "At least the specified number of event blocks are present.",
+            "docPath": "/teachertool",
+            "maxCount": 1,
+            "params": [
+                {
+                    "name": "count",
+                    "type": "number",
+                    "default": 1,
+                    "paths": ["checks[0].count"]
+                }
+            ]
         },
         {
-            "id": "C57344FC-B915-4ACB-A070-67F8FFC18B4B",
-            "use": "read_gpio_pin",
-            "template": "Read a GPIO pin",
-            "description": "Read input from one or more of the microbit GPIO pins.",
-            "docPath": "/teachertool"
+            "id": "3F7A9DB3-0B5E-456B-86E7-79573F9F6E53",
+            "use": "uses_input",
+            "template": "Uses input",
+            "description": "At least one block that reads or reacts to user input is present.",
+            "docPath": "/teachertool",
+            "maxCount": 1
+        },
+        {
+            "id": "D285D79B-85E5-4C8D-82D2-5A9E35AB1163",
+            "use": "has_output",
+            "template": "Produces output",
+            "description": "At least one block that lights up LEDs, makes sound, or writes to pins is present.",
+            "docPath": "/teachertool",
+            "maxCount": 1
+        },
+        {
+            "id": "2CA4A5DA-4690-4514-97F5-2FE145AB3A59",
+            "use": "uses_led_coordinates",
+            "template": "Uses LED coordinates at least ${count} times",
+            "description": "Uses blocks with LED coordinate inputs at least the specified number of times.",
+            "docPath": "/teachertool",
+            "maxCount": 1,
+            "params": [
+                {
+                    "name": "count",
+                    "type": "number",
+                    "default": 1,
+                    "paths": ["checks[0].count"]
+                }
+            ]
+        },
+        {
+            "id": "BBB47818-B35F-404C-89A1-D6A594CE9E30",
+            "use": "sends_radio_message",
+            "template": "Sends radio messages",
+            "description": "Radio group is set and at least one block that sends a radio message is present.",
+            "docPath": "/teachertool",
+            "maxCount": 1
+        },
+        {
+            "id": "8C8792C4-31C4-439D-ACAB-C99C9B8250AD",
+            "use": "receives_radio_message",
+            "template": "Receives radio messages",
+            "description": "Radio group is set and at least one block that listens for radio messages is present.",
+            "docPath": "/teachertool",
+            "maxCount": 1
         },
         {
             "id": "18C44CC4-497F-45EC-90FA-CE7DB117AD03",

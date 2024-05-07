@@ -19,7 +19,7 @@ Douglas and Mary Kiang, the authors of this curriculum, are hosting a 3-webinar 
 * **[Webinar 1](https://msit.events.teams.microsoft.com/event/40f9ed5f-8d72-4494-bbe2-42005441f4e6@72f988bf-86f1-41af-91ab-2d7cd011db47)** : 📅 Tuesday April 30, 3 - 4 PM Pacific | 4 - 5 PM Mountain | 5 - 6 PM Central | 6 - 7 PM Eastern
 * **[Webinar 2](https://msit.events.teams.microsoft.com/event/762cfe3c-ef1a-40ec-87fd-73eacc6f1a77@72f988bf-86f1-41af-91ab-2d7cd011db47)** : 📅 Tuesday May 14, 3 - 4 PM Pacific | 4 - 5 PM Mountain | 5 - 6 PM Central | 6 - 7 PM Eastern
 * **[Webinar 3](https://msit.events.teams.microsoft.com/event/52ef14cd-07de-41be-83bc-c664d4a98aa5@72f988bf-86f1-41af-91ab-2d7cd011db47)** : 📅 Tuesday May 28, 3 - 4 PM Pacific | 4 - 5 PM Mountain | 5 - 6 PM Central | 6 - 7 PM Eastern
-* **[CSTA Preconference Workshop \*](https://forms.office.com/r/nMPk28Ymc7)**: 📅 Tuesday July 16, 9 AM - 4 PM
+* **[CSTA Preconference Workshop \*](https://aka.ms/CSTA24reg)**: 📅 Tuesday July 16, 9 AM - 4 PM
 
 **\* Note**: This in an in-person workshop and you must be registered for the CSTA Conference to attend.
 
