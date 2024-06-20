@@ -70,6 +70,10 @@ Many extensions are available to work with interface kits, add-on hardware, or o
 
 ```codecard
 [{
+    "name": "Pythom1234 OLED Display SSD1306 128x64",
+    "url": "/pkg/Pythom1234/pxt-oled",
+    "cardType": "package"
+}, {
     "name": "Joy-IT RB-TFT1.8",
     "url": "/pkg/joy-it/pxt-RB-TFT1.8",
     "cardType": "package"
@@ -492,6 +496,10 @@ Many extensions are available to work with interface kits, add-on hardware, or o
   "url":"/pkg/ekkai/aicococam",
   "cardType": "package"
 }, {
+  "name": "KittenBot KOI2 AI module",
+  "url":"/pkg/KittenBot/pxt-koi2",
+  "cardType": "package"
+}, {
   "name": "KittenBot KOI AI module",
   "url":"/pkg/KittenBot/pxt-koi",
   "cardType": "package"
@@ -513,6 +521,14 @@ Many extensions are available to work with interface kits, add-on hardware, or o
 
 ```codecard
 [{
+  "name": "KittenBot TabbyBot",
+  "url":"/pkg/KittenBot/pxt-tabbyrobot",
+  "cardType": "package"
+}, {
+  "name": "Gcube",
+  "url":"/pkg/roborisen/gcube",
+  "cardType": "package"
+}, {
   "name": "Roversa",
   "url":"/pkg/eb8ga/pxt-roversa-2",
   "cardType": "package"
