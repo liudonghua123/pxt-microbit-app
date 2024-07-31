@@ -428,7 +428,7 @@ var pxsim;
     (function (pxtcore) {
         // TODO: add in support for mode, as in CODAL
         function registerWithDal(id, evid, handler, mode = 0) {
-            pxsim.board().bus.listen(id, evid, handler);
+            pxsim.board().bus.listen(id, evid, handler, mode);
         }
         pxtcore.registerWithDal = registerWithDal;
         function deepSleep() {
@@ -3599,16 +3599,16 @@ var pxsim;
             sequencers.push(res);
             await res.sequencer.initAsync();
             res.sequencer.addEventListener("stop", () => {
-                pxsim.board().bus.queue(music.SEQUENCER_STOP_MESSAGE, this.id);
+                pxsim.board().bus.queue(music.SEQUENCER_STOP_MESSAGE, res.id);
             });
             res.sequencer.addEventListener("state-change", () => {
-                pxsim.board().bus.queue(music.SEQUENCER_STATE_CHANGE_MESSAGE, this.id);
+                pxsim.board().bus.queue(music.SEQUENCER_STATE_CHANGE_MESSAGE, res.id);
             });
             res.sequencer.addEventListener("looped", () => {
-                pxsim.board().bus.queue(music.SEQUENCER_LOOPED_MESSAGE, this.id);
+                pxsim.board().bus.queue(music.SEQUENCER_LOOPED_MESSAGE, res.id);
             });
             res.sequencer.addEventListener("tick", () => {
-                pxsim.board().bus.queue(music.SEQUENCER_TICK_MESSAGE, this.id);
+                pxsim.board().bus.queue(music.SEQUENCER_TICK_MESSAGE, res.id);
             });
             return res.id;
         }

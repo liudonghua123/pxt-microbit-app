@@ -1993,7 +1993,7 @@ var pxsim;
     var control;
     (function (control) {
         control.inBackground = pxsim.thread.runInBackground;
-        function onEvent(id, evid, handler) {
+        function onEvent(id, evid, handler, flags) {
             if (id == 3 /* DAL.MICROBIT_ID_BUTTON_AB */) {
                 const b = pxsim.board().buttonPairState;
                 if (!b.usesButtonAB) {
@@ -2001,7 +2001,7 @@ var pxsim;
                     pxsim.runtime.queueDisplayUpdate();
                 }
             }
-            pxsim.pxtcore.registerWithDal(id, evid, handler);
+            pxsim.pxtcore.registerWithDal(id, evid, handler, flags);
         }
         control.onEvent = onEvent;
         function eventTimestamp() {
@@ -2299,6 +2299,8 @@ var pxsim;
         constructor() {
             this.currentlyRecording = false;
             this.audioPlaying = false;
+            this.inputBitRate = pxsim.record.defaultBitRate();
+            this.outputBitRate = pxsim.record.defaultBitRate();
             this.handleAudioPlaying = () => {
                 this.audioPlaying = true;
             };
@@ -2318,6 +2320,14 @@ var pxsim;
 (function (pxsim) {
     var record;
     (function (record_1) {
+        // Arbitrarily chosen lower bound. Can't go much lower than this without bugs cropping up
+        const MIN_BIT_RATE = 3000;
+        // This is double the default in chrome (128000)
+        const MAX_BIT_RATE = 256000;
+        const MAX_SAMPLE_RATE = 22000;
+        const MIN_SAMPLE_RATE = 1000;
+        const MIN_RECORDING_TIME = 3000;
+        const MAX_RECORDING_TIME = 20000;
         let _initialized = false;
         function init() {
             if (!_initialized) {
@@ -2326,67 +2336,74 @@ var pxsim;
             }
         }
         function stopRecorder(b) {
-            b.recordingState.recorder.stop();
-            b.recordingState.currentlyRecording = false;
+            const state = b.recordingState;
+            state.recorder.stop();
+            state.currentlyRecording = false;
             pxsim.runtime.queueDisplayUpdate();
-            if (b.recordingState.stream.active) {
-                b.recordingState.stream.getAudioTracks().forEach(track => {
+            if (state.stream.active) {
+                for (const track of state.stream.getAudioTracks()) {
                     track.stop();
                     track.enabled = false;
-                });
+                }
             }
         }
         async function populateRecording(b) {
-            if (b.recordingState.currentlyErasing) {
+            const state = b.recordingState;
+            if (state.currentlyErasing) {
                 await erasingAsync(b);
             }
-            if (b.recordingState.chunks[0].size > 0) {
-                b.recordingState.audioURL = null;
+            if (state.chunks[0].size > 0) {
+                state.audioURL = null;
                 const recordingType = pxsim.isSafari() ? "audio/mp4" : "audio/ogg; codecs=opus";
-                const blob = new Blob(b.recordingState.chunks, { type: recordingType });
-                b.recordingState.audioURL = window.URL.createObjectURL(blob);
-                b.recordingState.recording = new Audio(b.recordingState.audioURL);
-                b.recordingState.initListeners();
+                const blob = new Blob(state.chunks, { type: recordingType });
+                state.audioURL = window.URL.createObjectURL(blob);
+                state.recording = new Audio(state.audioURL);
+                state.initListeners();
             }
-            b.recordingState.currentlyRecording = false;
-            b.recordingState.recorder = null;
-            b.recordingState.chunks = [];
+            state.currentlyRecording = false;
+            state.recorder = null;
+            state.chunks = [];
         }
         async function record() {
+            var _a;
             let b = pxsim.board();
             init();
-            if (b.recordingState.recorder) {
-                b.recordingState.recorder.stop();
-                clearTimeout(b.recordingState.recordTimeoutID);
+            const state = b.recordingState;
+            if (state.recorder) {
+                state.recorder.stop();
+                clearTimeout(state.recordTimeoutID);
             }
-            if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            if ((_a = navigator.mediaDevices) === null || _a === void 0 ? void 0 : _a.getUserMedia) {
                 try {
-                    b.recordingState.stream = await navigator.mediaDevices.getUserMedia({ video: false, audio: true });
-                    b.recordingState.recorder = new MediaRecorder(b.recordingState.stream);
-                    b.recordingState.recorder.start();
-                    b.recordingState.currentlyRecording = true;
+                    state.stream = await navigator.mediaDevices.getUserMedia({ video: false, audio: true });
+                    state.recorder = new MediaRecorder(state.stream, { audioBitsPerSecond: state.inputBitRate });
+                    state.recorder.start();
+                    state.currentlyRecording = true;
                     pxsim.runtime.queueDisplayUpdate();
-                    b.recordingState.recordTimeoutID = setTimeout(() => {
+                    const recordBitRate = state.inputBitRate;
+                    const duration = (1 - ((recordBitRate - MIN_BIT_RATE) / (MAX_BIT_RATE - MIN_BIT_RATE))) * (MAX_RECORDING_TIME - MIN_RECORDING_TIME) + MIN_RECORDING_TIME;
+                    state.recordTimeoutID = setTimeout(() => {
                         stopRecorder(b);
-                    }, 5000);
-                    b.recordingState.recorder.ondataavailable = (e) => {
-                        b.recordingState.chunks.push(e.data);
+                    }, duration);
+                    state.recorder.ondataavailable = (e) => {
+                        state.chunks.push(e.data);
                     };
-                    b.recordingState.recorder.onstop = async () => {
+                    state.recorder.onstop = async () => {
                         await populateRecording(b);
+                        state.audioURLBitRate = recordBitRate;
                     };
                 }
                 catch (error) {
                     console.log("An error occurred, could not get microphone access");
-                    if (b.recordingState.recorder) {
-                        b.recordingState.recorder.stop();
+                    if (state.recorder) {
+                        state.recorder.stop();
                     }
-                    b.recordingState.currentlyRecording = false;
+                    state.currentlyRecording = false;
                 }
             }
             else {
                 console.log("getUserMedia not supported on your browser!");
-                b.recordingState.currentlyRecording = false;
+                state.currentlyRecording = false;
             }
         }
         record_1.record = record;
@@ -2421,13 +2438,24 @@ var pxsim;
                 return;
             init();
             stopAudio();
-            b.recordingState.audioPlaying = true;
+            const state = b.recordingState;
+            state.audioPlaying = true;
             setTimeout(async () => {
-                if (!b.recordingState.currentlyErasing && b.recordingState.recording) {
+                if (!state.currentlyErasing && state.recording) {
                     try {
                         const volume = pxsim.AudioContextManager.isMuted() ? 0 : 1;
-                        b.recordingState.recording.volume = volume;
-                        await b.recordingState.recording.play();
+                        state.recording.volume = volume;
+                        const minPlaybackRate = 0.15;
+                        // 15 is the maximum playback rate that still produced sound in Chrome on Windows.
+                        // In Firefox, it seems like 8 is the max. Higher numbers silently fail.
+                        let maxPlaybackRate = 15;
+                        if (pxsim.isFirefox()) {
+                            maxPlaybackRate = 8;
+                        }
+                        const playbackRate = Math.max(minPlaybackRate, Math.min(maxPlaybackRate, bitRateToSampleRate(state.outputBitRate) / bitRateToSampleRate(state.audioURLBitRate)));
+                        state.recording.playbackRate = playbackRate;
+                        state.recording.preservesPitch = false;
+                        await state.recording.play();
                     }
                     catch (e) {
                         if (!(e instanceof DOMException)) {
@@ -2436,7 +2464,7 @@ var pxsim;
                     }
                 }
                 else {
-                    b.recordingState.audioPlaying = false;
+                    state.audioPlaying = false;
                 }
             }, 10);
         }
@@ -2507,14 +2535,43 @@ var pxsim;
         }
         record_1.audioIsStopped = audioIsStopped;
         function setInputSampleRate(sampleRate) {
+            const b = pxsim.board();
+            if (!b)
+                return;
+            b.recordingState.inputBitRate = sampleRateToBitRate(sampleRate);
         }
         record_1.setInputSampleRate = setInputSampleRate;
         function setOutputSampleRate(sampleRate) {
+            const b = pxsim.board();
+            if (!b)
+                return;
+            b.recordingState.outputBitRate = sampleRateToBitRate(sampleRate);
         }
         record_1.setOutputSampleRate = setOutputSampleRate;
         function setBothSamples(sampleRate) {
+            setInputSampleRate(sampleRate);
+            setOutputSampleRate(sampleRate);
         }
         record_1.setBothSamples = setBothSamples;
+        /**
+         * The browser API doesn't allow us to control sample rate directly, but we
+         * can affect it by setting the bit rate. This maps the supported sample rates
+         * into a reasonable range of bit rates.
+         */
+        function sampleRateToBitRate(sampleRate) {
+            return mapRange(sampleRate, MIN_SAMPLE_RATE, MAX_SAMPLE_RATE, MIN_BIT_RATE, MAX_BIT_RATE);
+        }
+        function bitRateToSampleRate(bitRate) {
+            return mapRange(bitRate, MIN_BIT_RATE, MAX_BIT_RATE, MIN_SAMPLE_RATE, MAX_SAMPLE_RATE);
+        }
+        function mapRange(value, inMin, inMax, outMin, outMax) {
+            value = Math.min(Math.max(inMin, value), inMax);
+            return ((value - inMin) / (inMax - inMin)) * (outMax - outMin) + outMin;
+        }
+        function defaultBitRate() {
+            return sampleRateToBitRate(11000);
+        }
+        record_1.defaultBitRate = defaultBitRate;
     })(record = pxsim.record || (pxsim.record = {}));
 })(pxsim || (pxsim = {}));
 var pxsim;
@@ -4216,6 +4273,11 @@ var pxsim;
         return !isChrome() && !isEdge() && !!navigator && /(Macintosh|Safari|iPod|iPhone|iPad)/i.test(navigator.userAgent);
     }
     pxsim.isSafari = isSafari;
+    //Safari and WebKit lie about being Firefox
+    function isFirefox() {
+        return !isSafari() && !!navigator && (/Firefox/i.test(navigator.userAgent) || /Seamonkey/i.test(navigator.userAgent));
+    }
+    pxsim.isFirefox = isFirefox;
 })(pxsim || (pxsim = {}));
 var pxsim;
 (function (pxsim) {
@@ -4223,7 +4285,7 @@ var pxsim;
     (function (pxtcore) {
         // TODO: add in support for mode, as in CODAL
         function registerWithDal(id, evid, handler, mode = 0) {
-            pxsim.board().bus.listen(id, evid, handler);
+            pxsim.board().bus.listen(id, evid, handler, mode);
         }
         pxtcore.registerWithDal = registerWithDal;
         function deepSleep() {

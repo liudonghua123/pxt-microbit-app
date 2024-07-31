@@ -1691,21 +1691,21 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="dance-to-the-beat">Dance to the Beat</h1><h2 id="1-introduction-">1. Introduction </h2><p>The new micro:bit has speakers so you can hear sounds without being tied down!</p>
+        <h1 id="dance-to-the-beat">Dance to the Beat</h1><h2 id="introduction-">Introduction </h2><p>The new micro:bit has speakers so you can hear sounds without being tied down!</p>
 <p>Let’s use movement to create an electronic beat of our own.</p>
 <p><img class="ui image" src="/static/mb/projects/dance-beat.png" alt="Dance beat banner message" loading="lazy"></p>
-<h2 id="2-add-play-sound-block">2. Add Play Sound Block</h2><p>To start your electronic beat, you’ll want to repeat a sound forever.</p>
+<h2 id="add-play-sound-block">Add Play Sound Block</h2><p>To start your electronic beat, you’ll want to repeat a sound forever.</p>
 <hr>
 <p>⇼ Open the <code>||music:Music||</code> category and drag the <code>||music:play sound [♫ ∿∿∿∿ +] [until done]||</code>
 block into the empty <code>||basic:forever||</code> loop container.</p>
 <pre><code class="lang-blocks">basic.forever(function(){
     music.playSoundEffect(music.createSoundEffect(WaveShape.Sine, 5000, 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.UntilDone)
 })</code></pre>
-<h2 id="3-listen-close">3. Listen Close</h2><p>When your code runs again, you should hear a short laser/alarm
+<h2 id="listen-close">Listen Close</h2><p>When your code runs again, you should hear a short laser/alarm
 sound that repeats over and over forever.</p>
 <hr>
 <p>💡 <em>You can press the stop button (</em>⏹️<em>) beneath the simulator to prevent the noise from bothering you while you’re coding.</em></p>
-<h2 id="4-make-a-change">4. Make a Change</h2><p>For the sound to change with your speed of movement, we need to put the
+<h2 id="make-a-change">Make a Change</h2><p>For the sound to change with your speed of movement, we need to put the
 micro:bit <strong>acceleration</strong> value in the sound block.</p>
 <hr>
 <p>⇼ On the <code>||music:play sound [♫ ∿∿∿ +] [until done]||</code> block, click the plus icon (<strong>+</strong>)
@@ -1715,24 +1715,24 @@ value block to replace <strong>5000</strong>.</p>
 <pre><code class="lang-blocks">basic.forever(function(){
     music.playSoundEffect(music.createSoundEffect(WaveShape.Sine, input.acceleration(Dimension.X), 0, 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.UntilDone)
 })</code></pre>
-<h2 id="5-listen-again">5. Listen Again</h2><p>Run your code again.</p>
+<h2 id="listen-again">Listen Again</h2><p>Run your code again.</p>
 <hr>
 <p>This time, hover around above the micro:bit to simulate swinging it from side to side.
 You should hear the sound change as the micro:bit moves.</p>
-<h2 id="6-rotation-values">6. Rotation Values</h2><p>You can make the beat even more fun by changing the end frequency as the micro:bit rotates.</p>
+<h2 id="rotation-values">Rotation Values</h2><p>You can make the beat even more fun by changing the end frequency as the micro:bit rotates.</p>
 <hr>
 <p>⇼ From the <code>||input:...more||</code> category, drag the <code>||input:rotation (°) [pitch]||</code>
 value block to replace the frequency <strong>0</strong>.</p>
 <pre><code class="lang-blocks">basic.forever(function(){
     music.playSoundEffect(music.createSoundEffect(WaveShape.Sine, input.acceleration(Dimension.X), input.rotation(Rotation.Pitch), 255, 0, 500, SoundExpressionEffect.None, InterpolationCurve.Linear), SoundExpressionPlayMode.UntilDone)
 })</code></pre>
-<h2 id="7-listen-again">7. Listen Again</h2><p>Run your code again.</p>
+<h2 id="listen-again">Listen Again</h2><p>Run your code again.</p>
 <p>This time, roll over the micro:bit in all directions to simulate turning it while you
 swing it around.</p>
 <hr>
 <p>You should hear the sound change from high to low and low to high.</p>
 <p>Try moving the micro:bit in different ways. Can you make a fun beat?</p>
-<h2 id="8-customize-your-beat">8. Customize Your Beat</h2><p>Try changing the <strong>duration</strong> of the beat to something other than <strong>500</strong>. <br />
+<h2 id="customize-your-beat">Customize Your Beat</h2><p>Try changing the <strong>duration</strong> of the beat to something other than <strong>500</strong>. <br />
 Then, change the dropdown selection inside both the <strong>acceleration</strong> and <strong>rotation</strong>
 blocks.</p>
 <p>What else can you click on to edit your sound?</p>

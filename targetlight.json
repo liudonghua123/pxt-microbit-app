@@ -188,7 +188,7 @@
                 "codalTarget": {
                     "name": "codal-microbit-v2",
                     "url": "https://github.com/lancaster-university/codal-microbit-v2",
-                    "branch": "v0.2.63",
+                    "branch": "v0.2.67",
                     "type": "git"
                 },
                 "codalBinary": "MICROBIT",
@@ -404,9 +404,9 @@
     "uploadDocs": false,
     "versions": {
         "branch": "main",
-        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/4a5bf7f2b2d79b280cbc074d3163c27680efe19c",
-        "target": "7.0.13",
-        "pxt": "10.0.23"
+        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/4963f1e380175bf8d46862c49744d2fd0d06111a",
+        "target": "7.0.15",
+        "pxt": "10.2.4"
     },
     "blocksprj": {
         "id": "blocksprj",

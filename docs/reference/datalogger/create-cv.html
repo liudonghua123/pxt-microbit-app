@@ -1696,14 +1696,14 @@
 <p>Data values that are written to the data log are assigned to a <em>column</em> in order to identify what their value is related to. Before logging a data value, it is formatted as a “CV” or “column-value” data item. A column name is attached to a data value this way.</p>
 <p>A data log entry is written to the data log as an array of one or more “column-value” data item objects. This function creates the data item for the value you want to include in a log entry.</p>
 <h2 id="parameters">Parameters</h2><ul>
-<li><strong>colunm</strong>: a <a target="_blank" rel="nofollow noopener" href="types/string">string</a> name that idenifies the data value.</li>
-<li><strong>value</strong>: a data value of <em>any</em> type that is logged with the <code>colunm</code> name.</li>
+<li><strong>column</strong>: a <a target="_blank" rel="nofollow noopener" href="types/string">string</a> name that identifies the data value.</li>
+<li><strong>value</strong>: a data value of <em>any</em> type that is logged with the <code>column</code> name.</li>
 </ul>
 <h2 id="example">Example</h2><h3 id="button-states">Button states</h3><p>Record the state of the buttons on the micro:bit every 500 milliseconds.</p>
 <pre><code class="lang-blocks">loops.everyInterval(500, function () {
     datalogger.logData([datalogger.createCV(&quot;Button A&quot;, input.buttonIsPressed(Button.A)), datalogger.createCV(&quot;Button B&quot;, input.buttonIsPressed(Button.B))])
 })</code></pre>
-<h3 id="mood-experiment">Mood experiment</h3><p>Create an experiment to record a person’s moods and relate them to current enviromental factors. Set 3 button options for moods of “happy”, “sad”, and “angry”. When the user signals their mood by pressing a button, read the current temperature, light level, and sound level to establish a relationship between those factors and mood.</p>
+<h3 id="mood-experiment">Mood experiment</h3><p>Create an experiment to record a person’s moods and relate them to current environmental factors. Set 3 button options for moods of “happy”, “sad”, and “angry”. When the user signals their mood by pressing a button, read the current temperature, light level, and sound level to establish a relationship between those factors and mood.</p>
 <pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
     logMood(&quot;happy&quot;)
 })
