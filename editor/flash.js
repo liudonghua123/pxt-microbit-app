@@ -235,7 +235,7 @@ class DAPWrapper {
         if (this.usesCODAL === undefined)
             console.warn('try to access codal information before it is computed');
         if (!this.usesCODAL) {
-            return ["logotouch", "builtinspeaker", "microphone", "flashlog"];
+            return ["logotouch", "builtinspeaker", "microphone", "flashlog", "v2"];
         }
         return [];
     }
