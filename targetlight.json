@@ -404,9 +404,9 @@
     "uploadDocs": false,
     "versions": {
         "branch": "main",
-        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/a99cc5fc4e43777a917564f3aa1f2cc5975e74eb",
-        "target": "7.0.16",
-        "pxt": "10.2.5"
+        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/dea548cf0ac6e721209a0ffab9c2978975c06219",
+        "target": "7.0.17",
+        "pxt": "10.2.6"
     },
     "blocksprj": {
         "id": "blocksprj",
