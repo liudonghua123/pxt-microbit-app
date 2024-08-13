@@ -401,12 +401,12 @@
             }
         }
     },
-    "uploadDocs": false,
+    "uploadDocs": true,
     "versions": {
         "branch": "main",
-        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/dea548cf0ac6e721209a0ffab9c2978975c06219",
-        "target": "7.0.17",
-        "pxt": "10.2.6"
+        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/2ba56a2105c5e220b1812bd471013d145460826a",
+        "target": "7.0.18",
+        "pxt": "10.2.8"
     },
     "blocksprj": {
         "id": "blocksprj",
