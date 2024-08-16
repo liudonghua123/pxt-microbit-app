@@ -1720,7 +1720,7 @@ Pressing <code>B</code> shows you the length of the chain.</p>
 <li>Search for <strong>blockchain</strong> and add <strong>radio-blockchain</strong></li>
 </ol>
 <pre><code class="lang-blocks">// shaking is mining...
-input.onGesture(Gesture.Shake, () =&gt; {
+input.onGesture(Gesture.Shake, function () {
     led.stopAnimation()
     basic.clearScreen()
     basic.pause(200) // display a short pause
@@ -1735,7 +1735,7 @@ input.onGesture(Gesture.Shake, () =&gt; {
 })
 
 // show my coins
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     led.stopAnimation()
     let coins = blockchain.valuesFrom(blockchain.id()).length;
     basic.showNumber(coins);
@@ -1743,7 +1743,7 @@ input.onButtonPressed(Button.A, () =&gt; {
 })
 
 // show the block chain size
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     led.stopAnimation()
     basic.showNumber(blockchain.length());
     basic.showString(&quot;BLOCKS&quot;);

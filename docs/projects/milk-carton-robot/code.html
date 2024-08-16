@@ -1708,8 +1708,8 @@
             </div>
         </div>
     </div>
-<h2 id="step-2-code-light-sensor">Step 2: code light sensor</h2><p>Code the lightsensor on the micro:bit to control the servo.</p>
-<pre><code class="lang-blocks">basic.forever(() =&gt; {
+<h2 id="step-2-code-light-sensor">Step 2: code light sensor</h2><p>Code the light sensor on the micro:bit to control the servo.</p>
+<pre><code class="lang-blocks">basic.forever(function () {
     led.plotBarGraph(
         input.lightLevel(),
         0
@@ -1740,7 +1740,7 @@ angle range, <code>[closed, opened]</code> using <code>pins.map</code>.</p>
 <pre><code class="lang-blocks">let angle = 0
 let closed = 0
 let opened = 0
-basic.forever(() =&gt; {
+basic.forever(function () {
     led.plotBarGraph(
         input.lightLevel(),
         0

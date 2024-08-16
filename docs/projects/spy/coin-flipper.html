@@ -1695,19 +1695,19 @@
 <p><img class="ui image" src="/static/mb/projects/coin-flipper/coin-flipper.gif" alt="Simulating coin toss" loading="lazy"></p>
 <h2 id="step-1">Step 1</h2><p>Add an event to run code when <code>||input:button A pressed||</code>. We’ll put our coin flipping
 code in here.</p>
-<pre><code class="lang-spy">input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-spy">input.onButtonPressed(Button.A, function () {
 })</code></pre>
 <h2 id="step-2">Step 2</h2><p>Inside the event for <code>||input:button A pressed||</code>, put in code to check <code>||logic:if||</code> a <code>||math:random boolean||</code> value is <code>true</code> or <code>false</code>.</p>
 <p>The <code>||math:random boolean||</code> value is used to determine a <code>heads</code> or <code>tails</code> result for
 a coin toss.</p>
-<pre><code class="lang-spy">input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-spy">input.onButtonPressed(Button.A, function () {
     if (Math.randomBoolean()) {
     } else {
     }
 })</code></pre>
 <h2 id="step-3">Step 3</h2><p>Now, <code>||basic:show icon||</code> for a <code>skull</code> <code>||logic:if||</code> the <code>||math:random boolean||</code> value is <code>true</code>. This means <code>heads</code>. <code>||basic:show icon||</code> of a <code>square</code> when <code>false</code> to mean
 <code>tails</code>.</p>
-<pre><code class="lang-spy">input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-spy">input.onButtonPressed(Button.A, function () {
     if (Math.randomBoolean()) {
         basic.showIcon(IconNames.Skull)
     } else {
@@ -1718,7 +1718,7 @@ a coin toss.</p>
 <h2 id="step-5">Step 5</h2><p>You can animate the coin toss to add the feeling of suspense. <code>||basic:show||</code> different
 icons before the check of the <code>||math:random boolean||</code> value to show that the
 coin is flipping.</p>
-<pre><code class="lang-spy">input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-spy">input.onButtonPressed(Button.A, function () {
     basic.showIcon(IconNames.Diamond)
     basic.showIcon(IconNames.SmallDiamond)
     basic.showIcon(IconNames.Diamond)

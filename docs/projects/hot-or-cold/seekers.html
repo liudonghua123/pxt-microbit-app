@@ -1700,7 +1700,7 @@ based on the distance.</p>
 <pre><code class="lang-blocks">let signal = 0;
 radio.onReceivedNumber(function (receivedNumber) {
     signal = radio.receivedPacket(RadioPacketProperty.SignalStrength)
-    basic.showNumber(signal);
+    basic.showNumber(signal)
 });
 radio.setGroup(1)</code></pre>
 <h2 id="test-out-your-seeker-">Test out your seeker </h2><p>Test and record the signal values as you move around a beacon, moving closer and farther away:</p>
@@ -1734,7 +1734,7 @@ radio.setGroup(1)</code></pre>
 
         </div>
     </div>
-<pre><code class="lang-blocks">let signal = 0;
+<pre><code class="lang-blocks">let signal = 0
 radio.onReceivedNumber(function (receivedNumber) {
     signal = radio.receivedPacket(RadioPacketProperty.SignalStrength)
     if (signal &lt; -90) {

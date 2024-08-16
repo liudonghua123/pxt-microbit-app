@@ -1725,11 +1725,11 @@
 <li>a <strong>Forever Loop</strong> is required to continually measure the current light level and control the tone</li>
 </ul>
 <h2 id="forever-loop">Forever Loop</h2><p>The forever loop really does run forever.  The forever loop is useful when there is a need to continually check for an event or use a changing value in code.</p>
-<h2 id="blocks">Blocks</h2><pre><code class="lang-cards">basic.forever(() =&gt; {})
+<h2 id="blocks">Blocks</h2><pre><code class="lang-cards">basic.forever(function () {})
 input.lightLevel()
 led.plotBarGraph(0, 255)
 music.playTone(Note.C, music.beat(BeatFraction.Quarter))</code></pre>
-<h2 id="step-1-create-a-light-level-detector">Step 1: Create a light level detector</h2><pre><code class="lang-blocks">basic.forever(() =&gt; {
+<h2 id="step-1-create-a-light-level-detector">Step 1: Create a light level detector</h2><pre><code class="lang-blocks">basic.forever(function () {
     led.plotBarGraph(input.lightLevel(), 255)
 })</code></pre>
 <p><strong>Build the  blocks</strong></p>
@@ -1767,14 +1767,14 @@ by replacing the letter <strong>C</strong> note with a <strong>number</strong> b
 
         </div>
     </div>
-<h2 id="step-3-multiply-frequency-using-math-blocks">Step 3: Multiply Frequency using Math blocks</h2><pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
+<h2 id="step-3-multiply-frequency-using-math-blocks">Step 3: Multiply Frequency using Math blocks</h2><pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
     music.playTone(261 * 2, music.beat(BeatFraction.Half))
 })</code></pre>
 <p>Create a <strong>play tone</strong> block using a <strong>Math</strong> section, <strong>multiplication</strong> block to set <em>tone</em></p>
 <h2 id="next">Next</h2><p><strong>Add</strong> a <strong>B</strong> button block that multiplies the <strong>261</strong> tone by a number other than 2 to set tone</p>
 <p><strong>Download the code to the micro:bit</strong></p>
 <p><strong>Test the sound for multiples of the 261Hz <em>C</em> frequency</strong></p>
-<h2 id="step-4-control-the-frequency-with-the-light-input">Step 4: Control the Frequency with the light input</h2><pre><code class="lang-blocks">basic.forever(() =&gt; {
+<h2 id="step-4-control-the-frequency-with-the-light-input">Step 4: Control the Frequency with the light input</h2><pre><code class="lang-blocks">basic.forever(function () {
     music.playTone(input.lightLevel() * 25, music.beat(BeatFraction.Quarter))
 })</code></pre>
 <p><strong>Create a <em>forever loop</em> containing a <em>play tone</em> block</strong></p>

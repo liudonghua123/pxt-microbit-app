@@ -1700,11 +1700,11 @@
         </div>
     </div>
 <h2 id="duration-30-minutes">Duration: ~30 minutes</h2><h2 id="step-1-walk-forever">Step 1: walk forever</h2><p>In order for the inchworm to move, the micro:bit needs to command the servo to move between <code>0</code> and <code>180</code> degrees at a certain pace. The code below starts the inchworm moving when the <strong>A</strong> button is pressed.</p>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
-    pins.servoWritePin(AnalogPin.P0, 0);
-    basic.pause(500);
-    pins.servoWritePin(AnalogPin.P0, 180);
-    basic.pause(500);
+<pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
+    pins.servoWritePin(AnalogPin.P0, 0)
+    basic.pause(500)
+    pins.servoWritePin(AnalogPin.P0, 180)
+    basic.pause(500)
 });</code></pre>
 
     <div class="ui info message">

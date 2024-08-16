@@ -1702,7 +1702,7 @@
 <h2 id="duration">Duration</h2><p>7 steps, about 15-30 minutes each.</p>
 <h2 id="step-1-light-sensor">Step 1: Light sensor</h2><p>We are going to use the light sensor to detect if a train is passing. We will do this by detecting the shadow of the train.</p>
 <p>Let’s first explore how the light sensor works by downloading the following program onto our micro:bit.</p>
-<pre><code class="lang-block">input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-block">input.onButtonPressed(Button.A, function () {
     basic.showNumber(input.lightLevel())
 })</code></pre>
 <p>Now press button A and the micro:bit responds with a number. This number indicates the amount of light that falls
@@ -1722,7 +1722,7 @@ two numbers you wrote down in step 2.
 For example, if the brightness in the shadow was 20 and in the light it was 60, you should use 40 as the threshold. </p>
 <p>Add the following blocks to your program to make the top-left led indicate if a train is detected. 
 Replace 40 with your threshold.</p>
-<pre><code class="lang-block">basic.forever(() =&gt; {
+<pre><code class="lang-block">basic.forever(function () {
     if (input.lightLevel() &lt; 40) {
         led.plot(0, 0)
     } else {
@@ -1764,7 +1764,7 @@ going to connect the lights from the previous step to pins 1 and 2 of the micro:
 <p>We can turn on one LED by writing a digital 1 to one pin and a digital 0 to the other
 (digital 1 means 3 Volt, digital 0 means GND). The other LED can be turned on by swapping 0 and 1. 
 Now use the following program to make the lights blink indefinitely.</p>
-<pre><code class="lang-block">basic.forever(() =&gt; {
+<pre><code class="lang-block">basic.forever(function () {
     pins.digitalWritePin(DigitalPin.P1, 1)
     pins.digitalWritePin(DigitalPin.P2, 0)
     basic.pause(300)
@@ -1782,11 +1782,11 @@ we subtract 1 from the variable until it reaches 0. Then the flashing stops.</p>
 First of all, remove the forever block from step 5. Then add the following code:</p>
 <pre><code class="lang-block">let flashes_remaining = 0
 
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     flashes_remaining = 5
 })
 
-basic.forever(() =&gt; {
+basic.forever(function () {
     while (flashes_remaining &gt; 0) {
         pins.digitalWritePin(DigitalPin.P1, 0)
         pins.digitalWritePin(DigitalPin.P2, 1)

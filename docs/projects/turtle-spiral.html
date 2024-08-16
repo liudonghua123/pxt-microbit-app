@@ -1701,7 +1701,7 @@
 <h2 id="code">Code</h2><p>A turtle that spirals into the center of the display and back out again.</p>
 <pre><code class="lang-blocks">turtle.setPosition(0, 0)
 turtle.turnRight()
-basic.forever(() =&gt; {
+basic.forever(function () {
     for (let index = 0; index &lt;= 4; index++) {
         turtle.forward(4 - index)
         turtle.turnRight()

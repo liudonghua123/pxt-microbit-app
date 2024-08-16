@@ -1693,51 +1693,51 @@
     <div class="ui text">
         <h1 id="code">Code</h1><p>Have you ever tried making beat box sounds? Let’s try making a beatbox with code and, yes, a banana!</p>
 <h2 id="code-the-banana-key">Code the banana key</h2><p>Start by adding a variable to store a musical note. Rename the variable to <code>sound</code>. Set the value of the variable to the note block <code>Middle A</code> from the <strong>Music</strong> drawer.</p>
-<pre><code class="lang-blocks">let sound = music.noteFrequency(Note.A);</code></pre>
+<pre><code class="lang-blocks">let sound = music.noteFrequency(Note.A)</code></pre>
 <p>We want to play music when the fruit connected to a pin pressed. So, we register an event handler that executes whenever pin <strong>1</strong> is pressed. Pin <strong>1</strong> is, of course, connected to the banana. Add a <code>||input:on pin pressed||</code> block from the <strong>Input</strong> drawer.</p>
-<pre><code class="lang-blocks">let sound = music.noteFrequency(Note.A);
-input.onPinPressed(TouchPin.P1, () =&gt; {
+<pre><code class="lang-blocks">let sound = music.noteFrequency(Note.A)
+input.onPinPressed(TouchPin.P1, function () {
 
 })</code></pre>
 <p>Now, let’s create some notes to play when the banana is pressed. Click on the <strong>Loops</strong> drawer then insert a <code>||loops:repeat||</code> loop into the <code>||input:on pin pressed||</code> block. Click on the <strong>Variables</strong> drawer and pull out a <code>||variables:change item by||</code> block and put it into the loop. Rename the variable to <code>sound</code>. Change the value from <code>1</code> to <code>25</code>. This will increase the variable <code>sound</code> from the note frequency of block <code>Middle A</code> to <code>Middle A</code> plus 25 and so on. Put a <code>||variables:set to||</code> block for <code>sound</code> right after the loop. Set it to <code>Middle A</code> in order to reset the sound after a banana press.</p>
-<pre><code class="lang-blocks">let sound = music.noteFrequency(Note.A);
+<pre><code class="lang-blocks">let sound = music.noteFrequency(Note.A)
 
-input.onPinPressed(TouchPin.P1, () =&gt; {
+input.onPinPressed(TouchPin.P1, function () {
     for (let i = 0; i &lt; 4; i++) {
-        sound += 25;
+        sound += 25
     }
-    sound = music.noteFrequency(Note.A);
-});</code></pre>
+    sound = music.noteFrequency(Note.A)
+})</code></pre>
 <p>Finally, insert a <code>||music:play tone||</code> above the <code>||variables:change by||</code>. Pull out the <code>sound</code> variable block and drop it in the note slot of <code>||music:play tone||</code>. Change the beat fraction from <code>1</code> to <code>1/4</code>.</p>
-<pre><code class="lang-blocks">let sound = music.noteFrequency(Note.A);
+<pre><code class="lang-blocks">let sound = music.noteFrequency(Note.A)
 
-input.onPinPressed(TouchPin.P1, () =&gt; {
+input.onPinPressed(TouchPin.P1, function () {
     for (let i = 0; i &lt; 4; i++) {
-        music.playTone(sound, music.beat(BeatFraction.Quarter));
-        sound += 25;
+        music.playTone(sound, music.beat(BeatFraction.Quarter))
+        sound += 25
     }
-    sound = music.noteFrequency(Note.A);
-});</code></pre>
+    sound = music.noteFrequency(Note.A)
+})</code></pre>
 <p>Click <code>|Download|</code> and try a banana press. Did you hear 4 notes play?</p>
 <h2 id="add-another-banana-key">Add another banana key</h2><p>Go back to <strong><a  rel="nofollow noopener" href="/pxt-microbit-app/docs/projects/banana-keyboard/make.html">Make</a></strong> and repeat steps 7 and 8 with another banana but this time connect the crocodile clip to pin <strong>3</strong>.</p>
 <p>Duplicate the <code>||input:on pin pressed||</code> event handler to make a second one. For the new <code>||input:on pin pressed||</code>, change the pin name to <strong>P2</strong>. In the pin <strong>P2</strong> event, let’s have the the frequency in the variable <code>sound</code> decrease by 25 instead of having it increase. Change the <code>25</code> in the <code>||variables:change by||</code> block to <code>-25</code>. OK, your code now looks like this:</p>
-<pre><code class="lang-blocks">let sound = music.noteFrequency(Note.A);
+<pre><code class="lang-blocks">let sound = music.noteFrequency(Note.A)
 
-input.onPinPressed(TouchPin.P1, () =&gt; {
+input.onPinPressed(TouchPin.P1, function () {
     for (let i = 0; i &lt; 4; i++) {
-        music.playTone(sound, music.beat(BeatFraction.Quarter));
-        sound += 25;
+        music.playTone(sound, music.beat(BeatFraction.Quarter))
+        sound += 25
     }
-    sound = music.noteFrequency(Note.A);
-});
+    sound = music.noteFrequency(Note.A)
+})
 
-input.onPinPressed(TouchPin.P2, () =&gt; {
+input.onPinPressed(TouchPin.P2, function () {
     for (let i = 0; i &lt; 4; i++) {
-        music.playTone(sound, music.beat(BeatFraction.Quarter));
-        sound += -25;
+        music.playTone(sound, music.beat(BeatFraction.Quarter))
+        sound += -25
     }
-    sound = music.noteFrequency(Note.A);
-});</code></pre>
+    sound = music.noteFrequency(Note.A)
+})</code></pre>
 <p>Click <code>|Download|</code> again and play both bananas. It’s a fruit jam session!</p>
 
     </div>

@@ -1716,7 +1716,7 @@ radio.onReceivedNumber(function (receivedNumber) {
     }
 })</code></pre>
 <h2 id="show-my-score">Show my score</h2><p>To see the current score, we add an <code>||input:on button pressed||</code> that displays the score on the screen when the <strong>A</strong> button is pressed.</p>
-<pre><code class="lang-block">input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-block">input.onButtonPressed(Button.A, function () {
     basic.showNumber(game.score())
 })</code></pre>
 <h2 id="all-together">All together</h2><p>The hunter code with all th pieces together looks like this now. Download and try it out with multiple beacons!</p>
@@ -1740,7 +1740,7 @@ radio.onReceivedNumber(function (receivedNumber) {
         }
     }
 })
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     basic.showNumber(game.score())
 })
 radio.setGroup(1)</code></pre>

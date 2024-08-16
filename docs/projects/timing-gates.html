@@ -1725,11 +1725,11 @@ By dividing the distance between the gates by the duration, we get the speed of 
         . . . . .
         . . . . .
         `)
-input.onPinPressed(TouchPin.P0, () =&gt; {})
+input.onPinPressed(TouchPin.P0, function () {})
 let t = 0
 input.runningTime()
 t - 1
-control.eventTimestamp();
+control.eventTimestamp()
 basic.showNumber(0)</code></pre>
 <h2 id="building-the-gate">Building the gate</h2><p>The sensor is made by tapping two strips of foil on the cardboard as close as possible.</p>
 <p>Add two strips of double-sided tape on the cardboard. Remove the protective film.</p>
@@ -1755,7 +1755,7 @@ We will attach a foil to the bottom of the car. When it passes over the gate, it
         . . . . .
         . . . . .
         `)
-input.onPinPressed(TouchPin.P0, () =&gt; {
+input.onPinPressed(TouchPin.P0, function () {
     basic.showLeds(`
         # . . . .
         # . . . .
@@ -1805,7 +1805,7 @@ that display 2 columns of LEDs.</p>
         . . . . .
         . . . . .
         `)
-input.onPinPressed(TouchPin.P0, () =&gt; {
+input.onPinPressed(TouchPin.P0, function () {
     basic.showLeds(`
         # . . . .
         # . . . .
@@ -1814,7 +1814,7 @@ input.onPinPressed(TouchPin.P0, () =&gt; {
         # . . . .
         `)
 })
-input.onPinPressed(TouchPin.P1, () =&gt; {
+input.onPinPressed(TouchPin.P1, function () {
     basic.showLeds(`
         # . . . #
         # . . . #
@@ -1835,8 +1835,8 @@ input.onPinPressed(TouchPin.P1, () =&gt; {
 <h2 id="computing-time">Computing time</h2><p>The micro:bit has a clock that measures time precisely. It measures how many seconds the micro:bit has been on. 
 We will record the time where each gate is tripped in variables <code>t0</code> and <code>t1</code>. 
 We take the different between <code>t1</code> and <code>t0</code> to compute the duration between the gates.</p>
-<pre><code class="lang-blocks">let t0 = 0;
-let t1 = 0;
+<pre><code class="lang-blocks">let t0 = 0
+let t1 = 0
 basic.showLeds(`
         . . . . .
         . . . . .
@@ -1844,8 +1844,8 @@ basic.showLeds(`
         . . . . .
         . . . . .
         `)
-input.onPinPressed(TouchPin.P0, () =&gt; {
-    t0 = control.eventTimestamp();
+input.onPinPressed(TouchPin.P0, function () {
+    t0 = control.eventTimestamp()
     basic.showLeds(`
         # . . . .
         # . . . .
@@ -1854,8 +1854,8 @@ input.onPinPressed(TouchPin.P0, () =&gt; {
         # . . . .
         `)
 })
-input.onPinPressed(TouchPin.P1, () =&gt; {
-    t1 = control.eventTimestamp();
+input.onPinPressed(TouchPin.P1, function () {
+    t1 = control.eventTimestamp()
     basic.showLeds(`
         # . . . #
         # . . . #

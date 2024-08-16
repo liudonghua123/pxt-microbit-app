@@ -1692,7 +1692,7 @@
 					
     <div class="ui text">
         <h1 id="code">Code</h1><h2 id="simple-animation">Simple animation</h2><p>Let’s start by using a combination of <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/basic/forever.html">forever</a> and <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/basic/show-leds.html">show leds</a> to create animation:</p>
-<pre><code class="lang-blocks">basic.forever(() =&gt; {
+<pre><code class="lang-blocks">basic.forever(function () {
     basic.showLeds(`
         # # . # #
         # # . # #
@@ -1712,7 +1712,7 @@
 <h2 id="turn-off-animation-in-the-pocket">Turn off animation in the pocket</h2><p>If the wallet is in your pocket, you should turn off the LEDs to save energy.</p>
 <p>How do we know that the wallet is in the pocket? It is really dark in there… We can use the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/input/light-level.html">light level</a> to detect this!</p>
 <p>Using an <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks/logic/if.html">if statement</a>, we can test if the level of light is sufficient to turn on the screen. Otherwise, we turn off the screen for a few second to save energy.</p>
-<pre><code class="lang-blocks">basic.forever(() =&gt; {
+<pre><code class="lang-blocks">basic.forever(function () {
     if (input.lightLevel() &gt; 16) {
         basic.showLeds(`
             # # . # #

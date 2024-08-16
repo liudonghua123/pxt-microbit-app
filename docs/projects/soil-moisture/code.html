@@ -1696,7 +1696,7 @@
 <p>The soil itself has some electrical resistance which depends on the amount of water and nutrients in it. It acts like a variable resistor in an electronic circuit. The water is not conductive but the nutrient content is. The combination of water and soil nutrients makes the soil have some conductivity. So, the more water there is, combined with the nutrients, the less the soil will have electrical resistance.</p>
 <p>To measure this, we read the voltage on pin <strong>P0</strong> using <code>||pins:analog read pin||</code>
 which returns a value between <code>0</code> (no current) and <code>1023</code> (maximum current). The value is graph on the screen using <code>||led:plot bar graph||</code>.</p>
-<pre><code class="lang-blocks">basic.forever(() =&gt; {
+<pre><code class="lang-blocks">basic.forever(function () {
     led.plotBarGraph(
         pins.analogReadPin(AnalogPin.P0),
         1023
@@ -1709,7 +1709,7 @@ which returns a value between <code>0</code> (no current) and <code>1023</code> 
 <h2 id="step-2-sensor-data-values">Step 2: Sensor data values</h2><p>In the previous program, we only have a rough idea of what the sensor value is. It’s using just a tiny screen to display it! Let’s add code that displays the current reading when button <strong>A</strong> is pressed.</p>
 <p>This code needs to go into the <code>||basic:forever||</code> loop. We’ve also added the variable <code>reading</code> to store the reading value.</p>
 <pre><code class="lang-blocks">let reading = 0
-basic.forever(() =&gt; {
+basic.forever(function () {
     reading = pins.analogReadPin(AnalogPin.P0)
     led.plotBarGraph(
         reading,
@@ -1766,7 +1766,7 @@ This saves electricity and also avoids corrosion of the probes.</li>
 </ul>
 <pre><code class="lang-blocks">led.setBrightness(64)
 let reading = 0
-basic.forever(() =&gt; {
+basic.forever(function () {
     pins.digitalWritePin(DigitalPin.P1, 1)
     basic.pause(1)
     reading = pins.analogReadPin(AnalogPin.P0)

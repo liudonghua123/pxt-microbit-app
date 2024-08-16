@@ -1720,7 +1720,7 @@
         . # . # .
         . # # # .
         `);
-input.onButtonPressed(Button.A, () =&gt; {});
+input.onButtonPressed(Button.A, function () {})
 music.playTone(Note.C, music.beat(BeatFraction.Quarter))
 music.rest(music.beat(BeatFraction.Whole))
 music.beat(BeatFraction.Quarter)</code></pre>
@@ -1731,7 +1731,7 @@ music.beat(BeatFraction.Quarter)</code></pre>
         . # # # .
         . # . # .
         . # # # .
-        `);</code></pre>
+        `)</code></pre>
 <p>From <strong>Basics</strong>, drag a <strong>show LEDs</strong> block into the coding area</p>
 <ul>
 <li>Create a face with LEDs</li>
@@ -1739,7 +1739,7 @@ music.beat(BeatFraction.Quarter)</code></pre>
 <p><img class="ui image" src="/static/mb/projects/guitar/connectmicrobit.jpg" alt="micro:bit USB connection" loading="lazy">
 Connect your micro:bit to your computer via USB and click <strong><code>Download</code></strong>.
 Follow the instructions to move the code to your micro:bit.</p>
-<h2 id="step-2-add-smiley-led-button-events">Step 2: Add Smiley LED Button Events</h2><pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
+<h2 id="step-2-add-smiley-led-button-events">Step 2: Add Smiley LED Button Events</h2><pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
     basic.showLeds(`
         . # . # .
         . . . . .
@@ -1748,7 +1748,7 @@ Follow the instructions to move the code to your micro:bit.</p>
         . # # # .
         `)
 })
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     basic.showLeds(`
         . # . # .
         . . . . .
@@ -1795,7 +1795,7 @@ Connect <strong>GND</strong> to the <strong>base of the headphone jack</strong> 
         <div class="content">
             <h2 id="the-micro-bit-can-play-music">The micro:bit can play music</h2><p>The <strong>play tone</strong> block allows a range letter note tones from <strong>C</strong> to <strong>B5</strong>.
 Songs are played using sequences notes.   Like the beginning of a birthday song (C, C, D, C, F, E).</p>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
     music.playTone(Note.C, music.beat(BeatFraction.Quarter))
     music.rest(music.beat(BeatFraction.Whole))
     music.playTone(Note.C, music.beat(BeatFraction.Quarter))
@@ -1812,7 +1812,7 @@ Songs are played using sequences notes.   Like the beginning of a birthday song 
 
         </div>
     </div>
-<h2 id="step-4-add-tone-playing-events-for-buttons-a-amp-b">Step 4: Add Tone Playing Events for Buttons A &amp; B</h2><pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
+<h2 id="step-4-add-tone-playing-events-for-buttons-a-amp-b">Step 4: Add Tone Playing Events for Buttons A &amp; B</h2><pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
     basic.showLeds(`
         . # . # .
         . . . . .
@@ -1822,7 +1822,7 @@ Songs are played using sequences notes.   Like the beginning of a birthday song 
         `)
     music.playTone(Note.A, music.beat(BeatFraction.Whole))
 })
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     basic.showLeds(`
         . # . # .
         . . . . .

@@ -1698,7 +1698,7 @@ let atmos_temperature = 100</code></pre>
 <h2 id="step-2-detect-a-solid-">Step 2: Detect a solid.</h2><p>We want to detect when the solid state occurs. On Pin 2 Pressed, you want to represent an atmospheric temperature of 0 and scroll the message “SOLID”. We want to set atmos_temperature to 0 and show the string: “SOLID”. Modify your code to look like this:</p>
 <pre><code class="lang-blocks">let temperature = 0
 let atmos_temperature = 0
-input.onPinPressed(TouchPin.P2, () =&gt; {
+input.onPinPressed(TouchPin.P2, function () {
     atmos_temperature = 0
     basic.showString(&quot;SOLID&quot;)
 })
@@ -1707,11 +1707,11 @@ temperature = 100</code></pre>
 <h2 id="step-3-detect-a-liquid-">Step 3: Detect a liquid.</h2><p>We want to detect when the liquid state happens. On Pin 1 Pressed, you want to represent an atmospheric temperature of 80 and scroll the message “LIQUID”. We want to set atmos_temperature to 80 and show the string: “LIQUID”. Modify your code to look like this:</p>
 <pre><code class="lang-blocks">let temperature = 0
 let atmos_temperature = 0
-input.onPinPressed(TouchPin.P2, () =&gt; {
+input.onPinPressed(TouchPin.P2, function () {
     atmos_temperature = 0
     basic.showString(&quot;SOLID&quot;)
 })
-input.onPinPressed(TouchPin.P1, () =&gt; {
+input.onPinPressed(TouchPin.P1, function () {
     atmos_temperature = 80
     basic.showString(&quot;LIQUID&quot;)
 })
@@ -1720,15 +1720,15 @@ temperature = 100</code></pre>
 <h2 id="step-4-detect-a-gas-">Step 4: Detect a gas.</h2><p>We want to detect when matter will be a gas. On Pin 0 Pressed, you want to represent an atmospheric temperature of 80 and scroll the message “GAS”. We want to set atmos_temperature to 250 and show the string: “GAS”. Modify your code to look like this:</p>
 <pre><code class="lang-blocks">let atmos_temperature = 0
 let temperature = 0
-input.onPinPressed(TouchPin.P0, () =&gt; {
+input.onPinPressed(TouchPin.P0, function () {
     atmos_temperature = 250
     basic.showString(&quot;GAS&quot;)
 })
-input.onPinPressed(TouchPin.P2, () =&gt; {
+input.onPinPressed(TouchPin.P2, function () {
     atmos_temperature = 0
     basic.showString(&quot;SOLID&quot;)
 })
-input.onPinPressed(TouchPin.P1, () =&gt; {
+input.onPinPressed(TouchPin.P1, function () {
     atmos_temperature = 80
     basic.showString(&quot;LIQUID&quot;)
 })
@@ -1740,19 +1740,19 @@ temperature = 100</code></pre>
 <h2 id="step-5-increase-temperature-">Step 5: Increase temperature.</h2><p>We want to display a change of temperature on shake. When you shake the states of matter experiment, there will be a show icon to represent an increase in temperature. Modify your code to add the shake event:</p>
 <pre><code class="lang-blocks">let atmos_temperature = 0
 let temperature = 0
-input.onGesture(Gesture.Shake, () =&gt; {
+input.onGesture(Gesture.Shake, function () {
     temperature += 50
     basic.showIcon(IconNames.Triangle)
 })
-input.onPinPressed(TouchPin.P0, () =&gt; {
+input.onPinPressed(TouchPin.P0, function () {
     atmos_temperature = 250
     basic.showString(&quot;GAS&quot;)
 })
-input.onPinPressed(TouchPin.P2, () =&gt; {
+input.onPinPressed(TouchPin.P2, function () {
     atmos_temperature = 0
     basic.showString(&quot;SOLID&quot;)
 })
-input.onPinPressed(TouchPin.P1, () =&gt; {
+input.onPinPressed(TouchPin.P1, function () {
     atmos_temperature = 80
     basic.showString(&quot;LIQUID&quot;)
 })
@@ -1775,11 +1775,11 @@ temperature = 100</code></pre>
 </ul>
 <pre><code class="lang-blocks">let atmos_temperature = 0
 let temperature = 0
-input.onGesture(Gesture.Shake, () =&gt; {
+input.onGesture(Gesture.Shake, function () {
     temperature += 50
     basic.showIcon(IconNames.Triangle)
 })
-basic.forever(() =&gt; {
+basic.forever(function () {
     if (temperature &lt; atmos_temperature) {
         temperature += 20
     } else {
@@ -1795,15 +1795,15 @@ basic.forever(() =&gt; {
     basic.clearScreen()
     basic.pause(100)
 })
-input.onPinPressed(TouchPin.P0, () =&gt; {
+input.onPinPressed(TouchPin.P0, function () {
     atmos_temperature = 250
     basic.showString(&quot;GAS&quot;)
 })
-input.onPinPressed(TouchPin.P2, () =&gt; {
+input.onPinPressed(TouchPin.P2, function () {
     atmos_temperature = 0
     basic.showString(&quot;SOLID&quot;)
 })
-input.onPinPressed(TouchPin.P1, () =&gt; {
+input.onPinPressed(TouchPin.P1, function () {
     atmos_temperature = 80
     basic.showString(&quot;LIQUID&quot;)
 })

@@ -1704,10 +1704,10 @@
 <h2 id="what-you-need">What you need</h2><p>The only things you need for this trick are your micro:bit and any magnet that is small enough to fit in your hand, even a fridge magnet will work.</p>
 <p><img class="ui image" src="/static/mb/projects/magic-button-trick/magnets.jpg" alt="" title="Magnets" loading="lazy"></p>
 <h2 id="step-1-getting-the-buttons-to-display-strong-a-strong-and-strong-b-strong-">Step 1: Getting the buttons to display <strong>A</strong> and <strong>B</strong></h2><p>Before we code the trick itself, we need to get the buttons working as you would expect them to such that pressing button <strong>A</strong> displays ‘A’ and pressing button <strong>B</strong> displays ‘B’:</p>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
     basic.showString(&quot;A&quot;)
 })
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     basic.showString(&quot;B&quot;)
 })</code></pre>
 <h2 id="step-2-measuring-magnetic-force">Step 2: Measuring magnetic force</h2><p>We will use the micro:bit’s magnetometer to detect the magnet. We will use it to check if our magnet is next to the micro:bit by using the <code>||input:magnetic force||</code> block found in the <strong>Input</strong> menu’s <strong>… More</strong> section. Since we only want to measure the strength we change the drop down to select <code>strength</code>:</p>
@@ -1715,31 +1715,31 @@ input.onButtonPressed(Button.B, () =&gt; {
 <h2 id="step-3-checking-if-the-magnetic-is-nearby">Step 3: Checking if the magnetic is nearby</h2><p>Now we can measure the magnetic force near the micro:bit. We can check if the value we measure is so big that it means there must be a strong magnet nearby. </p>
 <p>If you’ve ever played with magnets you know they have two ends, often called a North and South ‘pole’. Depending on which end of the magnet is pointing at the micro:bit, the magnetic force measurement will either be a negative number (like, -100) or a positive number (like, 100). We just want to know if the strength is at least 100. We don’t care if its negative or positive so we also use the <code>||math:absolute of||</code> block from the <strong>Math</strong> menu to tell our code to ignore the negative sign and just treat <code>-100</code> as if its <code>100</code>.</p>
 <p>So, in the code below, we will check if the absolute value of our magnetic field strength reading is more than <code>100</code> and save the result of that check in a new variable called <code>isSwitched</code>:</p>
-<pre><code class="lang-blocks">let force = Math.abs(input.magneticForce(Dimension.Strength));
+<pre><code class="lang-blocks">let force = Math.abs(input.magneticForce(Dimension.Strength))
 let isSwitched = force &gt; 100</code></pre>
 <h2 id="step-4-running-our-magnet-nearby-check-all-the-time">Step 4: Running our ‘magnet nearby’ check all the time</h2><p>At the moment, our code to detect a magnet being nearby will only run once. We need to put it into a <code>||basic:forever||</code> loop so that it keeps running again and again, checking for the magnet to come near to the micro:bit. We should also make sure <code>isSwitched</code> is set to <code>false</code> when our program starts.</p>
-<pre><code class="lang-blocks">let force = 0;
-let isSwitched = false;
-basic.forever(() =&gt; {
-    force = Math.abs(input.magneticForce(Dimension.Strength));
+<pre><code class="lang-blocks">let force = 0
+let isSwitched = false
+basic.forever(function () {
+    force = Math.abs(input.magneticForce(Dimension.Strength))
     isSwitched = force &gt; 100
 })</code></pre>
 <h2 id="step-5-swapping-the-buttons-when-we-know-the-magnet-is-nearby">Step 5: Swapping the buttons when we know the magnet is nearby</h2><p>Now we can check the value of our variable <code>isSwitched</code> whenever we want and we will know that the magnet is nearby if it’s value is <code>true</code>. Let’s use that to change how the buttons work and complete the code for our trick. We will add an <code>||logic:if then else||</code> block to each button’s code and check if we should swap over what’s displayed for each button if <code>isSwitched</code> is equal to <code>true</code>:</p>
-<pre><code class="lang-blocks">let force = 0;
-let isSwitched = false;
-basic.forever(() =&gt; {
-    force = Math.abs(input.magneticForce(Dimension.Strength));
+<pre><code class="lang-blocks">let force = 0
+let isSwitched = false
+basic.forever(function () {
+    force = Math.abs(input.magneticForce(Dimension.Strength))
     isSwitched = force &gt; 100
 })
 
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     if (isSwitched) {
         basic.showString(&quot;B&quot;)
     } else {
         basic.showString(&quot;A&quot;)
     }
 })
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     if (isSwitched) {
         basic.showString(&quot;A&quot;)
     } else {

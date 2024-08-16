@@ -1724,9 +1724,9 @@ let ampm = false</code></pre>
 <pre><code class="lang-blocks">let time = &quot;&quot;
 let minutes = 0
 let hours = 0
-input.onGesture(Gesture.Shake, () =&gt; {
-    time = hours + (&quot;:&quot; + minutes);
-    basic.showString(time);
+input.onGesture(Gesture.Shake, function () {
+    time = hours + (&quot;:&quot; + minutes)
+    basic.showString(time)
 })</code></pre>
 <h2 id="set-the-time-with-buttons">Set the time with buttons</h2><p>There has to be a way to set the time on your watch. We’ll use the buttons to set the current time. One button is for setting the hours and another button is for the minutes.</p>
 <h3 id="set-the-hours">Set the hours</h3><p>Let’s make a way to set the hours for the watch.</p>
@@ -1738,12 +1738,12 @@ input.onGesture(Gesture.Shake, () =&gt; {
 <li>In the <code>||logic:then||</code> section, put a <code>||variables:change by||</code> there. Select the <code>hours</code> variable name from the dropdown.</li>
 <li>In the <code>||logic:else||</code> section, put a <code>||variables:set to||</code> there. Select the <code>hours</code> variable name from the dropdown and leave the <code>0</code>.</li>
 </ol>
-<pre><code class="lang-blocks">let hours = 0;
-input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-blocks">let hours = 0
+input.onButtonPressed(Button.A, function () {
     if (hours &lt; 23) {
-        hours += 1;
+        hours += 1
     } else {
-        hours = 0;
+        hours = 0
     }
 })</code></pre>
 <h3 id="set-the-minutes">Set the minutes</h3><p>Setting minutes is almost the same as setting hours but with just a few changes.</p>
@@ -1752,12 +1752,12 @@ input.onButtonPressed(Button.A, () =&gt; {
 <li>In the new <code>||input:on button pressed||</code>, change the button to <code>B</code>.</li>
 <li>Change every variable name from <code>hours</code> to  <code>minutes</code>. Change the <code>23</code> in the <code>||logic:if||</code> condition to <code>59</code>. This is the limit of minutes we count.</li>
 </ol>
-<pre><code class="lang-blocks">let minutes = 0;
-input.onButtonPressed(Button.B, () =&gt; {
+<pre><code class="lang-blocks">let minutes = 0
+input.onButtonPressed(Button.B, function () {
     if (minutes &lt; 59) {
-        minutes += 1;
+        minutes += 1
     } else {
-        minutes = 0;
+        minutes = 0
     }
 })</code></pre>
 <h3 id="select-24-hour-or-12-hour-time">Select 24 hour or 12 hour time</h3><p>Time is shown in either 24 hour or 12 hour format. We’ll use one more button to choose which format to show. Using the 12 hour format adds an ‘AM’ or ‘PM’ at the end.</p>
@@ -1766,9 +1766,9 @@ input.onButtonPressed(Button.B, () =&gt; {
 <li>Grab a <code>||variables:set to||</code>, put it in the block and change the variable to <code>ampm</code>. Put a <code>||logic:not||</code> from <strong>Logic</strong> in where the <code>0</code> is.</li>
 <li>Pick up a <code>ampm</code> from <strong>Variables</strong> and connect it on the right of the <code>||logic:not||</code>. This switches our 24 hour format to 12 hour and back.</li>
 </ol>
-<pre><code class="lang-blocks">let ampm = false;
-input.onButtonPressed(Button.AB, () =&gt; {
-    ampm = !(ampm);
+<pre><code class="lang-blocks">let ampm = false
+input.onButtonPressed(Button.AB, function () {
+    ampm = !(ampm)
 })</code></pre>
 <h2 id="make-the-timer-tick">Make the timer tick</h2><p>A watch really has three parts: the display, settings, and timer. We need a way to make the minutes and hours count up at the right time. Let’s code the timer.</p>
 <ol>
@@ -1780,12 +1780,12 @@ input.onButtonPressed(Button.AB, () =&gt; {
 <li>Get a <code>||variables:set to||</code> and put it in the <code>||logic:else||</code>. Again, change the variable to <code>minutes</code>.</li>
 </ol>
 <pre><code class="lang-blocks">let minutes = 0;
-basic.forever(() =&gt; {
+basic.forever(function () {
     basic.pause(60000)
     if (minutes &lt; 59) {
-        minutes += 1;
+        minutes += 1
     } else {
-        minutes = 0;
+        minutes = 0
     }
 })</code></pre>
 <p><strong>Keep on coding…</strong></p>
@@ -1797,7 +1797,7 @@ basic.forever(() =&gt; {
 </ol>
 <pre><code class="lang-blocks">let minutes = 0
 let hours = 0
-basic.forever(() =&gt; {
+basic.forever(function () {
     basic.pause(60000)
     if (minutes &lt; 59) {
         minutes += 1
@@ -1824,7 +1824,7 @@ basic.forever(() =&gt; {
 <pre><code class="lang-blocks">let hours = 0;
 let adjust = 0;
 let ampm = false;
-input.onGesture(Gesture.Shake, () =&gt; {
+input.onGesture(Gesture.Shake, function () {
     adjust = hours;
     if (ampm) {
         if (hours &gt; 12) {
@@ -1847,24 +1847,24 @@ input.onGesture(Gesture.Shake, () =&gt; {
 <li>Surround that third copy with an <code>||logic:if then||</code> block. Put a <code>||logic:0 &lt; 0||</code> in as the condition for the <code>||logic:if then||</code> . Pull a <code>minutes</code> variable in where the first <code>0</code> is. Change the second <code>0</code> to be a <code>9</code>.</li>
 <li>In the fourth copy, change the first <code>&quot;&quot;</code> in the <code>||text:join||</code> to the variable <code>time</code>. Change the second string in the <code>||text:join||</code> to a <code>minutes</code>.</li>
 </ol>
-<pre><code class="lang-blocks">let minutes = 0;
-let hours = 0;
-let adjust = 0;
-let time = &quot;&quot;;
-let ampm = false;
-input.onGesture(Gesture.Shake, () =&gt; {
-    adjust = hours;
+<pre><code class="lang-blocks">let minutes = 0
+let hours = 0
+let adjust = 0
+let time = &quot;&quot;
+let ampm = false
+input.onGesture(Gesture.Shake, function () {
+    adjust = hours
     if (ampm) {
         if (hours &gt; 12) {
-            adjust = hours - 12;
+            adjust = hours - 12
         } else {
             if (hours == 0) {
-                adjust = 12;
+                adjust = 12
             }
         }
     }
-    time = &quot;&quot; + adjust;
-    time = time + &quot;:&quot;;
+    time = &quot;&quot; + adjust
+    time = time + &quot;:&quot;
     if (minutes &lt; 10) {
         time = time + &quot;0&quot;
     }
@@ -1879,12 +1879,12 @@ input.onGesture(Gesture.Shake, () =&gt; {
 <li>Do the exact same thing as in the last step but put the <code>||variables:set to||</code> block in the <code>||logic:else||</code> underneath. Make the second part of the <code>||text:join||</code> be <code>&quot;AM&quot;</code> this time.</li>
 <li>Finally, at the very bottom of <code>||input:on shake||</code>, go get a <code>||basic:show string||</code> from <strong>Basic</strong> and put it there. Change the string <code>&quot;Hello!&quot;</code> to the <code>time</code> variable.</li>
 </ol>
-<pre><code class="lang-blocks">let minutes = 0;
-let hours = 0;
-let adjust = 0;
-let time = &quot;&quot;;
-let ampm = false;
-input.onGesture(Gesture.Shake, () =&gt; {
+<pre><code class="lang-blocks">let minutes = 0
+let hours = 0
+let adjust = 0
+let time = &quot;&quot;
+let ampm = false
+input.onGesture(Gesture.Shake, function () {
     adjust = hours;
     if (ampm) {
         if (hours &gt; 12) {
@@ -1895,7 +1895,7 @@ input.onGesture(Gesture.Shake, () =&gt; {
             }
         }
     }
-    time = &quot;&quot; + adjust;
+    time = &quot;&quot; + adjust
     time = time + &quot;:&quot;
     if (minutes &lt; 10)
     {

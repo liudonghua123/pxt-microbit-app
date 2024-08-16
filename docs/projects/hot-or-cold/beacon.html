@@ -1699,7 +1699,7 @@ The power of the antenna is reduced to shorten the range of transmission.</p>
 <pre><code class="lang-blocks">radio.setGroup(1)
 radio.setTransmitPower(6)</code></pre>
 <h2 id="beacon-gotta-beam">Beacon gotta beam</h2><p>The beacon just needs to send a radio message every now and then. So, to pace the transmits and give some visual feedback, we add some <code>||basic:show icon||</code> blocks to animate the screen.</p>
-<pre><code class="lang-blocks">basic.forever(() =&gt; {
+<pre><code class="lang-blocks">basic.forever(function () {
     radio.sendNumber(0)
     basic.showIcon(IconNames.Heart)
     basic.showIcon(IconNames.SmallHeart)

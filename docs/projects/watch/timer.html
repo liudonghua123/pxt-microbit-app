@@ -1716,7 +1716,7 @@
 <li>Add a <code>||basic:show number||</code> below the <code>||variables:change by||</code>. Change the value to the <code>seconds</code> variable. Then, put a <code>||basic:clear screen||</code> under that.</li>
 </ol>
 <pre><code class="lang-blocks">let seconds = 0;
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     if (seconds &lt; 50) {
         seconds += 10;
         basic.showNumber(seconds)
@@ -1733,9 +1733,9 @@ input.onButtonPressed(Button.A, () =&gt; {
 <li>Add a <code>||basic:show number||</code> below the <code>||variables:change by||</code>. Change the value to the <code>seconds</code> variable. Then, put a <code>||basic:clear screen||</code> under that.</li>
 </ol>
 <pre><code class="lang-blocks">let seconds = 0;
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     if (seconds &lt; 60) {
-        seconds += 1;
+        seconds += 1
         basic.showNumber(seconds)
         basic.clearScreen()
     }
@@ -1743,12 +1743,12 @@ input.onButtonPressed(Button.B, () =&gt; {
 <h2 id="shake-off-the-time">Shake off the time</h2><p>Ok, now we’ll get the timer going and show how many seconds are left. This will happen when the watch is shaken!</p>
 <ol>
 <li>Get an <code>||input:on shake||</code> block and place it in the workspace.</li>
-<li>Pull out a <code>||loops:while||</code> from <strong>Loops</strong>  and put it in the <code>||input:on shake||</code>. Replace the <code>true</code> condition with the <code>||logic:0 &lt; 0||</code> conditon from <strong>Logic</strong>. Make the <code>&lt;</code> go to <code>&gt;</code>. Change the <code>0</code> on the left to the <code>seconds</code> variable.</li>
+<li>Pull out a <code>||loops:while||</code> from <strong>Loops</strong>  and put it in the <code>||input:on shake||</code>. Replace the <code>true</code> condition with the <code>||logic:0 &lt; 0||</code> condition from <strong>Logic</strong>. Make the <code>&lt;</code> go to <code>&gt;</code>. Change the <code>0</code> on the left to the <code>seconds</code> variable.</li>
 <li>Take out another <code>||basic:show number||</code> and put it inside the <code>||loops:while||</code>. Change the <code>0</code> to the <code>seconds</code> variable. Put a <code>||basic:pause||</code> under that and set the time to <code>1000</code> milliseconds. This means our timer will count down by <strong>1000</strong> milliseconds, which is actually one second, each time through the loop.</li>
 <li>To change the number of seconds left, get a <code>||variables:change by||</code> and place it below the <code>||basic:pause||</code>. Find the <code>||math:0 - 0||</code> block in <strong>Math</strong> and put it in the <code>||variables:change by||</code>. Set the <code>0</code> on the right of the minus to be a <code>1</code>.</li>
 </ol>
 <pre><code class="lang-blocks">let seconds = 0;
-input.onGesture(Gesture.Shake, () =&gt; {
+input.onGesture(Gesture.Shake, function () {
     while (seconds &gt; 0) {
         basic.showNumber(seconds);
         basic.pause(1000);
@@ -1757,11 +1757,11 @@ input.onGesture(Gesture.Shake, () =&gt; {
 })</code></pre>
 <h2 id="be-alarming-">Be alarming!</h2><p>Add a few <code>||basic:show icon||</code> blocks at the bottom of the <code>||loops:while||</code> to make an alarm to show that the time is up! We have some diamonds and the ‘X’ symbol for ours right now.</p>
 <pre><code class="lang-blocks">let seconds = 0;
-input.onGesture(Gesture.Shake, () =&gt; {
+input.onGesture(Gesture.Shake, function () {
     while (seconds &gt; 0) {
-        basic.showNumber(seconds);
-        basic.pause(1000);
-        seconds -= 1;
+        basic.showNumber(seconds)
+        basic.pause(1000)
+        seconds -= 1
     }
     basic.showIcon(IconNames.Diamond)
     basic.showIcon(IconNames.SmallDiamond)

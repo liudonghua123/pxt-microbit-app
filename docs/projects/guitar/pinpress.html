@@ -1711,9 +1711,9 @@
 </ul>
 <h2 id="duration-approximately-45-minutes">Duration: approximately 45 minutes</h2><h2 id="materials-">Materials:</h2><p>2-3 Crocodile clips</p>
 <h2 id="blocks">Blocks</h2><pre><code class="lang-cards">let on = false
-on;
+on
 if (on) { } else {}
-input.onPinPressed(TouchPin.P1, () =&gt; {})</code></pre>
+input.onPinPressed(TouchPin.P1, function () {})</code></pre>
 
     <div class="ui info message">
         <div class="content">
@@ -1727,13 +1727,13 @@ input.onPinPressed(TouchPin.P1, () =&gt; {})</code></pre>
 
         </div>
     </div>
-<h2 id="step-1-pin-press-test">Step 1: Pin Press Test</h2><pre><code class="lang-blocks">input.onPinPressed(TouchPin.P0, () =&gt; {
+<h2 id="step-1-pin-press-test">Step 1: Pin Press Test</h2><pre><code class="lang-blocks">input.onPinPressed(TouchPin.P0, function () {
     basic.showNumber(0)
 })
-input.onPinPressed(TouchPin.P1, () =&gt; {
+input.onPinPressed(TouchPin.P1, function () {
     basic.showNumber(1)
 })
-input.onPinPressed(TouchPin.P2, () =&gt; {
+input.onPinPressed(TouchPin.P2, function () {
     basic.showNumber(2)
 })</code></pre>
 <p><strong>Create the pin-press code</strong></p>
@@ -1787,14 +1787,14 @@ input.onPinPressed(TouchPin.P2, () =&gt; {
 <h2 id="step-3-add-a-switch-to-turn-the-guitar-on-and-off">Step 3: Add a switch to turn the guitar ON and OFF</h2><p><strong>Using the <code>on</code> global variable we can switch the message on the micro:bit</strong>
 <strong>between ON and OFF</strong></p>
 <pre><code class="lang-blocks">let on = false
-basic.forever(() =&gt; {
+basic.forever(function () {
     if (on == true) {
         basic.showString(&quot;ON&quot;)
     } else {
         basic.showString(&quot;OFF&quot;)
     }
 })
-input.onPinPressed(TouchPin.P1, () =&gt; {
+input.onPinPressed(TouchPin.P1, function () {
     if (on == true) {
         on = false
     } else {
@@ -1805,9 +1805,9 @@ input.onPinPressed(TouchPin.P1, () =&gt; {
 <p><strong>Download the code on the micro:bit</strong></p>
 <p><strong>Test by touching <code>P1</code> to toggle the LED message between ON and OFF</strong></p>
 <p><em>Final code</em>
-TODO: do we want to use <code>on = !on;</code> or be more direct in flipping the switch? <code>on = true; on = false;</code></p>
+TODO: do we want to use <code>on = !on</code> or be more direct in flipping the switch? <code>on = true</code> or <code>on = false</code></p>
 <pre><code class="lang-blocks">let on = false
-basic.forever(() =&gt; {
+basic.forever(function () {
     if (on) {
         music.setTempo(pins.map(Math.abs(input.acceleration(Dimension.Y)),
             0, 1023,
@@ -1815,13 +1815,13 @@ basic.forever(() =&gt; {
         music.playTone(
             input.lightLevel() * 25,
             music.beat(BeatFraction.Quarter)
-        );
+        )
     } else {
         music.rest(music.beat())
     }
 })
-input.onPinPressed(TouchPin.P1, () =&gt; {
-    on = !on;
+input.onPinPressed(TouchPin.P1, function () {
+    on = !on
 })</code></pre>
 <h2 id="now-play-">Now Play!</h2><p><strong>Turn the guitar ON and OFF with a pin press on the connected foil by</strong>
 <strong>touching both pieces of foil at the same time to connect the switches</strong></p>

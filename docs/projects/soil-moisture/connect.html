@@ -1697,16 +1697,13 @@
 <li>setup the radio by choosing group 4 and sending the serial number of the device</li>
 <li>send the moisture level <strong>divided by 4</strong> as the dashboard takes values between <code>0</code> and <code>255</code>.</li>
 </ul>
-<pre><code class="lang-blocks">radio.setTransmitSerialNumber(true)
-radio.setGroup(4)
-led.setBrightness(64)
+<pre><code class="lang-blocks">led.setBrightness(64)
 let reading = 0
-basic.forever(() =&gt; {
+basic.forever(function () {
     pins.digitalWritePin(DigitalPin.P1, 1)
     basic.pause(1)
     reading = pins.analogReadPin(AnalogPin.P0)
     pins.digitalWritePin(DigitalPin.P1, 0)
-    radio.sendNumber(reading / 4)
     led.plotBarGraph(
         reading,
         1023
@@ -1714,7 +1711,7 @@ basic.forever(() =&gt; {
     if (input.buttonIsPressed(Button.A)) {
         basic.showNumber(reading)
     }
-    basic.pause(5000);
+    basic.pause(5000)
 })</code></pre>
 <h2 id="the-dashboard">The dashboard</h2><p>The dashboard code is found in the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/examples/radio-dashboard.html">radio dashboard</a> example.</p>
 <h3 id="setup-a-dashboard-micro-bit">Setup a dashboard micro:bit</h3><p>Download the code from that example into the micro:bit that will be used to display the results.</p>

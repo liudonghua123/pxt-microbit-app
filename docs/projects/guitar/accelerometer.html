@@ -1742,7 +1742,7 @@ with the <strong>Z</strong> axis of the micro:bit. </p>
 If the force along <strong>Y</strong> grows, the micro:bit is tilting more and more vertically!</p>
 <h2 id="measuring-acceleration-along-different-coordinates-x-y-z-axis-">Measuring Acceleration along different coordinates (X, Y, Z axis)</h2><p>The acceleration block approximately measures <strong>milli-g</strong>, which is 1/1000 of a <strong>g</strong> or the 
 acceleration of gravity. </p>
-<h2 id="step-1-graphing-acceleration">Step 1: Graphing acceleration</h2><pre><code class="lang-blocks">basic.forever(() =&gt; {
+<h2 id="step-1-graphing-acceleration">Step 1: Graphing acceleration</h2><pre><code class="lang-blocks">basic.forever(function () {
     led.plotBarGraph(input.acceleration(Dimension.Y), 1023)
 })</code></pre>
 <p><strong>Create the code</strong> that measures the change in the Y axis acceleration as a graph on the LEDs  </p>
@@ -1757,24 +1757,24 @@ acceleration of gravity. </p>
         </div>
     </div>
 <h2 id="step-2-mapping-acceleration-to-beat">Step 2: Mapping acceleration to Beat</h2><p><strong>micro:bit sensors produce signal values between 0 to 1023. The <em><a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/pins/map.html">map block</a></em> converts the signal to a desired range.</strong>    </p>
-<pre><code class="lang-blocks">basic.forever(() =&gt; {
+<pre><code class="lang-blocks">basic.forever(function () {
         music.setTempo(pins.map(Math.abs(input.acceleration(Dimension.Y)),
             0, 1023,
             60, 320))
-         music.playTone(Note.C, music.beat(BeatFraction.Quarter));
+         music.playTone(Note.C, music.beat(BeatFraction.Quarter))
 })</code></pre>
 <p><strong>Create the code</strong> that <em>Maps</em>  Y axis acceleration as <em>tempo</em>  </p>
 <p><strong>Download the code</strong> to the micro:bit on the guitar  </p>
 <p><strong>Test the movements that speed and slow the tempo</strong>  </p>
 <h2 id="step-3-combine-with-light-sensor-tone-control">Step 3: Combine with light sensor tone control</h2><p><strong>Put it all together!</strong></p>
-<pre><code class="lang-blocks">basic.forever(() =&gt; {
+<pre><code class="lang-blocks">basic.forever(function () {
         music.setTempo(pins.map(Math.abs(input.acceleration(Dimension.Y)),
             0, 1023,
             60, 320))
         music.playTone(
             input.lightLevel() * 25,
             music.beat(BeatFraction.Quarter)
-        );
+        )
 })</code></pre>
 <p><strong>Combine the code above with the light sensor tone control code from the previous activity</strong></p>
 <p><strong>Download the code</strong> to the micro:bit on the guitar    </p>

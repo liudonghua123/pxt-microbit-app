@@ -1716,7 +1716,7 @@ so that players can tell one beacon apart from another. Also, the power of the a
 radio.setTransmitSerialNumber(true)
 radio.setTransmitPower(6)</code></pre>
 <h3 id="beacon-gotta-beam">Beacon gotta beam</h3><p>The beacon just needs to send a radio message every now and then. So, to pace the transmits and give some visual feedback, we add some <code>||basic:show icon||</code> blocks to animate the screen.</p>
-<pre><code class="lang-blocks">basic.forever(() =&gt; {
+<pre><code class="lang-blocks">basic.forever(function () {
     radio.sendNumber(0)
     basic.showIcon(IconNames.Heart)
     basic.showIcon(IconNames.SmallHeart)
@@ -1799,7 +1799,7 @@ radio.onReceivedNumber(function (receivedNumber) {
     }
 })</code></pre>
 <h3 id="show-my-score">Show my score</h3><p>To see the current score, we add an <code>||input:on button pressed||</code> that displays the score on the screen when the <strong>A</strong> button is pressed.</p>
-<pre><code class="lang-block">input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-block">input.onButtonPressed(Button.A, function () {
     basic.showNumber(game.score())
 })</code></pre>
 <h3 id="all-together">All together</h3><p>The hunter code with all th pieces together looks like this now. Download and try it out with multiple beacons!</p>
@@ -1823,7 +1823,7 @@ radio.onReceivedNumber(function (receivedNumber) {
         }
     }
 })
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     basic.showNumber(game.score())
 })
 radio.setGroup(1)</code></pre>

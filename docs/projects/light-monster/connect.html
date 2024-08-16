@@ -1700,13 +1700,13 @@
         </div>
     </div>
 <h2 id="duration-30-minutes">Duration: ~30 minutes</h2><p>You will need one more micro:bit for this part. By using the radio, we can control the monster with another micro:bit. Download the code below to the micro:bit on the monster and then again onto a “controller” micro:bit. Whenever button <strong>A</strong> is pressed, the monster’s mouth moves once.</p>
-<pre><code class="lang-blocks">radio.onReceivedNumber(({ receivedNumber }) =&gt; {
+<pre><code class="lang-blocks">radio.onReceivedNumber(function(receivedNumber) {
     pins.servoWritePin(AnalogPin.P0, 30)
     basic.pause(500)
     pins.servoWritePin(AnalogPin.P0, 150)
     basic.pause(500)
 })
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     radio.sendNumber(0)
 })</code></pre>
 <pre><code class="lang-package">radio</code></pre>

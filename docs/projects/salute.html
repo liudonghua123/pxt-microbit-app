@@ -1714,13 +1714,13 @@ Optionally, make a headband to hold the micro:bit and battery on the forehead du
 <h3 id="three-players">Three players</h3><p>If using 3 micro:bits, the third micro:bit is programmed to keep score in the game using the <code>A</code> and <code>B</code> buttons and to display the score based on a different event, such as, the <code>A+B</code> button. There should also be a way to reset the scores for the next round of play.</p>
 <h3 id="make-the-number-cards">Make the number cards</h3><p>Choose a random number between 0 and 9.</p>
 <pre><code class="lang-blocks">let randomNbr = 0
-input.onGesture(Gesture.ScreenUp, () =&gt; {
+input.onGesture(Gesture.ScreenUp, function () {
     randomNbr = randint(0, 10)
     basic.showNumber(randomNbr)
 })</code></pre>
 <p>Choose a random number between 1 and 9.</p>
 <pre><code class="lang-blocks">let randomNbr = 0
-input.onGesture(Gesture.ScreenUp, () =&gt; {
+input.onGesture(Gesture.ScreenUp, function () {
     randomNbr = 0
     while (randomNbr &lt; 1) {
         randomNbr = randint(0, 10)
@@ -1730,13 +1730,13 @@ input.onGesture(Gesture.ScreenUp, () =&gt; {
 <h3 id="score-keeper">Score keeper</h3><p>The score keeper program adds one point for a player when button <code>A</code> or <code>B</code> is pressed. Pressing <code>A+B</code> shows the current winner and score. The scores are reset by turning the micro:bit over.</p>
 <pre><code class="lang-blocks">let player1Score = 0
 let player2Score = 0
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     player1Score += 1
 })
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     player2Score += 1
 })
-input.onButtonPressed(Button.AB, () =&gt; {
+input.onButtonPressed(Button.AB, function () {
     if (player1Score == player2Score) {
         basic.showString(&quot;TIE&quot;)
     } else if (player1Score &gt; player2Score) {

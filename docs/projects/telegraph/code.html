@@ -1714,7 +1714,7 @@ Pick an <code>||logic:if then else||</code> block from the <strong>Logic</strong
 }</code></pre>
 <h2 id="step-5">Step 5</h2><p>Let’s wrap it all in a forever loop so this code is running in the background always checking button <strong>A</strong> and sending the appropriate signal to the receiver.
 Modify your code to add the blocks below. Download the code onto one of the micro:bits, press and release button <strong>A</strong> a few times.</p>
-<pre><code class="lang-blocks">basic.forever(() =&gt; {
+<pre><code class="lang-blocks">basic.forever(function () {
     if (input.buttonIsPressed(Button.A)) {
         pins.digitalWritePin(DigitalPin.P1, 1)
         led.plot(2, 2)
@@ -1728,18 +1728,18 @@ Modify your code to add the blocks below. Download the code onto one of the micr
 <p>Now, we want to examine the value read from <code>P2</code> and check whether it’s <strong>high</strong> (<code>1</code>) or <strong>low</strong> (<code>0</code>). Go to the <strong>Logic</strong> drawer and pick an <code>||logic:if then else||</code> block, then come back for the comparison operator <code>||logic:0 = 0||</code>. Plug in our <code>||pins:digital read pin||</code> block as one operand and the value <code>1</code> as the other.</p>
 <p>We’ll turn the LED in the bottom right corner (4, 4) on to show that we received a <strong>high</strong> value and turn it off in not.</p>
 <p>Make sure your code looks like this:</p>
-<pre><code class="lang-blocks">basic.forever(() =&gt; {
+<pre><code class="lang-blocks">basic.forever(function () {
     if (input.buttonIsPressed(Button.A)) {
-        pins.digitalWritePin(DigitalPin.P1, 1);
-        led.plot(2, 2);
+        pins.digitalWritePin(DigitalPin.P1, 1)
+        led.plot(2, 2)
     } else {
-        pins.digitalWritePin(DigitalPin.P1, 0);
+        pins.digitalWritePin(DigitalPin.P1, 0)
         basic.clearScreen();
     }
     if (pins.digitalReadPin(DigitalPin.P2) == 1) {
-        led.plot(4, 4);
+        led.plot(4, 4)
     } else {
-        led.unplot(4, 4);
+        led.unplot(4, 4)
     }
 });</code></pre>
 <p>Your telegraph is ready!</p>

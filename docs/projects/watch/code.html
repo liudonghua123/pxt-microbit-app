@@ -1705,29 +1705,29 @@
 <li>Ok, in <strong>Variables</strong> click on <code>Make a Variable</code>. Name the variable as <code>motions</code>. Drag out a <code>||variables:set to||</code> block and change the name with the dropdown to <code>motions</code>. Place the variable into the <code>||basic:on start||</code> block.</li>
 <li>Let’s show that there are no motions counted yet. Get a <code>||basic:show number||</code> from <strong>Basic</strong> and put it after the variable. Now, change the <code>0</code> to the <code>motions</code> variable from the <strong>Variables</strong> category in the toolbox.</li>
 </ol>
-<pre><code class="lang-blocks">let motions = 0;
-motions = 0;
-basic.showNumber(motions);</code></pre>
+<pre><code class="lang-blocks">let motions = 0
+motions = 0
+basic.showNumber(motions)</code></pre>
 <h2 id="count-your-movements">Count your movements</h2><p>Ok, now we’ll count and show all of your movements.</p>
 <ol>
 <li>Get an <code>||input:on shake||</code> block from <strong>Input</strong> and place it in the workspace.</li>
 <li>To count each of your movements, get a <code>||variables:change by||</code> and place it in the <code>||input:on shake||</code>. Change the variable from <code>item</code> to <code>motions</code>.</li>
 <li>Grab another <code>||basic:show number||</code> and put it at the bottom of the <code>||input:on shake||</code>. Find <code>motions</code> again back over in <strong>Variables</strong> and replace the <code>0</code> with it.</li>
 </ol>
-<pre><code class="lang-blocks">let motions = 0;
-input.onGesture(Gesture.Shake, () =&gt; {
-    motions += 1;
-    basic.showNumber(motions);
+<pre><code class="lang-blocks">let motions = 0
+input.onGesture(Gesture.Shake, function () {
+    motions += 1
+    basic.showNumber(motions)
 })</code></pre>
 <h2 id="reset-">Reset!</h2><p>If we want to start over from zero, then we need to have a way to reset the motion count. Let’s use one of the buttons to do it.</p>
 <ol>
 <li>Go over to <strong>Input</strong> and get an <code>||input:on button pressed||</code>. Place a <code>||variables:set to||</code> inside. Change the variable name to <code>motions</code>.</li>
 <li>Grab another <code>||basic:show number||</code> and change the <code>0</code> to the a <code>motions</code> variable.</li>
 </ol>
-<pre><code class="lang-blocks">let motions = 0;
-input.onButtonPressed(Button.A, () =&gt; {
-    motions = 0;
-    basic.showNumber(motions);
+<pre><code class="lang-blocks">let motions = 0
+input.onButtonPressed(Button.A, function () {
+    motions = 0
+    basic.showNumber(motions)
 })</code></pre>
 <h2 id="finished-">Finished!</h2><p>Yeah! You’re ready to count your movements. Press the <code>|Download|</code> button to move the code to the micro:bit. Walk around, move you arm, and watch it count! Press the <strong>A</strong> button if you want to start over.</p>
 <h2 id="more-watch-coding-projects">More watch coding projects</h2><p>Are you up for a bigger challenge? How about making your watch turn into a countdown timer or even a real digital watch? Take a look at some other coding projects for the micro:bit watch:</p>

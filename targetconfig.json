@@ -31,6 +31,7 @@
             "microsoft/pxt-apa102": {},
             "microsoft/pxt-radio-firefly": {},
             "microsoft/pxt-ml": {},
+            "microsoft/pxt-arcadeshield": { "tags": [ "Lights and Display" ] },
             "kitronikltd/pxt-kitronik-servo-lite": {
                 "tags": [ "Robotics" ],
                 "preferred": true
@@ -280,6 +281,7 @@
                 "upgrades": [ "min:v0.13.1" ]
             },
             "elecfreaks/pxt-nezha": { "tags": [ "Robotics" ] },
+            "elecfreaks/pxt-nezha2": { "tags": [ "Robotics" ] },
             "philipphenkel/pxt-powerfunctions": {},
             "1010technologies/pxt-makerbit-ir-transmitter": {},
             "dfrobot/pxt-dfrobot_huskylens": { "tags": [ "Science" ] },

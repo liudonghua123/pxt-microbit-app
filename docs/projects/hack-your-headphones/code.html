@@ -1700,27 +1700,27 @@
         </div>
     </div>
 <p>Let’s start by playing music when the <strong>A</strong> button is pressed. To do that, register an event handler that will execute whenever you click on the <strong>A</strong> button. Open the <code>||input:Input||</code> drawer and get out an <code>||input:on button A pressed||</code> block. Next, add a <code>||music:rest||</code> to play nothing for <code>1/16</code> of a beat.</p>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
-    music.rest(music.beat(BeatFraction.Sixteenth));
+<pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
+    music.rest(music.beat(BeatFraction.Sixteenth))
 });</code></pre>
 <p>We also want to add a variable where you can store data. Name the variable <code>light</code> and <code>||variables:set||</code> the value of the variable to the  <code>||input:light level||</code> block from the <code>||input:Input||</code> drawer. This will get the light level as some value between <code>0</code> (dark) and <code>255</code> (bright). The light is measured by using various LEDs from the screen. Your code will look like this:</p>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
-    music.rest(music.beat(BeatFraction.Sixteenth));
-    let light = input.lightLevel();
+<pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
+    music.rest(music.beat(BeatFraction.Sixteenth))
+    let light = input.lightLevel()
 });</code></pre>
 <p>Click on the <code>||logic:Logic||</code> drawer and find an <code>||logic:if||</code> block to use so that some of your code will run conditionally depending on whether a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/boolean.html">Boolean</a> condition is either <code>true</code> or <code>false</code>. Go get the <code>||logic:0 &lt; 0||</code> comparison block an put it in as the condition for the <code>||logic:if||</code>. Then insert the variable <code>||variables:light||</code> into the part of the inequality where the first <code>0</code> is. You’ll find the variable <code>||variables:light||</code> in the <code>||variables:Variables||</code> drawer. Finally, insert <code>25</code> in the second part of the comparison instead of <code>0</code>. Modify your code so that it checks the light level like this:</p>
 <ul>
 <li>If <code>||logic:light &lt; 25||</code>, play <code>||music:ring tone||</code> for <code>Middle C</code></li>
 <li>If this condition is not <code>true</code>, play <code>||music:ring tone||</code> for <code>Middle A</code></li>
 </ul>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
-    music.rest(music.beat(BeatFraction.Sixteenth));
-    let light = input.lightLevel();
+<pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
+    music.rest(music.beat(BeatFraction.Sixteenth))
+    let light = input.lightLevel()
     if (light &lt; 25) {
-        music.ringTone(music.noteFrequency(Note.C));
+        music.ringTone(music.noteFrequency(Note.C))
     }
     else {
-        music.ringTone(music.noteFrequency(Note.A));
+        music.ringTone(music.noteFrequency(Note.A))
     }
 });</code></pre>
 <p>Now, we want to add more conditional statements by clicking on the <strong>(+)</strong> at the bottom of the <code>if</code>. Add <strong>5</strong>  <code>||logic:else if||</code> and <strong>1</strong> final <code>||logic:else||</code> inside the <code>||logic:if||</code> block structure. Set the comparison blocks inside the new conditionals as:</p>
@@ -1731,26 +1731,26 @@
 <li>If <code>||logic:light &lt; 180||</code>, play <code>||music:ring tone||</code> <code>Middle G</code></li>
 <li>If these conditions are not true, play <code>||music:ring tone||</code> <code>Middle A</code></li>
 </ul>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
-    music.rest(music.beat(BeatFraction.Sixteenth));
-    let light = input.lightLevel();
+<pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
+    music.rest(music.beat(BeatFraction.Sixteenth))
+    let light = input.lightLevel()
     if (light &lt; 25) {
-        music.ringTone(music.noteFrequency(Note.C));
+        music.ringTone(music.noteFrequency(Note.C))
     }
     else if (light &lt; 50) {
-        music.ringTone(music.noteFrequency(Note.D));
+        music.ringTone(music.noteFrequency(Note.D))
     }
     else if (light &lt; 100) {
-        music.ringTone(music.noteFrequency(Note.E));
+        music.ringTone(music.noteFrequency(Note.E))
     }
     else if (light &lt; 150) {
-        music.ringTone(music.noteFrequency(Note.F));
+        music.ringTone(music.noteFrequency(Note.F))
     }
     else if (light &lt; 180) {
-        music.ringTone(music.noteFrequency(Note.G));
+        music.ringTone(music.noteFrequency(Note.G))
     }
     else {
-        music.ringTone(music.noteFrequency(Note.A));
+        music.ringTone(music.noteFrequency(Note.A))
     }
 });</code></pre>
 <p>Alright, now click <strong>Download</strong> and run your code on the micro:bit!</p>

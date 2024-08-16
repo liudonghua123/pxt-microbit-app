@@ -1698,7 +1698,7 @@ When you press <code>A</code>, your friends will see a <strong>smiley</strong> f
 between micro:bits using the radio antenna, just like a phone can send text messages.</p>
 <p>Let’s add blocks that send a number when button <code>A</code> is pressed. We assume that <code>0</code> is the “mood code” to send for <strong>smiley</strong>.</p>
 <pre><code class="lang-blocks">radio.setGroup(1)
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     radio.sendNumber(0)
     basic.showIcon(IconNames.Happy)
 })</code></pre>
@@ -1711,7 +1711,7 @@ The <code>receivedNumber</code> variable contains the numeric value that was sen
     }
 })</code></pre>
 <h2 id="sending-a-frowny">Sending a frowny</h2><p>Adding another mood to our messaging app done in a similar way. We decide that the “mood code” of <code>1</code> means <strong>frowny</strong>. We can add a <code>B</code> button event that sends that code.</p>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.B, () =&gt; {
+<pre><code class="lang-blocks">input.onButtonPressed(Button.B, function () {
     radio.sendNumber(1)
     basic.showIcon(IconNames.Sad)
 })</code></pre>
@@ -1727,11 +1727,11 @@ The <code>receivedNumber</code> variable contains the numeric value that was sen
 <p>That’s it. Download your code to multiple micro:bits and try it out!</p>
 <h2 id="challenges">Challenges</h2><p>Try adding a new code and use the <code>||input:on shake||</code> event to send it.</p>
 <h2 id="complete-program">Complete program</h2><pre><code class="lang-blocks">radio.setGroup(1)
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     radio.sendNumber(0)
     basic.showIcon(IconNames.Happy)
 })
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     radio.sendNumber(1)
     basic.showIcon(IconNames.Sad)
 })

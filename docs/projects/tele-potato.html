@@ -1725,13 +1725,13 @@ radio.setGroup(1)</code></pre>
 <h3 id="starting-the-game">Starting the game</h3><p>To start the game, we respond to the <code>A+B</code> button press and assign a positive number to the <strong>potato</strong> variable.
 To make the game less predictable, we use the <code>||math:pick random||</code> block to generate a value between <code>10</code> and <code>20</code>.</p>
 <pre><code class="lang-blocks">let potato = 0
-input.onButtonPressed(Button.AB, () =&gt; {
+input.onButtonPressed(Button.AB, function () {
     potato = randint(10, 20)
 })</code></pre>
 <h3 id="sending-the-potato">Sending the potato</h3><p>Sending the potato is done by shaking the micro:bit. If the <strong>potato</strong> variable is positive,
 we have the potato and we can send it. After sending it, we set the <strong>potato</strong> variable to <code>-1</code> since we don’t have it anymore.</p>
 <pre><code class="lang-blocks">let potato = 0
-input.onGesture(Gesture.Shake, () =&gt; {
+input.onGesture(Gesture.Shake, function () {
     if (potato &gt; 0) {
         radio.sendNumber(potato)
         potato = -1
@@ -1750,7 +1750,7 @@ radio.onReceivedNumber(function (receivedNumber) {
 <li>If the <strong>potato</strong> variable is positive (<code>potato &gt; 0</code>), we display a potato image and decrease the variable by <code>1</code>.</li>
 </ul>
 <pre><code class="lang-blocks">let potato = 0
-basic.forever(() =&gt; {
+basic.forever(function () {
     if (potato == 0) {
         basic.showIcon(IconNames.Skull)
     }
@@ -1767,18 +1767,18 @@ basic.forever(() =&gt; {
 radio.onReceivedNumber(function (receivedNumber) {
     potato = receivedNumber
 })
-input.onGesture(Gesture.Shake, () =&gt; {
+input.onGesture(Gesture.Shake, function () {
     if (potato &gt; 0) {
         radio.sendNumber(potato)
         potato = -1
     }
 })
-input.onButtonPressed(Button.AB, () =&gt; {
+input.onButtonPressed(Button.AB, function () {
     potato = randint(10, 20)
 })
 radio.setGroup(1)
 potato = -1
-basic.forever(() =&gt; {
+basic.forever(function () {
     if (potato == 0) {
         basic.showIcon(IconNames.Skull)
     }

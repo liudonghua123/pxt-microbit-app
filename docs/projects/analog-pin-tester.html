@@ -1694,7 +1694,7 @@
         <h1 id="analog-pin-tester">Analog Pin Tester</h1><p>Use this program to graph the analog values that are read from pin <code>P0</code>.
 Press <code>A</code> to scroll the value on the screen.</p>
 <pre><code class="lang-blocks">let reading = 0
-basic.forever(() =&gt; {
+basic.forever(function () {
     reading = pins.analogReadPin(AnalogPin.P0)
     led.plotBarGraph(
         reading,

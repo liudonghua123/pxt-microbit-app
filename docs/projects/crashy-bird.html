@@ -1707,10 +1707,10 @@ bird.set(LedSpriteProperty.Blink, 300)</code></pre>
 <h2 id="step-2-make-the-bird-fly">Step 2: Make the Bird fly</h2><p>Before creating the code for the game actions, let’s first add some controls so that we can move around. We’ll control the bird by pressing the <strong>A</strong> button to go up or the <strong>B</strong> button to go down.</p>
 <pre><code class="lang-blocks">let bird: game.LedSprite = null
 
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     bird.change(LedSpriteProperty.Y, -1)
 })
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     bird.change(LedSpriteProperty.Y, 1)
 })</code></pre>
 <h2 id="step-3-generating-obstacles">Step 3: Generating obstacles</h2><p>This is where things will start to get interesting. We’re going to randomly generate obstacles. We’ll keep all obstacles inside the array. All obstacles will have a single hole for the bird to fly through.</p>
@@ -1744,11 +1744,11 @@ for (let index = 0; index &lt;= 4; index++) {
     }
 }
 
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     bird.change(LedSpriteProperty.Y, -1)
 })
 
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     bird.change(LedSpriteProperty.Y, 1)
 })</code></pre>
 <h2 id="step-4-make-obstacles-move">Step 4: Make obstacles move</h2><p>Access each obstacle using a <code>||for element||</code> loop (<em>iterate</em> over the <code>obstacles</code> array) and decrease the <code>obstacle</code> <code>X</code> coordinate by 1.
@@ -1756,7 +1756,7 @@ Right click on the <code>||value||</code> block and rename it to <code>||obstacl
 ; then drag that <code>||obstacle||</code> block on top of <code>||sprite||</code> in the <code>||game:change x||</code> block.</p>
 <pre><code class="lang-blocks">let obstacles: game.LedSprite[] = []
 
-basic.forever(() =&gt; {
+basic.forever(function () {
     for (let obstacle of obstacles) {
         obstacle.change(LedSpriteProperty.X, -1)
     }
@@ -1766,7 +1766,7 @@ basic.forever(() =&gt; {
 <h2 id="step-5-make-obstacles-disappear">Step 5: Make obstacles disappear</h2><p>Make obstacles disappear after reaching leftmost corner. Iterate over all obstacles, delete the obstacle sprites where the <code>X</code> coordinate equals <code>0</code>, and remove them from the <code>obstacles</code> array.</p>
 <pre><code class="lang-blocks">let obstacles: game.LedSprite[] = []
 
-basic.forever(() =&gt; {
+basic.forever(function () {
     while (obstacles.length &gt; 0 &amp;&amp; obstacles[0].get(LedSpriteProperty.X) == 0) {
         obstacles.removeAt(0).delete()
     }
@@ -1780,7 +1780,7 @@ basic.forever(() =&gt; {
 <pre><code class="lang-blocks">let emptyObstacleY = 0
 let obstacles: game.LedSprite[] = []
 
-basic.forever(() =&gt; {
+basic.forever(function () {
     while (obstacles.length &gt; 0 &amp;&amp; obstacles[0].get(LedSpriteProperty.X) == 0) {
         obstacles.removeAt(0).delete()
     }
@@ -1801,7 +1801,7 @@ basic.forever(() =&gt; {
 let emptyObstacleY = 0
 let obstacles: game.LedSprite[] = []
 
-basic.forever(() =&gt; {
+basic.forever(function () {
     while (obstacles.length &gt; 0 &amp;&amp; obstacles[0].get(LedSpriteProperty.X) == 0) {
         obstacles.removeAt(0).delete()
     }
@@ -1826,7 +1826,7 @@ let ticks = 0
 let emptyObstacleY = 0
 let obstacles: game.LedSprite[] = []
 
-basic.forever(() =&gt; {
+basic.forever(function () {
     while (obstacles.length &gt; 0 &amp;&amp; obstacles[0].get(LedSpriteProperty.X) == 0) {
         obstacles.removeAt(0).delete()
     }
@@ -1857,17 +1857,17 @@ let emptyObstacleY = 0
 let obstacles: game.LedSprite[] = []
 let index = 0
 let bird: game.LedSprite = null
-input.onButtonPressed(Button.A, () =&gt; {
+input.onButtonPressed(Button.A, function () {
     bird.change(LedSpriteProperty.Y, -1)
 })
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     bird.change(LedSpriteProperty.Y, 1)
 })
 index = 0
 obstacles = []
 bird = game.createSprite(0, 2)
 bird.set(LedSpriteProperty.Blink, 300)
-basic.forever(() =&gt; {
+basic.forever(function () {
     while (obstacles.length &gt; 0 &amp;&amp; obstacles[0].get(LedSpriteProperty.X) == 0) {
         obstacles.removeAt(0).delete()
     }

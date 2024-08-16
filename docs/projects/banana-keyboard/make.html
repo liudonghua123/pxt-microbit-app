@@ -1719,7 +1719,7 @@
 <h3 id="-code-step-9-code-complete-banana-keyboard"><code>|Step 9|</code> - Complete banana keyboard</h3><p><img class="ui image" src="/static/mb/lessons/banana-keyboard-12.png" alt="" loading="lazy"></p>
 <p>Your banana keyboard is ready!</p>
 <h3 id="-code-step-10-code-test-the-keyboard"><code>|Step 10|</code> - Test the keyboard</h3><p>Connect your micro:bit to your computer using your USB cable and run this script:</p>
-<pre><code class="lang-blocks">input.onPinPressed(TouchPin.P1, () =&gt; {
+<pre><code class="lang-blocks">input.onPinPressed(TouchPin.P1, function () {
     music.playTone(music.noteFrequency(Note.C), music.beat(BeatFraction.Quarter));
 });</code></pre>
 

@@ -1712,12 +1712,12 @@ and the vote is sent to a <strong>dashboard</strong> micro:bit using the radio.
 The dashboard allocates one LED per player and turns it on or off based on the vote.</p>
 <h2 id="the-voter-program">The voter program</h2><p>Assuming button <code>A</code> is for a NO vote and <code>B</code> is for YES, the voter program works like this:</p>
 <h3 id="transmit-a-no-vote">Transmit a NO vote</h3><p>When button <code>A</code> is pressed, a number <code>0</code> is sent via radio and the <code>X</code> symbol is shown on the screen.</p>
-<pre><code class="lang-block">input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-block">input.onButtonPressed(Button.A, function () {
     radio.sendNumber(0)
     basic.showIcon(IconNames.No)
 })</code></pre>
 <h3 id="transmit-a-yes-vote">Transmit a YES vote</h3><p>When button <code>B</code> is pressed, a number <code>255</code> is sent via radio and the <code>Y</code> symbol is shown on the screen.</p>
-<pre><code class="lang-block">input.onButtonPressed(Button.B, () =&gt; {
+<pre><code class="lang-block">input.onButtonPressed(Button.B, function () {
     radio.sendNumber(255)
     basic.showIcon(IconNames.Yes)
 })</code></pre>
@@ -1726,11 +1726,11 @@ The dashboard allocates one LED per player and turns it on or off based on the v
 <h3 id="set-the-radio-group">Set the radio group</h3><p>We arbitrarily choose <code>4</code> as the group used for the communications.</p>
 <pre><code class="lang-block">radio.setGroup(4)</code></pre>
 <p>Putting all the parts together, here’s the complete voter program:</p>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
+<pre><code class="lang-blocks">input.onButtonPressed(Button.A, function () {
     radio.sendNumber(0)
     basic.showIcon(IconNames.No)
 })
-input.onButtonPressed(Button.B, () =&gt; {
+input.onButtonPressed(Button.B, function () {
     radio.sendNumber(255)
     basic.showIcon(IconNames.Yes)
 })
