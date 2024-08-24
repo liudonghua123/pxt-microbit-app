@@ -3429,14 +3429,7 @@ class DAPWrapper {
         const connectionId = this.connectionId;
         this.allocDAP(); // clean dap apis
         await this.io.reconnectAsync();
-        // before calling into dapjs, push through a few commands to make sure the responses
-        // to commands from previous sessions (if any) are flushed. Count of 5 is arbitrary.
-        for (let i = 0; i < 5; i++) {
-            try {
-                await this.getDaplinkVersionAsync();
-            }
-            catch (e) { }
-        }
+        await this.clearCommandsAsync();
         // halt before reading from dap
         // to avoid interference from data logger
         await this.cortexM.halt();
@@ -3464,6 +3457,16 @@ class DAPWrapper {
         this.io.onConnectionChanged();
         // start jacdac, serial async
         this.startReadSerial(connectionId);
+    }
+    async clearCommandsAsync() {
+        // before calling into dapjs, push through a few commands to make sure the responses
+        // to commands from previous sessions (if any) are flushed. Count of 5 is arbitrary.
+        for (let i = 0; i < 5; i++) {
+            try {
+                await this.getDaplinkVersionAsync();
+            }
+            catch (e) { }
+        }
     }
     async getDaplinkVersionAsync() {
         return await this.dapCmdNums(0x00, 0x04);
@@ -3505,6 +3508,7 @@ class DAPWrapper {
         if (!this.io.isConnected()) {
             await this.io.reconnectAsync();
         }
+        await this.clearCommandsAsync();
         await this.stopReadersAsync();
         await this.cortexM.init();
         await this.cortexM.reset(true);
