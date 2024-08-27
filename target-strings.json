@@ -54,6 +54,7 @@
     "Tutorials": "Tutorials",
     "Tutorials for the new micro:bit (V2)": "Tutorials for the new micro:bit (V2)",
     "makecode.microbit.org": "makecode.microbit.org",
+    "{0} is a write only analog pin": "{0} is a write only analog pin",
     "{id:extension-tag}Gaming": "Gaming",
     "{id:extension-tag}Lights and Display": "Lights and Display",
     "{id:extension-tag}Networking": "Networking",
