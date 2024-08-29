@@ -397,16 +397,17 @@
         "teachertool=1": {
             "appTheme": {
                 "hideMenuBar": true,
-                "workspaceSearch": true
+                "workspaceSearch": true,
+                "noReloadOnUpdate": true
             }
         }
     },
     "uploadDocs": true,
     "versions": {
         "branch": "main",
-        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/77d4d8b04a4c7508b5c356f00ca9f953b2153942",
-        "target": "7.0.29",
-        "pxt": "10.2.23"
+        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/1c2a2989c819da7d75490a04be5504fea051eeac",
+        "target": "7.0.33",
+        "pxt": "10.2.29"
     },
     "blocksprj": {
         "id": "blocksprj",
