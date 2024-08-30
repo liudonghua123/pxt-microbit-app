@@ -9,6 +9,7 @@ const dataAddr = 0x20002000;
 const stackAddr = 0x20001000;
 const FULL_FLASH_TIMEOUT = 100000; // 100s
 const PARTIAL_FLASH_TIMEOUT = 60000; // 60s
+const RETRY_DAP_CMD_TIMEOUT = 50; // .05s
 const flashPageBIN = new Uint32Array([
     0xbe00be00,
     0x2502b5f0, 0x4c204b1f, 0xf3bf511d, 0xf3bf8f6f, 0x25808f4f, 0x002e00ed,
@@ -392,11 +393,11 @@ class DAPWrapper {
         // the micro:bit will automatically disconnect and reconnect
         // via the webusb events
     }
-    recvPacketAsync() {
+    recvPacketAsync(timeout) {
         if (this.io.recvPacketAsync)
-            return this.io.recvPacketAsync();
+            return this.io.recvPacketAsync(timeout);
         else
-            return this.pbuf.shiftAsync();
+            return this.pbuf.shiftAsync(timeout);
     }
     async dapCmd(buf) {
         await this.io.sendPacketAsync(buf);
@@ -408,13 +409,15 @@ class DAPWrapper {
             // response is a left-over from previous communications
             log(msg + "; retrying");
             try {
-                const secondTryResp = await this.recvPacketAsync();
+                // Add in a timeout, as this can stall if device thinks communication is complete.
+                const secondTryResp = await this.recvPacketAsync(RETRY_DAP_CMD_TIMEOUT);
                 if (secondTryResp[0] === buf[0]) {
                     log(msg + "; retry success");
                     return secondTryResp;
                 }
             }
             catch (e) {
+                pxt.tickEvent('hid.flash.cmderror.retryfailed', { req: buf[0], resp: resp[0] });
                 log(e);
             }
             throw new Error(`retry failed ${msg}`);
