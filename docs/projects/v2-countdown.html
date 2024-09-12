@@ -1700,47 +1700,47 @@
 for (let index = 0; index &lt;= 2; index++) {
 
 }</code></pre>
-<h2 id="play-music">Play music</h2><p>► From <code>||music:Music||</code>, grab <code>||music:play tone [Middle C] for [1 beat]||</code> and snap it into your empty <code>for</code> loop.<br>💡 Your simulator might start playing music. You can mute it if distracting.<br>► 1 beat is a little long. Use the <strong>dropdown</strong> to set the tone to play for <code>||music:1/4 beat||</code>.</p>
+<h2 id="play-music">Play music</h2><p>► From <code>||music:Music||</code>, grab <code>||music:play tone [Middle C] for [1 beat] [until done]||</code> and snap it into your empty <code>for</code> loop.<br>💡 Your simulator might start playing music. You can mute it if distracting.<br>► 1 beat is a little long. Use the <strong>dropdown</strong> to set the tone to play for <code>||music:1/4 beat||</code>.</p>
 <pre><code class="lang-blocks">for (let index = 0; index &lt;= 2; index++) {
     // @highlight
-    music.playTone(262, music.beat(BeatFraction.Quarter))
+    music.play(music.tonePlayable(262, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
 }</code></pre>
 <h2 id="showing-a-number">Showing a number</h2><p>With every tone, we also want to <strong>display</strong> our countdown.</p>
 <p>► From <code>||basic:Basic||</code>, find <code>||basic:show number [0]||</code> and snap it in at the <strong>bottom</strong> of your <code>for</code> loop.<br>► From your <code>||loops:for [index] from 0 to [2]||</code> loop condition, click and drag out the <strong>red</strong> <code>||variables:index||</code> variable.<br>► Use the <code>||variables:index||</code> that you dragged out to <strong>replace</strong> the <code>0</code> in <code>||basic:show number [0]||</code>.</p>
 <pre><code class="lang-blocks">for (let index = 0; index &lt;= 2; index++) {
-    music.playTone(262, music.beat(BeatFraction.Quarter))
+    music.play(music.tonePlayable(262, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
     // @highlight
     basic.showNumber(index)
 }</code></pre>
 <h2 id="inverting-the-number">Inverting the number</h2><p>If you take a look at your simulator, you’ll notice the micro:bit flashing 0-1-2. We want it to say 3-2-1! Let’s learn a trick to change that.</p>
 <p>► From the <code>||math:Math||</code> category, snap <code>||math:[0] - [0]||</code> in to <strong>replace</strong> <code>||variables:index||</code> in your <code>||basic:show number [index]||</code> block.<br>💡 You should now have a greyed out <code>index</code> variable in your workspace. We’ll use that in the next step.<br>► Pick up the greyed out <code>||variables:index||</code> variable and snap it in to the <strong>right side</strong> of your <code>||math:[0] - [0]||</code> operator.<br>💡 Can’t find <code>||variables:index||</code>? Try moving your <code>||basic:on start||</code> container to see if <code>||variables: index||</code> is hiding behind it!<br>► Set the <strong>left side</strong> of your <code>||math:[0]-[index]||</code> operator to <strong><code>3</code></strong>.<br>💡 Why does this work? Every time we loop, our <code>index</code> variable will grow by 1 and our micro:bit will output: 3-0 = <strong>3</strong> ➡️ 3-1 = <strong>2</strong> ➡️ 3-2 = <strong>1</strong>!</p>
 <pre><code class="lang-blocks">for (let index = 0; index &lt;= 2; index++) {
-    music.playTone(262, music.beat(BeatFraction.Quarter))
+    music.play(music.tonePlayable(262, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
     // @highlight
     basic.showNumber(3 - index)
 }</code></pre>
 <h2 id="printing-go-">Printing “GO!”</h2><p>► From <code>||basic:Basic||</code>, grab <code>||basic:show string [&quot;Hello!&quot;]||</code> and snap it into the <strong>very bottom</strong> of your <code>||basic:on start||</code> container.<br>► Replace <code>Hello!</code> with the word <code>GO!</code></p>
 <pre><code class="lang-blocks">for (let index = 0; index &lt;= 2; index++) {
-    music.playTone(262, music.beat(BeatFraction.Quarter))
+    music.play(music.tonePlayable(262, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
     basic.showNumber(3 - index)
 }
 // @highlight
 basic.showString(&quot;GO!&quot;)</code></pre>
-<h2 id="adding-a-go-noise">Adding a “GO!” noise</h2><p>► From the <code>||music:Music||</code> category, grab <code>||music:play tone [Middle C] for [1 beat]||</code> and place it <strong>above</strong> your <code>||basic:show string [&quot;GO!&quot;]||</code> block and <strong>below</strong> your <code>||loops:for||</code> loop.<br>💡 This will let your micro:bit play the sound and show <code>GO!</code> at the same time.<br>► Set the <code>||music:tone||</code> to be <code>Middle G</code>.<br>💡 <code>Middle G</code> is also tone <code>392</code>.</p>
+<h2 id="adding-a-go-noise">Adding a “GO!” noise</h2><p>► From the <code>||music:Music||</code> category, grab <code>||music:play tone [Middle C] for [1 beat] [until done]||</code> and place it <strong>above</strong> your <code>||basic:show string [&quot;GO!&quot;]||</code> block and <strong>below</strong> your <code>||loops:for||</code> loop.<br>💡 This will let your micro:bit play the sound and show <code>GO!</code> at the same time.<br>► Set the <code>||music:tone||</code> to be <code>Middle G</code>.<br>💡 <code>Middle G</code> is also tone <code>392</code>.</p>
 <pre><code class="lang-blocks">for (let index = 0; index &lt;= 2; index++) {
-    music.playTone(262, music.beat(BeatFraction.Quarter))
+    music.play(music.tonePlayable(262, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
     basic.showNumber(3 - index)
 }
 // @highlight
-music.playTone(392, music.beat(BeatFraction.Whole))
+music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
 basic.showString(&quot;GO!&quot;)</code></pre>
 <h2 id="testing-in-the-simulator">Testing in the simulator</h2><p>Make sure your speakers are on and check out the simulator!  </p>
 <p>If you have a micro:bit with sound (the one with the <strong>shiny gold</strong> logo at the top), no need to plug in an external speaker - just download this code and try it out!</p>
 <pre><code class="lang-blocks">for (let index = 0; index &lt;= 2; index++) {
-    music.playTone(262, music.beat(BeatFraction.Quarter))
+    music.play(music.tonePlayable(262, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
     basic.showNumber(3 - index)
 }
-music.playTone(392, music.beat(BeatFraction.Whole))
+music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
 basic.showString(&quot;GO!&quot;)</code></pre>
 <pre><code class="lang-validation.global"># BlocksExistValidator</code></pre>
 <pre><code class="lang-template">//</code></pre>

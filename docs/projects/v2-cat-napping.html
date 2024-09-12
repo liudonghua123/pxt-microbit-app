@@ -1723,13 +1723,13 @@ input.onButtonPressed(Button.A, function () {
     }
 })</code></pre>
 <h2 id="auditory-logging-indicators">Auditory logging indicators</h2><p>Let’s now add an auditory indicator that your micro:bit is logging data!</p>
-<p>► From the <code>||music:Music||</code> category, grab a <code>||music:play sound [giggle] [until done]||</code> block and snap it into the <strong>bottom</strong> of the <strong>top container</strong> of your <code>||logic:if then / else||</code> statement.<br>► Click on the <code>giggle</code> dropdown and select <code>hello</code>. Your block should now say <code>||music:play sound [hello] [until done]||</code>.</p>
+<p>► From the <code>||music:Music||</code> category, grab a <code>||music:play sound [dadadum] [in background]||</code> block and snap it into the <strong>bottom</strong> of the <strong>top container</strong> of your <code>||logic:if then / else||</code> statement.<br>► Click on the <code>[dadadum]</code> dropdown and select <code>nyan</code>, then set the playback mode to <code>||music:[until done]||</code>. Your block should now say <code>||music:play melody [nyan] [until done]||</code>.</p>
 <pre><code class="lang-blocks">let logging = false
 input.onButtonPressed(Button.A, function () {
     logging = !(logging)
     if (logging) {
         basic.showIcon(IconNames.Target)
-        music.playSoundEffect(music.builtinSoundEffect(soundExpression.hello), SoundExpressionPlayMode.UntilDone)
+        music.play(music.builtInPlayableMelody(Melodies.Nyan), music.PlaybackMode.UntilDone)
     } else {
     }
 })</code></pre>
@@ -1739,7 +1739,7 @@ input.onButtonPressed(Button.A, function () {
     logging = !(logging)
     if (logging) {
         basic.showIcon(IconNames.Target)
-        music.playSoundEffect(music.builtinSoundEffect(soundExpression.hello), SoundExpressionPlayMode.UntilDone)
+        music.play(music.builtInPlayableMelody(Melodies.Nyan), music.PlaybackMode.UntilDone)
     } else {
         basic.clearScreen()
     }

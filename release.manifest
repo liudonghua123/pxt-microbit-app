@@ -59,7 +59,7 @@ CACHE:
 /pxt-microbit-app/worker.js
 /pxt-microbit-app/monacoworker.js
 
-# ver Fri Aug 30 2024 23:24:34 GMT+0000 (Coordinated Universal Time)
+# ver Thu Sep 12 2024 23:21:41 GMT+0000 (Coordinated Universal Time)
 
 # target
 /pxt-microbit-app/docs/static/providers/github-mark.png
@@ -75,6 +75,7 @@ CACHE:
 /pxt-microbit-app/docs/static/herogallery/hero-banner.png
 /pxt-microbit-app/docs/static/download/transfer.png
 /pxt-microbit-app/docs/static/download/connect-microbit.gif
+/pxt-microbit-app/docs/static/download/full-reset.gif
 /pxt-microbit-app/docs/static/download/selecting-microbit.gif
 /pxt-microbit-app/docs/static/download/successfully-paired.png
 /pxt-microbit-app/docs/static/download/incompatible.png

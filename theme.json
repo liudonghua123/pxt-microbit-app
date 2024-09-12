@@ -194,6 +194,7 @@
         "incompatibleHardwareHelpURL": "/device/v2",
         "dragFileImage": "docs/static/download/transfer.png",
         "connectDeviceImage": "docs/static/download/connect-microbit.gif",
+        "disconnectDeviceImage": "docs/static/download/full-reset.gif",
         "selectDeviceImage": "docs/static/download/selecting-microbit.gif",
         "connectionSuccessImage": "docs/static/download/successfully-paired.png",
         "incompatibleHardwareImage": "docs/static/download/incompatible.png",

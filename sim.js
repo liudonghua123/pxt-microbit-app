@@ -2401,6 +2401,14 @@ var pxsim;
             mirrorToSerial = !!enabled;
         }
         flashlog.setSerialMirroring = setSerialMirroring;
+        function getNumberOfRows(fromRowIndex = 0) {
+            return 0; // TODO
+        }
+        flashlog.getNumberOfRows = getNumberOfRows;
+        function getRows(fromRowIndex, nRows) {
+            return ""; // TODO
+        }
+        flashlog.getRows = getRows;
     })(flashlog = pxsim.flashlog || (pxsim.flashlog = {}));
 })(pxsim || (pxsim = {}));
 var pxsim;

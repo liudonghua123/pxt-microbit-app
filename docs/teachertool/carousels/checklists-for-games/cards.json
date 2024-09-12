@@ -5,14 +5,6 @@
             "cardTitle": "Rock Paper Scissors",
             "imageUrl": "/static/mb/projects/a4-motion.png",
             "checklistUrl": "/teachertool/checklists/rock-paper-scissors.json"
-        }
-    ],
-    "cards.hidden": [
-        {
-            "cardType": "checklist-resource",
-            "cardTitle": "Rock Paper Scissors V2",
-            "imageUrl": "/static/mb/projects/a4-motion-v2.png",
-            "checklistUrl": "/teachertool/checklists/rock-paper-scissors-mbv2.json"
         },
         {
             "cardType": "checklist-resource",
@@ -34,6 +26,26 @@
         },
         {
             "cardType": "checklist-resource",
+            "cardTitle": "Tug-Of-LED",
+            "imageUrl": "/static/mb/projects/tug-of-led.png",
+            "checklistUrl": "/teachertool/checklists/tug-of-led.json"
+        },
+        {
+            "cardType": "checklist-resource",
+            "cardTitle": "Snap the dot",
+            "imageUrl": "/static/mb/projects/snap-the-dot.png",
+            "checklistUrl": "/teachertool/checklists/snap-the-dot.json"
+        }
+    ],
+    "cards.hidden": [
+        {
+            "cardType": "checklist-resource",
+            "cardTitle": "Rock Paper Scissors V2",
+            "imageUrl": "/static/mb/projects/a4-motion-v2.png",
+            "checklistUrl": "/teachertool/checklists/rock-paper-scissors-mbv2.json"
+        },
+        {
+            "cardType": "checklist-resource",
             "cardTitle": "Heads Guess!",
             "imageUrl": "/static/mb/projects/heads-guess.png",
             "checklistUrl": "/teachertool/checklists/heads-guess.json"
@@ -46,21 +58,9 @@
         },
         {
             "cardType": "checklist-resource",
-            "cardTitle": "Tug-Of-LED",
-            "imageUrl": "/static/mb/projects/tug-of-led.png",
-            "checklistUrl": "/teachertool/checklists/tug-of-led.json"
-        },
-        {
-            "cardType": "checklist-resource",
             "cardTitle": "Magic Button Trick",
             "imageUrl": "/static/mb/projects/magic-button-trick.png",
             "checklistUrl": "/teachertool/checklists/magic-button-trick.json"
-        },
-        {
-            "cardType": "checklist-resource",
-            "cardTitle": "Snap the dot",
-            "imageUrl": "/static/mb/projects/snap-the-dot.png",
-            "checklistUrl": "/teachertool/checklists/snap-the-dot.json"
         }
     ]
 }

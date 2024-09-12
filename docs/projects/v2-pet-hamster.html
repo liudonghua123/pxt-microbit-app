@@ -1703,11 +1703,11 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     //@highlight
     basic.showIcon(IconNames.Happy)
 })</code></pre>
-<h2 id="tickle-sound">Tickle sound</h2><p>► From the <code>||music:Music||</code> category, get a <code>||music:play sound [giggle] until done||</code> and add it to the <strong>bottom</strong> of your <code>||input:on logo [pressed]||</code> container.</p>
+<h2 id="tickle-sound">Tickle sound</h2><p>► From the <code>||music:Music||</code> category, get a <code>||music:play melody [jump up] [in background]||</code> and add it to the <strong>bottom</strong> of your <code>||input:on logo [pressed]||</code> container. Change the playback mode to <code>||music:[until done]||</code>.</p>
 <pre><code class="lang-blocks">input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     basic.showIcon(IconNames.Happy)
     //@highlight
-    soundExpression.giggle.playUntilDone()
+    music.play(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
 })</code></pre>
 <h2 id="dizzy-cyrus">Dizzy Cyrus</h2><p>Whenever Cyrus is shaken, they get sad 🙁</p>
 <p>► From <code>||input:Input||</code>, find <code>||input:on [shake]||</code> and drag it into your workspace.<br>► From the <code>||basic:Basic||</code> category, grab <code>||basic:show icon [ ]||</code> and snap it into your <strong>new</strong> <code>||input:on [shake]||</code> container. Set the icon (Cyrus’s face) to sad <code>:(</code>.</p>
@@ -1716,34 +1716,35 @@ input.onGesture(Gesture.Shake, function () {
     //@highlight
     basic.showIcon(IconNames.Sad)
 })</code></pre>
-<h2 id="dizzy-sound">Dizzy sound</h2><p>► From the <code>||music:Music||</code> category, find the <code>||music:play sound [giggle] until done||</code> block and add it to the <strong>bottom</strong> of your <code>||input:on [shake]||</code> container.<br>► Click on the <strong>dropdown</strong> and set it so Cyrus plays a <code>||music:sad||</code> sound until done.</p>
+<h2 id="dizzy-sound">Dizzy sound</h2><p>► From the <code>||music:Music||</code> category, find the <code>||music:play melody [dadadum] [in background]||</code> block and add it to the <strong>bottom</strong> of your <code>||input:on [shake]||</code> container. Change the playback mode to <code>||music:[until done]||</code>.
+► Click on the <strong>dropdown</strong> and set it so Cyrus plays a sad sound until done.</p>
 <pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function () {
     basic.showIcon(IconNames.Sad)
     //@highlight
-    soundExpression.sad.playUntilDone()
+    music.play(music.builtInPlayableMelody(Melodies.Wawawawaa), music.PlaybackMode.UntilDone)
 })</code></pre>
 <h2 id="cyrus-s-default-face-pt-1">Cyrus’s default face pt. 1</h2><p>Let’s ensure that Cyrus will always go back to sleep after being shaken or tickled.</p>
 <p>► Right click the <code>||basic:show icon[-_-]||</code> block in your workspace (inside the <code>||basic:on start||</code> container) and choose <strong>Duplicate</strong>.<br>► Snap your copied block in at the <strong>very bottom</strong> of your <code>||input:on [shake]||</code> container.</p>
 <pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function () {
     basic.showIcon(IconNames.Sad)
-    soundExpression.sad.playUntilDone()
+    music.play(music.builtInPlayableMelody(Melodies.Wawawawaa), music.PlaybackMode.UntilDone)
     //@highlight
     basic.showIcon(IconNames.Asleep)
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     basic.showIcon(IconNames.Happy)
-    soundExpression.giggle.playUntilDone()
+    music.play(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
 })
 basic.showIcon(IconNames.Asleep)</code></pre>
 <h2 id="cyrus-s-default-face-pt-2">Cyrus’s default face pt. 2</h2><p>► Duplicate the <code>||basic:show icon[-_-]||</code> block again and this time snap it in at the <strong>very bottom</strong> of your <code>||input:on logo [pressed]||</code> container.</p>
 <pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function () {
     basic.showIcon(IconNames.Sad)
-    soundExpression.sad.playUntilDone()
+    music.play(music.builtInPlayableMelody(Melodies.Wawawawaa), music.PlaybackMode.UntilDone)
     basic.showIcon(IconNames.Asleep)
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     basic.showIcon(IconNames.Happy)
-    soundExpression.giggle.playUntilDone()
+    music.play(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
     //@highlight
     basic.showIcon(IconNames.Asleep)
 })
@@ -1753,12 +1754,12 @@ basic.showIcon(IconNames.Asleep)</code></pre>
 <p>If you have a new micro:bit (the one with the <strong>shiny gold</strong> logo at the top), download this code and try it out!</p>
 <pre><code class="lang-blocks">input.onGesture(Gesture.Shake, function () {
     basic.showIcon(IconNames.Sad)
-    soundExpression.sad.playUntilDone()
+    music.play(music.builtInPlayableMelody(Melodies.Wawawawaa), music.PlaybackMode.UntilDone)
     basic.showIcon(IconNames.Asleep)
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
     basic.showIcon(IconNames.Happy)
-    soundExpression.giggle.playUntilDone()
+    music.play(music.builtInPlayableMelody(Melodies.JumpUp), music.PlaybackMode.UntilDone)
     basic.showIcon(IconNames.Asleep)
 })
 basic.showIcon(IconNames.Asleep)</code></pre>

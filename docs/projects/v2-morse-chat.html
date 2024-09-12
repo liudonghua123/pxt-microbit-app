@@ -1746,7 +1746,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             `)
     }
 })</code></pre>
-<h2 id="playing-a-sound-pt-1">Playing a sound pt. 1</h2><p>► From the <code>||music:Music||</code> category, grab a <code>||music:play tone [Middle C] for [1 beat]||</code> block and snap it at the <strong>end</strong> of the <strong>bottom container</strong> in your <code>||logic:if then / else||</code> statement.</p>
+<h2 id="playing-a-sound-pt-1">Playing a sound pt. 1</h2><p>► From the <code>||music:Music||</code> category, grab a <code>||music:play tone [Middle C] for [1 beat] [until done]||</code> block and snap it at the <strong>end</strong> of the <strong>bottom container</strong> in your <code>||logic:if then / else||</code> statement.</p>
 <pre><code class="lang-blocks">radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 0) {
     } else {
@@ -1758,7 +1758,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             . . . . .
             `)
         // @highlight
-        music.playTone(262, music.beat(BeatFraction.Whole))
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
     }
 })</code></pre>
 <h2 id="displaying-a-message-pt-2">Displaying a message pt. 2</h2><p>► We want to display a dot if the logo is pressed. From <code>||basic:Basic||</code>, grab another <code>||basic:show leds||</code> and snap it into the <strong>top container</strong> of your <code>||logic:if then / else||</code> statement.<br>► Turn on a single LED to make a dot: .</p>
@@ -1780,10 +1780,10 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             . . . . .
             . . . . .
             `)
-        music.playTone(262, music.beat(BeatFraction.Whole))
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
     }
 })</code></pre>
-<h2 id="playing-a-sound-pt-2">Playing a sound pt. 2</h2><p>► From the <code>||music:Music||</code> category, grab <code>||music:play tone [Middle C] for [1 beat]||</code> and snap it in at the <strong>end</strong> of the <strong>top container</strong> in your <code>||logic:if then / else||</code> statement.<br>► Dots are shorter than dashes! Set the tone to play for <code>1/4 beat</code>.</p>
+<h2 id="playing-a-sound-pt-2">Playing a sound pt. 2</h2><p>► From the <code>||music:Music||</code> category, grab <code>||music:play tone [Middle C] for [1 beat] [until done]||</code> and snap it in at the <strong>end</strong> of the <strong>top container</strong> in your <code>||logic:if then / else||</code> statement.<br>► Dots are shorter than dashes! Set the tone to play for <code>1/4 beat</code>.</p>
 <pre><code class="lang-blocks">radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 0) {
         basic.showLeds(`
@@ -1794,7 +1794,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             . . . . .
             `)
         // @highlight
-        music.playTone(262, music.beat(BeatFraction.Quarter))
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
     } else {
         basic.showLeds(`
             . . . . .
@@ -1803,7 +1803,7 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             . . . . .
             . . . . .
             `)
-        music.playTone(262, music.beat(BeatFraction.Whole))
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
     }
 })</code></pre>
 <h2 id="clearing-the-screens">Clearing the screens</h2><p>► From <code>||basic:Basic||</code>, find <code>||basic:clear screen||</code> and snap it in at the <strong>very bottom</strong> of your <code>||radio:on radio received [receivedNumber]||</code> container.</p>
@@ -1816,7 +1816,8 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             . . . . .
             . . . . .
             `)
-        music.playTone(262, music.beat(BeatFraction.Quarter))
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+
     } else {
         basic.showLeds(`
             . . . . .
@@ -1825,7 +1826,8 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             . . . . .
             . . . . .
             `)
-        music.playTone(262, music.beat(BeatFraction.Whole))
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+
     }
     // @highlight
     basic.clearScreen()
@@ -1841,7 +1843,8 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             . . . . .
             . . . . .
             `)
-        music.playTone(262, music.beat(BeatFraction.Quarter))
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+
     } else {
         basic.showLeds(`
             . . . . .
@@ -1850,7 +1853,8 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             . . . . .
             . . . . .
             `)
-        music.playTone(262, music.beat(BeatFraction.Whole))
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+
     }
     basic.clearScreen()
 })
@@ -1870,7 +1874,8 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             . . . . .
             . . . . .
             `)
-        music.playTone(262, music.beat(BeatFraction.Quarter))
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Quarter)), music.PlaybackMode.UntilDone)
+
     } else {
         basic.showLeds(`
             . . . . .
@@ -1879,7 +1884,8 @@ input.onLogoEvent(TouchButtonEvent.Pressed, function () {
             . . . . .
             . . . . .
             `)
-        music.playTone(262, music.beat(BeatFraction.Whole))
+        music.play(music.tonePlayable(262, music.beat(BeatFraction.Whole)), music.PlaybackMode.UntilDone)
+
     }
     basic.clearScreen()
 })
