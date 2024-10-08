@@ -257,6 +257,7 @@
                 "permanent": true
             }
         },
+        "testSimulatorExtensions": {},
         "boardDefinition": {
             "visual": "microbit",
             "gpioPinBlocks": [
@@ -412,8 +413,8 @@
     "versions": {
         "branch": "main",
         "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/971292bb38bc78b149ed52a7c746b197221915d1",
-        "target": "7.1.5",
-        "pxt": "11.2.2"
+        "target": "7.1.8",
+        "pxt": "11.2.5"
     },
     "blocksprj": {
         "id": "blocksprj",

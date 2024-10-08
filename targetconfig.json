@@ -464,7 +464,14 @@
             "kittenbot/pxt-tabbyrobot": { "tags": [ "Robotics" ] },
             "pythom1234/pxt-oled": { "tags": [ "Lights and Display" ] },
             "softsmyth/lectrify-b4k": { "tags": [ "Robotics" ] },
-            "davidnsousa/sonification": { "tags": [ "Software" ] }
+            "davidnsousa/sonification": { "tags": [ "Software" ] },
+            "microsoft/pxt-simx-sample": {
+                "simx": {
+                    "sha": "7301f5900879b85127482d79bab48f03c25690a8",
+                    "devUrl": "http://localhost:5173"
+                }
+            },
+            "shahart/heb-microbit": { "tags": [ "Software" ] }
         },
         "approvedEditorExtensionUrls": [
             "https://microsoft.github.io/ml4f/",
