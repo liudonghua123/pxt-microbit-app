@@ -1126,13 +1126,13 @@ var pxsim;
         BitmapMethods.drawLine = drawLine;
         function drawIcon(img, icon, x, y, color) {
             const src = icon.data;
-            if (!pxsim.bitmap.isValidImage(icon))
+            if (!pxsim.bitmaps.isValidImage(icon))
                 return;
             if (src[1] != 1)
                 return; // only mono
-            let width = pxsim.bitmap.bufW(src);
-            let height = pxsim.bitmap.bufH(src);
-            let byteH = pxsim.bitmap.byteHeight(height, 1);
+            let width = pxsim.bitmaps.bufW(src);
+            let height = pxsim.bitmaps.bufH(src);
+            let byteH = pxsim.bitmaps.byteHeight(height, 1);
             x |= 0;
             y |= 0;
             const destHeight = img._height;
@@ -1478,15 +1478,15 @@ var pxsim;
     })(BitmapMethods = pxsim.BitmapMethods || (pxsim.BitmapMethods = {}));
 })(pxsim || (pxsim = {}));
 (function (pxsim) {
-    var bitmap;
-    (function (bitmap) {
+    var bitmaps;
+    (function (bitmaps) {
         function byteHeight(h, bpp) {
             if (bpp == 1)
                 return h * bpp + 7 >> 3;
             else
                 return ((h * bpp + 31) >> 5) << 2;
         }
-        bitmap.byteHeight = byteHeight;
+        bitmaps.byteHeight = byteHeight;
         function isLegacyImage(buf) {
             if (!buf || buf.data.length < 5)
                 return false;
@@ -1501,11 +1501,11 @@ var pxsim;
         function bufW(data) {
             return data[2] | (data[3] << 8);
         }
-        bitmap.bufW = bufW;
+        bitmaps.bufW = bufW;
         function bufH(data) {
             return data[4] | (data[5] << 8);
         }
-        bitmap.bufH = bufH;
+        bitmaps.bufH = bufH;
         function isValidImage(buf) {
             if (!buf || buf.data.length < 5)
                 return false;
@@ -1519,15 +1519,14 @@ var pxsim;
                 return false;
             return true;
         }
-        bitmap.isValidImage = isValidImage;
+        bitmaps.isValidImage = isValidImage;
         function create(w, h) {
             // truncate decimal sizes
             w |= 0;
             h |= 0;
             return new pxsim.RefImage(w, h, 4);
         }
-        bitmap.create = create;
-        // TODO: move to image namespace
+        bitmaps.create = create;
         function ofBuffer(buf) {
             const src = buf.data;
             let srcP = 4;
@@ -1583,7 +1582,7 @@ var pxsim;
             }
             return r;
         }
-        bitmap.ofBuffer = ofBuffer;
+        bitmaps.ofBuffer = ofBuffer;
         function toBuffer(img) {
             let col = byteHeight(img._height, img._bpp);
             let sz = 8 + img._width * col;
@@ -1626,7 +1625,7 @@ var pxsim;
             }
             return new pxsim.RefBuffer(r);
         }
-        bitmap.toBuffer = toBuffer;
+        bitmaps.toBuffer = toBuffer;
         function doubledIcon(buf) {
             let img = ofBuffer(buf);
             if (!img)
@@ -1634,8 +1633,8 @@ var pxsim;
             img = pxsim.BitmapMethods.doubled(img);
             return toBuffer(img);
         }
-        bitmap.doubledIcon = doubledIcon;
-    })(bitmap = pxsim.bitmap || (pxsim.bitmap = {}));
+        bitmaps.doubledIcon = doubledIcon;
+    })(bitmaps = pxsim.bitmaps || (pxsim.bitmaps = {}));
 })(pxsim || (pxsim = {}));
 var pxsim;
 (function (pxsim) {
