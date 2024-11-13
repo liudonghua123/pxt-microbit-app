@@ -1691,29 +1691,23 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="activity-marco-polo-and-morse-code">Activity: Marco Polo and Morse code</h1><p><img class="ui image" src="/static/courses/csintro/radio/marco-polo.png" alt="Marco Polo Cartoon" loading="lazy"></p>
-<p>Guide the students in creating programs that use the radio communication blocks to send and receive data between two micro:bits.</p>
-<p>Notes:</p>
+        <h1 id="coding-activity-1-marco-polo">Coding Activity 1: Marco Polo</h1><p><img class="ui image" src="/static/courses/csintro/radio/marco-polo.png" alt="Marco Polo Cartoon" loading="lazy"></p>
+<p>Marco Polo was the first Westerner to journey to Eastern Asia and document his travels. There is an American game called “Marco Polo”, which is a form of call-and-response tag played in a swimming pool. One person closes their eyes and calls “Marco”, and the other players must respond “Polo.” Using the sound of their voices only, the Marco player must find and tag the Polo players.</p>
+<p>We will be playing a form of this “Marco Polo” game using the radio on the micro:bits.</p>
+<p>This activity focuses on using Radio blocks to send and receive strings between micro:bits.</p>
+<h2 id="set-group-id-number">Set Group ID Number</h2><p>When communicating between micro:bits, it is important that the micro:bits involved are all using the same group ID. So, the first thing we will do is set the group ID number.</p>
 <ul>
-<li>When using the radio blocks, the micro:bit simulator will show two micro:bits </li>
-<li>In the simulator, a radio transmission icon will appear in the top right corner of the micro:bit. The icon will light up as the micro:bit is transmitting data.</li>
-<li>In the simulator, all the code in the coding workspace runs on both virtual micro:bits. You should include for how to send data as well as what to do when it receives data.</li>
-</ul>
-<h2 id="marco-polo">Marco Polo</h2><p>Send and receive strings between micro:bits.
-On button A pressed, we will send the string Marco and on button B pressed we will send the string Polo.</p>
-<ul>
-<li>When communicating between micro:bits, it is important that the micro:bits involved are all using the same group ID. So, the first thing we will do is set the group ID number.</li>
-<li>From the Radio menu, drag a ‘radio set group’ block to the coding workspace and place the block into the on start block. </li>
-<li>In the ‘radio set group block’, leave the default value of 1 for the group ID</li>
+<li>In Microsoft MakeCode, start a new project and name it: <strong>Marco Polo</strong>. Either delete the ‘forever’ block in the coding Workspace or move it to the side, as it’s not used in the activity.</li>
+<li>Then from the Radio Toolbox, drag a <strong>‘radio set group’</strong> block to the coding Workspace and connect into the ‘on start’ block. In the <strong>‘radio set group’</strong> block, leave the default value of 1 for the group ID.</li>
 </ul>
 <pre><code class="lang-blocks">radio.setGroup(1)</code></pre>
-<ul>
-<li>Drag 2 ‘on button pressed’ blocks to the coding workspace</li>
-<li>Leave one with the default value A and change the other button to B </li>
-<li>From the Radio Toolbox drawer, drag 2 ‘radio send string’ blocks to the coding workspace</li>
-<li>Place one ‘radio send string’ block into the ‘on button A pressed’ block, and the other’radio send string’ block into the ‘on button B pressed’ block</li>
-<li>In the ‘on button A pressed’ block, change the default empty string value of the ‘radio send string’ block to the string “Marco”</li>
-<li>In the ‘on button B pressed’ block, change the default empty string value of the ‘radio send string’ block to the string “Polo”</li>
+<h2 id="code-radio-send-for-button-a-and-button-b">Code radio send for button A and button B</h2><ul>
+<li>Drag two <strong>‘on button pressed’</strong> blocks to the coding Workspace. Leave one with the default value A , and use the dropdown menu to change the other button to B.</li>
+<li>From the Radio Toolbox drawer, drag two <strong>‘radio send string’</strong> blocks to the coding Workspace. Place one <strong>‘radio send string’</strong> block into the <strong>‘on button A pressed’</strong> block, and the other <strong>‘radio send string’</strong> block into the ‘on button B pressed’ block. Then:<ul>
+<li>In the <strong>‘on button A pressed’</strong> block, change the default empty string value of the <strong>‘radio send string’</strong> block by typing the string: Marco</li>
+<li>In the <strong>‘on button B pressed’</strong> block, change the default empty string value of the <strong>‘radio send string’</strong> block by typing the string: Polo</li>
+</ul>
+</li>
 </ul>
 <pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
     radio.sendString(&quot;Marco&quot;)
@@ -1721,12 +1715,12 @@ On button A pressed, we will send the string Marco and on button B pressed we wi
 input.onButtonPressed(Button.B, () =&gt; {
     radio.sendString(&quot;Polo&quot;)
 })</code></pre>
-<ul>
-<li>To display the data sent between the micro:bits, drag an ‘on radio received receivedString’ block to the coding workspace</li>
-<li>From the Basic Toolbox drawer, drag a ‘show string’ block into the ‘on radio received receivedString’ block</li>
-<li>From the ‘on radio received receivedString’ block, drag the ‘receivedString’ variable block into the default string value of “Hello” in the ‘show string’ block </li>
+<h2 id="code-radio-received">Code radio received</h2><ul>
+<li>To display the data sent between the micro:bits, drag an <strong>‘on radio received (receivedString)’</strong> block to the coding Workspace
+<strong>Note:</strong> There are a lot of blocks in the Radio category that look similar. Make sure you use the <strong>‘on radio received’</strong> block with <strong>‘receivedString’</strong> value.</li>
+<li>From the Basic Toolbox drawer, drag a <strong>‘show string’</strong> block into the <strong>‘on radio received (receivedString)’</strong> block. Then from the Variables Toolbox drawer, drag a <strong>‘receivedString’</strong> variable block to replace the default string value of “Hello” in the <strong>‘show string’</strong> block.</li>
 </ul>
-<p>Here is the complete Marco Polo program:</p>
+<h2 id="complete-program">Complete program</h2><p>Here is the complete Marco Polo program:</p>
 <pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
     radio.sendString(&quot;Marco&quot;)
 })
@@ -1737,9 +1731,10 @@ input.onButtonPressed(Button.B, () =&gt; {
     radio.sendString(&quot;Polo&quot;)
 })
 radio.setGroup(1)</code></pre>
-<h2 id="mods">Mods</h2><ul>
+<p>Solution link: <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/_5gs2WR1fM8uy">Marco Polo</a></p>
+<h2 id="mod-this-">Mod this!</h2><ul>
 <li>Add a ‘show leds’ block to the ‘on start’ block. We created an image of the initials MP.</li>
-<li>From the Music Toolbox drawer, drag 2 ‘play tone’ blocks to the coding workspace.  See <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/projects/hack-your-headphones.html">hack your headphones</a> for how to connect a speaker or headphones to the micro:bit.</li>
+<li>From the Music Toolbox drawer, drag 2 ‘play tone’ blocks to the coding workspace.</li>
 <li>Drag one of the ‘play tone’ blocks to the ‘on button A pressed’ block, and the other one to the ‘on button B pressed’ block.</li>
 <li>Change the default value in the ‘play tone’ block that is inside the ‘on button A pressed’ block to the value Low C.</li>
 </ul>
@@ -1763,24 +1758,31 @@ basic.showLeds(`
     # . # # .
     # . # # .
 `)</code></pre>
-<h2 id="morse-code">Morse Code</h2><p>Send and receive numbers between micro:bits. 
-Depending on the button pressed, send a different number value between micro:bits. On receiving a number, display a different image unique to the number sent. One number will represent a dot, another a dash and another a space or stop.</p>
+<p>Solution link: <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/_7VrHLecATUzR">Marco Polo With Mod</a></p>
+<h1 id="coding-activity-2-morse-code">Coding activity 2: Morse Code</h1><p>Morse code is a character encoding scheme used in telecommunication that encodes text characters as standardized sequences of two different signal durations called dots and dashes. Morse code is named for Samuel F. B. Morse, an inventor of the telegraph. The first versions were invented in the early 1800s and has been refined since then. In the late 1800s, it was used for early radio communication before it was possible to transmit voice.</p>
 <p><img class="ui image" src="/static/courses/csintro/radio/morse.png" alt="Morse code alphabet" loading="lazy"></p>
+<p>This activity focuses on using Radio blocks to send and receive numbers between micro:bits:</p>
 <ul>
-<li>Set the group ID number.</li>
-<li>Add a ‘show string’ block to the ‘on start’ block, to identify the program. </li>
-<li>We choose to change the default string value of “Hello” to the value “Morse Code”</li>
+<li>Depending on the button pressed, a different number value is sent between micro:bits.</li>
+<li>On receiving a number, the micro:bit will display a different image unique to the number sent.</li>
+<li>One number will represent a dot, another a dash, and another a space or stop.</li>
+</ul>
+<h2 id="set-the-group-id">Set the group ID</h2><ul>
+<li>In Microsoft MakeCode, start a new project and name it: <strong>Morse code</strong>. Either delete the ‘forever’ block in the coding Workspace or move it to the side, as it’s not used in the activity.</li>
+<li>Set the Radio group ID number, following the same steps as the previous activity. Then add a <strong>‘show string’</strong> block to the <strong>‘on start’</strong> block to identify the program. In this example, the default string value of <strong>Hello</strong> is changed to the value <strong>Morse Code</strong>.</li>
 </ul>
 <pre><code class="lang-blocks">radio.setGroup(1)
 basic.showString(&quot;Morse Code&quot;)</code></pre>
+<h2 id="code-the-buttons">Code the buttons</h2><ul>
+<li><p>Drag three <strong>‘on button pressed’</strong> blocks to the coding workspace. Leave one with the default value A, change the value in the second block to <strong>B</strong>, and change the value in the third block to <strong>A+B</strong>.</p>
+</li>
+<li><p>From the Radio Toolbox drawer, drag three <strong>‘radio send number’</strong> blocks to the coding workspace and place one <strong>‘radio send number’</strong> block into each of the <strong>‘on button pressed’</strong> blocks.</p>
 <ul>
-<li>Drag 3 ‘on button pressed’ blocks to the coding workspace. </li>
-<li>Leave one with the default value A, change the value in the second block to B, and change the value in the third block to A+B. </li>
-<li>From the Radio Toolbox drawer, drag 3 ‘radio send number’ blocks to the coding workspace.</li>
-<li>Place one radio send number block into each of the ‘on button pressed’ blocks.</li>
-<li>In the ‘on button A pressed’ block, leave the default number value of the ‘radio send number’ block as 0.</li>
-<li>In the ‘on button B pressed’ block, change the default number value of the ‘radio send number’ block to the value 1.</li>
-<li>In the ‘on button A+B pressed’ block, change the default number value of the ‘radio send number’ block to the value 2.</li>
+<li>In the <strong>‘on button A pressed’</strong> block, leave the default number value of the <strong>‘radio send number’</strong> block as 0.</li>
+<li>In the <strong>‘on button B pressed’</strong> block, change the default number value of the <strong>‘radio send number’</strong> block to the value 1.</li>
+<li>In the <strong>‘on button A+B pressed’</strong> block, change the default number value of the <strong>‘radio send number’</strong> block to the value 2.</li>
+</ul>
+</li>
 </ul>
 <pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
     radio.sendNumber(0)
@@ -1791,17 +1793,17 @@ input.onButtonPressed(Button.B, () =&gt; {
 input.onButtonPressed(Button.AB, () =&gt; {
     radio.sendNumber(2)
 })</code></pre>
+<h2 id="code-radio-received">Code radio received</h2><ul>
+<li>From the Radio Toolbox drawer, drag an ‘on radio received (receivedNumber)’ event handler to the coding Workspace.</li>
+</ul>
+<p><strong>Note:</strong> There are a lot of blocks in the Radio category that look similar. Make sure you use the block with the <strong>‘receivedNumber’</strong> value.</p>
 <ul>
-<li>From the Radio Toolbox drawer, drag an ‘on radio received receivedNumber’ event handler to the coding workspace.</li>
-<li>Since we will display a different image depending on the number value received, we need a logic block. </li>
-<li>From the Logic Toolbox drawer, drag an ‘if…then’ block to the coding workspace and place it in the ‘on radio received receivedNumber’ event handler.</li>
+<li>Since we will display a different image depending on the number value received, we need a logic block. From the Logic Toolbox drawer, drag an ‘if…then…else’ block to the coding Workspace and place it in the ‘on radio received (receivedNumber)’ event handler.</li>
 </ul>
 <p>In order to know whether to display a dot, a dash, or a space/stop image, we need to compare the number received to the values 0, 1, and 2.</p>
 <ul>
-<li>From the Logic Toolbox drawer, drag a 0=0 comparison block into the coding workspace.</li>
-<li>Replace the default value ‘true’ of the ‘if…then’ block with the comparison block.</li>
-<li>From the ‘on radio received receivedNumber’ block, pull down the ‘receivedNumber’ variable block and drop it into the first slot of the comparison block</li>
-<li>Leave the righthand side default value of zero in the 0=0 block. </li>
+<li>From the Logic Toolbox drawer, drag a <strong>‘0=0’</strong> comparison hexagon block onto the coding Workspace and drop it into the <strong>‘if…then’</strong> block replacing the default value of <strong>“true”</strong>.</li>
+<li>From the Variables Toolbox drawer, drag a <strong>‘receivedNumber’</strong> variable block onto the coding Workspace and drop it into the first slot of the equals comparison block. Leave the default value of 0 in the second slot.</li>
 </ul>
 <pre><code class="lang-blocks">radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 0) {
@@ -1809,8 +1811,7 @@ input.onButtonPressed(Button.AB, () =&gt; {
     }
 })</code></pre>
 <ul>
-<li>Place a ‘show leds’ block in the space after the then of the ‘if…then’ block. </li>
-<li>Create an image to represent a dot.</li>
+<li>From the Basic Toolbox, drag a ‘show leds’ block to the coding Workspace and drop it under the ‘if…then’ clause. Then create an image to represent a dot.</li>
 </ul>
 <pre><code class="lang-blocks">radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 0) {
@@ -1823,16 +1824,9 @@ input.onButtonPressed(Button.AB, () =&gt; {
         `)
     }
 })</code></pre>
-<h3 id="try-it-">Try it!</h3><ul>
-<li>Download your program to the micro:bit</li>
-<li>Press button A on the sending micro:bit</li>
-<li>Does this cause a dot to be displayed on the receiving micro:bit? </li>
-<li>However, pressing button A again does not appear to send another dot as the image on the receiving micro:bit does not appear to change. </li>
-</ul>
-<p>Challenge question: How can we fix this?</p>
-<ul>
-<li>Add a ‘pause’ block and a ‘clear screen’ block after the ‘show leds’ block</li>
-</ul>
+<h3 id="try-it-">Try it!</h3><p>Download the program to the micro:bit and press button A on the sending micro:bit. Does this cause a dot to be displayed on the receiving micro:bit?</p>
+<p>However, pressing button A again does not appear to send another dot as the image on the receiving micro:bit does not appear to change.</p>
+<p><strong>Challenge question:</strong> How can we fix this? <strong>Answer:</strong> Add a ‘pause’ block and a ‘clear screen’ block after the ‘show leds’ block.</p>
 <pre><code class="lang-blocks">radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 0) {
         basic.showLeds(`
@@ -1846,18 +1840,22 @@ input.onButtonPressed(Button.AB, () =&gt; {
         basic.clearScreen()
     }
 })</code></pre>
-<p>Try running the program again. 
-Now each time the sender presses button A, you see a dot appear.</p>
+<p>Try running the program again.
+Now, each time the sender presses button A, you see a dot appear.</p>
 <p><img class="ui image" src="/static/courses/csintro/radio/microbit-dot-display.png" alt="micro:bit dot display" loading="lazy"></p>
+<h2 id="code-the-other-received-images">Code the other received images</h2><p>Now we need to specify what to display if we receive a 1 or 2.</p>
 <ul>
-<li>You can now right-click on the ‘if…then’ block and select Duplicate to copy that piece of code twice for the other 2 values that a sender may send.</li>
+<li>In the <strong>‘if…then…else’</strong> block, select the plus (+) icon to create an <strong>‘else if’</strong> clause.</li>
+<li>Right-click on the equals comparison block in the ‘if’ clause and select Duplicate to create a copy.</li>
+<li>Then, drag this new equals comparison block into the ‘else if’ clause.</li>
+<li>Change the value in the second slot of the equals comparison block from 0 to 1. We don’t have to test <strong>‘receivedNumber’</strong> value in the third <strong>‘else’</strong> clause—if the value is not 0 or 1, then it must be 2, since there are only three possibilities.</li>
+<li>From the Basic Toolbox drawer, drag <strong>‘show leds’</strong>, <strong>‘pause’</strong>, and <strong>‘clear screen’</strong> blocks to the <strong>‘else if’</strong> and <strong>‘else’</strong> clauses. Then, modify the <strong>‘show leds’</strong> images displayed:<ul>
+<li>For the <strong>‘else if (receivedNumber=1)’</strong>, show a dash.</li>
+<li>For the <strong>‘else’</strong> clause (which is when the <strong>‘receivedNumber’</strong> variable equals 2), show a full screen of lights.</li>
 </ul>
-<p><img class="ui image" src="/static/courses/csintro/radio/if-then-duplicate.png" alt="If-block, right-click and duplicate" loading="lazy"></p>
-<ul>
-<li>Change the values on the righthand side of the comparison block to 1, and 2.</li>
-<li>Modify the images displayed to show a dash, and a full screen of lights</li>
+</li>
 </ul>
-<h3 id="morse-code-program">Morse code program</h3><pre><code class="lang-blocks">
+<h2 id="complete-program">Complete program</h2><pre><code class="lang-blocks">
 radio.onReceivedNumber(function (receivedNumber) {
     if (receivedNumber == 0) {
         basic.showLeds(`
@@ -1904,26 +1902,16 @@ input.onButtonPressed(Button.AB, () =&gt; {
 })
 radio.setGroup(1)
 basic.showString(&quot;Morse Code&quot;)</code></pre>
-<h3 id="try-it-">Try it!</h3><ul>
-<li>Download your program to the micro:bit</li>
-<li>Press buttons A, B, and A+B together on the micro:bit</li>
-</ul>
-<p>Challenge question: Can our code be made more efficient?</p>
+<p>Solution link: <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/_846Kyk4619yh">Morse Code</a></p>
+<h2 id="try-it-">Try it!</h2><p>Download your program to the micro:bit. Press buttons A, B, and A+B together on the sending micro:bit to see the associated image on the receiving micro:bit.</p>
+<h2 id="mod-this-">Mod this!</h2><p><strong>A final else</strong></p>
+<p>In a conditional that might receive a number of different values, it is good coding practice to have a catch-all ‘else’ clause. In the example, if any number value other than the ones we coded for (0,1, and 2) is received, we can signal the user that an error has occurred by using a ‘show icon’ block to display an X.</p>
+<p><strong>The pause and clear screen</strong></p>
 <ul>
-<li>Whenever you look over a program and see the same lines of code repeated, there is usually a chance to improve the code making it more efficient by reducing the number of lines of code</li>
-<li>What lines are repeated in our program?  If…then, pause, clear screen </li>
-<li>Can we edit the code to use only one ‘if…then’ block, one ‘pause’ block, and one ‘clear screen’ block? Yes!</li>
+<li>Rather than repeat these lines of code three times, we can move the <strong>‘pause’</strong> block and the <strong>‘clear screen’</strong> block outside of the edited <strong>‘if…then…else’</strong> block and inside the <strong>‘on radio received (receivedNumber)’</strong> block.</li>
 </ul>
-<h2 id="making-our-code-more-efficient">Making our code more efficient</h2><p>Remind students that they can edit the ‘if…then’ block, adding as many ‘else if’ conditions as needed. 
-They can do this by clicking on the <strong>(+)</strong> or <strong>(-)</strong> symbols on the ‘if…then’ block.</p>
-<p><img class="ui image" src="/static/courses/csintro/radio/if-then-else-if.png" alt="Add else-if to if-then block" loading="lazy"></p>
-<p>A final else
-In a conditional that might receive a number of different values, it is good coding practice to have a catch-all ‘else’ clause.  In our example, if any number value other than the ones we coded for (0,1, and 2) is received, we can signal the user that an error has occurred by using a ‘show icon’ block to display an X. </p>
-<p>The pause and clear screen
-Rather than repeat these lines of code 3 times, we can move the ‘pause’ block and the ‘clear screen’ block outside of the edited ‘if…then…else’ block.</p>
-<p>Now our program runs as we designed it to run and is more efficient, too!</p>
-<p>Final Morse Code Program:</p>
-<pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
+<p>Now our program runs as we designed it to run and is more efficient, too! Download the revised program to the micro:bits and test it out.</p>
+<h3 id="complete-program-with-mod">Complete program with mod</h3><pre><code class="lang-blocks">input.onButtonPressed(Button.A, () =&gt; {
     radio.sendNumber(0)
 })
 input.onButtonPressed(Button.B, () =&gt; {
@@ -1965,6 +1953,21 @@ radio.onReceivedNumber(function (receivedNumber) {
 })
 radio.setGroup(1)
 basic.showString(&quot;Morse Code&quot;)</code></pre>
+<p>Solution link: <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/_fWpDXK1hFFC9">Morse Code With Mod</a></p>
+<h2 id="knowledge-check">Knowledge Check</h2><p><strong>Questions:</strong></p>
+<ol>
+<li>Using the radio blocks, what information can you send to a micro:bit?</li>
+<li>Why did we all have to set our ‘radio set group’ block to a default value of 1?</li>
+<li>Why was it important to set a final catch-all ‘else’ clause in the conditional you used for the Morse code activity?</li>
+<li>When editing code, why do we look for lines of code that repeat?</li>
+</ol>
+<p><strong>Answers:</strong></p>
+<ol>
+<li>You can send a number, a string, or a string/number combination. You can also give a micro:bit instructions on what to do when it receives a radio message.</li>
+<li>So that the micro:bits would all be using the same group ID number and could send and receive messages.</li>
+<li>So that it would display an error message if it received a number value beyond 0, 1, or 2.</li>
+<li>To make code more efficient and to reduce the number of lines of code needed.</li>
+</ol>
 <pre><code class="lang-package">radio</code></pre>
 
     </div>

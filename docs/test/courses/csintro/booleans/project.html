@@ -22,14 +22,14 @@
 <meta name="twitter:site" content="@msmakecode" />
 <meta name="twitter:title" content="Microsoft MakeCode for micro:bit" />
 <meta name="twitter:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
-<meta name="twitter:image" content="https://img.youtube.com/vi/VmD-dcZZQFc/0.jpg" />
+<meta name="twitter:image" content="/static/courses/csintro/booleans/two-player.jpg" />
 
 <meta property="og:title" content="Microsoft MakeCode for micro:bit" />
 <meta property="og:site_name" content="Microsoft MakeCode" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
 <meta property="fb:app_id" content="" />
-<meta property="og:image" content="https://img.youtube.com/vi/VmD-dcZZQFc/0.jpg" />
+<meta property="og:image" content="/static/courses/csintro/booleans/two-player.jpg" />
 
 <meta name="format-detection" content="telephone=no">
 <link rel="apple-touch-icon" href="docs/static/icons/apple-touch-icon.png">
@@ -1692,19 +1692,44 @@
 					
     <div class="ui text">
         <h1 id="project-boolean">Project: Boolean</h1><p><img class="ui image" src="/static/courses/csintro/booleans/two-player.jpg" alt="Two-Player Game Example Board" loading="lazy"></p>
-<p>This is an assignment for students to come up with a micro:bit program that uses Boolean variables, Boolean operators, and possibly the random function.</p>
-<h2 id="input">Input</h2><p>Remind the students of all the different inputs available to them through the micro:bit.</p>
-<p><img class="ui image" src="/static/courses/csintro/variables/input-list.png" alt="micro:bit input list" loading="lazy"></p>
-<h2 id="project-ideas">Project Ideas</h2><h3 id="sunscreen-monitor">Sunscreen Monitor</h3><p>When you shake the micro:bit, it reports the current temperature in degrees Fahrenheit.  Button B measures the light level and if it is above 70 degrees AND very bright, it will display a sun icon.  If it is above 70 degrees and less bright, it will display a cloudy symbol. If it is dark, it will display a nighttime icon.</p>
-<p><a target="_blank" rel="nofollow noopener" href="https://youtu.be/VmD-dcZZQFc"><strong>micro:bit Sunscreen Monitor</strong></a></p>
-
-    <div class="ui grid">
-        <div class="ten wide column">
-            <div class="ui embed mdvid" data-source="youtube" data-id="VmD-dcZZQFc"
-                data-placeholder="https://img.youtube.com/vi/VmD-dcZZQFc/0.jpg">
-            </div>
-        </div>
-    </div>
+<p>In this project, you will come up with a micro:bit program that uses Boolean variables, Boolean operators, and possibly the random function.</p>
+<h2 id="project-expectations">Project Expectations</h2><p>Follow the design thinking approach and make sure your project meets these specifications:</p>
+<ul>
+<li>More than two Boolean variables are implemented in a meaningful way.</li>
+<li>The micro:bit program uses Booleans in a way that is integral to the program.</li>
+<li>The program compiles and runs as intended and includes meaningful comments in code.</li>
+<li>Provide the written Reflection Diary entry.</li>
+</ul>
+<h2 id="input">Input</h2><p>Don’t forget to consider all the different inputs available to you through the micro:bit.</p>
+<h3 id="available-inputs">Available inputs</h3><ul>
+<li>Acceleration</li>
+<li>Light level</li>
+<li>Rotation</li>
+<li>Button is pressed</li>
+<li>Compass heading</li>
+<li>Temperature</li>
+<li>Running time</li>
+<li>On shake</li>
+<li>On button pressed</li>
+<li>On logo down</li>
+<li>On logo up</li>
+<li>On pin pressed</li>
+<li>On screen down</li>
+<li>On screen up</li>
+<li>Pin is pressed</li>
+</ul>
+<h2 id="project-ideas">Project Ideas</h2><p>Use Boolean variables and/or random values to create:</p>
+<ul>
+<li>A board game, game pieces, and holder for the micro:bit (or improve your board game from Unit 3: Variables)</li>
+<li>A mod of some sort to a current/existing board game</li>
+<li>A micro:bit version of a Magic Eight Ball</li>
+</ul>
+<h2 id="project-examples">Project Examples</h2><h3 id="sunscreen-monitor">Sunscreen Monitor</h3><p>The micro:bit is attached to a bottle of sunscreen and provides information about the temperature and if you need sunscreen:</p>
+<ul>
+<li>When you shake the micro:bit, it reports the current temperature in degrees Fahrenheit.</li>
+<li>Button A displays an animation to tell you whether or not you should use sunscreen (on sunny or cloudy days but not at night or indoors).</li>
+<li>Button B measures the light level, and if it is above 70 degrees AND very bright, it will display a sun icon. If it is above 70 degrees and less bright, it will display a cloudy symbol. If it is dark, it will display a nighttime icon. Check it out in action here: <a target="_blank" rel="nofollow noopener" href="here">youtu.be/VmD-dcZZQFc</a> (0:18)</li>
+</ul>
 <h4 id="sunscreen-code">Sunscreen code</h4><pre><code class="lang-blocks">input.onButtonPressed(Button.B, () =&gt; {
     if (128 &gt; input.lightLevel() &amp;&amp; 0 &lt; input.lightLevel() &amp;&amp; input.temperature() &gt; 22) {
         basic.showLeds(`
@@ -1852,38 +1877,10 @@ input.onGesture(Gesture.Shake, () =&gt; {
     basic.clearScreen()
     basic.showNumber(input.temperature() * 2 + 32)
 })</code></pre>
-<p>Button A displays an animation to tell you whether or not you should use sunscreen (on sunny or cloudy days but not at night or indoors.)</p>
-<p>Make a holder that can hold the micro:bit and a bottle of sunscreen.</p>
-<p>This example uses boolean operations because both light level AND temperature must be high in order to trigger the sun icon:</p>
-<pre><code class="lang-block">if (128 &gt; input.lightLevel() &amp;&amp; 0 &lt; input.lightLevel() &amp;&amp; input.temperature() &gt; 22) {}</code></pre>
-
-    <div class="ui info message">
-        <div class="content">
-            <p>The micro:bit uses some clever tricks to measure both light and temperature. Want to see how it can measure the light level and temprature? Watch these videos to learn how it does it.</p>
-
-    <div class="ui grid">
-        <div class="ten wide column">
-            <div class="ui embed mdvid" data-source="youtube" data-id="TKhCr-dQMBY"
-                data-placeholder="https://img.youtube.com/vi/TKhCr-dQMBY/0.jpg">
-            </div>
-        </div>
-    </div>
-<p><br /></p>
-
-    <div class="ui grid">
-        <div class="ten wide column">
-            <div class="ui embed mdvid" data-source="youtube" data-id="_T4N8O9xsMA"
-                data-placeholder="https://img.youtube.com/vi/_T4N8O9xsMA/0.jpg">
-            </div>
-        </div>
-    </div>
-
-        </div>
-    </div>
-<h3 id="two-player-game">Two-player game</h3><p>Create a game in which two players take turns on the same micro:bit. You can use a boolean variable called PlayerATurn to keep track of whose turn it is.</p>
+<p>Solution link: <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/_Atd9Wti3MiUj">Sunscreen Monitor</a></p>
+<h3 id="two-player-game">Two-player game</h3><p>This is an example of a board game in which the micro:bit displays an arrow pointing in a random direction. The paper legend indicates different actions the player must take, and it uses a Boolean variable to keep track of whose turn it is.</p>
 <p><strong>Board Game:</strong> Use boolean variables and random values as part of a board game (or improve your Board Game from the Variables lesson). Make the board and pieces and a holder for the micro:bit. Try modding a current board game.</p>
-<p><img class="ui image" src="/static/courses/csintro/booleans/two-player-game.png" alt="Two player game project" loading="lazy">
-Board Game with Arrows</p>
+<p><img class="ui image" src="/static/courses/csintro/booleans/two-player-game.png" alt="Two player game project" loading="lazy"></p>
 <h4 id="board-game-arrow-code">Board game arrow code</h4><pre><code class="lang-blocks">let player1Turn = false
 let spin = 0
 let delay = 0
@@ -1994,29 +1991,15 @@ input.onGesture(Gesture.Shake, () =&gt; {
 
     }
 })</code></pre>
-<h2 id="reflection">Reflection</h2><p>Have students write a reflection of about 150–300 words, addressing the following points:</p>
+<p>Solution link: <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/_1mY4wq4KPYiq">Arrows Board Game</a></p>
+<h2 id="reflection">Reflection</h2><p>Write a short reflection of about 150–300 words, addressing the following points:</p>
 <ul>
 <li>How did you incorporate boolean variables into your micro:bit program?</li>
 <li>How did you incorporate boolean operators into your micro:bit program?</li>
 <li>Describe something in your project that you are proud of.</li>
 <li>If you had more time to work on this project, describe what you might add or change.</li>
+<li>Publish your MakeCode program and include the link.</li>
 </ul>
-<h2 id="assessment">Assessment</h2><p><strong>Competency scores</strong>: 4, 3, 2, 1</p>
-<h3 id="boolean">Boolean</h3><p><strong>4 =</strong> More than 2 Boolean variables are implemented in a meaningful way.<br />
-<strong>3 =</strong> At least 2 Boolean variables are implemented in a meaningful way.<br />
-<strong>2 =</strong> At least 1 Boolean variable is implemented in a meaningful way.<br />
-<strong>1 =</strong> No Boolean variables are implemented.</p>
-<h3 id="micro-bit-program">micro:bit program</h3><p><strong>4 =</strong> micro:bit program:<br />
-<code>*</code> Uses Booleans in a way that is integral to the program.<br />
-<code>*</code> Compiles and runs as intended<br />
-<code>*</code> Meaningful comments in code<br />
-<strong>3 =</strong> micro:bit program lacks 1 of the required element.<br />
-<strong>2 =</strong> micro:bit program lacks 2 of the required elements.<br />
-<strong>1 =</strong> micro:bit program lacks all of the required elements.</p>
-<h3 id="collaboration-reflection">Collaboration reflection</h3><p><strong>4 =</strong> Reflection piece addresses all prompts.<br />
-<strong>3 =</strong> Reflection piece lacks 1 of the required elements.<br />
-<strong>2 =</strong> Reflection piece lacks 2 of the required elements.<br />
-<strong>1 =</strong> Reflection piece lacks 3 of the required elements.</p>
 
     </div>
 

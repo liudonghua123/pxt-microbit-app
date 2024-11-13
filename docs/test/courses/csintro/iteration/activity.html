@@ -1693,12 +1693,9 @@
     <div class="ui text">
         <h1 id="activity-loops-demos">Activity: Loops demos</h1><p>For this lesson’s coding activities, we’ll use three different loop blocks in Microsoft MakeCode:</p>
 <ul>
-<li><p>‘repeat’ block – This block repeats the code n number of times.</p>
-</li>
-<li><p>‘while’ block – This block runs the code as long as the condition inside of it is true.</p>
-</li>
-<li><p>‘for’ block – This block repeats the code n number of times but with a variable.</p>
-</li>
+<li>‘repeat’ block – This block repeats the code n number of times.</li>
+<li>‘while’ block – This block runs the code as long as the condition inside of it is true.</li>
+<li>‘for’ block – This block repeats the code n number of times but with a variable.</li>
 </ul>
 <p>We’ll do three coding activities to demonstrate how each type of loop block works.</p>
 <h2 id="coding-activity-1-code-a-sprite-to-walk-a-square-with-the-repeat-loop">Coding activity 1: Code a sprite to walk a square with the ‘repeat’ loop</h2><p>In this example, you’ll be coding Sprite to walk in a square.</p>
@@ -1717,16 +1714,10 @@
 <p>On the face of the micro:bit is a 5 x 5 grid of LED lights. The X coordinates are the horizontal light positions that go from 0-4, and the Y coordinates are the vertical light positions that go from 0-4 as well. We can see from the code blocks that we’ve created our sprite at X, Y position (2, 2). If we want to start our sprite in the top left of the screen, we’ll have to change the starting coordinates to (0, 0).</p>
 <h3 id="moving-the-sprite">Moving the Sprite</h3><p>Now let’s make our sprite move around the face of the micro:bit. We’ll activate this when we press a button.</p>
 <ul>
-<li>From the Input Toolbox drawer, drag a ‘on button pressed’ block onto the workspace.</li>
-</ul>
-<p>We’ll need two more blocks from the Game menu. Referring to the pseudocode, see if the you can find the blocks you need for moving your sprite forward and turning your sprite.</p>
-<ul>
-<li><p>From the Game Toolbox drawer, drag out a ‘sprite move by’ block and a ‘sprite turn right by’ block to the coding Workspace and drop into the ‘on button pressed’ block.</p>
-</li>
-<li><p>To make the sprite move from one side of the screen to the other (as though walking around a chair), we’ll need to move the sprite 4 places. So, change the value in the ‘sprite move by’ block from 1 to 4.</p>
-</li>
-<li><p>To make the sprite turn to walk a square, change the ‘turn right by’ degrees from 45 to 90. For now, it’s OK to leave the sprite turning right instead of left as we did in our pseudocode.</p>
-</li>
+<li>From the Input Toolbox drawer, drag a ‘on button pressed’ block onto the workspace.<br /><br />We’ll need two more blocks from the Game menu. Referring to the pseudocode, see if the you can find the blocks you need for moving your sprite forward and turning your sprite.</li>
+<li>From the Game Toolbox drawer, drag out a ‘sprite move by’ block and a ‘sprite turn right by’ block to the coding Workspace and drop into the ‘on button pressed’ block.</li>
+<li>To make the sprite move from one side of the screen to the other (as though walking around a chair), we’ll need to move the sprite 4 places. So, change the value in the ‘sprite move by’ block from 1 to 4.</li>
+<li>To make the sprite turn to walk a square, change the ‘turn right by’ degrees from 45 to 90. For now, it’s OK to leave the sprite turning right instead of left as we did in our pseudocode.</li>
 </ul>
 <h3 id="using-the-repeat-block">Using the ‘Repeat’ block</h3><p>Following our pseudocode, we could add three more Move and Turn blocks to make our sprite walk a square, but there is an easier, more efficient way to code this! By using a Repeat loop.</p>
 <ul>
@@ -1742,7 +1733,7 @@
 <ul>
 <li>From the Basic Toolbox category, drag a ‘pause’ block to the coding window and add it to our ‘repeat’ block right after the ‘turn right by’ block.</li>
 </ul>
-<p>Solution link: <a target="_blank" rel="nofollow noopener" href="">makecode.microbit.org/_D3k3ydYj28VY</a></p>
+<p>Solution link: <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/_D3k3ydYj28VY">Sprite Walking a Square</a></p>
 <p>Download and run your program on the micro:bit. Now we can see the sprite move. It still moves pretty quickly, but at least we can see it move.</p>
 <blockquote>
 <p>Optional Mod</p>
@@ -1750,8 +1741,7 @@
 </blockquote>
 <h2 id="coding-activity-2-code-a-traveling-light-with-for-loops">Coding activity 2: Code a traveling light with ‘for’ loops</h2><p>Now we’ll move on to code with the ‘for’ loop block. The ‘for’ block is useful when you have a variable in your loop that you want to change by a fixed amount within a specific range each time through a loop. What does this mean? Let’s look at an example.</p>
 <p>Let’s make an LED light move across the entire micro:bit display from left to right, top row to bottom row.</p>
-<h3 id="pseudocode">Pseudocode</h3><p>The pseudocode</p>
-<p>Our pseudocode for the first row might look like:</p>
+<h3 id="pseudocode">Pseudocode</h3><p>Our pseudocode for the first row might look like:</p>
 <pre><code>Turn led (x:0, y:0) on
 Pause
 Turn led (x:0, y:0) off
@@ -1779,65 +1769,41 @@ Turn led (x:4, y:0) off</code></pre><p>That’s a lot of code, and most of it re
 <p>Now let’s code!</p>
 <h3 id="create-variables-to-hold-the-x-and-y-position">Create variables to hold the x and y position</h3><p>The first thing we’ll want to do is create some Variables to hold the X and Y position values.</p>
 <ul>
-<li><p>Create a new project and name it something like: <strong>Traveling light.</strong> Then, select the Variables Toolbox drawer and select the <strong>Make a Variable</strong> button.</p>
-</li>
-<li><p>Name the new variable something like: <strong>Xvalue</strong>. Then, create another variable and name it something like: <strong>Yvalue</strong>.</p>
-</li>
-</ul>
-<p>Notice that these variable blocks now appear in the Variables Toolbox drawer. Now, we need to set the starting value for the x and y variables to be 0.</p>
-<ul>
+<li>Create a new project and name it something like: <strong>Traveling light.</strong> Then, select the Variables Toolbox drawer and select the <strong>Make a Variable</strong> button.</li>
+<li>Name the new variable something like: <strong>Xvalue</strong>. Then, create another variable and name it something like: <strong>Yvalue</strong>.<br /><br />
+Notice that these variable blocks now appear in the Variables Toolbox drawer. Now, we need to set the starting value for the x and y variables to be 0.</li>
 <li>From the Variable Toolbox drawer, drag two ‘set (variable)’ blocks onto the Workspace and drop into the ‘on start’ block. Then, in one of the ‘set (variable)’ blocks, use the dropdown menu to select the ‘Xvalue’ variable.</li>
 </ul>
 <h3 id="code-the-loop-for-the-x-values">Code the loop for the x values</h3><ul>
-<li><p>From the Loops Toolbox drawer, drag a ‘for’ block to the coding Workspace and drop it into the ‘forever’ loop.</p>
-</li>
-<li><p>Instead of the default ‘index’ variable, we’re going to use the ‘Xvalue’ variable that we created. From the Variables Toolbox drawer, drag the ‘Xvalue’ variable block out onto the Workspace and drop it into the ‘for loop’, replacing the ‘index’ block.</p>
-</li>
-</ul>
-<p>In this way, each time we iterate through the ‘for’ loop, our ‘Xvalue’ variable will increment its value—starting from 0 and going up to 4.</p>
-<ul>
-<li><p>We’ll plot and unplot the LED lights to turn them on and off. From the Led Toolbox drawer, drag a ‘plot’ block and an ‘unplot’ block to the coding Workspace. Drop both into the ‘for’ loop.</p>
-</li>
-<li><p>From the Basic Toolbox drawer, drag two ‘pause’ blocks to the coding Workspace. Drop them in the ‘for’ loop—one after the ‘plot’ block, and one after the ‘unplot’ block. This will slow things down a bit so we can see the lights turning on and off.</p>
-</li>
-<li><p>Change the value of the x coordinates in the ‘plot’ and ‘unplot’ blocks to the x coordinate value from the ‘for’ loop. From the Variables Toolbox drawer, drag two ‘Xvalue’ variable blocks onto the Workspace and drop one each into the x coordinate of the ‘plot’ block, and the x coordinate of the ‘unplot’ block.</p>
-</li>
+<li>From the Loops Toolbox drawer, drag a ‘for’ block to the coding Workspace and drop it into the ‘forever’ loop.</li>
+<li>Instead of the default ‘index’ variable, we’re going to use the ‘Xvalue’ variable that we created. From the Variables Toolbox drawer, drag the ‘Xvalue’ variable block out onto the Workspace and drop it into the ‘for loop’, replacing the ‘index’ block.<br /><br />In this way, each time we iterate through the ‘for’ loop, our ‘Xvalue’ variable will increment its value—starting from 0 and going up to 4.</li>
+<li>We’ll plot and unplot the LED lights to turn them on and off. From the Led Toolbox drawer, drag a ‘plot’ block and an ‘unplot’ block to the coding Workspace. Drop both into the ‘for’ loop.</li>
+<li>From the Basic Toolbox drawer, drag two ‘pause’ blocks to the coding Workspace. Drop them in the ‘for’ loop—one after the ‘plot’ block, and one after the ‘unplot’ block. This will slow things down a bit so we can see the lights turning on and off.</li>
+<li>Change the value of the x coordinates in the ‘plot’ and ‘unplot’ blocks to the x coordinate value from the ‘for’ loop. From the Variables Toolbox drawer, drag two ‘Xvalue’ variable blocks onto the Workspace and drop one each into the x coordinate of the ‘plot’ block, and the x coordinate of the ‘unplot’ block.</li>
 </ul>
 <p>Now, you should see a light moving from left to right along the top row of the micro:bit simulator!</p>
 <h3 id="code-the-loop-for-the-y-values">Code the loop for the y values</h3><p>To make our pattern continue through all the LEDs, we can change the value of the Y coordinate as well. To do this efficiently using the fewest lines of code, we can put a loop inside a loop. Loops inside other loops are known as nested loops.</p>
 <ul>
-<li><p>Drag out another ‘for’ loop block from the Loops Toolbox drawer and place it around our original ‘for’ block, all within the ‘forever’ block.</p>
-</li>
-<li><p>From the Variables Toolbox drawer, drag out the ‘Yvalue’ variable block and drop into the outer ‘for’ loop, replacing the default ‘index’ variable.</p>
-</li>
-<li><p>Change the value of the y coordinates in the ‘plot’ and ‘unplot’ blocks to this same variable (just like we did for the x coordinate earlier).</p>
-</li>
+<li>Drag out another ‘for’ loop block from the Loops Toolbox drawer and place it around our original ‘for’ block, all within the ‘forever’ block.</li>
+<li>From the Variables Toolbox drawer, drag out the ‘Yvalue’ variable block and drop into the outer ‘for’ loop, replacing the default ‘index’ variable.</li>
+<li>Change the value of the y coordinates in the ‘plot’ and ‘unplot’ blocks to this same variable (just like we did for the x coordinate earlier).</li>
 </ul>
-<h3 id="solution-and-discussion">Solution and discussion</h3><p>Solution link: <a target="_blank" rel="nofollow noopener" href="">makecode.microbit.org/_Kf4hF0PHPaYz</a></p>
+<h3 id="solution-and-discussion">Solution and discussion</h3><p>Solution link: <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/_Kf4hF0PHPaYz">For Loop</a></p>
 <p>Be sure that you can explain the complete code in words:</p>
 <p>Here is what is happening to the values of the x and y coordinates as the program steps through each line and loop inside the ‘forever’ block:</p>
 <ol>
-<li><p>In the outer of the two for loops, the value of the y coordinate is set to 0.</p>
-</li>
-<li><p>The nested inner loop then sets the value of the x coordinate to 0.</p>
-</li>
-<li><p>The corresponding led at (x:0, y:0) is plotted and then unplotted.</p>
-</li>
-<li><p>Then the value of the x coordinate is increased by 1, and step 3 runs again with the coordinates now at (x:1, y:0).</p>
-</li>
-<li><p>Then the value of the x coordinate is increased by 1 again, and step 3 runs again with the coordinates now at (x:2, y:0).</p>
-</li>
-<li><p>The inner loop keeps running like this until it has completed its loop with the value of the x coordinate now at 4.</p>
-</li>
-<li><p>With the inner loop complete, the program now runs the second iteration of the outer loop, increasing the value of the y coordinate by 1, then back to the inner loop which runs 4 more times stepping through values for x from 0 through 4.</p>
-</li>
+<li>In the outer of the two for loops, the value of the y coordinate is set to 0.</li>
+<li>The nested inner loop then sets the value of the x coordinate to 0.</li>
+<li>The corresponding led at (x:0, y:0) is plotted and then unplotted.</li>
+<li>Then the value of the x coordinate is increased by 1, and step 3 runs again with the coordinates now at (x:1, y:0).</li>
+<li>Then the value of the x coordinate is increased by 1 again, and step 3 runs again with the coordinates now at (x:2, y:0).</li>
+<li>The inner loop keeps running like this until it has completed its loop with the value of the x coordinate now at 4.</li>
+<li>With the inner loop complete, the program now runs the second iteration of the outer loop, increasing the value of the y coordinate by 1, then back to the inner loop which runs 4 more times stepping through values for x from 0 through 4.</li>
 </ol>
 <h2 id="knowledge-check">Knowledge Check</h2><h3 id="use-debug-to-count-loops-">Use Debug to count loops:</h3><p>Use Debug Mode to watch the program step through the loops. Then, answer the following questions:</p>
 <ol>
-<li><p>By the end of the program run, how many times has the inner loop executed?</p>
-</li>
-<li><p>Other than knowing that there are 25 LEDs and each is lit up once, how else can you figure this out?</p>
-</li>
+<li>By the end of the program run, how many times has the inner loop executed?</li>
+<li>Other than knowing that there are 25 LEDs and each is lit up once, how else can you figure this out?</li>
 </ol>
 <p><strong>Answers:</strong></p>
 <ol>
@@ -1855,10 +1821,8 @@ Each time the outer loop runs, the inner loop runs 5 times, once for every value
 </blockquote>
 <h2 id="coding-activity-3-code-a-micro-bit-alarm-with-a-while-loop">Coding activity 3: Code a micro:bit alarm with a ‘while’ loop</h2><p>The ‘while’ block is useful when you want your program to loop until a certain event happens or a different condition is met. For example, maybe you want an alarm to sound if someone shakes your micro:bit. In order to turn the alarm off, you press the button A. Until you press the button, the alarm should continue to sound. You can use a ‘while’ block with a nested ‘repeat’ block.</p>
 <h3 id="the-while-loop">The ‘while’ loop</h3><ul>
-<li><p>Create a new project in MakeCode and name it: Alarm Clock. Delete the default ‘on start’ and ‘forever’ blocks from the coding Workspace. Then from the Input Toolbox drawer, drag an ‘on shake’ block onto the Workspace.</p>
-</li>
-<li><p>From the Loops Toolbox drawer, drag a ‘while’ block to the Workspace and drop it inside the ‘on shake’ block</p>
-</li>
+<li>Create a new project in MakeCode and name it: Alarm Clock. Delete the default ‘on start’ and ‘forever’ blocks from the coding Workspace. Then from the Input Toolbox drawer, drag an ‘on shake’ block onto the Workspace.</li>
+<li>From the Loops Toolbox drawer, drag a ‘while’ block to the Workspace and drop it inside the ‘on shake’ block</li>
 </ul>
 <p>Notice that there is a  condition attached to the ‘while’ loop. Recall from the previous lesson that a conditional expression may evaluate to true or false. In this case, the default  block always evaluates to true, so this ‘while’ loop will repeat forever!</p>
 <ul>
@@ -1866,32 +1830,26 @@ Each time the outer loop runs, the inner loop runs 5 times, once for every value
 </ul>
 <h3 id="alarm-on-shake-">Alarm ‘on shake’</h3><p>We’ll come back to the while loop condition. For now, let’s code our alarm sound.</p>
 <ul>
-<li><p>From the Music Toolbox drawer, drag two ‘play tone’ blocks to the coding Workspace and drop them inside the ‘while’ loop.</p>
-</li>
-<li><p>In the ‘play tone’ blocks, use the dropdown menu to change the beat value to ‘½’ a beat. In the second ‘play tone’ block, change the tone from ‘Middle C’, to ‘High C’.</p>
-</li>
+<li>From the Music Toolbox drawer, drag two ‘play tone’ blocks to the coding Workspace and drop them inside the ‘while’ loop.</li>
+<li>In the ‘play tone’ blocks, use the dropdown menu to change the beat value to ‘½’ a beat. In the second ‘play tone’ block, change the tone from ‘Middle C’, to ‘High C’.</li>
 </ul>
 <p>Try your code in the Simulator. What happens when you shake the micro:bit? <strong>Warning:</strong> You may want to turn down the volume on your computer!</p>
 <p>Our alarm goes off, and because the ‘while’ loop repeats continuously, there’s no way to turn off our alarm! </p>
 <h3 id="turn-off-alarm-when-press-button">Turn off alarm when press button</h3><p>Let’s add a condition to our ‘while’ loop that will turn off the alarm when the user presses a button.</p>
 <ul>
-<li><p>From the Logic Toolbox drawer, scroll down to the Boolean section. Drag a ‘not’ hexagon block to the workspace. Drop it in the ‘while’ loop, replacing .</p>
-</li>
-<li><p>From the Input Toolbox drawer, drag the ‘button A is pressed’ hexagon-shaped block onto the Workspace and drop it into the ‘not’ block in the ‘while’ loop.</p>
-</li>
+<li>From the Logic Toolbox drawer, scroll down to the Boolean section. Drag a ‘not’ hexagon block to the workspace. Drop it in the ‘while’ loop, replacing .</li>
+<li>From the Input Toolbox drawer, drag the ‘button A is pressed’ hexagon-shaped block onto the Workspace and drop it into the ‘not’ block in the ‘while’ loop.</li>
 </ul>
 <p><strong>Hint:</strong> Make sure you hover the ‘button A is pressed’ hexagon over the ‘not’ hexagon until only the empty hexagon shows the yellow outline so you don’t replace the entire ‘not’ hexagon.</p>
 <p>Now, our ‘while’ loop will only repeat as long as button A has not been pressed.</p>
-<h3 id="complete-code">Complete Code</h3><p>Solution link: makecode.microbit.org/_2cxF9yfCc1Ax</p>
+<h3 id="complete-code">Complete Code</h3><p>Solution link: <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/_2cxF9yfCc1Ax">Alarm Clock</a></p>
 <p>Test the code in the simulator.</p>
 <h2 id="knowledge-check">Knowledge Check</h2><p><strong>Questions:</strong></p>
 <ol>
-<li><p>Match the following types of loops with their definitions:<br />
+<li>Match the following types of loops with their definitions:<br />
 <strong>Loops:</strong><br />for, while, repeat<br />
-<strong>Definitions:</strong><br />Runs a command n times<br />Runs a command n times with a variable to increment each time<br />Runs a command as long as a certain condition is met</p>
-</li>
-<li><p>How could you rewrite this pseudocode with loops?</p>
-</li>
+<strong>Definitions:</strong><br />Runs a command n times<br />Runs a command n times with a variable to increment each time<br />Runs a command as long as a certain condition is met.</li>
+<li>How could you rewrite this pseudocode with loops?</li>
 </ol>
 <pre><code>Step forward
 Turn left
@@ -1902,10 +1860,8 @@ Turn left
 Step forward
 Turn left</code></pre><p><strong>Answers:</strong></p>
 <ol>
-<li><p><strong>Repeat loop:</strong> Runs a command n times; <strong>For loop:</strong> Runs a command n times with a variable to increment each time; <strong>While loop:</strong> Runs a command as long as a certain condition is met</p>
-</li>
-<li><p>Repeat 4 times: Step forward, Turn left</p>
-</li>
+<li><strong>Repeat loop:</strong> Runs a command n times; <strong>For loop:</strong> Runs a command n times with a variable to increment each time; <strong>While loop:</strong> Runs a command as long as a certain condition is met</li>
+<li>Repeat 4 times: Step forward, Turn left</li>
 </ol>
 
     </div>

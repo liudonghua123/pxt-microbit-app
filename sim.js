@@ -5384,6 +5384,13 @@ var pxsim;
             const cb = pxsim.getResume();
         }
         control.reset = reset;
+        function singleSimulator() {
+            pxsim.Runtime.postMessage({
+                type: "simulator",
+                command: "single"
+            });
+        }
+        control.singleSimulator = singleSimulator;
         function waitMicros(micros) {
             pxsim.thread.pause(micros / 1000); // it prempts not much we can do here.
         }

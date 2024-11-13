@@ -22,14 +22,14 @@
 <meta name="twitter:site" content="@msmakecode" />
 <meta name="twitter:title" content="Microsoft MakeCode for micro:bit" />
 <meta name="twitter:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
-<meta name="twitter:image" content="/static/courses/csintro/variables/make-a-variable.png" />
+<meta name="twitter:image" content="https://img.youtube.com/vi/t_Qujjd_38o/0.jpg" />
 
 <meta property="og:title" content="Microsoft MakeCode for micro:bit" />
 <meta property="og:site_name" content="Microsoft MakeCode" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
 <meta property="fb:app_id" content="" />
-<meta property="og:image" content="/static/courses/csintro/variables/make-a-variable.png" />
+<meta property="og:image" content="https://img.youtube.com/vi/t_Qujjd_38o/0.jpg" />
 
 <meta name="format-detection" content="telephone=no">
 <link rel="apple-touch-icon" href="docs/static/icons/apple-touch-icon.png">
@@ -1858,8 +1858,15 @@ PlayersTie = 0</code></pre>
 
     <div class="ui info message">
         <div class="content">
-            <p>Buttons have been used as human input devices since computers first existed. Watch this video and see how they let the user tell the micro:bit to do something.</p>
-<p><a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/watch?v=t_Qujjd_38o">https://www.youtube.com/watch?v=t_Qujjd_38o</a></p>
+            <h4 id="buttons-for-input">Buttons for input</h4><p>Buttons have been used as human input devices since computers first existed. Watch this video and see how they let the user tell the micro:bit to do something.</p>
+
+    <div class="ui grid">
+        <div class="ten wide column">
+            <div class="ui embed mdvid" data-source="youtube" data-id="t_Qujjd_38o"
+                data-placeholder="https://img.youtube.com/vi/t_Qujjd_38o/0.jpg">
+            </div>
+        </div>
+    </div>
 
         </div>
     </div>
@@ -1871,14 +1878,14 @@ PlayersTie = 0</code></pre>
 <li>First, display a string to show the player that the following sum represents the total number of rounds played. </li>
 <li>Our program will add the values stored in the variables <code>PlayerAWins</code>, <code>PlayerBWins</code>, and <code>PlayersTie</code> and then display the sum of this mathematical operation.</li>
 <li>The blocks for the mathematical operations adding, subtracting, multiplying, and dividing are listed in the Math section of the Toolbox. 
-<strong>Note:</strong> Even though there are 4 blocks shown for these 4 operations, you can access any of the four operations from any of the four blocks, and you can also access the exponent operation from these blocks.</li>
+<strong>Note:</strong> Even though there are four blocks shown for these four operations, you can access any of the four operations from any of the four blocks, and you can also access the exponent operation from these blocks.</li>
 </ul>
 <p><img class="ui image" src="/static/courses/csintro/variables/adding-block.png" alt="Adding block" loading="lazy"></p>
 <p><img class="ui image" src="/static/courses/csintro/variables/operator-selector.png" alt="Operator selector" loading="lazy"></p>
 <ul>
-<li>Replace the default values of zero with the names of the variables we want to add together.</li>
+<li>Replace the default values of zero with the names of the variables we want to add together.
+Notice that because we are adding three variables together we need a second math block. First we add the values for <code>PlayerAWins</code> and <code>PlayerBWins</code>, then add <code>PlayersTie</code>.</li>
 </ul>
-<p>Notice that because we are adding three variables together we need a second math block. First we add the values for <code>PlayerAWins</code> and <code>PlayerBWins</code>, then add <code>PlayersTie</code>.</p>
 <pre><code class="lang-blocks">let PlayersTie = 0
 let PlayerBWins = 0
 let PlayerAWins = 0

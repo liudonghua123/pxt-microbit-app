@@ -1691,8 +1691,7 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="project-make-a-binary-cash-register">Project: Make a binary cash register</h1><p>The unplugged activity uses a vending machine as a model for creating different combinations of binary place values. We found that for n coins, there is one and only one way to make every number between 0 and 2^<em>n-1</em>.</p>
-<p>For this project, students should invent a paper and cardboard version of the binary counter, then program it to display the decimal value of those numbers.</p>
+        <h1 id="project-make-a-binary-cash-register">Project: Make a binary cash register</h1><p>For this project, you’ll be making a binary cash register out of paper, cardboard, and of course the micro:bit. This will involve programming your cash register to display the decimal value of various binary numbers.</p>
 <p>Materials</p>
 <ul>
 <li>Cardboard or heavy paper</li>
@@ -1706,54 +1705,42 @@
 </ul>
 <p><img class="ui image" src="/static/courses/csintro/binary/microbit-cash-register.png" alt="micro:bit cash register" loading="lazy">
 Binary micro:bit Cash Register</p>
-<h2 id="tips">Tips</h2><p>This is one possible design for a binary cash register. We used coins and copper tape on a piece of cardboard. Normally, the coins are flipped up (“off” or 0) and to indicate “on” or 1, the coin is flipped so it lays flat across both pieces of copper tape, completing the circuit so the micro:bit can detect that that pin has been activated, and calculates and displays the decimal value of the binary number that is indicated by the coins.</p>
-<p>Copper tape is a thin, flexible strip of copper with an adhesive back. You can sometimes find copper tape at the hardware, sold as slug tape, to keep slugs out of your garden. Usually, copper tape can conduct electricity even through the sticky side but if you are sticking one piece of copper tape to another, be sure to go over the connection with your fingernail, pressing it down firmly.</p>
-<p>Because the micro:bit only has three pins, this binary register is limited to three place values. Students might use variables to represent each of the three place values, or they can simply keep a running total by adding the appropriate amount when each of the three pins is pressed.</p>
-<p>You can stick the micro:bit into place using some sticky tape, or you can create an actual holder. The copper tape connections are delicate though, so be careful when plugging and unplugging the power cable from the board.</p>
-<p><img class="ui image" src="/static/courses/csintro/binary/binary-cash-register.jpg" alt="Binary cash register project" loading="lazy">
+<h2 id="project-example">Project Example</h2><p><img class="ui image" src="/static/courses/csintro/binary/binary-cash-register.jpg" alt="Binary cash register project" loading="lazy">
 An implementation of the Binary Cash Register</p>
-<h2 id="extra-mods">Extra mods</h2><ul>
-<li>Write some code that will display the number in binary when you press the A button. </li>
-<li>Think of a way to create more place values, perhaps by using a second micro:bit and a Radio connection.</li>
+<p>This is one possible design for a binary cash register. It uses coins and copper tape on a piece of cardboard. Normally, to indicate “off” or 0, the coins are flipped up. And to indicate “on” or 1, the coin is flipped so it lays flat across both pieces of copper tape, completing the circuit so the micro:bit can detect that that pin has been activated, and calculates and displays the decimal value of the binary number that is indicated by the coins.</p>
+<p>Copper tape is a thin, flexible strip of copper with an adhesive back. Usually, copper tape can conduct electricity even through the sticky side, but if you are sticking one piece of copper tape to another, be sure to go over the connection with your fingernail, pressing it down firmly.</p>
+<p>Because the micro:bit only has three pins/rings, this binary register is limited to three place values. You might use variables to represent each of the three place values, or you can simply keep a running total by adding the appropriate amount when each of the three pins is pressed.</p>
+<p>You will need to connect the ground (GND) pin using copper tape to the other side of the circuit – using the coin to connect them.</p>
+<p>You can stick the micro:bit into place using some sticky tape, or you can create an actual holder. The copper tape connections are delicate though, so be careful when plugging and unplugging the power cable from the board.</p>
+<p>Project mod options</p>
+<h2 id="mods-for-the-binary-cash-register">Mods for the binary cash register</h2><ul>
+<li><p>Write some code that will display the number in binary when you press the A button.</p>
+</li>
+<li><p>Think of a way to create more place values, perhaps by using a second micro:bit and a Radio connection.</p>
+</li>
 </ul>
-<h2 id="optional-project-build-a-binary-wristwatch">Optional project: Build a binary wristwatch</h2><ul>
-<li>Write a program that will display the correct time (once set) on the micro:bit. </li>
-<li>The 3-4 numbers displayed will be in binary (not decimal).</li>
-<li>To make the strap of the wristwatch, put 2 pieces of duct tape back-to-back, and use velcro tabs as the fasteners</li>
+<h2 id="optional-additional-project-build-a-binary-wristwatch">Optional additional project: Build a binary wristwatch</h2><p>Here’s another idea for a project that deals with binary:</p>
+<ul>
+<li><p>Write a program that will display the correct time (once set) on the micro:bit.</p>
+</li>
+<li><p>The three to four numbers displayed will be in binary (not decimal).</p>
+</li>
 </ul>
 <p><img class="ui image" src="/static/courses/csintro/binary/binary-wrist-watch.jpg" alt="Binary wrist watch project" loading="lazy"></p>
-<p>To make the strap of the wristwatch, you can put two pieces of duct tape back-to-back, and use Velcro tabs as the fasteners.</p>
-<p><img class="ui image" src="/static/courses/csintro/binary/microbit-holder.jpg" alt="Holder" loading="lazy">
-This is a holder that allows the micro:bit to be worn on the wrist.</p>
-<p><img class="ui image" src="/static/courses/csintro/conditionals/microbit-holder.jpg" alt="Wooden structure to hold the micro:bit on the wrist" loading="lazy">
-This design supports the micro:bit in a rigid cradle and allows more delicate connections to the pins.</p>
-<h2 id="reflection">Reflection</h2><p>Have students write a reflection of about 150–300 words, addressing the following points:</p>
+<ul>
+<li>To make the strap of the wristwatch, put two pieces of duct tape back-to-back, and use Velcro tabs as the fasteners.</li>
+</ul>
+<p><img class="ui image" src="/static/courses/csintro/binary/microbit-holder.jpg" alt="Holder" loading="lazy"></p>
+<p>This is a holder that allows the micro:bit to be worn on the wrist.</p>
+<p><img class="ui image" src="/static/courses/csintro/conditionals/microbit-holder.jpg" alt="Wooden structure to hold the micro:bit on the wrist" loading="lazy"></p>
+<p>This design supports the micro:bit in a rigid cradle and allows more delicate connections to the pins.</p>
+<h2 id="reflection">Reflection</h2><p>Write a short reflection of about 150–300 words, addressing the following points:</p>
 <ul>
 <li>Describe what the physical component of yur micro:bit project was (e.g., an armband, a cardboard mount, a holder, etc.)</li>
 <li>How well did your prototype work? What were you happy with? What would you change? </li>
 <li>What was something that was surprising to you about the process of creating this project?</li>
 <li>Describe one way in which your project differed from the example that was given. How would you recognize it as your own?</li>
-</ul>
-<h2 id="assessment">Assessment</h2><p><strong>Competency scores</strong>: 4, 3, 2, 1</p>
-<h3 id="binary-display">Binary display</h3><p><strong>4 =</strong> All binary numerals display correctly.<br />
-<strong>3 =</strong> At least 2 binary numerals display correctly.<br />
-<strong>2 =</strong> At least 1 binary numeral displays.<br />
-<strong>1 =</strong> No binary numerals display correctly.</p>
-<h3 id="micro-bit-program">micro:bit program</h3><p><strong>4 =</strong> micro:bit program:<br />
-<code>*</code> Uses binary in a way that is integral to the program<br />
-<code>*</code> Uses mathematical operations to convert decimal-binary<br />
-<code>*</code> Compiles and runs as intended<br />
-<code>*</code> Meaningful comments in code<br />
-<strong>3 =</strong> micro:bit program lacks 1 of the required elements.<br />
-<strong>2 =</strong> micro:bit program lacks 2 of the required elements.<br />
-<strong>1 =</strong> micro:bit program lacks 3 or more of the required elements.</p>
-<h3 id="reflection">Reflection</h3><p><strong>4 =</strong> Reflection piece includes addresses all prompts.<br />
-<strong>3 =</strong> Reflection piece lacks 1 of the required elements.<br />
-<strong>2 =</strong> Reflection piece lacks 2 of the required elements.<br />
-<strong>1 =</strong> Reflection piece lacks 3 of the required elements. </p>
-<h2 id="additional-questions-to-ponder">Additional questions to ponder</h2><ul>
-<li>How could you use a row of flashlights to represent a number to someone else far away? </li>
-<li>How might you use those flashlights to send a message?</li>
+<li>Publish your MakeCode program and include the link.</li>
 </ul>
 <h2 id="resources">Resources</h2><p><a target="_blank" rel="nofollow noopener" href="https://www.mathsisfun.com/binary-number-system.html">Math is fun: Binary number system</a></p>
 

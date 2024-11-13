@@ -3,15 +3,15 @@
 ![Close-up of game tokens](/static/courses/csintro/conditionals/game-pieces.jpg)
 
 ## Introduction
+
 Many board games use an electronic toy to signal moves, or provide clues. There are some funny examples online if you search for “electronic board game”. Here are some examples:
 
 [Dark Tower](https://youtu.be/cxrY7MWEkwE) (featuring Orson Welles): This is an example of a circular board game in which the pieces start on the edges and move in toward the middle.
 
-[Electronic Dream Phone Board Game Commercial - 1992](https://www.youtube.com/watch?v=pqYsQgDqlmg): This board game is really a logic puzzle. There are printed clues that illustrate relationships and the phone provides clues that help you to narrow down possibilities by a process of elimination.
-
 [Stop Thief Electronic Board Game commercial 1979](https://www.youtube.com/watch?v=q3wpPRdDy4E): This board game uses a device to give audio clues that help you to figure out what to do on the game board. It’s a good example of how you might use sound as a clue.
 
 ## Assignment
+
 Create an original board game project in which micro:bit is a central feature. The rules of your board game should use Conditionals.
 
 Come up with:
@@ -44,9 +44,7 @@ In this example, pieces start out at full strength and lose points based on rand
 Rules: When two pieces meet on the same space, they battle.
 
 * Press A to enter the strength of piece A.
-
 * Then press B to enter the strength of piece B.
-
 * Shake the micro:bit to determine the winner of the battle, which is proportionately random to the strength of each piece.
 
 ```blocks
@@ -68,13 +66,18 @@ input.onGesture(Gesture.Shake, () => {
     }
 })
 ```
-Solution link: [https://makecode.microbit.org/_0fx9hY9EbM5T]()
 
-### Bonus
+Solution link: [Battle Pieces Project](https://makecode.microbit.org/_0fx9hY9EbM5T)
+
+### ~ hint
+
+#### Bonus
 
 The micro:bit uses its accelerometer to detect when you're shaking it. How does an accelerometer actually work?
 
-[https://www.youtube.com/watch?v=byngcwjO51U]()
+https://www.youtube.com/watch?v=byngcwjO51U
+
+### ~
 
 ### Space Race
 
@@ -96,7 +99,6 @@ micro:bit holder
 Game pieces
 
 ```blocks
-
 let yes_or_no = 0
 let current_roll = 0
 let previous_roll = 0
@@ -133,7 +135,8 @@ input.onButtonPressed(Button.A, () => {
 basic.showString("SPACE RACE")
 previous_roll = 0
 ```
-Solution link: [makecode.microbit.org/_H7kPewAyifhk]()
+
+Solution link: [Space Race Project](https://makecode.microbit.org/_H7kPewAyifhk)
 
 ## Journal Prompt
 
@@ -144,4 +147,3 @@ Write a short reflection in your journal (about 150–300 words), addressing the
 * Describe a difficult point in the process of designing this game, and explain how you resolved it.
 * If you had other poeple play your game, what feedback did they give you? How did that help you improve your game? What were the Conditionals that you used as part of your game rules?
 * Publish your MakeCode program and include the link.
-

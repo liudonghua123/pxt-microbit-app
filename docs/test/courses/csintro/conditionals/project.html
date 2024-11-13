@@ -22,14 +22,14 @@
 <meta name="twitter:site" content="@msmakecode" />
 <meta name="twitter:title" content="Microsoft MakeCode for micro:bit" />
 <meta name="twitter:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
-<meta name="twitter:image" content="/static/courses/csintro/conditionals/game-pieces.jpg" />
+<meta name="twitter:image" content="https://img.youtube.com/vi/byngcwjO51U/0.jpg" />
 
 <meta property="og:title" content="Microsoft MakeCode for micro:bit" />
 <meta property="og:site_name" content="Microsoft MakeCode" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
 <meta property="fb:app_id" content="" />
-<meta property="og:image" content="/static/courses/csintro/conditionals/game-pieces.jpg" />
+<meta property="og:image" content="https://img.youtube.com/vi/byngcwjO51U/0.jpg" />
 
 <meta name="format-detection" content="telephone=no">
 <link rel="apple-touch-icon" href="docs/static/icons/apple-touch-icon.png">
@@ -1694,7 +1694,6 @@
         <h1 id="project-board-game">Project: Board Game</h1><p><img class="ui image" src="/static/courses/csintro/conditionals/game-pieces.jpg" alt="Close-up of game tokens" loading="lazy"></p>
 <h2 id="introduction">Introduction</h2><p>Many board games use an electronic toy to signal moves, or provide clues. There are some funny examples online if you search for “electronic board game”. Here are some examples:</p>
 <p><a target="_blank" rel="nofollow noopener" href="https://youtu.be/cxrY7MWEkwE">Dark Tower</a> (featuring Orson Welles): This is an example of a circular board game in which the pieces start on the edges and move in toward the middle.</p>
-<p><a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/watch?v=pqYsQgDqlmg">Electronic Dream Phone Board Game Commercial - 1992</a>: This board game is really a logic puzzle. There are printed clues that illustrate relationships and the phone provides clues that help you to narrow down possibilities by a process of elimination.</p>
 <p><a target="_blank" rel="nofollow noopener" href="https://www.youtube.com/watch?v=q3wpPRdDy4E">Stop Thief Electronic Board Game commercial 1979</a>: This board game uses a device to give audio clues that help you to figure out what to do on the game board. It’s a good example of how you might use sound as a clue.</p>
 <h2 id="assignment">Assignment</h2><p>Create an original board game project in which micro:bit is a central feature. The rules of your board game should use Conditionals.</p>
 <p>Come up with:</p>
@@ -1720,12 +1719,9 @@
 <h3 id="battle-pieces">Battle pieces</h3><p>In this example, pieces start out at full strength and lose points based on random events on the board.</p>
 <p>Rules: When two pieces meet on the same space, they battle.</p>
 <ul>
-<li><p>Press A to enter the strength of piece A.</p>
-</li>
-<li><p>Then press B to enter the strength of piece B.</p>
-</li>
-<li><p>Shake the micro:bit to determine the winner of the battle, which is proportionately random to the strength of each piece.</p>
-</li>
+<li>Press A to enter the strength of piece A.</li>
+<li>Then press B to enter the strength of piece B.</li>
+<li>Shake the micro:bit to determine the winner of the battle, which is proportionately random to the strength of each piece.</li>
 </ul>
 <pre><code class="lang-blocks">let p2 = 0
 let p1 = 0
@@ -1744,9 +1740,22 @@ input.onGesture(Gesture.Shake, () =&gt; {
         basic.showString(&quot;B&quot;)
     }
 })</code></pre>
-<p>Solution link: <a target="_blank" rel="nofollow noopener" href="">https://makecode.microbit.org/_0fx9hY9EbM5T</a></p>
-<h3 id="bonus">Bonus</h3><p>The micro:bit uses its accelerometer to detect when you’re shaking it. How does an accelerometer actually work?</p>
-<p><a target="_blank" rel="nofollow noopener" href="">https://www.youtube.com/watch?v=byngcwjO51U</a></p>
+<p>Solution link: <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/_0fx9hY9EbM5T">Battle Pieces Project</a></p>
+
+    <div class="ui info message">
+        <div class="content">
+            <h4 id="bonus">Bonus</h4><p>The micro:bit uses its accelerometer to detect when you’re shaking it. How does an accelerometer actually work?</p>
+
+    <div class="ui grid">
+        <div class="ten wide column">
+            <div class="ui embed mdvid" data-source="youtube" data-id="byngcwjO51U"
+                data-placeholder="https://img.youtube.com/vi/byngcwjO51U/0.jpg">
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </div>
 <h3 id="space-race">Space Race</h3><p>How to win: Starting from Earth, your goal is to progress to Mars. The first person to reach Mars is the winner.</p>
 <p>Rules:</p>
 <ul>
@@ -1760,8 +1769,7 @@ Finished game</p>
 micro:bit holder</p>
 <p><img class="ui image" src="/static/courses/csintro/conditionals/game-pieces.jpg" alt="Game pieces" loading="lazy">
 Game pieces</p>
-<pre><code class="lang-blocks">
-let yes_or_no = 0
+<pre><code class="lang-blocks">let yes_or_no = 0
 let current_roll = 0
 let previous_roll = 0
 input.onButtonPressed(Button.AB, () =&gt; {
@@ -1796,7 +1804,7 @@ input.onButtonPressed(Button.A, () =&gt; {
 })
 basic.showString(&quot;SPACE RACE&quot;)
 previous_roll = 0</code></pre>
-<p>Solution link: <a target="_blank" rel="nofollow noopener" href="">makecode.microbit.org/_H7kPewAyifhk</a></p>
+<p>Solution link: <a target="_blank" rel="nofollow noopener" href="https://makecode.microbit.org/_H7kPewAyifhk">Space Race Project</a></p>
 <h2 id="journal-prompt">Journal Prompt</h2><p>Write a short reflection in your journal (about 150–300 words), addressing the following points:</p>
 <ul>
 <li>Explain how you decided on your particular board game idea.</li>

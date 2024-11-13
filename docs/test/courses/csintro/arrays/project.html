@@ -1691,8 +1691,8 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="project-musical-instrument">Project: Musical instrument</h1><p>This is a project in which students are challenged to create a musical instrument that uses arrays to store sequences of notes. The array of notes can be played when an input occurs, such as one of the buttons being pressed, or if one or more of the pins is activated.</p>
-<p>Ideally, the micro:bit should be mounted in some kind of housing, perhaps a guitar shape or a music box.  Start by looking at different kinds of musical instruments to get a sense of what kind of shape you might want to build around your micro:bit.</p>
+        <h1 id="project-musical-instrument">Project: Musical instrument</h1><p>This is a project in which you are challenged to create a musical instrument that uses arrays to store sequences of notes. The array of notes can be played when an input occurs, such as one of the buttons being pressed, or if one or more of the pins is activated.</p>
+<p>Ideally, the micro:bit should be mounted in some kind of housing, perhaps a guitar shape or a music box. Start by looking at different kinds of musical instruments to get a sense of what kind of shape you might want to build around your micro:bit.</p>
 <p><img class="ui image" src="/static/courses/csintro/arrays/microbit-guitar.png" alt="micro:bit guitar" loading="lazy"></p>
 <p>Here are some examples of guitars that were made out of cardboard and colored, patterned duct tape that you can buy in craft stores. </p>
 <h2 id="example-guitar-code">Example guitar code</h2><p>This is an example of a project that uses the micro:bit accelerometer to play different tones when the guitar is held and tilted while playing. Pressing the A button will save the current tone to an array. After ten tones, a repeating melody will be performed. Press the B button to clear the array and start over.</p>
@@ -1725,8 +1725,8 @@ input.onButtonPressed(Button.B, () =&gt; {
     list = []
     basic.clearScreen()
 })</code></pre>
-<h2 id="using-arrays-with-musical-notes">Using arrays with musical notes</h2><p>You can create an array of notes by attaching Music blocks to an array.  Musical notes are described in words (e.g., Middle C, High C) but they are actually numbers.  You can do Math operations on those numbers to change the pitch of your song.</p>
-<p>Here is an example of how to create an array with musical notes.  Button A plays every note in the array.  Button B plays the notes at twice the frequency (but doesn’t alter the original notes.)</p>
+<h2 id="using-arrays-with-musical-notes">Using arrays with musical notes</h2><p>You can create an array of notes by attaching Music blocks to an array. Musical notes are described in words (e.g., Middle C, High C) but they are actually numbers.  You can do Math operations on those numbers to change the pitch of your song.</p>
+<p>Here is an example of how to create an array with musical notes.  Button A plays every note in the array. Button B plays the notes at twice the frequency (but doesn’t alter the original notes.)</p>
 <pre><code class="lang-blocks">let list: number[] = []
 let value = 0
 input.onButtonPressed(Button.A, () =&gt; {
@@ -1742,14 +1742,14 @@ input.onButtonPressed(Button.B, () =&gt; {
     basic.pause(1000)
 })
 list = [262, 392, 330, 392, 262]</code></pre>
-<p>Remember that a ‘for element value of list’ loop makes a temporary copy of the value, so even if you change a value, it will not change the original element in the array. If students want to permanently change the values in their array (transpose music to increasingly higher keys, for example) they can use a for loop like this:</p>
+<p>Remember that a ‘for element value of list’ loop makes a temporary copy of the value, so even if you change a value, it will not change the original element in the array. If you’d like to permanently change the values in your array (transpose music to increasingly higher keys, for example) you can use a for loop like this:</p>
 <pre><code class="lang-blocks">let list: number[] = []
 input.onButtonPressed(Button.AB, () =&gt; {
     for (let index = 0; index &lt;= list.length - 1; index++) {
         list[index] = list[index] * 2
     }
 })</code></pre>
-<h2 id="reflection">Reflection</h2><p>Have students write a reflection of about 150–300 words, addressing the following points:</p>
+<h2 id="reflection">Reflection</h2><p>Write a short reflection of about 150–300 words, addressing the following points:</p>
 <ul>
 <li>Explain how you decided on your musical instrument. What brainstorming ideas did you come up with? </li>
 <li>What properties does it share with a real musical instrument? What is unique?</li>
@@ -1757,27 +1757,8 @@ input.onButtonPressed(Button.AB, () =&gt; {
 <li>What was something that was surprising to you about the process of creating this program?</li>
 <li>Describe a difficult point in the process of designing this program, and explain how you resolved it.</li>
 <li>What feedback did your beta testers give you? How did that help you improve your musical instrument?</li>
+<li>Publish your MakeCode program and include the link.</li>
 </ul>
-<h2 id="assessment">Assessment</h2><p><strong>Competency scores</strong>: 4, 3, 2, 1</p>
-<h3 id="array">Array</h3><p><strong>4 =</strong> Stores and iterates through each element of the array successfully.<br />
-<strong>3 =</strong> Stores each element of the array successfully.<br />
-<strong>2 =</strong> Array skips values or has other problems with storing and/or retrieving elements.<br />
-<strong>1 =</strong> Array doesn’t work at all or no array present.</p>
-<h3 id="maker-component">Maker component</h3><p><strong>4 =</strong> Tangible component is tightly integrated with the micro:bit and each relies heavily on the other to make the project complete.<br />
-<strong>3 =</strong> Tangible component is somewhat integrated with the micro:bit but is not essential.<br />
-<strong>2 =</strong> Tangible component does not add to the functionality of the program.<br />
-<strong>1 =</strong> No tangible component.</p>
-<h3 id="micro-bit-program">micro:bit program</h3><p><strong>4 =</strong> The program:<br />
-<code>*</code> Uses at least one array in a fully integrated and meaningful way<br />
-<code>*</code> Compiles and runs as intended<br />
-<code>*</code> Meaningful comments in code<br />
-<strong>3 =</strong> Uses an array in a tangential way that is peripheral to function of project and/or program lacks 1 of the required elements.<br />
-<strong>2 =</strong> Array is poorly implemented and/or peripheral to function of project, and/or lacks 2 of the required elements.<br />
-<strong>1 =</strong> micro:bit program lacks 3 or more of the required elements.</p>
-<h3 id="collaboration-reflection">Collaboration reflection</h3><p><strong>4 =</strong> Reflection piece addresses all prompts.<br />
-<strong>3 =</strong> Reflection piece lacks 1 of the required elements.<br />
-<strong>2 =</strong> Reflection piece lacks 2 of the required elements.<br />
-<strong>1 =</strong> Reflection piece lacks 3 of the required elements.</p>
 
     </div>
 
