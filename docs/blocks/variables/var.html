@@ -22,14 +22,14 @@
 <meta name="twitter:site" content="@msmakecode" />
 <meta name="twitter:title" content="Microsoft MakeCode for micro:bit" />
 <meta name="twitter:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
-<meta name="twitter:image" content="docs/static/icons/apple-touch-icon.png" />
+<meta name="twitter:image" content="/static/blocks/variables/create.gif" />
 
 <meta property="og:title" content="Microsoft MakeCode for micro:bit" />
 <meta property="og:site_name" content="Microsoft MakeCode" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
 <meta property="fb:app_id" content="" />
-<meta property="og:image" content="docs/static/icons/apple-touch-icon.png" />
+<meta property="og:image" content="/static/blocks/variables/create.gif" />
 
 <meta name="format-detection" content="telephone=no">
 <link rel="apple-touch-icon" href="docs/static/icons/apple-touch-icon.png">
@@ -1691,52 +1691,69 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="local-variables">Local Variables</h1><p>How to define and use local variables.</p>
-<!-- parent language --><p>A variable is a place where you can store and retrieve data. Variables have a name, a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types.html">type</a>, and value:</p>
+        <h1 id="declaring-variables">Declaring variables</h1><p>How to declare and use variables.</p>
+<!-- parent language --><p>A variable is a place where you can store and retrieve data. Variables have a name, a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types.html">type</a>, and a value:</p>
 <ul>
 <li><em>name</em> is how you’ll refer to the variable</li>
-<li><em>type</em> refers to the kind of data a variable can store</li>
-<li><em>value</em> refers to what’s stored in the variable</li>
+<li><em>type</em> is the kind of data a variable can store</li>
+<li><em>value</em> is what’s stored in the variable</li>
 </ul>
-<h2 id="var-statement">Var statement</h2><p>Use the Block Editor variable statement to create a variable 
-and the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks/variables/assign.html">assignment operator</a> 
-to store something in the variable.</p>
-<p>For example, this code stores the number <code>2</code> in the <code>x</code> variable:</p>
-<pre><code class="lang-blocks">let x = 2;</code></pre>
-<p>Here’s how to define a variable in the Block Editor:</p>
+<h2 id="the-variable-var-statement">The variable (var) statement</h2><p>A variable is created using a <code>variable</code> statement. The variable will “declare” itself in this statement. In MakeCode JavaScript a variable is declared along with its first <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks/variables/assign.html">assignment</a>:</p>
+<pre><code class="lang-typescript">let x = 2</code></pre>
+<p>With Python a variable is declared when it’s first used. In this case the variable statement is just the assignment of the variable:</p>
+<pre><code class="lang-python">x = 2</code></pre>
+<p>If a variable is declared in blocks you will see the <code>||variables:set||</code> block with the first use of the variable. This code stores the number <code>2</code> in the <code>x</code> variable:</p>
+<pre><code class="lang-blocks">let x = 2</code></pre>
+<p>The new variable is created inside the <code>||variables:Variables||</code> category of the <strong>Toolbox</strong>.</p>
+
+    <div class="ui info message">
+        <div class="content">
+            <h4 id="creating-a-variable-from-the-toolbox">Creating a variable from the Toolbox</h4><p>In the <code>||variables:Variables||</code> category of the <strong>Toolbox</strong> you can create new variable:</p>
+<p><img class="ui image" src="/static/blocks/variables/create.gif" alt="Create a new variable" loading="lazy"></p>
+<p>Here’s how to create a variable using the Toolbox:</p>
 <ol>
-<li><p>Click <code>variables</code>.</p>
-</li>
-<li><p>Change the default variable name if you like.</p>
-</li>
-<li><p>Drag a block type on the right-side of the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks/variables/assign.html">assignment operator</a> and click the down arrow to change the variable name.</p>
-</li>
+<li>Click <code>||variables:Variables||</code> in the Toolbox.</li>
+<li>Click on <strong>Make a Variable…</strong>.</li>
+<li>Choose a name for your variable, type it in, and click <strong>Ok</strong>.</li>
+<li>Drag the new variable, <code>||variables:set||</code> or <code>||variables:change||</code> block into your code. </li>
 </ol>
-<p>A variable is created for the number returned by the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/led/brightness.html">brightness</a> function.</p>
-<pre><code class="lang-blocks">let b = led.brightness();</code></pre>
+
+        </div>
+    </div>
+<h3 id="quick-example">Quick example</h3><p>A variable is created for the number returned by the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/led/brightness.html">brightness</a> function.</p>
+<pre><code class="lang-blocks">let b = led.brightness()</code></pre>
 <h2 id="using-variables">Using variables</h2><p>Once you’ve defined a variable, just use the variable’s name whenever you need what’s stored in the variable. For example, the following code shows the value stored in <code>counter</code> on the LED screen:</p>
-<pre><code class="lang-blocks">let counter = 1;
-basic.showNumber(counter);</code></pre>
+<pre><code class="lang-blocks">let counter = 1
+basic.showNumber(counter)</code></pre>
 <p>To change the contents of a variable use the assignment operator. The following code sets <code>counter</code> to 1 and then increments <code>counter</code> by 10:</p>
-<pre><code class="lang-blocks">let counter = 1;
-counter = counter + 10;
-basic.showNumber(counter);</code></pre>
+<pre><code class="lang-blocks">let counter = 1
+counter = counter + 10
+basic.showNumber(counter)</code></pre>
 <h2 id="why-use-variables-">Why use variables?</h2><p>If you want to remember and modify data, you’ll need a variable. 
 A counter is a great example:</p>
-<pre><code class="lang-blocks">let counter = 0;
-input.onButtonPressed(Button.A, () =&gt; { 
-  counter = counter + 1;
-  basic.showNumber(counter);
-});</code></pre>
+<pre><code class="lang-blocks">let counter = 0
+input.onButtonPressed(Button.A, function () { 
+    counter = counter + 1
+    basic.showNumber(counter)
+})</code></pre>
 <h2 id="local-variables">Local variables</h2><p>Local variables exist only within the function or block of code where they’re defined. For example:</p>
 <pre><code class="lang-blocks">// x does NOT exist here.
 if (led.brightness() &gt; 128) {
-  // x exists here
-  let x = 0;
+    // x exists here
+    let x = 0
 }</code></pre>
-<h3 id="notes">Notes</h3><ul>
-<li>You can use the default variable names if you’d like, however, it’s best to use descriptive variable names. To change a variable name in the editor, select the down arrow next to the variable and then click “new variable”.</li>
-</ul>
+<h2 id="notes-about-variables">Notes about variables</h2><h3 id="variable-names">Variable names</h3><p>Some blocks come from the Toolbox with default variable names, such as <code>list</code> from <code>||arrays:Arrays||</code>.
+You can use the default variable names if you like, however, it’s best to use descriptive variable names. To change a variable name in the editor, select the down arrow next to the variable and then click <strong>“Rename variable…”</strong> to change it.</p>
+<h3 id="hidden-declaration-block">Hidden declaration block</h3><p>If a variable is used more than once, and its declaration block sets the variable to <code>0</code>, that first declaration block is hidden. For example:</p>
+<pre><code class="lang-blocks">let x = 0
+if (x == 0) {
+    x = 9
+}</code></pre>
+<p>You don’t see any first block setting the variable <code>x</code> to <code>0</code> but that happens in its hidden declaration statement. You’ll see the declaration statement, <code>let x = 0</code>, if you switch from Blocks to JavaScript in the Editor:</p>
+<pre><code class="lang-typescript-ignore">let x = 0
+if (x == 0) {
+    x = 9
+}</code></pre>
 <h2 id="see-also">See also</h2><p><a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types.html">types</a>, <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks/variables/assign.html">assignment operator</a></p>
 
     </div>

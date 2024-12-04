@@ -22,14 +22,14 @@
 <meta name="twitter:site" content="@msmakecode" />
 <meta name="twitter:title" content="Microsoft MakeCode for micro:bit" />
 <meta name="twitter:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
-<meta name="twitter:image" content="docs/static/icons/apple-touch-icon.png" />
+<meta name="twitter:image" content="/static/blocks/variables/string.gif" />
 
 <meta property="og:title" content="Microsoft MakeCode for micro:bit" />
 <meta property="og:site_name" content="Microsoft MakeCode" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
 <meta property="fb:app_id" content="" />
-<meta property="og:image" content="docs/static/icons/apple-touch-icon.png" />
+<meta property="og:image" content="/static/blocks/variables/string.gif" />
 
 <meta name="format-detection" content="telephone=no">
 <link rel="apple-touch-icon" href="docs/static/icons/apple-touch-icon.png">
@@ -1692,13 +1692,9 @@
 					
     <div class="ui text">
         <h1 id="string">String</h1><p>A <em>String</em> is a sequence of characters. </p>
-<h3 id="intro"></h3>
-    <div class="ui info message">
-        <div class="content">
-            <p>For the micro:bit, ASCII character codes 32 to 126 are supported; letters, digits, punctuation marks, and a few symbols. All other character codes appear as a ? on the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/device/screen.html">LED screen</a>.</p>
-
-        </div>
-    </div>
+<h3 id="intro"></h3><p>A string type is more complex than a number or a boolean. Strings have a length and you can
+change the characters inside the string. You can also break strings apart and make new strings, or
+put strings together and make longer strings.</p>
 <h3 id="create-a-string-variable">Create a string variable</h3><pre><code class="lang-block">let greeting = &quot;Hello&quot;;</code></pre>
 <p>To create a variable that holds a string:</p>
 <ol>
@@ -1714,6 +1710,25 @@
 <p>Your code should look something like this:</p>
 <pre><code class="lang-block">let greeting = &quot;Hello&quot;;</code></pre>
 <h2 id="examples"></h2><h3 id="seealso">See also </h3><p><a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">Number</a></p>
+<h2 id="couldn-t-apply-replacement-logic-to-">Couldn’t apply replacement logic to:</h2><h2 id="create"></h2><p>In the <code>||variables:Variables||</code> category of the <strong>Toolbox</strong> you can create new variable:</p>
+<p><img class="ui image" src="/static/blocks/variables/string.gif" alt="Create a new string variable" loading="lazy"></p>
+<p>Here’s how to create a string variable using the Toolbox:</p>
+<ol>
+<li>Click <code>||variables:Variables||</code> in the Toolbox.</li>
+<li>Click on <strong>Make a Variable…</strong>.</li>
+<li>Choose a name for your variable, type it in, and click <strong>Ok</strong>.</li>
+<li>Drag the new <code>||variables:set||</code> block into your code.</li>
+<li>Click on the <code>||text:Text||</code> drawer in the Toolbox and find the <code>||text:&quot; &quot;||</code> block.</li>
+<li>Drag the <code>||text:&quot; &quot;||</code> block into the value slot in of your variable <code>||variables:set||</code> block.</li>
+</ol>
+<h2 id="custom">Characters you use in strings </h2>
+    <div class="ui info message">
+        <div class="content">
+            <h4 id="character-sets">Character sets</h4><p>The available characters to use for a language is called the <em>character set</em>. Each character in the set has a number code to match it with.
+To display characters on the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/device/screen.html">LED screen</a>, the micro:bit, uses the “ASCII” character codes of <code>32</code> to <code>126</code>; letters, digits, punctuation marks, and a few symbols. All other character codes appear as a <code>?</code> on the LED screen.</p>
+
+        </div>
+    </div>
 
     </div>
 

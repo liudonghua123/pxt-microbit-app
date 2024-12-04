@@ -249,12 +249,6 @@
                 "localHostUrl": "http://localhost:3000/microbit-robot/?parentOrigin=$PARENT_ORIGIN$",
                 "aspectRatio": 1.22,
                 "permanent": true
-            },
-            "arcadeshield": {
-                "url": "https://microsoft.github.io/pxt-arcadeshield/?parentOrigin=$PARENT_ORIGIN$",
-                "localHostUrl": "http://localhost:3000/?parentOrigin=$PARENT_ORIGIN$",
-                "aspectRatio": 1.22,
-                "permanent": true
             }
         },
         "testSimulatorExtensions": {},
@@ -412,9 +406,9 @@
     "uploadDocs": true,
     "versions": {
         "branch": "main",
-        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/23ba1c21dac39c3950571ccafc7fb74955214faf",
-        "target": "7.1.15",
-        "pxt": "11.3.3"
+        "commits": "https://github.com/liudonghua123/pxt-microbit-app/commits/2beadce3ada756e83afc33668bfa705848238d93",
+        "target": "7.1.16",
+        "pxt": "11.3.5"
     },
     "blocksprj": {
         "id": "blocksprj",

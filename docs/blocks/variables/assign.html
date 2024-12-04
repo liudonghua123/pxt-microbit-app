@@ -22,14 +22,14 @@
 <meta name="twitter:site" content="@msmakecode" />
 <meta name="twitter:title" content="Microsoft MakeCode for micro:bit" />
 <meta name="twitter:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
-<meta name="twitter:image" content="docs/static/icons/apple-touch-icon.png" />
+<meta name="twitter:image" content="/static/blocks/variables/assign.gif" />
 
 <meta property="og:title" content="Microsoft MakeCode for micro:bit" />
 <meta property="og:site_name" content="Microsoft MakeCode" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="A Blocks / JavaScript code editor for the micro:bit powered by Microsoft MakeCode." />
 <meta property="fb:app_id" content="" />
-<meta property="og:image" content="docs/static/icons/apple-touch-icon.png" />
+<meta property="og:image" content="/static/blocks/variables/assign.gif" />
 
 <meta name="format-detection" content="telephone=no">
 <link rel="apple-touch-icon" href="docs/static/icons/apple-touch-icon.png">
@@ -1691,10 +1691,21 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="assignment-operator">Assignment Operator</h1><p>Use an equals sign to make a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks/variables/var.html">variable</a> store the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">number</a> 
-or <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/string.html">string</a> you say.</p>
-<p>When you use the equals sign to store something in a variable, the equals sign is called
+        <h1 id="assignment-operator">Assignment Operator</h1><p>Use an equals sign to make a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks/variables/var.html">variable</a> store a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">number</a>, <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/string.html">string</a>, or other <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types.html">type</a> of value.</p>
+<p>When you use the equals sign (<strong>=</strong>) to store something in a variable, the equals sign is called
 an <em>assignment operator</em>, and what you store is called a <em>value</em>.</p>
+<p>When you work in JavaScript or Python the equals sign is used:</p>
+<pre><code class="lang-typescript-ignore">item = 3</code></pre>
+<h2 id="the-set-block">The ‘set’ block</h2><p>In blocks, a variable assignment happens with the <code>||variables:set||</code> block when you set a value to a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks/variables/var.html">variable</a>.</p>
+<pre><code class="lang-block">let item = 3</code></pre>
+
+    <div class="ui info message">
+        <div class="content">
+            <h4 id="setting-a-variable-using-the-toolbox">Setting a variable using the Toolbox</h4><p>In the <code>||variables:Variables||</code> category of the <strong>Toolbox</strong> you can create or choose a variable to assign:</p>
+<p><img class="ui image" src="/static/blocks/variables/assign.gif" alt="Setting a variable to a value" loading="lazy"></p>
+
+        </div>
+    </div>
 <h2 id="storing-numbers-in-variables">Storing numbers in variables</h2><p>This program makes the variable <code>item</code> equal <code>5</code> and then shows it on the <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/device/screen.html">LED screen</a>.</p>
 <pre><code class="lang-blocks">let item = 5
 basic.showNumber(item)</code></pre>

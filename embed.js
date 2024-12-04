@@ -10,7 +10,7 @@
     "gifworkerjs": "/pxt-microbit-app/gifjs/gif.worker.js",
     "serviceworkerjs": "/pxt-microbit-app/serviceworker.js",
     "typeScriptWorkerJs": "/pxt-microbit-app/tsworker.js",
-    "pxtVersion": "11.3.3",
+    "pxtVersion": "11.3.5",
     "pxtRelId": "localDirRelId",
     "pxtCdnUrl": "/pxt-microbit-app/",
     "commitCdnUrl": "/pxt-microbit-app/",
