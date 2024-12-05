@@ -2,42 +2,29 @@
 
 A *String* is a sequence of characters. 
 
-### #intro
+## #intro
 
-A string type is more complex than a number or a boolean. Strings have a length and you can
-change the characters inside the string. You can also break strings apart and make new strings, or
-put strings together and make longer strings.
+A string type is more complex than a [number](/types/number) or a [boolean](/types/boolean). Along with its characters a string type contains information about its length an it lets you change any of its characters using an index. Strings can be broken into smaller strings or added on to make larger strings.
 
-### Create a string variable
+Strings can contain letters, numbers, punctuation marks, and other special characters. Strings can have characters from different languages too.
 
-```block
-let greeting = "Hello";
-```
+``"abcdefg1234*?!"``
 
-To create a variable that holds a string:
-
-1. Click `Variables` (in the Block drawer).
-
-2. Type a name for your new string variable by clicking the down arrow, then click New Variable. Then type the variable name "salutation"
-
-3. Drag a string block on the right side of the operator.
-
-4. Click `"Hello"` and then type a string like `hello`.
-
-Your code should look something like this:
+A string [variable](/blocks/variables/var) is declared by [assigning](/blocks/variables/assign) a variable to a string value:
 
 ```block
-let greeting = "Hello";
+let myString = "My nice new string is here!"
 ```
 
-## #examples
+Strings have operations associated with them so that you can change them or work with parts of them.
 
-### See also #seealso
- 
-[Number](/types/number)
+```blocks
+let myString = "My nice new string is here!"
+// make a smaller string
+let mySmallString = myString.substr(0, myString.indexOf("g") + 1)
+```
 
-## Couldn't apply replacement logic to:
-## #create
+## Create a string variable #create
 
 In the ``||variables:Variables||`` category of the **Toolbox** you can create new variable:
 
@@ -52,6 +39,8 @@ Here's how to create a string variable using the Toolbox:
 5. Click on the ``||text:Text||`` drawer in the Toolbox and find the ``||text:" "||`` block.
 6. Drag the ``||text:" "||`` block into the value slot in of your variable ``||variables:set||`` block.
 
+## #examples
+
 ## Characters you use in strings #custom
 
 ### ~ hint
@@ -62,3 +51,6 @@ The available characters to use for a language is called the _character set_. Ea
 To display characters on the [LED screen](/device/screen), the @boardname@, uses the "ASCII" character codes of `32` to `126`; letters, digits, punctuation marks, and a few symbols. All other character codes appear as a `?` on the LED screen.
 
 ### ~
+## See also #seealso
+ 
+[Number](/types/number)

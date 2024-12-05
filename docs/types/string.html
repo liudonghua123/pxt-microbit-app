@@ -1692,25 +1692,16 @@
 					
     <div class="ui text">
         <h1 id="string">String</h1><p>A <em>String</em> is a sequence of characters. </p>
-<h3 id="intro"></h3><p>A string type is more complex than a number or a boolean. Strings have a length and you can
-change the characters inside the string. You can also break strings apart and make new strings, or
-put strings together and make longer strings.</p>
-<h3 id="create-a-string-variable">Create a string variable</h3><pre><code class="lang-block">let greeting = &quot;Hello&quot;;</code></pre>
-<p>To create a variable that holds a string:</p>
-<ol>
-<li><p>Click <code>Variables</code> (in the Block drawer).</p>
-</li>
-<li><p>Type a name for your new string variable by clicking the down arrow, then click New Variable. Then type the variable name “salutation”</p>
-</li>
-<li><p>Drag a string block on the right side of the operator.</p>
-</li>
-<li><p>Click <code>&quot;Hello&quot;</code> and then type a string like <code>hello</code>.</p>
-</li>
-</ol>
-<p>Your code should look something like this:</p>
-<pre><code class="lang-block">let greeting = &quot;Hello&quot;;</code></pre>
-<h2 id="examples"></h2><h3 id="seealso">See also </h3><p><a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">Number</a></p>
-<h2 id="couldn-t-apply-replacement-logic-to-">Couldn’t apply replacement logic to:</h2><h2 id="create"></h2><p>In the <code>||variables:Variables||</code> category of the <strong>Toolbox</strong> you can create new variable:</p>
+<h2 id="intro"></h2><p>A string type is more complex than a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">number</a> or a <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/boolean.html">boolean</a>. Along with its characters a string type contains information about its length an it lets you change any of its characters using an index. Strings can be broken into smaller strings or added on to make larger strings.</p>
+<p>Strings can contain letters, numbers, punctuation marks, and other special characters. Strings can have characters from different languages too.</p>
+<p><code>&quot;abcdefg1234*?!&quot;</code></p>
+<p>A string <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks/variables/var.html">variable</a> is declared by <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/blocks/variables/assign.html">assigning</a> a variable to a string value:</p>
+<pre><code class="lang-block">let myString = &quot;My nice new string is here!&quot;</code></pre>
+<p>Strings have operations associated with them so that you can change them or work with parts of them.</p>
+<pre><code class="lang-blocks">let myString = &quot;My nice new string is here!&quot;
+// make a smaller string
+let mySmallString = myString.substr(0, myString.indexOf(&quot;g&quot;) + 1)</code></pre>
+<h2 id="create">Create a string variable </h2><p>In the <code>||variables:Variables||</code> category of the <strong>Toolbox</strong> you can create new variable:</p>
 <p><img class="ui image" src="/static/blocks/variables/string.gif" alt="Create a new string variable" loading="lazy"></p>
 <p>Here’s how to create a string variable using the Toolbox:</p>
 <ol>
@@ -1721,7 +1712,7 @@ put strings together and make longer strings.</p>
 <li>Click on the <code>||text:Text||</code> drawer in the Toolbox and find the <code>||text:&quot; &quot;||</code> block.</li>
 <li>Drag the <code>||text:&quot; &quot;||</code> block into the value slot in of your variable <code>||variables:set||</code> block.</li>
 </ol>
-<h2 id="custom">Characters you use in strings </h2>
+<h2 id="examples"></h2><h2 id="custom">Characters you use in strings </h2>
     <div class="ui info message">
         <div class="content">
             <h4 id="character-sets">Character sets</h4><p>The available characters to use for a language is called the <em>character set</em>. Each character in the set has a number code to match it with.
@@ -1729,6 +1720,7 @@ To display characters on the <a  rel="nofollow noopener" href="/pxt-microbit-app
 
         </div>
     </div>
+<h2 id="seealso">See also </h2><p><a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">Number</a></p>
 
     </div>
 
