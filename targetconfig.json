@@ -490,6 +490,12 @@
                     "sha": "5bac5ff5b80621b53b746e4bbe252e406b992bdb",
                     "devUrl": "http://localhost:3000"
                 }
+            },
+            "microbit-apps/arcadeshield": {
+                "simx": {
+                    "sha": "d0f7ccae711cff6dd61ffd0bd95c4bab913e3a99",
+                    "devUrl": "http://localhost:3000"
+                }
             }
         },
         "approvedEditorExtensionUrls": [
