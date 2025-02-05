@@ -1691,8 +1691,8 @@
 					</button>
 					
     <div class="ui text">
-        <h1 id="code-evaluation-tool">Code Evaluation Tool</h1><h2 id="overview">Overview</h2><p>The <a target="_blank" rel="nofollow noopener" href="https://microbit.makecode.com/beta--eval">Teacher Tool</a> is a mechanism for constructing a checklist of requirements for an assignment and running that list automatically against projects in quick succession. This allows teachers to build a checklist, then easily evaluate any number of projects based on that checklist. Projects are evaluated one at a time, but with auto-run enabled, you can update the loaded project by providing a new share link, at which point the rules will automatically be re-run on the new project.</p>
-<h2 id="teacher-tool-features">Teacher Tool Features</h2><h3 id="creating-editing-and-running-a-checklist">Creating, Editing, and Running a Checklist</h3><h4 id="1-creating-a-new-checklist">1. Creating a new checklist</h4><p>Create a new checklist using the <strong>New Checklist</strong> card. If there is already an “in progress” checklist, a warning will appear asking if it is okay to overwrite it.</p>
+        <h1 id="code-evaluation-tool">Code Evaluation Tool</h1><h2 id="overview">Overview</h2><p>The <a target="_blank" rel="nofollow noopener" href="https://microbit.makecode.com/--eval">Code Evaluation Tool</a> is a mechanism for constructing a checklist of requirements for an assignment and running that list automatically against projects in quick succession. This allows teachers to build a checklist, then easily evaluate any number of projects based on that checklist. Projects are evaluated one at a time, but with auto-run enabled, you can update the loaded project by providing a new share link, at which point the rules will automatically be re-run on the new project.</p>
+<h2 id="code-evaluation-tool-features">Code Evaluation Tool Features</h2><h3 id="creating-editing-and-running-a-checklist">Creating, Editing, and Running a Checklist</h3><h4 id="1-creating-a-new-checklist">1. Creating a new checklist</h4><p>Create a new checklist using the <strong>New Checklist</strong> card. If there is already an “in progress” checklist, a warning will appear asking if it is okay to overwrite it.</p>
 <p><img class="ui image" src="/static/teachertool/new-rubric.png" alt="New Checklist" loading="lazy"></p>
 <p><img class="ui image" src="/static/teachertool/new-rubric-from-menu.png" alt="New Checklist from menu" loading="lazy"></p>
 <h4 id="2-naming-a-checklist">2. Naming a checklist</h4><p>The checklist is given a name.</p>
@@ -1720,13 +1720,15 @@
 <p>Parameter options are displayed and then selected.</p>
 <p><img class="ui image" src="/static/teachertool/parameters-2.png" alt="Criteria parameters 2" loading="lazy"></p>
 <p><img class="ui image" src="/static/teachertool/parameters-3.png" alt="Criteria parameters 3" loading="lazy"></p>
-<h4 id="5-remove-criteria">5. Remove Criteria</h4><p>A criteria item is removed using the <strong>trash</strong> button.</p>
+<h4 id="5-ask-ai">5. Ask AI</h4><p>You can also have an <strong>Ask AI</strong> question as a criteria item in the checklist. You are limited to up to 5 Ask AI questions per checklist.</p>
+<p><img class="ui image" src="/static/teachertool/ask-ai-criteria.png" alt="Ask AI criteria" loading="lazy"></p>
+<h4 id="6-remove-criteria">6. Remove Criteria</h4><p>A criteria item is removed using the <strong>trash</strong> button.</p>
 <p><img class="ui image" src="/static/teachertool/remove-criteria.png" alt="Remove Criteria" loading="lazy"></p>
-<h4 id="6-load-a-project">6. Load a project</h4><p>A project into the project view by pasting in a share link or share ID.</p>
+<h4 id="7-load-a-project">7. Load a project</h4><p>Load a project into the project view by pasting in a share link or share ID.</p>
 <p><img class="ui image" src="/static/teachertool/loaded-project.png" alt="A loaded project" loading="lazy"></p>
 <p>The project will load in read-only mode with the project title appearing at the top of the project view.</p>
 <p><img class="ui image" src="/static/teachertool/validate-me.png" alt="Project validation" loading="lazy"></p>
-<h4 id="7-run-the-checklist">7. Run the checklist</h4><p>With a project loaded, the checklist can run. The results are shown after clicking the <strong>Run</strong> button.</p>
+<h4 id="8-run-the-checklist">8. Run the checklist</h4><p>With a project loaded, the checklist can run. The results are shown after clicking the <strong>Run</strong> button.</p>
 <p><img class="ui image" src="/static/teachertool/run-checklist-button.png" alt="Run checklist" loading="lazy"></p>
 <p>The results view lists each criteria with its outcome.</p>
 <p><img class="ui image" src="/static/teachertool/checklist-execution.png" alt="Checklist execution" loading="lazy"></p>
@@ -1748,9 +1750,9 @@
 <li>The loaded project changes (all rules are be set to “Not started”).</li>
 </ul>
 <h4 id="3-auto-run-enabled">3. Auto-run enabled</h4><p>If auto-run is <strong>enabled</strong>, any rules that enter the “Not started” state due to the conditions listed above are immediately and automatically re-run with their results updated.</p>
-<h3 id="loading-importing-exporting-checklists">Loading/Importing/Exporting Checklists</h3><h4 id="1-pre-built-checklists">1. Pre-built checklists</h4><p>There are pre-built checklists are available from on home page. If a selected checklist is already in-progress, an overwrite confirmation prompt is given.</p>
+<h3 id="loading-importing-exporting-checklists">Loading/Importing/Exporting Checklists</h3><h4 id="1-pre-built-checklists">1. Pre-built checklists</h4><p>There are pre-built checklists are available on the welcome page. If a selected checklist is already in-progress, an overwrite confirmation prompt is given.</p>
 <p><img class="ui image" src="/static/teachertool/prebuilt-rubrics.png" alt="Pre-built checklists" loading="lazy"></p>
-<h4 id="2-export-a-checklist">2. Export a checklist</h4><p>A checklist is exported using the vertical “…” menu near the “auto-run” button.</p>
+<h4 id="2-export-a-checklist">2. Export a checklist</h4><p>A checklist is exported using the vertical “…” menu near the “auto-run” button. Only the checklist is exported, not the results. For a copy of the results, use the <a  rel="nofollow noopener" href="#other">print</a> function in the Results view.</p>
 <p><img class="ui image" src="/static/teachertool/export-checklist.png" alt="Export checklist" loading="lazy"></p>
 <p>This will download a json file for the checklist.</p>
 <p><img class="ui image" src="/static/teachertool/checklist-download.png" alt="Checklist download" loading="lazy"></p>

@@ -480,20 +480,14 @@
             },
             "microbit-foundation/pxt-microbit-ml": { 
                 "simx": {
-                    "sha": "e349a2feaae9f84a24ebd56716209ef74e1758d2",
+                    "sha": "ba99fd9588e87eb994345d04b596adc51d2d8116",
                     "devUrl": "http://localhost:5173",
                     "aspectRatio": 3.45
                 }
             },
-            "microbit-apps/pxt-arcadeshield": {
+            "microbit-apps/display-shield": {
                 "simx": {
-                    "sha": "5bac5ff5b80621b53b746e4bbe252e406b992bdb",
-                    "devUrl": "http://localhost:3000"
-                }
-            },
-            "microbit-apps/arcadeshield": {
-                "simx": {
-                    "sha": "d0f7ccae711cff6dd61ffd0bd95c4bab913e3a99",
+                    "sha": "0825d56f78528c57af100a96abdfe2162f59945a",
                     "devUrl": "http://localhost:3000"
                 }
             }
