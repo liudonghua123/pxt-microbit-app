@@ -380,6 +380,10 @@ Many extensions are available to work with interface kits, add-on hardware, or o
 
 ```codecard
 [{
+   "name": "BP Lab micro:bit Kit",
+   "url": "/pkg/team-bp/pxt-bplab",
+   "cardType": "package"
+}, {
    "name": "Smarthon Smart City",
    "url": "/pkg/SMARTHON/pxt-smartcity",
    "cardType": "package"
@@ -454,6 +458,10 @@ Many extensions are available to work with interface kits, add-on hardware, or o
 
 ```codecard
 [{
+  "name": "ZHAW Luma Matrix",
+  "url":"/pkg/InES-HPMM/pxt-luma-matrix",
+  "cardType": "package"
+}, {
   "name": "Kitronik Lamp:Bit",
   "url":"/pkg/KitronikLtd/pxt-kitronik-lampbit",
   "cardType": "package"
@@ -521,6 +529,10 @@ Many extensions are available to work with interface kits, add-on hardware, or o
 
 ```codecard
 [{
+  "name": "DFRobot Creative Robotics Kit",
+  "url":"/pkg/DFRobot/pxt-DFRobot_creative-robotics-kit",
+  "cardType": "package"
+}, {
   "name": "Elecfreaks XGO Rider",
   "url":"/pkg/elecfreaks/XGO-Rider",
   "cardType": "package"

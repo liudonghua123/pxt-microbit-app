@@ -1695,22 +1695,22 @@
 <h2 id="intro"></h2><p>An array is a list of items that are numbers, booleans, or strings. Arrays have a length which is the number of items they contain. You get and change the values of items at different places in an array. You find items in an array by knowing their positions.</p>
 <p>Arrays are flexible, they can grow and shrink in size. You can add and remove items at any place in the array.</p>
 <h2 id="create-an-array">Create an array</h2><p>An array is created by making a list of items.</p>
-<pre><code class="lang-block">let scores = [9, 8, 3, 5, 6, 8];</code></pre>
+<pre><code class="lang-blocks">let scores = [9, 8, 3, 5, 6, 8];</code></pre>
 <p>Here the array automatically becomes an array of <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">numbers</a> because it was created with items that are numbers.</p>
 <p>You can use different types, like <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/string.html">string</a>.</p>
-<pre><code class="lang-block">let directions = [&quot;East&quot;, &quot;North&quot;, &quot;South&quot;, &quot;West&quot;];</code></pre>
+<pre><code class="lang-blocks">let directions = [&quot;East&quot;, &quot;North&quot;, &quot;South&quot;, &quot;West&quot;];</code></pre>
 <p>If you want to create an array with no items in it yet (empty array), you have to tell what type the array should be. This is because there are no items in it that automatically decide the type.</p>
 <pre><code class="lang-typescript">let scores: number[] = [];</code></pre>
 <h2 id="items-in-an-array">Items in an array</h2><p>When an item is added to an array it becomes an <em>element</em> of the array. Array elements are found using an <em>index</em>. This is the position in the array of the element, or the element’s <em>order</em> in the array. The positions in an array begin with the index of <code>0</code>. The first place in the array is <code>0</code>, the second place is <code>1</code>, and so on.</p>
-<pre><code class="lang-block">let scores = [9, 8, 3, 5, 6, 8];
+<pre><code class="lang-blocks">let scores = [9, 8, 3, 5, 6, 8];
 let firstScore= scores[0];
 let secondScore = scores[1];</code></pre>
 <h2 id="length-of-arrays">Length of arrays</h2><p>Arrays always have a length. The last element of an array has an index that is <em>length of array - 1</em>. Indexes begin with <code>0</code> so the last element’s index is one less than the array length.</p>
-<pre><code class="lang-block">let directions = [&quot;East&quot;, &quot;North&quot;, &quot;South&quot;, &quot;West&quot;];
+<pre><code class="lang-blocks">let directions = [&quot;East&quot;, &quot;North&quot;, &quot;South&quot;, &quot;West&quot;];
 let count = directions.length;</code></pre>
 <h2 id="advanced">Advanced</h2><p>Arrays are a very useful way to collect and organize information. There are more advanced operations and functions you can use on arrays.</p>
 <p>Here’s an example using <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/arrays/insert-at.html"><strong>insertAt</strong></a> to insert a number into the middle of an array.</p>
-<pre><code class="lang-block">let scores = [8, 5, 9, 3, 2, 4];
+<pre><code class="lang-blocks">let scores = [8, 5, 9, 3, 2, 4];
 scores.insertAt(3, 1);</code></pre>
 <h2 id="examples"></h2><h3 id="seealso">See also </h3>
     </div>

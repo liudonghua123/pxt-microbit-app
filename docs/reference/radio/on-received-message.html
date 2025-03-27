@@ -1697,24 +1697,26 @@ message over <code>radio</code>.</p>
 <h2 id="parameters">Parameters</h2><ul>
 <li><strong>msg</strong>: The message to listen for. See <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/radio/send-message.html">send message</a></li>
 </ul>
-<h2 id="examples">Examples</h2><h2 id="example-broadcasting-heart-or-skull">Example: Broadcasting heart or skull</h2><p>Sends a <code>heart</code> message when <code>A</code> is pressed, <code>skull</code> when <code>B</code> is pressed. On the side, display heart or skull for the message.</p>
+<h2 id="example">Example </h2><p>Send a <code>Hello</code> message when button <code>A</code> is pressed, <code>Goodbye</code> when button <code>B</code> is pressed. If the messages are received, display either a <code>heart</code> or a <code>scissor</code> for the messages.</p>
 <pre><code class="lang-blocks">enum RadioMessage {
-    heart,
-    skull
+    message1 = 49434,
+    Hello = 49337,
+    Goodbye = 16885
 }
 input.onButtonPressed(Button.A, function () {
-    radio.sendMessage(RadioMessage.heart)
+    radio.sendMessage(RadioMessage.Hello)
 })
-input.onButtonPressed(Button.B, function () {
-    radio.sendMessage(RadioMessage.skull)
-})
-radio.onReceivedMessage(RadioMessage.heart, function () {
+radio.onReceivedMessage(RadioMessage.Hello, function () {
     basic.showIcon(IconNames.Heart)
 })
-radio.onReceivedMessage(RadioMessage.skull, function () {
-    basic.showIcon(IconNames.Skull)
+input.onButtonPressed(Button.B, function () {
+    radio.sendMessage(RadioMessage.Goodbye)
+})
+radio.onReceivedMessage(RadioMessage.Goodbye, function () {
+    basic.showIcon(IconNames.Scissors)
 })</code></pre>
-<h2 id="see-also">See also</h2><p><a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/radio/send-message.html">send message</a>,</p>
+<h2 id="see-also">See also</h2><p><a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/radio.html">Bit Radio</a>
+<a  rel="nofollow noopener" href="/pxt-microbit-app/docs/reference/radio/send-message.html">send message</a>,</p>
 <pre><code class="lang-package">radio-broadcast</code></pre>
 
     </div>

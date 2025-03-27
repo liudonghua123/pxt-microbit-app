@@ -4088,6 +4088,7 @@ var pxsim;
             outline: none;
         }
         *:focus .sim-button-outer,
+        .sim-antenna-outer:focus,
         .sim-pin:focus,
         .sim-thermometer:focus,
         .sim-shake:focus,
@@ -4142,6 +4143,11 @@ path.sim-board {
             "P11", "P12", "P13", "P14", "P15", "P16", "P17", "P18", "P19", "P20",
             "GND0", "GND", "+3v3", "GND1"
         ];
+        const pinDrawOrder = [
+            "P3", "P0", "P4", "P5", "P6", "P7", "P1", "P8", "P9", "P10", "P11",
+            "P12", "P2", "P13", "P14", "P15", "P16", "P17", "P18", "P19", "P20",
+            "GND0", "GND", "+3v3", "GND1"
+        ];
         const pinTitles = [
             "P0, ANALOG IN",
             "P1, ANALOG IN",
@@ -4168,6 +4174,11 @@ path.sim-board {
         ];
         const MB_WIDTH = 500;
         const MB_HEIGHT = 408;
+        const LIGHT_LEVEL_BUTTON_POSITION_Y = 50;
+        const LIGHT_LEVEL_BUTTON_RADIUS = 35;
+        const ANTENNA_X = 380;
+        const ANTENNA_WAVE_PERIOD_X = 18;
+        const ANTENNA_WAVE_COUNT = 5;
         visuals.themes = ["#3ADCFE", "#FFD43A", "#3AFFB3", "#FF3A54"].map(accent => {
             return {
                 accent: accent,
@@ -4204,6 +4215,11 @@ path.sim-board {
             constructor(props) {
                 this.props = props;
                 this.headInitialized = false;
+                this.antennaInitialized = false;
+                this.lightLevelInitialized = false;
+                this.thermometerInitialized = false;
+                this.soundLevelInitialized = false;
+                this.shakeInitialized = false;
                 this.pinNmToCoord = {};
                 this.domHardwareVersion = 1;
                 this.moveHeadingOnClick = (ev) => {
@@ -4285,8 +4301,7 @@ path.sim-board {
                 else {
                     pxsim.svg.fills(this.heads.slice(1), theme.accent);
                 }
-                if (this.shakeButton)
-                    pxsim.svg.fill(this.shakeButton, theme.virtualButtonUp);
+                pxsim.svg.fill(this.shakeButton, theme.virtualButtonUp);
                 this.pinGradients.forEach(lg => pxsim.svg.setGradientColors(lg, theme.pin, theme.pinActive));
                 pxsim.svg.setGradientColors(this.lightLevelGradient, theme.lightLevelOn, theme.lightLevelOff);
                 pxsim.svg.setGradientColors(this.thermometerGradient, theme.ledOff, theme.ledOn);
@@ -4353,8 +4368,9 @@ path.sim-board {
             }
             updateGestures() {
                 let state = this.board;
-                if (state.accelerometerState.useShake && !this.shakeButton) {
-                    this.shakeButton = pxsim.svg.child(this.g, "circle", { cx: 404, cy: 115, r: 12, class: "sim-shake" });
+                if (state.accelerometerState.useShake && !this.shakeInitialized) {
+                    this.shakeInitialized = true;
+                    this.shakeButton.style.visibility = "visible";
                     pxsim.accessibility.makeFocusable(this.shakeButton);
                     pxsim.svg.fill(this.shakeButton, this.props.theme.virtualButtonUp);
                     pxsim.pointerEvents.down.forEach(evid => this.shakeButton.addEventListener(evid, ev => {
@@ -4455,18 +4471,9 @@ path.sim-board {
                     return;
                 let tmin = -5;
                 let tmax = 50;
-                if (!this.thermometer) {
-                    let gid = "gradient-thermometer";
-                    this.thermometerGradient = pxsim.svg.linearGradient(this.defs, gid);
-                    this.thermometer = pxsim.svg.child(this.g, "rect", {
-                        class: "sim-thermometer no-drag",
-                        x: 120,
-                        y: 110,
-                        width: 20,
-                        height: 160,
-                        rx: 5, ry: 5,
-                        fill: `url(#${gid})`
-                    });
+                if (!this.thermometerInitialized) {
+                    this.thermometerInitialized = true;
+                    this.thermometer.style.visibility = "visible";
                     this.thermometerText = pxsim.svg.child(this.g, "text", { class: 'sim-text', x: 58, y: 130 });
                     if (this.props.runtime)
                         this.props.runtime.environmentGlobals[pxsim.localization.lf("temperature")] = state.thermometerState.temperature;
@@ -4488,6 +4495,7 @@ path.sim-board {
                     (ev) => {
                         let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode;
                         if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            ev.preventDefault();
                             state.thermometerState.temperature--;
                             if (state.thermometerState.temperature < -5) {
                                 state.thermometerState.temperature = 50;
@@ -4495,6 +4503,7 @@ path.sim-board {
                             this.updateTemperature();
                         }
                         else if (charCode === 38 || charCode === 39) { // Up/Right arrow
+                            ev.preventDefault();
                             state.thermometerState.temperature++;
                             if (state.thermometerState.temperature > 50) {
                                 state.thermometerState.temperature = -5;
@@ -4524,19 +4533,10 @@ path.sim-board {
                     return;
                 const tmin = 0; // state.microphoneState.min;
                 const tmax = 255; //state.microphoneState.max;
-                if (!this.soundLevel) {
+                if (!this.soundLevelInitialized) {
+                    this.soundLevelInitialized = true;
+                    this.soundLevel.style.visibility = "visible";
                     const level = state.microphoneState.getLevel();
-                    let gid = "gradient-soundlevel";
-                    this.soundLevelGradient = pxsim.svg.linearGradient(this.defs, gid);
-                    this.soundLevel = pxsim.svg.child(this.g, "rect", {
-                        class: "sim-thermometer no-drag",
-                        x: 360,
-                        y: 110,
-                        width: 20,
-                        height: 160,
-                        rx: 5, ry: 5,
-                        fill: `url(#${gid})`
-                    });
                     this.soundLevelText = pxsim.svg.child(this.g, "text", { class: 'sim-text', x: 370, y: 90 });
                     if (this.props.runtime)
                         this.props.runtime.environmentGlobals[pxsim.localization.lf("sound level")] = state.microphoneState.getLevel();
@@ -4558,10 +4558,12 @@ path.sim-board {
                     (ev) => {
                         let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode;
                         if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            ev.preventDefault();
                             state.microphoneState.setLevel(state.microphoneState.getLevel() - 1);
                             this.updateMicrophone();
                         }
                         else if (charCode === 38 || charCode === 39) { // Up/Right arrow
+                            ev.preventDefault();
                             state.microphoneState.setLevel(state.microphoneState.getLevel() + 1);
                             this.updateMicrophone();
                         }
@@ -4620,30 +4622,45 @@ path.sim-board {
                 }
             }
             flashAntenna() {
-                if (!this.antenna) {
-                    let ax = 380;
-                    let dax = 18;
-                    let ayt = 10;
-                    let ayb = 40;
-                    const wh = dax * 5;
-                    const antenaBackground = pxsim.svg.child(this.g, "rect", { x: ax, y: ayt, width: wh, height: ayb - ayt, fill: "transparent" });
-                    this.antenna = pxsim.svg.child(this.g, "polyline", { class: "sim-antenna", points: `${ax},${ayb} ${ax},${ayt} ${ax += dax},${ayt} ${ax},${ayb} ${ax += dax},${ayb} ${ax},${ayt} ${ax += dax},${ayt} ${ax},${ayb} ${ax += dax},${ayb} ${ax},${ayt} ${ax += dax},${ayt}` });
+                if (!this.antennaInitialized) {
+                    this.antenna.style.visibility = "visible";
+                    this.antennaInitialized = true;
+                    const antennaWidth = ANTENNA_WAVE_PERIOD_X * ANTENNA_WAVE_COUNT;
+                    const valueMin = -128;
+                    const valueMax = -42;
+                    const setValue = (val) => {
+                        const rs = Math.max(valueMin, Math.min(valueMax, val));
+                        this.board.radioState.datagram.rssi = rs;
+                        this.updateRSSI();
+                    };
                     const pt = this.element.createSVGPoint();
-                    const evh = (ev) => {
+                    const mouseEventHandler = (ev) => {
                         const state = this.board;
                         if (!state)
                             return;
                         const pos = pxsim.svg.cursorPoint(pt, this.element, ev);
-                        const rs = Math.max(-128, Math.min(-42, (-138 + (pos.x - ax + wh) / wh * 100) | 0));
-                        this.board.radioState.datagram.rssi = rs;
-                        this.updateRSSI();
+                        setValue((-138 + (pos.x - ANTENNA_X) / antennaWidth * 100) | 0);
                     };
-                    pxsim.svg.buttonEvents(antenaBackground, evh, evh, evh, (ev) => { });
-                    pxsim.svg.buttonEvents(this.antenna, evh, evh, evh, (ev) => { });
+                    const keyboardEventHandler = (ev) => {
+                        var _a;
+                        const charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode;
+                        const rs = (_a = this.board.radioState.datagram.rssi) !== null && _a !== void 0 ? _a : -75;
+                        if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            ev.preventDefault();
+                            setValue(rs - 1);
+                        }
+                        else if (charCode === 38 || charCode === 39) { // Up/Right arrow
+                            ev.preventDefault();
+                            setValue(rs + 1);
+                        }
+                    };
+                    pxsim.svg.buttonEvents(this.antenna.children[0], mouseEventHandler, mouseEventHandler, mouseEventHandler, () => { });
+                    pxsim.svg.buttonEvents(this.antenna.children[1], mouseEventHandler, mouseEventHandler, mouseEventHandler, () => { });
+                    this.antenna.addEventListener('keydown', keyboardEventHandler);
                     pxsim.accessibility.makeFocusable(this.antenna);
                     pxsim.accessibility.setAria(this.antenna, "slider", "RSSI");
-                    this.antenna.setAttribute("aria-valuemin", "-128");
-                    this.antenna.setAttribute("aria-valuemax", "-42");
+                    this.antenna.setAttribute("aria-valuemin", `${valueMin}`);
+                    this.antenna.setAttribute("aria-valuemax", `${valueMax}`);
                     this.antenna.setAttribute("aria-orientation", "horizontal");
                     this.antenna.setAttribute("aria-valuenow", "");
                     pxsim.accessibility.setLiveContent("");
@@ -4651,7 +4668,7 @@ path.sim-board {
                 let now = Date.now();
                 if (now - this.lastAntennaFlash > 200) {
                     this.lastAntennaFlash = now;
-                    pxsim.svg.animate(this.antenna, 'sim-flash-stroke');
+                    pxsim.svg.animate(this.antenna.children[1], 'sim-flash-stroke');
                 }
                 this.updateRSSI();
             }
@@ -4663,14 +4680,11 @@ path.sim-board {
                 if (v === undefined)
                     return;
                 if (!this.rssi) {
-                    let ax = 380;
-                    let dax = 18;
                     let ayt = 10;
                     let ayb = 40;
-                    const wh = dax * 5;
                     for (let i = 0; i < 4; ++i)
-                        pxsim.svg.child(this.g, "rect", { x: ax - 90 + i * 6, y: ayt + 28 - i * 4, width: 4, height: 2 + i * 4, fill: "#fff" });
-                    this.rssi = pxsim.svg.child(this.g, "text", { x: ax - 64, y: ayb, class: "sim-text" });
+                        pxsim.svg.child(this.g, "rect", { x: ANTENNA_X - 90 + i * 6, y: ayt + 28 - i * 4, width: 4, height: 2 + i * 4, fill: "#fff" });
+                    this.rssi = pxsim.svg.child(this.g, "text", { x: ANTENNA_X - 64, y: ayb, class: "sim-text" });
                     this.rssi.textContent = "";
                 }
                 const vt = v.toString();
@@ -4690,23 +4704,16 @@ path.sim-board {
                 let state = this.board;
                 if (!state || !state.lightSensorState.usesLightLevel)
                     return;
-                if (!this.lightLevelButton) {
-                    let gid = "gradient-light-level";
-                    this.lightLevelGradient = pxsim.svg.linearGradient(this.defs, gid);
-                    let cy = 50;
-                    let r = 35;
-                    this.lightLevelButton = pxsim.svg.child(this.g, "circle", {
-                        cx: `50px`, cy: `${cy}px`, r: `${r}px`,
-                        class: 'sim-light-level-button no-drag',
-                        fill: `url(#${gid})`
-                    });
+                if (!this.lightLevelInitialized) {
+                    this.lightLevelInitialized = true;
+                    this.lightLevelButton.style.visibility = "visible";
                     let pt = this.element.createSVGPoint();
                     pxsim.svg.buttonEvents(this.lightLevelButton, 
                     // move
                     (ev) => {
                         let pos = pxsim.svg.cursorPoint(pt, this.element, ev);
-                        let rs = r / 2;
-                        let level = Math.max(0, Math.min(255, Math.floor((pos.y - (cy - rs)) / (2 * rs) * 255)));
+                        let rs = LIGHT_LEVEL_BUTTON_RADIUS / 2;
+                        let level = Math.max(0, Math.min(255, Math.floor((pos.y - (LIGHT_LEVEL_BUTTON_POSITION_Y - rs)) / (2 * rs) * 255)));
                         if (level != this.board.lightSensorState.lightLevel) {
                             this.board.lightSensorState.lightLevel = level;
                             this.applyLightLevel();
@@ -4720,6 +4727,7 @@ path.sim-board {
                     (ev) => {
                         let charCode = (typeof ev.which == "number") ? ev.which : ev.keyCode;
                         if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            ev.preventDefault();
                             this.board.lightSensorState.lightLevel--;
                             if (this.board.lightSensorState.lightLevel < 0) {
                                 this.board.lightSensorState.lightLevel = 255;
@@ -4727,6 +4735,7 @@ path.sim-board {
                             this.applyLightLevel();
                         }
                         else if (charCode === 38 || charCode === 39) { // Up/Right arrow
+                            ev.preventDefault();
                             this.board.lightSensorState.lightLevel++;
                             if (this.board.lightSensorState.lightLevel > 255) {
                                 this.board.lightSensorState.lightLevel = 0;
@@ -4734,7 +4743,7 @@ path.sim-board {
                             this.applyLightLevel();
                         }
                     });
-                    this.lightLevelText = pxsim.svg.child(this.g, "text", { x: 85, y: cy + r - 5, text: '', class: 'sim-text' });
+                    this.lightLevelText = pxsim.svg.child(this.g, "text", { x: 85, y: LIGHT_LEVEL_BUTTON_POSITION_Y + LIGHT_LEVEL_BUTTON_RADIUS - 5, text: '', class: 'sim-text' });
                     if (this.props.runtime)
                         this.props.runtime.environmentGlobals[pxsim.localization.lf("lightLevel")] = state.lightSensorState.lightLevel;
                     this.updateTheme();
@@ -4872,6 +4881,74 @@ path.sim-board {
                         this.leds.push(led);
                     }
                 }
+                // Order of construction affects tab ordering
+                this.buildLightLevelElement();
+                this.buildAntennaElement();
+                this.buildHeadElement();
+                this.buildThermometerElement();
+                this.buildSoundLevel();
+                this.buildShakeElement();
+                this.buildButtonElements();
+                this.buildPinElements();
+            }
+            buildAntennaElement() {
+                this.antenna = pxsim.svg.child(this.g, "g", { class: "sim-antenna-outer" });
+                const ayt = 10;
+                const ayb = 40;
+                const antennaWidth = ANTENNA_WAVE_PERIOD_X * ANTENNA_WAVE_COUNT;
+                const borderOffset = 3;
+                pxsim.svg.child(this.antenna, "rect", {
+                    x: ANTENNA_X - borderOffset,
+                    y: ayt - borderOffset,
+                    width: antennaWidth + 2 * borderOffset,
+                    height: ayb - ayt + 2 * borderOffset,
+                    fill: "transparent",
+                    rx: 2
+                });
+                let ax = ANTENNA_X;
+                const dax = ANTENNA_WAVE_PERIOD_X;
+                pxsim.svg.child(this.antenna, "polyline", { class: "sim-antenna", points: `${ax},${ayb} ${ax},${ayt} ${ax += dax},${ayt} ${ax},${ayb} ${ax += dax},${ayb} ${ax},${ayt} ${ax += dax},${ayt} ${ax},${ayb} ${ax += dax},${ayb} ${ax},${ayt} ${ax += dax},${ayt}` });
+                this.antenna.style.visibility = "hidden";
+            }
+            buildSoundLevel() {
+                let gid = "gradient-soundlevel";
+                this.soundLevelGradient = pxsim.svg.linearGradient(this.defs, gid);
+                this.soundLevel = pxsim.svg.child(this.g, "rect", {
+                    class: "sim-thermometer no-drag",
+                    x: 360,
+                    y: 110,
+                    width: 20,
+                    height: 160,
+                    rx: 5, ry: 5,
+                    fill: `url(#${gid})`
+                });
+                this.soundLevel.style.visibility = "hidden";
+            }
+            buildThermometerElement() {
+                let gid = "gradient-thermometer";
+                this.thermometerGradient = pxsim.svg.linearGradient(this.defs, gid);
+                this.thermometer = pxsim.svg.child(this.g, "rect", {
+                    class: "sim-thermometer no-drag",
+                    x: 120,
+                    y: 110,
+                    width: 20,
+                    height: 160,
+                    rx: 5, ry: 5,
+                    fill: `url(#${gid})`
+                });
+                this.thermometer.style.visibility = "hidden";
+            }
+            buildLightLevelElement() {
+                let gid = "gradient-light-level";
+                this.lightLevelGradient = pxsim.svg.linearGradient(this.defs, gid);
+                this.lightLevelButton = pxsim.svg.child(this.g, "circle", {
+                    cx: `50px`, cy: `${LIGHT_LEVEL_BUTTON_POSITION_Y}px`, r: `${LIGHT_LEVEL_BUTTON_RADIUS}px`,
+                    class: 'sim-light-level-button no-drag',
+                    fill: `url(#${gid})`
+                });
+                this.lightLevelButton.style.visibility = "hidden";
+            }
+            buildHeadElement() {
                 // head
                 this.head = pxsim.svg.child(this.g, "g", { class: "sim-head" });
                 pxsim.svg.child(this.head, "ellipse", { cx: 251, cy: 75, rx: 75, ry: 35, fill: "transparent" });
@@ -4884,22 +4961,33 @@ path.sim-board {
                 this.heads.push(pxsim.svg.path(this.headParts, "sim-theme", "M230.6,69.7c-2.9,0-5.3,2.4-5.3,5.3c0,2.9,2.4,5.3,5.3,5.3c2.9,0,5.3-2.4,5.3-5.3C235.9,72.1,233.5,69.7,230.6,69.7"));
                 this.heads.push(pxsim.svg.path(this.headParts, "sim-theme", "M269.7,80.3c2.9,0,5.3-2.4,5.3-5.3c0-2.9-2.4-5.3-5.3-5.3c-2.9,0-5.3,2.4-5.3,5.3C264.4,77.9,266.8,80.3,269.7,80.3"));
                 this.headText = pxsim.svg.child(this.g, "text", { x: 160, y: 60, class: "sim-text" });
+            }
+            buildPinElements() {
                 // https://www.microbit.co.uk/device/pins
+                // The order of this.pins must match the edgeConnectorState.pins order.
+                // The draw order must match the desired tab order. To this end we
+                // create the drawlist in sim order and evaluate it in tab order.
                 // P0, P1, P2
-                this.pins = [
+                let drawList = [
                     "M16.5,341.2c0,0.4-0.1,0.9-0.1,1.3v60.7c4.1,1.7,8.6,2.7,12.9,2.7h34.4v-64.7c0,0,0-0.1,0-0.1c0-13-10.6-23.6-23.7-23.6C27.2,317.6,16.5,328.1,16.5,341.2z M21.2,341.6c0-10.7,8.7-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3c0,10.7-8.6,19.3-19.3,19.3C29.9,360.9,21.2,352.2,21.2,341.6z",
                     "M139.1,317.3c-12.8,0-22.1,10.3-23.1,23.1V406h46.2v-65.6C162.2,327.7,151.9,317.3,139.1,317.3zM139.3,360.1c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C158.6,351.5,150,360.1,139.3,360.1z",
                     "M249,317.3c-12.8,0-22.1,10.3-23.1,23.1V406h46.2v-65.6C272.1,327.7,261.8,317.3,249,317.3z M249.4,360.1c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C268.7,351.5,260.1,360.1,249.4,360.1z"
-                ].map((p, pi) => pxsim.svg.path(this.g, "sim-pin sim-pin-touch", p));
+                ].map((p) => () => pxsim.svg.path(this.g, "sim-pin sim-pin-touch", p));
                 // P3
-                this.pins.push(pxsim.svg.path(this.g, "sim-pin", "M0,357.7v19.2c0,10.8,6.2,20.2,14.4,25.2v-44.4H0z"));
+                drawList.push(() => pxsim.svg.path(this.g, "sim-pin", "M0,357.7v19.2c0,10.8,6.2,20.2,14.4,25.2v-44.4H0z"));
                 pins4onXs.forEach(x => {
-                    this.pins.push(pxsim.svg.child(this.g, "rect", { x: x, y: 356.7, width: 10, height: 50, class: "sim-pin" }));
+                    drawList.push(() => pxsim.svg.child(this.g, "rect", { x: x, y: 356.7, width: 10, height: 50, class: "sim-pin" }));
                 });
-                this.pins.push(pxsim.svg.path(this.g, "sim-pin", "M483.6,402c8.2-5,14.4-14.4,14.4-25.1v-19.2h-14.4V402z"));
-                this.pins.push(pxsim.svg.path(this.g, "sim-pin", "M359.9,317.3c-12.8,0-22.1,10.3-23.1,23.1V406H383v-65.6C383,327.7,372.7,317.3,359.9,317.3z M360,360.1c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C379.3,351.5,370.7,360.1,360,360.1z"));
-                this.pins.push(pxsim.svg.path(this.g, "sim-pin", "M458,317.6c-13,0-23.6,10.6-23.6,23.6c0,0,0,0.1,0,0.1h0V406H469c4.3,0,8.4-1,12.6-2.7v-60.7c0-0.4,0-0.9,0-1.3C481.6,328.1,471,317.6,458,317.6z M457.8,360.9c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C477.1,352.2,468.4,360.9,457.8,360.9z"));
-                this.pins.forEach((p, i) => pxsim.svg.hydrate(p, { title: pinTitles[i] }));
+                drawList.push(() => pxsim.svg.path(this.g, "sim-pin", "M483.6,402c8.2-5,14.4-14.4,14.4-25.1v-19.2h-14.4V402z"));
+                drawList.push(() => pxsim.svg.path(this.g, "sim-pin", "M359.9,317.3c-12.8,0-22.1,10.3-23.1,23.1V406H383v-65.6C383,327.7,372.7,317.3,359.9,317.3z M360,360.1c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C379.3,351.5,370.7,360.1,360,360.1z"));
+                drawList.push(() => pxsim.svg.path(this.g, "sim-pin", "M458,317.6c-13,0-23.6,10.6-23.6,23.6c0,0,0,0.1,0,0.1h0V406H469c4.3,0,8.4-1,12.6-2.7v-60.7c0-0.4,0-0.9,0-1.3C481.6,328.1,471,317.6,458,317.6z M457.8,360.9c-10.7,0-19.3-8.6-19.3-19.3c0-10.7,8.6-19.3,19.3-19.3c10.7,0,19.3,8.7,19.3,19.3C477.1,352.2,468.4,360.9,457.8,360.9z"));
+                this.pins = pinDrawOrder.reduce((pins, pinName) => {
+                    const simPinIndex = pinNames.indexOf(pinName);
+                    const newPin = drawList[simPinIndex]();
+                    pxsim.svg.hydrate(newPin, { title: pinTitles[simPinIndex] });
+                    pins[simPinIndex] = newPin;
+                    return pins;
+                }, new Array(pinDrawOrder.length));
                 this.pinGradients = this.pins.map((pin, i) => {
                     let gid = "gradient-pin-" + i;
                     let lg = pxsim.svg.linearGradient(this.defs, gid);
@@ -4907,6 +4995,17 @@ path.sim-board {
                     return lg;
                 });
                 this.pinTexts = [67, 165, 275].map(x => pxsim.svg.child(this.g, "text", { class: "sim-text-pin", x: x, y: 345 }));
+            }
+            buildShakeElement() {
+                this.shakeButton = pxsim.svg.child(this.g, "circle", {
+                    cx: 404,
+                    cy: 115,
+                    r: 12,
+                    class: "sim-shake",
+                });
+                this.shakeButton.style.visibility = "hidden";
+            }
+            buildButtonElements() {
                 this.buttonsOuter = [];
                 this.buttons = [];
                 const outerBtn = (left, top, label) => {
@@ -5130,6 +5229,7 @@ path.sim-board {
                         let state = this.board;
                         let pin = state.edgeConnectorState.pins[index];
                         if (charCode === 40 || charCode === 37) { // Down/Left arrow
+                            ev.preventDefault();
                             pin.value -= 10;
                             if (pin.value < 0) {
                                 pin.value = 1023;
@@ -5137,6 +5237,7 @@ path.sim-board {
                             this.updatePin(pin, index);
                         }
                         else if (charCode === 38 || charCode === 39) { // Up/Right arrow
+                            ev.preventDefault();
                             pin.value += 10;
                             if (pin.value > 1023) {
                                 pin.value = 0;

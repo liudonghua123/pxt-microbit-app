@@ -1061,6 +1061,44 @@ var pxsim;
         browserEvents.MouseState = MouseState;
     })(browserEvents = pxsim.browserEvents || (pxsim.browserEvents = {}));
 })(pxsim || (pxsim = {}));
+var pxsim;
+(function (pxsim) {
+    var browserEvents;
+    (function (browserEvents) {
+        function currentTime() {
+            return Date.now();
+        }
+        browserEvents.currentTime = currentTime;
+        function getYear(time) {
+            return new Date(time).getFullYear();
+        }
+        browserEvents.getYear = getYear;
+        function getMonth(time) {
+            return new Date(time).getMonth();
+        }
+        browserEvents.getMonth = getMonth;
+        function getDayOfMonth(time) {
+            return new Date(time).getDate();
+        }
+        browserEvents.getDayOfMonth = getDayOfMonth;
+        function getDayOfWeek(time) {
+            return new Date(time).getDay();
+        }
+        browserEvents.getDayOfWeek = getDayOfWeek;
+        function getHours(time) {
+            return new Date(time).getHours();
+        }
+        browserEvents.getHours = getHours;
+        function getMinutes(time) {
+            return new Date(time).getMinutes();
+        }
+        browserEvents.getMinutes = getMinutes;
+        function getSeconds(time) {
+            return new Date(time).getSeconds();
+        }
+        browserEvents.getSeconds = getSeconds;
+    })(browserEvents = pxsim.browserEvents || (pxsim.browserEvents = {}));
+})(pxsim || (pxsim = {}));
 /// <reference path="../../core/dal.d.ts"/>
 var pxsim;
 (function (pxsim) {

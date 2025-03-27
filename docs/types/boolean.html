@@ -1692,13 +1692,13 @@
 					
     <div class="ui text">
         <h1 id="boolean">Boolean</h1><p>Something that is only true or false.</p>
-<p>A boolean has one of two possible values: <code>true</code> or <code>false</code>.  The boolean (logical) operators (<em>and</em>, <em>or</em>, <em>not</em>) take boolean inputs and make another boolean value. Comparing on other types (<a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">numbers</a>, <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/string.html">strings</a>) with logical operators create boolean values.</p>
+<p>A boolean has one of two possible values: <code>true</code> or <code>false</code>. The boolean (logical) operators (<em>and</em>, <em>or</em>, <em>not</em>) take boolean inputs and make another boolean value. Comparing on other types (<a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/number.html">numbers</a>, <a  rel="nofollow noopener" href="/pxt-microbit-app/docs/types/string.html">strings</a>) with logical operators create boolean values.</p>
 <p>These blocks represent the <code>true</code> and <code>false</code> boolean values, which can be plugged in anywhere a boolean value is expected:</p>
-<pre><code class="lang-block">let on = true;
+<pre><code class="lang-blocks">let on = true;
 let off = false;
 off = false;</code></pre>
 <p>You can set and compare other boolean values:</p>
-<pre><code class="lang-block">let on = true;
+<pre><code class="lang-blocks">let on = true;
 let off = !on;
 let switcher = on;
 let lights = off;
@@ -1709,7 +1709,7 @@ if (switcher) {
     lights = off;
 }</code></pre>
 <p>Compare other types:</p>
-<pre><code class="lang-block">let cool = 50;
+<pre><code class="lang-blocks">let cool = 50;
 let temp = 65;
 let warming = temp &gt; cool;
 

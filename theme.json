@@ -104,6 +104,8 @@
         "functions": "#3455DB",
         "arrays": "#E65722"
     },
+    "defaultColorTheme": "microbit-light",
+    "highContrastColorTheme": "pxt-high-contrast",
     "blocksCollapsing": true,
     "highContrast": true,
     "greenScreen": true,

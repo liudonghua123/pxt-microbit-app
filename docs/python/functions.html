@@ -1751,7 +1751,7 @@ This means optional parameters and trailing default parameters will share common
 The default value of <code>lastName</code> disappears in the type, only leaving behind the fact that the parameter is optional.</p>
 <h2 id="handler-functions">Handler Functions</h2><p>Handler functions are functions that take some action when an event or change of state occurs. Usually, some other code saves, or registers, the handler function in a variable in order to call
 it at a later time. When an event happens, like a new input value or an elapsed timer, the handler is called to run a response action.</p>
-<p>As an example, the <code>Thermal</code> class will check for changes in temperature and run a registered handler when the temperature drops to a set thershold:</p>
+<p>As an example, the <code>Thermal</code> class will check for changes in temperature and run a registered handler when the temperature drops to a set threshold:</p>
 <pre><code class="lang-python-ignore"># the handler function when it&#39;s cold...
 def whenCold():
     print(&quot;It&#39;s cold!&quot;)
@@ -1773,7 +1773,7 @@ thermal = Thermal()
 # register the &#39;whenCold()&#39; function as a parameter
 thermal.whenCold(whenCold)
 thermal.checkCold()</code></pre>
-<h2 id="lamda-functions">Lamda Functions</h2><p>Lamda functions serve as a kind of shortcut to return a result of an expression. A lamda is often saved to a variable and then used like a function to return the expression result:</p>
+<h2 id="lambda-functions">Lambda Functions</h2><p>Lambda functions serve as a kind of shortcut to return a result of an expression. A lambda is often saved to a variable and then used like a function to return the expression result:</p>
 <pre><code class="lang-python-ignore">def square(x):
     return x * x
 
